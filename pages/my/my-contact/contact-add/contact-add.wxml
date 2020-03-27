@@ -1,0 +1,10 @@
+<view class="form-con">
+  <view class="form-group">
+    <input type="text" placeholder="姓名" bindinput="nameInput" />
+  </view>
+  <view class="form-group border-none">
+    <input type="number" maxlength="11" placeholder="电话" bindinput="phoneInput" />
+  </view>
+</view>
+
+<button class="btn-default btn-confirm" bindtap="onConfirmTap">保存</button>

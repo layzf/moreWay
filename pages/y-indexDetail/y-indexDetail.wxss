@@ -1,0 +1,93 @@
+/* pages/y-indexDetail/y-indexDetail.wxss */
+page{
+  background: #EEEEEE !important;
+}
+.load{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.load image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.bannerImgs{
+  width: 100%;
+  display: block;
+}
+.topScroll{
+  position: relative;
+}
+.userScroll{
+  padding: 12rpx 30rpx;
+  background: rgba(0,0,0,0.5);
+  display: inline-block;
+  border-radius: 100px;
+  margin-top: 10rpx;
+}
+.userScroll image{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 100px;
+  margin-right: 8rpx;
+}
+.userSuccess{
+  font-size: 20rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.flexsGoup text{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 100rpx;
+  display: inline-block;
+}
+.userSuccess text{
+  padding-right: 10rpx;
+}
+.clockDate{
+  color: #AAAAAA;
+  font-size: 20rpx;
+  margin-left: 26rpx;
+}
+.swiperClass >swiper{
+  height: 130rpx;
+}
+.swiperClass{
+  position: absolute;
+  width:80%;
+  bottom: 30rpx;
+  left: 30rpx;
+}
+.fiveImgs{
+  margin-top: 40rpx;
+}
+.fiveImgs image{
+  width: 100%;
+  display: block;
+}
+.y-detail-model{
+  background: #FFF;
+  padding: 48rpx 22rpx;
+  margin-top: 22rpx;
+}
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+.y-commonTitle image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.y-commonTitle {
+  font-size: 32rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+

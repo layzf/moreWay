@@ -1,0 +1,2 @@
+<import src="../../../../tpls/result/result-pay/result-pay.wxml" />
+<template is="result-pay" data="{{item: pageData}}"></template>

@@ -1,0 +1,215 @@
+/* pages/ChangeOrderLead/ChangeOrderLead.wxss */
+page{
+  font-size: 32rpx;
+  padding-bottom: 88rpx;
+}
+.orderName{
+  border-top: 1px solid #F4F4F4;
+  background: #FFF;
+  padding: 16rpx 0;
+  color: #333333;
+  padding-left: 24rpx;
+}
+.leadTit{
+  padding: 16rpx 0;
+  padding-left: 24rpx;
+}
+.stepOne{
+  padding: 0 24rpx;
+  background: #FFF
+}
+.stepOneTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #E94816;
+  padding: 28rpx 0;
+}
+.stepOneTitle>view text{
+  margin-right: 18rpx;
+}
+.copyWechat{
+  margin-left: 30rpx;
+  padding: 20rpx
+}
+
+.stepOneTitle>text:last-of-type{
+  border: 1px solid #E94816;
+  border-radius: 100rpx;
+  padding: 14rpx 24rpx;
+  font-size: 28rpx;
+}
+.orderInformationImg{
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20rpx;
+  padding-bottom: 18rpx;
+}
+.orderInformationImg>image{
+  width: 40rpx;
+  height: 36rpx;
+  margin-right: 30rpx;
+}
+.orderInformationImg>view image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.orderInformationImg{
+  font-size: 28rpx;
+}
+.orderInformationImg> view text{
+  font-size: 26rpx;
+  color: #666666;
+}
+.title{
+  font-weight: bold;
+}
+.tells{
+  margin:12rpx 0;
+}
+.conant{
+  border-right: 1px solid #F2F2F2;
+}
+.rightTell{
+  flex:1;
+  text-align:center;
+  padding:30rpx 0;
+}
+.orderAddress{
+  display:flex;
+  padding-top: 10rpx;
+  justify-content: space-between;
+  padding-bottom: 16rpx;
+  margin-top: 20rpx;
+}
+.orderAddress>image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.addressO{
+  width: 490rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+  border-right: 1px solid #F2F2F2;
+}
+.addressO text{
+  font-weight: normal;
+  font-size: 26rpx;
+  color: #666666;
+  margin-top: 10rpx;
+}
+.lookMap{
+  font-size: 28rpx;
+  color: #E94816;
+  margin-top: 26rpx;
+  margin-left: 20rpx;
+}
+.setTwo{
+  padding-left: 24rpx;
+  color: #E94816;
+  background: #FFF;
+  padding-top: 32rpx;
+  padding-bottom: 66rpx;
+  margin-top: 12rpx;
+}
+.threeColor{
+  color: #E94816;
+}
+.threeColor text{
+  margin-right: 18rpx;
+}
+.sethree{
+  padding:0 24rpx;
+  background: #FFF;
+  padding-top: 32rpx;
+  padding-bottom: 24rpx;
+  margin-top: 12rpx;
+}
+.setTwo>text,.sethree>text{
+  margin-right: 18rpx;
+}
+.setTwoText{
+  color: #333333;
+  font-size: 28rpx;
+  margin-top: 58rpx;
+}
+.leadCard{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 44rpx;
+}
+.leadImg image{
+  border: 1px solid ;
+  width: 256rpx;
+  height: 256rpx;
+  margin-top: 18rpx;
+}
+.leadCard>view text{
+  color: #7F7F7F;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+}
+.takeCare{
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+
+.commodity_screen2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9999;
+  color: #fff;
+}
+
+.poste_box{
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  overflow: hidden;
+  background:#FFFFFF;
+  position:fixed;
+   height: 576rpx;
+  bottom: 124rpx;
+
+}
+.poste_content{
+  width: 90%;
+  margin: auto;
+  height: 462rpx;
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  bottom: 124rpx;
+  z-index: 9999;
+  border-radius: 5rpx;
+}
+
+.close-poste{
+background: #fff;
+ width: 100%;
+ position: fixed;
+ z-index: 9999999;
+ text-align: center;
+ height:124rpx;
+ bottom: 0;
+}
+.close-poste text{
+ color: #E94816;
+ border-radius: 100rpx;
+ border: 1px solid #E94816;
+ font-size: 26rpx;
+ margin-top:40rpx;
+display:inline-block;
+padding: 10rpx 16rpx;
+}

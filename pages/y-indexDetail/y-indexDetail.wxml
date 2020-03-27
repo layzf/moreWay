@@ -1,0 +1,101 @@
+<!--pages/y-indexDetail/y-indexDetail.wxml-->
+
+<view class="load" wx:if='{{!load}}'>
+    <image src="http://img-test.duorang.com/upload/adv/2019/8/28/9f28589c-c9f8-4d73-9e8e-ab552e35ab03.gif"></image>
+</view>
+
+<view wx:else>
+  <view class='topScroll'>
+  <image src='{{res.image_url}}' class='bannerImgs' mode='widthFix'></image>
+  <view class='swiperClass' >
+    <swiper  autoplay="true" vertical='true' duration='1500' interval='3500' easing-function='linear' circular='true' display-multiple-items='{{groupList.length==1?1:2}}'>
+        <swiper-item wx:for='{{groupList}}' wx:key='q' >
+          <view class='userScroll '>
+            <view class='flex-row'>
+              <image src='{{item.userInfo.icon}}'></image>
+                <view class='userSuccess {{item.userInfo.user_name.length>5?"flexsGoup":""}}'>
+                  <text>{{item.userInfo.user_name}}</text> 报名参团</view>
+                <text class='clockDate'>{{item.clock}}前</text>
+              </view>
+          </view>
+         </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!--第一模块-->
+<y-detail-model-1 
+    swiperMoel_1='{{y_data}}'
+    type='{{activeType}}' 
+    name='{{res.name}}'
+    groupSum='{{res.can_group_sum}}'
+    appliedSum='{{res.applied_sum}}'
+    y_day='{{y_day}}'
+    groupList='{{groupList}}'>
+</y-detail-model-1>
+
+
+<!--第五模块 移动-->
+<view class="y-detail-model" wx:if='{{res.houseCheckGroupImgList.length>=1}}'>
+  <view class='y-commonTitle flex-row'>
+    <image src='../../images/y-leftImg-5.png'></image>
+    <view>验房团简介</view>
+  </view>
+  <view class='fiveImgs'>
+    <image src='{{item.img_url}}' wx:for='{{res.houseCheckGroupImgList}}' mode='widthFix' wx:key='id'></image>
+  </view>
+</view>
+
+<!--第二模块-->
+<y-detail-model-2 
+  type='{{activeType}}'   
+  grouped_discount='{{res.grouped_discount}}' 
+  personnal_discount='{{res.personnal_discount}}'>
+</y-detail-model-2>
+<!--第三模块-->
+<y-detail-model-3 type='{{activeType}}'></y-detail-model-3>
+<!--第四模块-->
+<y-detail-model-4 type='{{activeType}}'  houseCheckFeesList='{{res.houseCheckFeesList}}' status='{{res.status}}'></y-detail-model-4>
+
+<!--咨询团长-->
+<my-commander  
+        orderListType='true' 
+        orderInformation='{{orderInformation}}' 
+        isTab='{{showTab}}'  
+        height='{{height}}' 
+        isShow='{{commanderHiden}}' 
+        id='my-commander'>
+</my-commander>
+
+
+<!--底部按钮-->
+<bl-fixed-btn 
+    bind:modelShow='modelShow' 
+    bind:callCapital='callCapital' 
+    type='{{activeType}}'
+    isLogin='{{collectDespoit}}'
+    bind:tells='tells'></bl-fixed-btn>
+
+<!--立即预约弹框-->
+ <model-bottom 
+ wx:if="{{orderModel.disTag}}"
+ classa='{{orderModel.classa}}'
+ price='{{price}}'
+ user="{{collectDespoit}}"
+ status='{{activeType}}'
+ groupId='{{id}}'
+ prictid='{{project_id}}'
+ startTime='{{startTime}}'
+ imgurl='{{res.image_url}}'
+ shareName='{{res.share_desc}}'
+ groupSum='{{res.can_group_sum}}'
+ appliedSum='{{res.applied_sum}}'
+ newuserNamescofs='{{newuserNamescofs}}'
+ bind:disTagHiden='disTagHiden' 
+ bind:disTagClass='disTagClass'
+
+ ></model-bottom>
+
+
+</view>
+
+

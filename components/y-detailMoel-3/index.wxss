@@ -1,0 +1,45 @@
+.y-detail-model-3{
+  padding: 53rpx 22rpx 40rpx;
+  background: #FFF;
+  margin-top: 22rpx;
+}
+.y-commonTitle image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.y-commonTitle {
+  font-size: 32rpx;
+  margin-bottom: 41rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+.model-3-list image{
+  width: 78rpx;
+  height: 78rpx;
+}
+.model-3-list{
+  text-align: center;
+  font-size: 28rpx;
+  color: #535353;
+}
+.positionRlat{
+  position: relative;
+  flex: 1;
+}
+.rightImgs{
+  position: absolute;
+  right: 0;
+  top: 30rpx;
+  width: 12rpx;
+  height: 21rpx;
+}
+.flex-row-around{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+}

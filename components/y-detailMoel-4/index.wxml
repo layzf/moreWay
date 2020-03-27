@@ -1,0 +1,21 @@
+<view class='y-detail-model-4'>
+    <view class='y-commonTitle flex-row'>
+      <image src='../../images/y-leftImg-4.png'></image>
+      <view>收费标准</view>
+    </view>
+  <!--收费标准-->
+  <view class='chargeMtop'>
+      <view class='flex-row charge' wx:for='{{list}}' wx:key='{{index}}'>
+        <view wx:if='{{item.min_measure_area==null}}'>{{item.max_measure_area}}㎡以下</view>
+
+        <view wx:if='{{item.min_measure_area && item.max_measure_area}}'>
+          {{item.min_measure_area}}㎡ ~ {{item.max_measure_area}}㎡
+        </view>
+
+        <view wx:if='{{item.max_measure_area==null}}'>{{item.min_measure_area}}㎡以上</view>
+        <view>{{status==1 || status==2?"团购价":"集采价"}}：{{item.discount_price}}</view>
+        <view>市场价：{{item.price}}</view>
+      </view>  
+     
+  </view>
+</view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "newCardList":"../../components/enroll/newCardList/index"
+  }
+}

@@ -1,0 +1,11 @@
+<view class="res-w">
+  <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+  <view class="text-res-s">报名成功</view>
+</view>
+
+<view class="border-w"></view>
+
+<view class="con-w">
+  <view class="des">分享给朋友/邻居，人多力量大！</view>
+  <button class="btn-default" open-type='share'>邀请好友</button>
+</view>

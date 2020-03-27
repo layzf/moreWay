@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-commander": "../../components/myCommander/myCommander"
+  },
+  "navigationBarTitleText": "我的验房",
+  "backgroundColor": "#f7f7f7"
+}

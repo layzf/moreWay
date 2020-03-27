@@ -1,0 +1,34 @@
+@import "/tpls/tab-bar/tab-bar.wxss";
+@import "/tpls/my-deposit-item/my-deposit-item.wxss";
+
+.bg_model{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  background: #333;
+  z-index: 9;
+  opacity: 0.3
+}
+.img_model{
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  background: #ffffff;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.er_model{
+  width: 100%;
+}
+.er_title{
+  color: black;
+  font-size: 30rpx;
+  width: 100%;
+  text-align: center;
+}

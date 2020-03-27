@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+<view class="container">
+  <scroll-view class='nav_left' scroll-y='true' scroll-top='{{navScrollTop}}' scroll-with-animation>
+    <block wx:for="{{cateItems}}" wx:key="index">
+      <view class="nav_left_items {{curIndex== index ?'active':''}}" bindtap="switchRightTab" data-index='{{index}}' data-id="{{item.cate_id}}">{{item.cate_name}}</view>
+    </block>
+  </scroll-view>
+
+  <scroll-view class="nav_right" 
+               scroll-y="true" 
+               scroll-into-view="keys_{{curIndex}}"
+               bindscroll='bindscroll' 
+               scroll-with-animation>
+    <!--如果有数据，才遍历项-->
+    
+      <view wx:for="{{contentArr.arr}}" wx:key="index" class="commonViews" wx:for-item="item" id="keys_{{index}}">
+        <view class="cardName">{{cateItems[index].cate_name}}</view>
+        <view class="scrollViews" wx:for="{{item}}" wx:key="index"  wx:for-item="navItem">
+        <!--界面跳转 -->
+          <newCardList item= '{{navItem}}' width='70'></newCardList>
+        </view>
+      </view>
+  
+
+  </scroll-view>
+</view>

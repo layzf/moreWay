@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "安居佳全屋定制",
+  "usingComponents": {
+    "my-commander": "../../../components/myCommander/myCommander"
+  }
+}

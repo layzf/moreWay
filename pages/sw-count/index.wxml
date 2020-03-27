@@ -1,0 +1,32 @@
+<!--步骤-->
+<view class="steps" style="height:{{isShowCoun==1?0:150}}rpx;">
+<!--
+  typeSetp:任务条进度
+  typeSetp：高亮显示任务条
+  isShowCoun：是否显示任务条
+-->
+  <step typeSetp="{{typeSetp}}" cur='{{typeSetp==1?3:2}}' isShowCoun='{{isShowCoun}}'class='margins'></step>
+</view>
+
+<view class="intForsm">
+  <view class="titles">请填写您的信息预约商家上门量尺</view>
+  <form bindsubmit='submit'>
+
+    <view class="forms">
+      <view wx:for='{{int}}' wx:key='id'>
+        <input placeholder="{{item.text}}" name='key_{{item.name}}' type="{{item.type}}" wx:if='{{index<=3}}' value='{{item.value}}'></input>
+
+      <picker mode="date" value="{{date}}"  bindchange="bindDateChange" wx:if='{{index==4}}' start='{{startTime}}' end='{{endTime}}'>
+        <view class="picker">
+          <input placeholder="请选择时间"   name='key_{{item.name}}' disabled value="{{item.value || date}}"></input>
+        </view>
+      </picker>
+
+
+      </view>
+      
+    </view>
+
+     <button class="updata" form-type='submit'>提交</button>
+  </form>
+</view>

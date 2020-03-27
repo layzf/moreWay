@@ -1,0 +1,86 @@
+@import "/style/form-input.wxss";
+
+page{
+  padding-bottom:64rpx;
+}
+
+.btn-submit{
+  margin:60rpx 28rpx 40rpx;
+  background: #ff5d22 !important;
+}
+.placeStyle{
+  font-size: 12px;
+}
+.tips{
+  padding:0 28rpx;
+  color:#999;
+  font-size: 24rpx;
+  margin-bottom:28rpx;
+}
+.section{
+  width: 30%;
+}
+.section text{
+  width: 45%;
+  line-height: 45px;
+  color: #999;
+}
+.section view{
+  width: 55%;
+  height: 40px;
+  color: #DBDBDB;
+  border-bottom: 1px solid #F2F0F2;
+}
+.section view input{
+  width: 100%;
+  color: #DBDBDB;
+  padding-top: 10px;
+  text-align: center;
+}
+.section:nth-child(1) text{
+  width:40%; 
+}
+.section:nth-child(1) view{
+  width:60%; 
+}
+.section:nth-child(3) text{
+  width:40%; 
+}
+.section:nth-child(3) view{
+  width:60%; 
+}
+.placeStyle{
+  width: 100%;
+}
+.village_name{
+  position: relative;
+  border-bottom:1px solid #F2F0F2;
+}
+.flexVillageName{
+  display: flex;
+  align-items: center;
+  height:100rpx;
+}
+.changeVillageName{
+  position: absolute;
+  top: 110rpx;
+  width: 100%;
+  background: #FFF;
+  padding: 16rpx 0;
+  z-index: 999;
+}
+.villageNameList{
+  padding: 10rpx 0;
+  text-align: center;
+}
+.village_name input{
+  width: 535rpx;
+  margin-left: 20rpx;
+  margin-top: 3px;
+}
+.village_name text{
+  color: #999;
+}
+.itemview{
+  padding: 20rpx 0;
+}

@@ -1,0 +1,256 @@
+<import src="/tpls/auth-code/auth-code-tpl.wxml" />
+<view wx:if="{{villageContent.status==0}}">
+  <view class="flex-row-between w-con-top">
+    <view class="flex-row left">
+      <image src="{{loginUser}}" class="w-avatar"></image>
+      <view>
+        <view class='applyMoney_bottom'>
+          <text>{{villageContentVip.user_name}}</text>
+        </view>
+        <text class="user-phone">{{userName}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:elif="{{villageApply.status==0}}">
+  <view class="flex-row-between w-con-top">
+    <view class="flex-row left">
+      <image src="{{loginUser}}" class="w-avatar"></image>
+      <view>
+        <view class='applyMoney_bottom'>
+          <text>{{villageContentVip.user_name}}</text>
+        </view>
+        <text class="user-phone">{{userName}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view wx:if="{{villageContent.pay_status==1}}">
+    <view class="flex-row-between w-con-top">
+      <view class="flex-row applyMoney_left">
+        <image src="{{loginUser}}" class="w-avatar"></image>
+        <view>
+          <view class='applyMoney_bottom'>
+            <text>{{villageContentVip.user_name}}</text>
+            <!-- <text class='applyMoney_middle'>多让会员</text> -->
+            <image class='applyMoney_middleed' src='/images/vip@3x.png'></image>
+          </view>
+          <text class="user-phone">{{userName}}</text>
+        </view>
+      </view>
+      <view class='reqColecct'>已成为多让会员，拥有永久集采资格</view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="flex-col-center w-con-top" wx:if="{{villageContent.is_activate==0}}">
+      <view class="flex-row applyMoney_left">
+        <image src="{{loginUser}}" class="w-avatar"></image>
+        <view>
+          <view class='applyMoney_bottom'>
+            <text>{{villageContentVip.user_name}}</text>
+            <image src='/images/vipYes@3x.png' class='applyMoney_bottomes'></image>
+          </view>
+          <text class="user-phone">{{userName}}</text>
+        </view>
+      </view>
+      <view class='applyMoney flex-y h-center'>
+        <view class='applyMoney_right'>30天体验会员资格</view>
+        <view class='applyMoney_top' bindtap='applySuccess'>立即激活</view>
+      </view>
+    </view>
+    <view wx:if="{{villageContent.is_activate==1}}">
+      <view class="flex-col-center w-con-top" wx:if="{{mallTime==true}}">
+        <view class="flex-row applyMoney_left">
+          <image src="{{loginUser}}" class="w-avatar"></image>
+          <view>
+            <view class='applyMoney_bottom'>
+              <text>{{villageContentVip.user_name}}</text>
+              <image src='/images/vipYes@3x.png' class='applyMoney_bottomes'></image>
+              <!-- <text class='applyMoney_middle'>体验会员过期</text>  -->
+            </view>
+            <text class="user-phone">{{userName}}</text>
+          </view>
+        </view>
+        <view class='applyMoney flex-y h-center'>
+          <view class='applyMoney_right applyMoney_rights'>
+            还不是多让会员，暂无集采资格
+          </view>
+          <view class='applyMoney_top applyMoney_tops'>
+            <navigator url="/pages/becomeMember/becomeMember?id={{id}}&village_id={{village_id}}" open-type="navigate" hover-class="none">
+              升级多让会员
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="flex-col-center w-con-top" wx:else>
+        <view class="flex-row applyMoney_left">
+          <image src="{{loginUser}}" class="w-avatar"></image>
+          <view>
+            <view class='applyMoney_bottom'>
+              <text>{{villageContentVip.user_name}}</text>
+              <image src='/images/tiyang@3x.png' class='applyMoney_bottomes'></image>
+            </view>
+            <text class="user-phone">{{userName}}</text>
+          </view>
+        </view>
+        <view class='applyMoney flex-y h-center'>
+          <view class='applyMoney_right applyMoney_rights'>
+            <view>30天体验会员资格</view>
+            <view class='alreadyTime'>(有效期到{{alreadyTime}})</view>
+          </view>
+          <view class='applyMoney_top applyMoney_tops'>
+            <navigator url="/pages/becomeMember/becomeMember?id={{id}}&village_id={{village_id}}" open-type="navigate" hover-class="none">
+              升级多让会员
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flex-col-center w-con-top" wx:if="{{villageApply.status==-1&&villageInfo==null}}">
+      <view class="flex-row applyMoney_left">
+        <image src="{{loginUser}}" class="w-avatar"></image>
+        <view class='applyMoney_bottomess'>
+          <view class='applyMoney_bottom'>
+            <text>{{villageContentVip.user_name}}</text>
+          </view>
+          <text class="user-phone">{{userName}}</text>
+        </view>
+        <view class='becomeFlex'>
+          <navigator url="../member-estate-auth/estate-auth-form/estate-auth-form" hover-class="none">
+            成为认证会员
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view class="flex-col-center w-con-top" wx:if="{{villageApply.status==1}}">
+      <view class="flex-row applyMoney_left">
+        <image src="{{loginUser}}" class="w-avatar"></image>
+        <view>
+          <view class='applyMoney_bottom'>
+            <text>{{villageContentVip.user_name}}</text>
+            <image src='/images/vips@3x.png'></image>
+          </view>
+          <text class="user-phone">{{userName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="w">
+  <view class="flex-row-between wx-head">
+    <text>我的小区</text>
+    <navigator url="/pages/my/my-member/member-estate-auth/estate-auth-form/estate-auth-form" hover-class="none">
+    </navigator>
+  </view>
+</view>
+<view class="w-con" wx:if="{{villageContent.status==0&&villageContent.pay_status==0}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url}}"></image>
+    <view class="right">
+      <view class="address">{{villageInfo.village_name}} {{villageContent.door_number}}</view>
+      <view class="info">正在审核认证....</view>
+    </view>
+  </view>
+  <navigator url="/pages/my/my-annual-fee/annual-fee-pay/annual-fee-pay" open-type="navigate" hover-class="none">
+    <!-- <view class="flex-row footer">
+      <text class="w-label">修改认证资料</text>
+    </view> -->
+  </navigator>
+</view>
+<view class="w-con" wx:elif="{{villageContent.status==1&&villageContent.pay_status==0}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url}}"></image>
+    <view class="right">
+      <view class="address">{{villageInfo.village_name}} {{villageContent.door_number}}</view>
+      <view class="info">认证成功</view>
+    </view>
+  </view>
+  <!-- <navigator url="/pages/my/my-annual-fee/annual-fee-pay/annual-fee-pay?id={{villageContent.id}}" open-type="navigate" hover-class="none">
+    <view class="flex-row footer">
+      <text class="w-label">交服务年费</text>
+    </view>
+  </navigator> -->
+</view>
+<view class="w-con" wx:elif="{{villageContent.status==1&&villageContent.pay_status==1}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url}}"></image>
+    <view class="right">
+      <view class="address">{{villageInfo.village_name}} {{villageContent.door_number}}</view>
+      <view class="info">已认证成功</view>
+    </view>
+  </view>
+</view>
+<view class="w-con" wx:elif="{{villageContentVip.status==0&&villageContentVip.villageApply.status==0}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url? villageInfo.img_url: '/images/defalute.jpg'}}"></image>
+    <view class="right">
+      <view class="address">{{villageApply.content}} {{villageContentVip.villageApply.door_number}}</view>
+      <view class="info">正在申请团长</view>
+    </view>
+  </view>
+</view>
+<view class="w-con" wx:elif="{{villageContentVip.villageApply.status==-1&&villageInfo==null}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url? villageInfo.img_url: '/images/defalute.jpg'}}"></image>
+    <view class="right">
+      <view class="address">{{villageApply.content}} {{villageContentVip.villageApply.door_number}}</view>
+      <view class="info">团长申请失败</view>
+    </view>
+  </view>
+</view>
+<view class="w-con" wx:elif="{{villageContentVip.status==2&&villageContentVip.villageApply.status==1}}">
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url}}"></image>
+    <view class="right">
+      <view class="address">{{villageInfo.village_name}} {{villageContentVip.villageApply.door_number}}</view>
+      <view class="info"></view>
+    </view>
+  </view>
+  <view class='contactTel flex-row-between'>
+    <text>联系电话</text>
+    <view>{{userName}}</view>
+  </view>
+  <view class='contactTel flex-row-between'>
+    <text>团长微信</text>
+    <view bindtap='onChangeAvatar' wx:if="{{uploadImgs==true||uploadImg==true}}">已上传</view>
+    <view wx:else bindtap='onChangeAvatar' class="flex-row-between wx-heads">
+      <text>上传个人二维码</text>
+      <image src="/images/icon_arrow_next_gray@2x.png"></image>
+    </view>
+  </view>
+</view>
+<view class="w-con" wx:else>
+  <view class="flex-r top">
+    <image src="{{villageInfo.img_url}}"></image>
+    <view class="right">
+      <view class="address">{{villageInfo.village_name}} {{villageContentVip.userAut.door_number}}</view>
+      <view class="info">正在审核认证....</view>
+    </view>
+  </view>
+  <navigator url="/pages/my/my-annual-fee/annual-fee-pay/annual-fee-pay" open-type="navigate" hover-class="none">
+    <!-- <view class="flex-row footer">
+      <text class="w-label">修改认证资料</text>
+    </view> -->
+  </navigator>
+</view>
+<view class="w member-menu">
+  <!-- <navigator url="/pages/my/my-annual-fee/annul-fee-list/annul-fee-list" open-type="navigate" hover-class="none">
+    <view class="flex-row-between wx-head">
+      <text>服务年费记录</text>
+      <image src="/images/icon_arrow_next_gray@2x.png"></image>
+    </view>
+  </navigator> -->
+  <navigator url="/pages/my/my-member/member-intro/member-intro?member=1" open-type="navigate" hover-class="none">
+    <view class="flex-row-between wx-head">
+      <text>会员权益</text>
+      <image src="/images/icon_arrow_next_gray@2x.png"></image>
+    </view>
+  </navigator>
+  <navigator url="/pages/becomeMember/invitationFriend/invitationFriend?id={{id}}&village_id={{village_id}}" open-type="navigate" hover-class="none">
+    <view class="flex-row-between wx-head">
+      <text>邀请好友成为多让会员</text>
+      <image src="/images/icon_arrow_next_gray@2x.png"></image>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,5 @@
+<view class="container">
+    <view class="h_text">你还未登录</view>
+    <view class="h_btn">微信授权登录</view>
+    <view class="w_btn">其他方式登录</view>
+</view>

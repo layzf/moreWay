@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "login":"../../components/enroll/login/login"
+  }
+}

@@ -1,0 +1,98 @@
+.list-page {
+  padding-top: 84rpx;
+}
+
+.btn{
+  border:1px solid rgba(180,180,180,0.3);
+  font-size:28rpx;
+  border-radius:100rpx;
+  padding: 10rpx 22rpx;
+}
+
+.tpl-item {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.wx-head {
+  border: none;
+  padding: 0 28rpx;
+  color: #999;
+}
+.status {
+  color: #ff5d22;
+  float: right;
+}
+
+.middle {
+  height: 220rpx;
+  overflow: hidden;
+  padding: 20rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.middle image {
+  flex: 0 0 240rpx;
+  width: 240rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+}
+
+.right {
+  flex: 1;
+  height: 180rpx;
+}
+
+.right .title {
+  height: 35rpx;
+  margin-bottom: 20rpx;
+}
+
+.right .name {
+  color: #999;
+}
+
+.price {
+  color: #e94816;
+}
+
+.price text {
+  color: #999;
+}
+
+.foot {
+  height:88rpx;
+  padding-right:28rpx;
+  color:#999;
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+}
+.foot .deadline{
+  color: #999999;
+  font-size: 24rpx;
+  margin-top: 6rpx;
+  display: flex;
+  align-items:center;
+}
+.deadline image{
+  margin: 0 8rpx;
+  margin-top: 2rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.foot text {
+  color: #e94816;
+}
+
+.foot .date {
+  float: left;
+  color: #000;
+  padding-left: 28rpx;
+}
+
+.top {
+  width: 100%;
+}

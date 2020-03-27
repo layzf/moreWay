@@ -1,0 +1,69 @@
+<!--步骤-->
+<view class="setps">
+  <step typeSetp="{{typeSetp}}" cur='1' class='margins'></step>
+</view>
+<!--封窗数据-->
+<view class="w_672" wx:if='{{!resultCode1005}}'>
+    <view class="titles">你的户型有<text>{{areaList.length}}</text>处需要封窗，封窗基础数据如下：</view>
+    <view>
+      <view wx:for="{{summaries}}" wx:key="id" 
+        wx:for-item="summary">
+        <text wx:if="{{summary.id!=3}}">总{{summary.name}}为<text>{{summary.val}}</text>{{summary.unit}} <text wx:if='{{summary.desc_url}}'>({{summary.desc_url}})</text></text>
+      </view>
+    </view>
+</view>
+<!--每处封窗均可以切换设计方案，请选择你喜欢的方案：-->
+<view class="changeBrand">每处封窗均可以切换设计方案，请选择你喜欢的方案：</view>
+<!--方案循环-->
+<view class="viewBoxs"  wx:for='{{areaList}}' wx:key='id' wx:for-index="idx"  wx:for-item='areaItem'  wx:if='{{areaItem.selectPlan.image_url}}'>
+  <view class="M_18" >
+   <view class="swPlan">
+    <view>
+      <view class="planTitle">
+         <view>第{{idx+1}}处：{{areaItem.name}}</view>
+         <view class="titleFlexs" wx:if='{{areaItem.categoryAttrList!=""}}'>
+            【<view wx:key='index' wx:for='{{areaItem.categoryAttrList}}'>{{item.name+':'}}<text>{{item.val+item.unit}}</text></view>】
+         </view>
+      </view>
+      <!--tab切换  -->
+      <view class="planTab">
+         <view wx:for='{{areaItem.planDetailList}}' 
+               wx:key='{{itemTab.id}}' wx:for-item='itemTab'
+               class="{{areaItem.selectWitch===index?'active':'bb'}}" 
+               catchtap="planClick" 
+               data-index='{{index}}'
+               data-id='{{areaItem.id}}'
+               >{{itemTab.name}}</view>
+      </view>
+<!--切换的内容-->
+      <view class="planContent">
+          <view class="imgs" >
+            <image src="{{areaItem.selectPlan.image_url}}" 
+                   mode='widthFix' 
+                   catchtap="lookImg"
+                   data-img='{{areaItem.selectPlan.image_url}}'></image>
+          </view>
+          <!--开启扇-->
+          <!-- <view class="botmKeys">【{{areaItem.selectPlan.windowInfo.name}}: <text>{{areaItem.selectPlan.windowInfo.val}}{{areaItem.selectPlan.windowInfo.unit}}</text> 】<text class="actives">( 随着设计方案变化而变化 )</text>  </view> -->
+
+          <view class="botmKeys">
+            <view wx:for='{{areaItem.selectPlan.windowInfo}}' wx:key='a'>
+              【{{item.name}}: <text>{{item.val}}{{item.unit}}</text> 】
+            </view>
+           <text class="actives">( 随着设计方案变化而变化 )</text> 
+          </view>
+
+      </view>
+
+
+
+    </view>
+ </view>
+
+</view>
+
+
+</view>
+
+<!--加载完第一个区域 才显示下一步-->
+<view catchtap="goThreeDetail" class="nextGo" wx:if='{{areaList[0].planDetailList}}'>下一步</view>

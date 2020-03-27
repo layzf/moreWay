@@ -1,0 +1,5 @@
+<import src="/tpls/tab-bar/tab-bar.wxml" />
+<import src="/tpls/my-deposit-item/my-deposit-item.wxml" />
+
+<template is="tab-bar" data="{{tabsData: tabsData}}"></template>
+<template is="my-deposit-item" data="{{listData:listData,tabsData:tabsData}}"></template>

@@ -1,0 +1,35 @@
+<!-- <success isShare="{{share}}"></success> -->
+
+<view class='successIon'>
+  <image src='../../images/chenggong.png' class='head'></image>
+  <view class='h_tip'>恭喜你，报名成功</view>
+</view>
+
+<view class='VIPTitle'>多让会员福利</view>
+
+
+
+ <view class="item" >
+          <block wx:for="{{list}}" wx:key='q'>
+             <view class='' catchtap='detailShoop' data-item='{{item}}'>
+              <image src='{{item.productImage}}' class='productImg'></image>
+              <view class='productTitle'>{{item.projectName}}</view>
+
+              <view class='bottom'>
+                <view class='productMoney'>
+                  <view class='p1s'>
+                    <text class='symbol'>￥</text>
+                    <text class='price'>{{item.productSellPrice}}</text>
+                  </view>
+                  <view class='p1 gray'>
+                    <text class='symbol'>￥</text>
+                    <text class='price'>{{item.productOriginalPrice}}</text>
+                  </view>
+                </view>
+                <image src='../../images/shopCar2.png' class="addimg"></image>
+             </view>
+            </view>
+          
+          </block>
+
+    </view>

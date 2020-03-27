@@ -1,0 +1,52 @@
+.collect{
+  padding:28rpx;
+  background-color: #fff;
+  margin-bottom:20rpx;
+}
+.collect image{
+  flex: 0 0 280rpx;
+  width:280rpx;
+  height:210rpx;
+  margin-right:24rpx;
+}
+.collect .right{
+  flex:1;
+  height:210rpx;
+  overflow: hidden;
+}
+.collect .name{
+  font-size:30rpx;
+  color:#000;
+  padding:24rpx 0;
+}
+.title{
+  color:#666;
+  font-size:28rpx;
+}
+.pic{
+  text-align: center;
+  padding:28rpx;
+}
+
+.wrap{
+  width: 100%;
+  height: auto;
+  position: relative;  
+}
+ 
+.swipers{  
+  height: 420rpx; 
+}  
+ .totalImg{
+   width: 100%;
+ }
+.totalImg_left{
+  width: 120rpx;
+  line-height: 50rpx;
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+  background:rgba(0,0,0,0.5);
+  text-align: center;
+  color: #ffffff;
+}

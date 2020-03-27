@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "step": "../../components/sw/step/index"
+  },
+  "navigationBarTitleText": "预约量尺"
+}

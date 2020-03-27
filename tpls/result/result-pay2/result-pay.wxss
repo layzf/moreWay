@@ -1,0 +1,7 @@
+@import "/tpls/result/result.wxss";
+.res-w{
+  background-color: #F7F7F7;
+}
+.res-btn-group{
+  margin-top:108rpx;
+}

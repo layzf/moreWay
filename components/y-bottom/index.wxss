@@ -1,0 +1,41 @@
+
+.botomHeight{
+  height:115rpx;
+  width: 100%;
+}
+.fixed_bottom{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height:115rpx;
+  background: #FFF;
+  border-top: 1px solid #efefef;
+  z-index: 9992;
+}
+.btns{
+  text-align: center;
+  font-size: 20rpx;
+  color: #A0A0A0;
+  flex: 1;
+  line-height: normal;
+}
+.btns image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.aloneOrderbtn{
+  width: 450rpx;
+  height: 100%;
+  text-align: center;
+  color: #FFF;
+  font-size: 34rpx;
+  background: #F35B1D !important;
+  line-height: 115rpx;
+  flex: 3;
+  border-radius: 0;
+  padding: 0;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+}

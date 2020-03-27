@@ -1,0 +1,38 @@
+.header{
+  height:280rpx;
+  padding:52rpx 28rpx;
+  background-color: #FF5D22;
+  color:#fff;
+  box-sizing: border-box;
+  margin-bottom:20rpx;
+}
+.tips{
+  font-size:26rpx;
+}
+.tips image{
+  width:40rpx;
+  height:40rpx;
+  margin-right:4rpx;
+}
+.point{
+  font-size:80rpx;
+}
+.list-head{
+  height:90rpx;
+  line-height:90rpx;
+}
+.item{
+  border-bottom:1px solid #F7F7F7;
+  height:130rpx;
+}
+.label{
+  color:#666;
+}
+.time{
+  font-size:26rpx;
+  color:#999;
+}
+.right{
+  font-size:30rpx;
+  color:#E94816;
+}

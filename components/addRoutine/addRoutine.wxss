@@ -1,0 +1,23 @@
+/* components/addRoutine/addRoutine.wxss */
+.title{
+  position: fixed;
+  top: 16rpx;
+  right: 30rpx;
+  background: rgba(0,0,0, 0.7);
+  color: #FFF;
+  z-index: 99999;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  padding: 6rpx 20rpx;
+}
+.title::before{
+  position: fixed;
+  content: '';
+  right: 115rpx;
+  top: 0rpx;
+width:0;
+height:0;
+border-left:14rpx solid transparent;
+border-right:14rpx solid transparent;
+border-bottom:16rpx solid  rgba(0,0,0, 0.7);
+}

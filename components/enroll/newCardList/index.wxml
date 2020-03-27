@@ -1,0 +1,7 @@
+<navigator url="../../detail/detail" hover-class="none">
+    <view class="contentCard"  style="width:{{width}}vw">
+        <view class="fontBold">{{item.title}}</view>
+        <view class="mean">{{item.name}}</view>
+        <view class="bottomNumber">{{item.small}}>></view>
+    </view>
+</navigator>

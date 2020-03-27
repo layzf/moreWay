@@ -1,0 +1,237 @@
+/* pages/sw-three-detail/index.wxss */
+page{
+  background: #FFF;
+  padding-bottom: 140rpx;
+}
+.steps{
+  height: 150rpx;
+}
+.swData{
+  width: 672rpx;
+  margin: 0 auto;
+  background: #E94816;
+  color: #FFF;
+  font-size: 28rpx;
+  padding: 26rpx 0 40rpx 22rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+}
+.swData .titles{
+  font-size: 24rpx;
+  color: #efefef
+}
+.centerClass{
+  margin-top: 22rpx;
+}
+
+.changeBrand{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 26rpx;
+  background: rgba(216,216,216, 0.8);
+  margin-top: 36rpx;
+  font-size: 28rpx;
+}
+.flexProduct{
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  flex-wrap: wrap;
+}
+
+.flexProduct>view{
+  margin-right: 25rpx;
+  border-radius: 10rpx;
+  border: 1px solid #E94816;
+  padding: 8rpx 20rpx;
+  color: #E94816;
+  margin-bottom: 25rpx
+}
+.flexProduct>view:last-of-type{
+  margin-right: 0
+}
+.flexProduct .active{
+  background: #E94816;
+  color: #FFF;
+}
+.brandView{
+  margin-left:  25rpx;
+  margin-top: 26rpx;
+}
+
+.productContent{
+  margin:30rpx;
+}
+.contentView{
+  border: 1px solid #8C8C8C;
+  box-sizing: border-box;
+  padding-top: 22rpx;
+  margin-top:  22rpx;
+  background: #F9F9F9;
+  padding-bottom: 20rpx;
+}
+.flexSet{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #838383;
+  padding: 0 10rpx;
+  padding-bottom: 30rpx;
+}
+.flexSet .active{
+  border-color: #E94816;
+  color: #E94816;
+}
+.changeSet{
+  border: 1px solid #666;
+  font-size: 28rpx;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+  padding: 8rpx 10rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.changeSet>view:last-of-type{
+  font-size: 24rpx;
+}
+.productTags{
+  display: flex;
+  align-items: center;
+}
+.productTags text{
+  margin-right: 10rpx;
+}
+.productTags text:last-of-type{
+  margin-right: 0;
+}
+.sumAdd{
+  margin: 0 10rpx;
+}
+
+
+.sumAdd>view{
+  margin-bottom: 10rpx;
+}
+.fixedBottom{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid #999;
+}
+.fixedBottom>view,.fixedBottom> .notMyVillageName{
+  flex: 2;
+  background: #E94816 !important;
+  color: #FFF;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-right: 1px solid #eee;
+  font-size: 28rpx;
+  border-radius:0;
+  padding: 0;
+}
+
+
+.fixedBottom>view:first-of-type{
+  flex: 3;
+  background: #FFF !important;
+  color: #666;
+}
+.fixedBottom>view:last-of-type,.fixedBottom> .notMyVillageName:last-of-type{
+ border-right: 0;
+}
+.allMoneys{
+  color: #E94816;
+  border-top: 1px solid #838383;
+  padding-top: 20rpx;
+}
+.listMarTop .allMoneys,.listMarTop {
+  margin-top: 30rpx;
+}
+
+.spaceCenter{
+  display: flex;
+  align-items: center;
+}
+.footerAllSum{
+  font-size: 34rpx;
+  margin: 0 30rpx;
+  margin-top: 30rpx;
+}
+.alls{
+  color: #E94816;
+  margin-top: 30rpx;
+}
+.footerAllSum>view:first-of-type{
+  margin-bottom: 6rpx;
+}
+.c_us{
+  font-size: 34rpx;
+}
+.eachProd{
+  border-bottom: 1px solid #989898;
+  margin-top: 25rpx;
+  padding-bottom: 40rpx;
+  font-size: 28rpx;
+}
+.eachProd>view{
+  margin-bottom: 25rpx;
+}
+.eachProd>view text{
+  color: #E94816;
+}
+.contentShowBox{
+  border-bottom: 40rpx solid #DBDBDB;
+  padding-bottom: 30rpx;
+}
+.names{
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.names image{
+  width: 16rpx;
+  height: 20rpx;
+}
+.lookdetail{
+  color: #B3B3B3;
+  font-size: 28rpx;
+}
+.remark{
+  margin: 0 30rpx;
+  font-size: 28rpx;
+}
+
+.closeModel{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20rpx 0;
+  z-index: 999999;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.closeModel image{
+  width: 8vw;
+  height: 8vw;
+  margin-right: 1.4vw;
+}
+
+.button_user{
+  padding: 0;
+  flex: 2;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  background: #E94816 !important;
+  border-radius: 0;
+  color: #FFF;
+  border-right: 1px solid #eee;
+}

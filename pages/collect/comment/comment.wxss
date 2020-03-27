@@ -1,0 +1,60 @@
+.global-label{
+  padding:28rpx;
+  color:#666;
+}
+.global-label text{
+  background-color: #EDEDED;
+  color:#666;
+  font-size:26rpx;
+  margin-right:30rpx;
+}
+.w{
+  padding-top:46rpx;
+  margin-bottom:20rpx;
+}
+.w-avatar{
+  width:60rpx;
+  margin-right:20rpx;
+}
+.center{
+  flex:1;
+}
+.right{
+  width:170rpx;
+  margin-left:20rpx;
+  color:#FF5D22;
+  font-size:24rpx;
+  justify-content: flex-end;
+}
+.right image{
+  width:46rpx;
+  height:46rpx;
+  margin-right:6rpx;
+}
+.info{
+  font-size:26rpx;
+}
+.info .w-label{
+  color:#B4B4B4;
+  border:1px solid #B4B4B4;
+  font-size:20rpx;
+  padding:2rpx 4rpx;
+  margin-left:16rpx;
+}
+.time{
+  color:#999;
+  font-size:24rpx;
+  margin-top:16rpx;
+}
+.comment{
+  margin:26rpx 0 30rpx;
+}
+.pic{
+  margin-right:-20rpx;
+}
+.pic image{
+  width:220rpx;
+  height:160rpx;
+  margin-right:19rpx;
+  margin-bottom:20rpx;
+}

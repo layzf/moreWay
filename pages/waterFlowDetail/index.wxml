@@ -1,0 +1,39 @@
+
+
+<view style="position:relative">
+  <swiper duration="500" 
+          class="swiperBox" 
+          style="height:{{imgheightsArr[current]}}rpx;" 
+          bindchange='bindchange' >
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+          <image src="{{item.imgs}}" 
+                 style="height:{{imgheightsArr[current]}}rpx" 
+                 data-id='{{index}}' 
+                 bindload="imgHeight"
+                 class="heightImgs  {{current == index ?'heightImgsClass':'css3'}}" ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+   <view class="imLength">{{current+1+'/'+backgroundLength}}</view>
+</view>
+
+  <comment-all item='{{item}}' waterFlowShow='{{waterFlowShow}}'></comment-all>
+
+  <!--晒单项目-->
+  <view class="W_94 project">
+    <view class="projectName">晒单项目</view>
+    <newCardList item='{{projectItem}}' width='94'></newCardList>
+    <view class="shareWaterFlow">分享晒单</view>
+
+  </view>
+
+
+  <view class="P_12">
+    <!--晒单推荐-->
+    <view class="projectName">晒单推荐</view>
+    <water-flow Pimage='{{Pimage}}' imgWidth='{{imgWidth}}' id='waters'></water-flow>
+  </view>
+
+
+

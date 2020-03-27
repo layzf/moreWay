@@ -1,0 +1,23 @@
+<!-- <template name="tab-bar">
+  <view class="flex-row-around tabs-box">
+    <block wx:for="{{tabsData.tabs}}" wx:key>
+      <view class="tabs-item {{item.status == tabsData.currentSelectTab?'active':''}}" bindtap="onTabsItemTap" data-paystatus="{{item.paystatus?item.paystatus:0}}" data-status="{{item.status}}" >
+        {{item.title}}
+      </view>
+    </block>
+  </view>
+</template> -->
+
+
+<template name="tab-bar">
+  <view class="flex-row-around tabs-box" >
+  <scroll-view scroll-x class="nav" scroll-left="{{navScrollLeft}}" >
+  <block wx:for="{{tabsData.tabs}}" wx:for-index="idx"  wx:key="idx">
+     <view class="tabs-item {{item.status == tabsData.currentSelectTab?'active':''}}" bindtap="onTabsItemTap" data-paystatus="{{item.paystatus?item.paystatus:0}}" data-status="{{item.status}}" data-current="{{idx}}">
+        <text>{{item.title}}</text>
+      </view>
+  </block>
+</scroll-view>
+  </view>
+</template>
+

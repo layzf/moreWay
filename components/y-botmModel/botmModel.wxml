@@ -1,0 +1,68 @@
+<view class='order'>
+  <view class='showModel' catchtap='clear' catchtouchmove='return'></view>
+  <form bindsubmit='formSubmit'>
+        
+    <view class="order-box {{classa== true ? 'up' : 'down'}}" catchtouchmove='return'>
+
+    <view class='botms'>
+    <!--验房订金-->
+      <view>
+        <label>验房订金</label>
+        <view class='num_1'> <text>{{price}}元</text>（未验房随时可退）</view>
+      </view>
+    <!--报名信息-->
+      <view class="btnAzut" wx:if='{{(user.user_name==null || user.user_name=="")}}'>
+        <navigator class='button_sure' 
+                url="../newLogin/index" 
+                hover-class="none"
+                > 
+            <view class="line">
+              <text>报名信息</text> 
+              <view class='num_2'> <text>获取用户名称</text> <text>{{newuserNamescofs.link_mobile ||user.mobile}}</text> </view>
+            </view>
+            <image class="c_l_img" src="../../images/iconfontjiantou5.png"></image>
+        </navigator>
+      </view>
+
+      <view class="betweens" catchtap="tousers" wx:else>
+         <view class="flexs">
+            <label>报名信息</label>
+            <view class='num_2'>   <!--默认联系人、缓存中的信息、授权后的信息-->
+              <text>{{newuserNamescofs.link_name?newuserNamescofs.link_name:(user.user_name)}}</text> 
+              <text>{{newuserNamescofs.link_mobile ||user.mobile}}</text> </view>
+            </view>
+         <image class="c_l_img" src="../../images/iconfontjiantou5.png"></image>
+      </view>
+  <!--小区名字-->
+      <view wx:if='{{status==-1}}'>
+        <label>小区</label>
+          <view class='num_3'> <input placeholder='请输入小区' type='text' cursor-spacing='20' name='community'></input>              </view>
+      </view>
+
+<!--楼栋房号-->
+      <view>
+        <label>楼栋房号</label>
+        <view class='num_3'> <input placeholder='请输入具体楼栋房号 例：6-601' type='text' cursor-spacing='20' name='houseNum'></input> </view>
+      </view>
+<!--面积-->
+      <view>
+        <label style="margin-right:25rpx">面积( ㎡ )</label>
+        <view class='num_3'> <input placeholder='请输入建筑面积' type='digit' cursor-spacing='20' name='area'></input> </view>
+      </view>
+      <!--选择器-->
+      <view class="tui-picker-content">
+        <picker mode="date"  bindchange="changeDateTime1" value="{{date}}" name='date' start='{{startTime}}' end='{{endTime}}'>
+          <view class="tui-picker-detail">
+            <label class="orderDate">预约时间</label>
+            <text wx:if='{{!isChange}}'>选择时间</text>
+            <text wx:if='{{isChange}}'>{{dateTime1}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+      <!--按钮-->
+      <button form-type='submit' class='addBtn'>提交订单</button>
+    </view>
+  
+  </form>
+</view>

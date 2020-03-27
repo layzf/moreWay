@@ -1,0 +1,192 @@
+.pay-time {
+  height: 152rpx;
+  background: rgba(233, 72, 22, 0.91);
+  color: #fff;
+  padding: 0 28rpx;
+}
+
+/* .pay-time image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  flex: 0 0 40rpx;
+} */
+
+.pay-time .to-pay {
+  flex: 1;
+}
+
+.pay-time .last-time {
+  width: 230rpx;
+  text-align: right;
+}
+
+.w {
+  margin-top: 0rpx;
+  margin-bottom: 10rpx;
+}
+
+.info-w {
+  color: #666;
+}
+
+.info-w .item {
+  border-bottom: 2rpx solid #f7f7f7;
+  min-height: 110rpx;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+
+.info-w image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  flex: 0 0 50rpx;
+}
+
+.info-w .desc {
+  flex: 1;
+}
+
+.info-w .user-name {
+  margin-right: 30rpx;
+}
+
+.project-con {
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+.project-con .head {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1px solid #f7f7f7;
+  margin: 0 28rpx;
+}
+
+.project-con .head image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.project-con .head .contect-call {
+  color: #999;
+}
+
+.project-con .con {
+  padding: 30rpx 28rpx 30rpx 0;
+}
+
+.project-con .con .cover {
+  display: flex;
+  width: 240rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+}
+
+.project-con .con .right {
+  flex: 1;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.project-con .con .right .name {
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.project-con .con .right .price {
+  color: #e94816;
+}
+
+.project-con .con .right .time {
+  color: #999;
+}
+
+.order-info {
+  color: #999;
+  justify-content: space-between;
+  padding: 22rpx 28rpx;
+  margin-top: 8rpx;
+}
+
+.order-info view {
+  margin-bottom: 10rpx;
+}
+.order-info view:last-of-type {
+  margin-bottom: 0rpx;
+}
+.order-info text {
+  color: #666;
+}
+
+.footer-btn {
+  margin: 20rpx 0 0;
+  background-color: #fff;
+  padding: 0 28rpx;
+}
+
+.to-pay {
+  text-indent: 1em;
+}
+
+.pay-time_left {
+  width: 40rpx;
+  height: 40rpx;
+  flex: 0 0 40rpx;
+}
+
+.auth-code-w {
+  font-size: 20rpx;
+}
+
+.auth-code {
+  display: inline-block;
+  margin-bottom: 10rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.deposit{
+  margin-top: 3px;
+  background-color: #FFFFFF;
+}
+.deposit .d_item{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(180,180,180,0.2);
+  align-items:center;
+}
+.deposit .d_item .d_title{
+  display: flex;
+  flex-direction: column;
+  padding-left: 42rpx;
+  text-align: left;
+  justify-content: flex-end;
+}
+.deposit .d_item .d_title .d_t_name{
+  color: #333333;
+  font-size: 28rpx;
+}
+.deposit .d_item .d_title .d_t_date{
+  color: #999999;
+  font-size: 24rpx;
+}
+.deposit .d_item .d_price{
+  height: 54px;
+  color: #333333;
+  font-size: 28rpx;
+  line-height: 54px;
+  padding-right: 18px;
+}
+.deposit .d_total{
+  font-size: 28rpx;
+  color: #e94816;
+  height: 54px;
+  line-height: 54px;
+  text-align: right;
+  padding-right: 18px;
+}

@@ -1,0 +1,162 @@
+/* pages/GroupTrim/index.wxss */
+page{
+  background: #FFF;
+  padding-bottom: 67rpx;
+}
+.swiperClass image{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+.swiperClass .wx-swiper-dot{
+  background: #FFF;
+  width: 8rpx;
+  height: 7rpx;
+}
+.swiperClass .wx-swiper-dot-active{
+  width: 16rpx;
+  height: 8rpx;
+  border-radius: 30rpx;
+} 
+.tabBox{
+  border-top: 24rpx solid #F9F9F9;
+}
+.flexTab{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #F2F2F2;
+  padding-top: 50rpx;
+  font-size: 34rpx;
+  color: #1F1F1F;
+  padding-bottom: 26rpx;
+}
+.flexTab>view{
+  position: relative;
+}
+.flexTab .active{
+  color: #FF5F2D;
+}
+.flexTab .active::before{
+  content: '';
+  position: absolute;
+  bottom: -24rpx;
+  background: #FF5F2D;
+  width: 100%;
+  height: 8rpx;
+}
+
+.flexDIsplay image{
+  height: 84rpx;
+  width: 84rpx;
+  margin-right: 24rpx;
+}
+.contentFontSize{
+  font-size: 36rpx;
+  color: #333333;
+  flex: 1;
+}
+.contentFontSize>view:last-of-type{
+  font-size: 28rpx;
+  color: #BFBFBF;
+  margin-top: 20rpx;
+}
+
+.content{
+  padding: 0 24rpx;
+  margin-top: 48rpx;
+}
+.flexDIsplay{
+  display: flex;
+  margin-bottom: 48rpx;
+}
+.flexDIsplay:last-of-type{
+  margin-bottom: 0;
+}
+.chidrenFlex{
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  border-bottom: 1px solid #F2F2F2;
+  padding-bottom: 26rpx;
+}
+.joinBtn{
+  background: #FF5F2D;
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 10rpx 50rpx;
+  color: #FFF;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+
+.notList{
+  color: #BFBFBF;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 62rpx;
+}
+
+
+/**遮罩**/
+.boxshwoModel{
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.contentZindex{
+  width: 700rpx;
+  background: #FFF;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  margin-left: -350rpx;
+  z-index: 99;
+  border-radius: 20rpx;
+  padding-bottom: 48rpx;
+}
+.header{
+  display: flex;
+  align-items: flex-start;
+  font-size: 38rpx;
+  padding: 40rpx 0 0 40rpx;
+  box-sizing: border-box;
+}
+.header image{
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 20rpx;
+}
+.codeimg{
+  width: 448rpx;
+  height: 448rpx;
+  margin:  0 auto;
+  display: block;
+}
+.contentZindex .btns{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 28rpx;
+}
+.contentZindex .btns>view{
+  background: #584F60;
+  color: #FFF;
+  font-size: 36rpx;
+  padding: 22rpx 60rpx;
+  border-radius: 10rpx;
+  margin-right: 26rpx;
+}
+.contentZindex .btns>view:last-of-type{
+  margin-right: 0;
+  background: #FF5F2D;
+}
+.contentZindex icon{
+  position: absolute;
+  top: 32rpx;
+  right:25rpx;
+}

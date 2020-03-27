@@ -1,0 +1,47 @@
+/* pages/singUpSuccess/index.wxss */
+page{
+  background:#FFF;
+}
+.imgs{
+  width: 202rpx;
+  height: 202rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 100rpx;
+}
+.successText{
+  font-size: 38rpx;
+  color: #2D2D2D;
+  margin-top: 24rpx;
+  text-align: center;
+}
+.border{
+  width: 96vw;
+  margin: 0 auto;
+  background: #DCDCDC;
+  height: 1px;
+  margin-top: 101rpx;
+}
+.btns{
+  margin-top:102rpx;
+}
+.btns>view{
+    width: 96vw;
+    margin:  auto;
+    padding: 24rpx 0;
+    text-align: center;
+    background: #584F60;
+    border-radius: 20rpx;
+    color: #FFF;
+    font-size: 32rpx;
+}
+.btns>view:last-of-type{
+    background: #FF5F2D;
+    margin-top: 28rpx;
+}
+.iconText{
+  color: #FF5F2D;
+  font-size: 24rpx;
+  margin: 0 20rpx;
+  margin-top: 32rpx;
+}

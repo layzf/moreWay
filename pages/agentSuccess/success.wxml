@@ -1,0 +1,12 @@
+<view class="success">
+    <view class="head">
+        <image src="../../images/chenggong.png" class="himg"></image>
+        <text>订单支付成功</text>
+    </view>
+    <view class="content">
+        <text>后续可以在【我的-我的团长】中联系</text>
+        <text>你的专属团长咨询送货安装等售后问题</text>
+    </view>
+    <view class="btn red">联系团长安排发货</view>
+    <view class="btn white">查看详情</view>
+</view>

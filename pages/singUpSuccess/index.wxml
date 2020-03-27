@@ -1,0 +1,11 @@
+<!--pages/singUpSuccess/index.wxml-->
+<view>
+    <image src="../../images/chenggong.png" class="imgs"></image>
+    <view class="successText">报名成功，等待团长联系</view>
+    <view class="border"></view>
+    <view class="btns">
+      <view>返回了解项目</view>
+      <view>锁定优惠（支付订金¥300）</view>
+    </view>
+    <view class="iconText">团长提示：订金仅作为锁定优惠资格，如未转单，可随时无理由 申请原路退回。</view>
+</view>

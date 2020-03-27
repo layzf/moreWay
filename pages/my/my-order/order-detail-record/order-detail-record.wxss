@@ -1,0 +1,109 @@
+page{
+  padding-bottom:90rpx;
+}
+.item{
+  padding:28rpx;
+  background-color: #fff;
+  margin-bottom:20rpx;
+}
+.item:first-child{
+  border-top:2rpx solid #f1f1f1;
+}
+.head{
+  margin-bottom:40rpx;
+}
+.w-avatar{
+  width:90rpx;
+  height:90rpx;
+  margin-right:28rpx;
+  flex:0 0 90rpx;
+}
+.info{
+  flex:1;
+}
+.name{
+  color:#666;
+}
+.time{
+  font-size:24rpx;
+  color:#999;
+}
+.comment{
+  margin-bottom:30rpx;
+  color:#666;
+}
+.img-list{
+  margin-right:-20rpx;
+}
+.img-list image{
+  width:220rpx;
+  height:160rpx;
+  margin-right:19rpx;
+  margin-bottom:20rpx;
+}
+
+.fix-bottom-submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  z-index: 110;
+  background-color: #fff;
+  box-shadow: 0 0 3px #ddd;
+}
+
+.contact{
+  padding:28rpx;
+}
+
+.textarea{
+  padding:32rpx 0;
+}
+
+.submit-btn{
+  height:90rpx;
+  line-height:90rpx;
+  text-align: center;
+  font-size:30rpx;
+  color:#fff;
+  background-color: #FF5D22;
+}
+
+/* upload-image-group */
+
+.icon-camera {
+  width: 38rpx;
+  height: 32rpx;
+}
+
+.img-box {
+  display: inline-block;
+  position: relative;
+  margin-right: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.img-box image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.img-box .btn-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.img-input-box {
+  display: inline-block;
+  width: 180rpx;
+  height: 180rpx;
+  border: 1px solid #d9d9d9;
+}

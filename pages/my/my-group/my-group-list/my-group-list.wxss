@@ -1,0 +1,95 @@
+@import "../../../../tpls/my-group-item/group-item-tpl.wxss";
+.header{
+  margin-top:20rpx;
+  line-height:88rpx;
+  color:#666;
+}
+
+.contact-name{
+  display: inline-block;
+  margin-right:10rpx;
+}
+
+.control{
+  height:104rpx;
+  background-color: #fff;
+  padding:0 28rpx;
+}
+.control>view{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.btn{
+  border-radius: 20px;
+  color:#666;
+  padding:4rpx 22rpx;
+  border-color:#E9E9E9;
+}
+.is-cancel{
+  float:right;
+}
+
+.tpl-item{
+  background-color: #F0F0F0;
+  padding:30rpx 28rpx;}
+
+.info{
+  flex:1;
+}
+.info .name{
+  margin-bottom:10rpx;
+}
+.info .names{
+  font-size: 12px;
+  color:#FF5D22;
+}
+.info .namess{
+  color:#999;
+  font-size: 12px;
+}
+.time{
+  color:#666;
+  font-size:26rpx;
+}
+
+.time text{
+  display: inline-block;
+  margin-right:30rpx;
+}
+.pay_price{
+  color: #e94816
+}
+.tit{
+  color: #999;
+}
+.tt{
+  color: #999;
+}
+.orderClass{
+  margin-bottom: 15rpx;
+}
+
+.empty-page image {
+  width: 208rpx;
+  height: 154rpx;
+  margin-top: 300rpx;
+  margin-bottom: 10rpx;
+}
+
+.empty-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+ .w-label{
+  margin-right: 20rpx;
+  color: #e94816;
+  border-color: #e94816;
+}
+.flex-row .w-label:last-of-type{
+  margin-right: 0
+}

@@ -1,0 +1,6 @@
+<view class="login">
+    <view class="tip">你还未登录，请授权登陆</view>
+    <button open-type="getPhoneNumber"  class="btn green" bindgetphonenumber="wxLogin">微信授权登录</button>
+    <view class="btn white" catchtap="changeStatus">其他方式登录</view>
+    <login wx:if="{{option!==null}}" isShow="{{show}}" mask="{{mask}}" isCode="{{option}}" bindhideRowLogin="hideRow"></login>
+</view>

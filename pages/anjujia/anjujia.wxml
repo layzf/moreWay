@@ -1,0 +1,69 @@
+    <image class='banner' src="http://img-test.duorang.com/upload/adv/2019/8/29/5d4d696a-730e-4913-b915-f31cd3eb7fe4.png" mode="widthFix"></image>
+<view class="titles">
+ <view>全屋家具一站式定制</view>
+  <image class='banner' src="http://img-test.duorang.com/upload/adv/2019/9/2/1ce6c8ec-27e0-4a6e-af94-15124a669949.png" mode="widthFix"></image>
+</view>
+
+<image src="http://img-test.duorang.com/upload/adv/2019/9/3/4da8daee-9732-4e89-b354-c462f7831661.jpg" mode="widthFix" class="banner "></image>
+
+<view class="Margin_20" id='top'>
+    <image src="../../images/kou3.png" mode="widthFix"></image>
+    <block wx:for='{{imgs}}' wx:key='{{index}}'>
+      <view>
+          <view class="news" wx:if='{{index!=0}}'>New</view>
+          <image src="{{item.img}}" mode="widthFix"></image>
+          <view class="productName">{{item.name}}</view>
+          <view class="bootoms">
+              <view>300 <text>元订金</text></view>
+
+              <view wx:if='{{loginStatus}}'> 
+                <view catchtap="orderBtns" data-id='{{item.pid}}'>马上预订</view>
+              </view>
+
+              <view wx:else> 
+                 <navigator url="../newLogin/index" class="goHref">马上预订</navigator>
+              </view>
+
+          </view>
+      </view>
+    </block>
+</view>
+
+<image src="http://img-test.duorang.com/upload/adv/2019/9/3/ccc2771f-be38-4e21-88e6-88ba4fa78a8c.jpg" mode="widthFix" class="banner "></image>
+
+
+<!--安装实拍-->
+<view style="margin-bottom:60rpx;">
+  <image src="../../images/kou2.png" mode="widthFix" class="titleImgs"></image>
+  <view class="anImgs flex-r space-between">
+    <image src='{{item}}' wx:key='{{index}}' wx:for='{{img}}' mode="widthFix" data-ed='1' catchtap="prerView" data-index='{{index}}'></image>
+  </view>
+</view>
+
+<!--口碑-->
+<view>
+  <image src="../../images/kou1.png" mode="widthFix" class="titleImgs"></image>
+  <view class="kous flex-r space-between">
+    <image src='{{item}}' wx:key='{{index}}' wx:for='{{kou}}' mode="widthFix" data-ed='2' catchtap="prerView" data-index='{{index}}'></image>
+  </view>
+</view>
+
+<image src="http://img-test.duorang.com/upload/adv/2019/9/3/6ffbe1d7-8bed-40f5-bd25-fc7b4d9de7d4.jpg" mode="widthFix" class="banner topMargin"></image>
+
+   <!--咨询团长-->
+    <my-commander isTab='{{showTab}}'  height='{{height}}' isShow='{{commanderHiden}}' id='my-commander'></my-commander>
+
+<view class="flexends">
+    <view class="consult" catchtap="callCapital">咨询团长</view>
+    <view class="orderbtnes" catchtap="goTap">马上预订</view>
+</view>
+
+   <!--shareHome-->
+    <movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+    <movable-view
+            style="pointer-events: auto"
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>

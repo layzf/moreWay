@@ -1,0 +1,11 @@
+/* pages/sw-detail-img/sw-detail-img.wxss */
+.imgs image{
+  width: 100%;
+  display: block
+}
+.colseInt{
+  position: fixed;
+  right: 15rpx;
+  top: 15rpx;
+  z-index: 99;
+}

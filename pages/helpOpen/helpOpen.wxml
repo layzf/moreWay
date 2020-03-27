@@ -1,0 +1,20 @@
+<view class="container">
+    <image src="/images/helpOpen.jpg"></image> 
+    <view class="w flex-row-between header">
+        <view class="flex-row estate">
+          <image class="icon-location" src="/images/icon_estate_location@2x.png"></image>
+          <text>{{detailList.village_name}}</text>
+          <image class="icon-arrow-down" src="/images/icon_arrow_down@2x.png"></image>
+        </view>
+    </view>
+      <view class='singUp'>
+        <text>报满{{detailList.open_num}}户 马上开通</text>
+      </view>
+      <view class='progessBar'>
+        <progress percent="{{percent}}" stroke-width="12"/>
+      </view>
+      <view class='comeTrue'>距本群开通，只差 <text>{{needPeople}}</text> 人助力</view>
+      <view class='comeTrue_left' bindtap='joinHelp' wx:if="{{judgeJoin==false}}">马上报名助力</view>
+    <view class='comeTrue_left' wx:else>你已助力成功</view>
+    <view class="mask" wx:if="{{appointTap}}" catchtap="hideAppointModal"></view>
+</view>

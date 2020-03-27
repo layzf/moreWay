@@ -1,0 +1,8 @@
+<view class="slider-container">
+    <view class="slide-screen" style="{{'width:'+(width/2)+'px'}}">
+        <view class="slide-context" style="{{'width:'+width+'px;left:'+left+'px'}}">
+            <view class="slide-item" wx:for="{{imgList}}" wx:for-index="idx"></view>
+            <view class="slide-item yellow" wx:for="{{copyList}}" wx:for-index="index"></view>
+        </view>
+    </view>
+</view>

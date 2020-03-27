@@ -1,0 +1,102 @@
+/* pages/assembleList/index.wxss */
+page{
+  background: #FF6A3C;
+  padding-bottom: 70rpx;
+}
+.bannerImg{
+  width: 100%;
+}
+
+.main{
+  background: #FFF;
+  margin: 0 24rpx;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 28rpx;
+}
+.countdown text{
+  display: inline-block;
+  color: #FFF;
+  padding: 4rpx;
+  background: #1F1F1F;
+  border-radius: 10rpx;
+  margin-right:6rpx;
+  font-size: 24rpx;
+}
+
+.countdown text:nth-of-type(3){
+  margin-right: 0rpx
+}
+
+.countFlex .countText{
+  margin-right: 10rpx;
+  font-size: 24rpx;
+}
+.countFlex,.fl,.contentFlex{
+  display: flex;
+  align-items: center;
+}
+.fl{
+  color: #FF5F2D;
+  font-size:26rpx;
+}
+.fl>view{
+  color: #BFBFBF;
+}
+.contentFlex{
+  justify-content: space-between;
+}
+.flagTitle{
+  text-align: center;
+  color: #FFD1BC;
+  font-size: 26rpx;
+  margin-top: 56rpx;
+}
+
+/*产品布局样式*/
+.prodect{
+  display: flex;
+  align-items: flex-start;
+  border-top: 1px solid #DCDCDC;
+  padding-top: 32rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+.prodect image{
+  width: 226rpx;
+  height: 226rpx;
+}
+.prodectR{
+  margin-left: 30rpx;
+}
+.prodectR .prodectName{
+  font-size: 28rpx;
+  color: #1F1F1F;
+  margin-bottom: 10rpx;
+}
+.prodectR .prodectTip{
+  font-size: 26rpx;
+  color: #BFBFBF;
+}
+.prodectR .prodectAssembleMoney{
+  color: #EC6067;
+  font-size: 30rpx;
+  margin-top: 32rpx;
+}
+.prodectR .prodectMoney{
+  color: #BFBFBF;
+  font-size: 22rpx;
+  margin-top: 6rpx;
+  text-decoration: line-through;
+}
+.goAssemble{
+  position: absolute;
+  font-size: 26rpx;
+  background: #FF5F2D;
+  color: #FFF;
+  text-align: center;
+  padding: 10rpx 20rpx;
+  right: 0;
+  bottom: 0;
+  border-radius: 10rpx
+}

@@ -1,0 +1,18 @@
+<!--pages/newLogin/index.wxml-->
+<view>
+    <image class="logo" src="../../images/logo@2x.png"></image>
+    <view class="border"></view>
+    <view class="functionBox">
+       <view class="titleBold" wx:if='{{!userInfor.userName && !userInfor.loginStatus}}'>请同意授权微信手机号</view>
+       <view class="titleBold" wx:else>请同意授权微信昵称、头像</view>
+       <view class="text">·为保障您的数据安全，提供更好服务</view>
+       <button 
+            class="loginBtn"  
+            open-type="getPhoneNumber"  
+            wx:if='{{!userInfor.userName && !userInfor.loginStatus}}'
+            bindgetphonenumber="getPhone">微信用户快捷登录</button>
+
+       <button wx:else class="loginBtn" loading='{{loadingBtns}}' open-type="getUserInfo" bindgetuserinfo="getUser">授权用户昵称、头像</button>
+    </view>
+</view>
+ 

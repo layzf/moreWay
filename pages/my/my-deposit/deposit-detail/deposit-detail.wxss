@@ -1,0 +1,74 @@
+@import "/tpls/deposit-detail-tpl/deposit-detail-tpl";
+@import "/tpls/showImg/showImg";
+page{
+  overflow-y:auto !important;
+  padding-bottom: 80rpx;
+}
+.leadWidth{
+  width: 556rpx;
+}
+.disFlex{
+  display: flex;
+  align-items: center;
+}
+.leftIcon{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+.leaderShow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  padding: 36rpx 18rpx 36rpx 18rpx;
+}
+.leaderShow text{
+  font-size: 26rpx;
+}
+.icons{
+  width: 52rpx;
+  height: 52rpx;
+}
+.rightImg{
+  width: 30rpx;
+  height: 42rpx;
+}
+.moneys{
+  margin-left: 40rpx;
+}
+.moneys text,.downOrdermoney text{
+  margin-left: 10rpx;
+  color: #E94816;
+}
+.rightImgs image{
+  margin-left: 8rpx;
+}
+.newlists{
+  border-top: 16rpx solid #FFF;
+}
+.titles{
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 33rpx;
+}
+.upImgs{
+  margin-top: 20rpx;
+}
+.contens{
+  padding: 20rpx 33rpx;
+  background: #FFF;
+}
+.upImgs image{
+    margin-top: 20rpx;
+    width: 220rpx;
+    height: 210rpx;
+    margin-right:10rpx;
+}
+.upImgs image:nth-of-type(3n+3){
+     margin-right: 0;
+}
+.upImgs>view{
+  display: flex;
+  align-items: center;
+   flex-wrap: wrap;
+}

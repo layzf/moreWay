@@ -1,0 +1,265 @@
+@import "/tpls/auth-code/auth-code-tpl.wxss";
+/**/
+  .codeImgBox{
+    width: 702rpx;
+    height:728rpx;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -351rpx;
+    margin-top: -364rpx;
+    text-align: center;
+  }
+  .codeImgBox .shadowRgba0{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    left: 0;
+    top: 0;
+  }
+  .codeImgBox .content{
+    z-index: 999999;
+    position: fixed;
+    width: 702rpx;
+    height: 728rpx;
+    border-radius: 30rpx;
+    background: #FFF;
+
+  }
+  .codeImgBox .content>text{
+    margin-top: 42rpx;
+    display: inline-block;
+    font-size: 38rpx;
+    color: #1F1F1F;
+  }
+  .codeImgBox .content>image{
+      width: 424rpx;
+      height: 424rpx;
+      display: block;
+      margin: 0 auto;
+      margin-top: 15rpx;
+
+  }
+   .codeImgBox .content>view{
+     margin-top: 48rpx;
+   }
+   .codeImgBox .clearBtn{
+      position: absolute;
+      bottom: -74rpx;
+      left: 50%;
+      margin-left: -15px;
+      z-index: 99;
+    }
+/*end*/
+.button_sure{
+  font-size: 30rpx;
+}
+.load{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.load image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+page{
+   padding-bottom:1rpx;
+}
+.head{
+  position: relative;
+  padding-top:60rpx;
+  margin-bottom:40rpx;
+}
+.head-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:160rpx;
+  background-color: #FF5D22;
+  border-radius:0 0 30% 30%;
+  z-index: -1;
+}
+.card{
+  margin:0 28rpx;
+  background-color: #fff;
+  border:#E9E9E9;
+  border-radius: 5px;
+  position: relative;
+  height:386rpx;
+  margin-bottom: 20rpx;
+  margin-top: 30rpx;
+}
+.w-avatar{
+  position: absolute;
+  top:-60rpx;
+  left:40rpx;
+  width:120rpx;
+  height:120rpx;
+  border:1px solid rgba(255, 255, 255, .5);
+}
+.num{
+  background-color:#fff;
+  font-size:14px;
+  display:inline;
+  padding: 0;
+  text-align:left;
+  margin-left: 10px;
+}
+.info{
+  /* width: 80%; */
+  position: absolute;
+  top:24rpx;
+  left:180rpx;
+  font-size:30rpx;
+}
+.code{
+  position: absolute;
+  top:24rpx;
+  right:20rpx;
+  font-size:20rpx;
+}
+.card-footer{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:88rpx;
+  background-color: #333;
+  border-radius: 0 0 5px 5px;
+  color:#CEC5AC;
+  padding:0 30rpx;
+}
+.card-footer .icon-auth{
+  display: inline-block;
+  width:40rpx;
+  height:40rpx;
+  margin-right:10rpx;
+}
+.card-footer > text{
+  flex:1;
+}
+.card-footer .more-center{
+  text-align: right;
+  font-size:24rpx;
+  width:220rpx;
+}
+.card-footer .icon-more-center{
+  display: inline-block;
+  width:10rpx;
+  height:18rpx;
+  margin-left:10rpx;
+}
+.point{
+  color:#999;
+  text-align: center;
+}
+.point .point-num{
+  font-size:60rpx;
+  color:#E94816;
+  display: inline-block;
+}
+
+.w{
+  padding-bottom:28rpx;
+  margin-bottom:20rpx;
+  box-sizing: border-box;
+}
+.w-head{
+  height:88rpx;
+  border-bottom:1px solid #F7F7F7;
+  margin-bottom:20rpx;
+}
+.w-head .more{
+  font-size:24rpx;
+  color:#999;
+}
+.w-head image{
+  width:10rpx;
+  height:18rpx;
+  display: inline-block;
+  margin-left:10rpx;
+}
+.w-con .item,.my-item{
+  font-size:26rpx;
+  color:#666;
+}
+.w-con .item image{
+  width:70rpx;
+  height:70rpx;
+  display: block;
+  margin-bottom:12rpx;
+}
+.w-con .item .count{
+  color:#FF5D22;
+}
+.my-w{
+  overflow: hidden;
+  /* margin-bottom:20rpx; */
+}
+.my-w-con{
+   margin-bottom:-40rpx;
+}
+
+.my-item{
+  margin-bottom:40rpx;
+}
+.my-item image{
+  width:80rpx;
+  height:80rpx;
+  display: block;
+  margin-bottom:10rpx;
+}
+.auditMmember{
+  height: 240rpx;
+  display: flex;
+  flex-direction: column;
+}
+.auditMmember .num{
+  color: #333333;
+  font-size: 40rpx;
+}
+.auditMmember .tit{
+  color: #333333;
+  font-size: 24rpx;
+}
+.becomeVip{
+  text-align: center;
+}
+.applyMoney_p{
+  width: 38px;
+  height: 13px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.applyMoney_middleed{
+  width: 55px;
+  height: 19px;
+  margin-left: 3px;
+  margin-top: 3px;
+}
+.bottomLine{
+  width: 100%;
+  border-top: 1rpx solid rgba(180,180,180,0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.newClass{
+   padding-top:16rpx;
+   display: flex;
+   flex-wrap: wrap;
+   box-sizing: border-box;           
+}
+.newClass navigator{
+  box-sizing: border-box;
+  width: 230rpx;
+  text-align: center;
+}

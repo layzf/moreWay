@@ -1,0 +1,110 @@
+<view class="load" wx:if='{{load}}'>
+    <image src="http://img-test.duorang.com/upload/adv/2019/8/28/9f28589c-c9f8-4d73-9e8e-ab552e35ab03.gif"></image>
+</view>
+
+
+<view else>
+  <!-- <view catchtap='modelShow'>立即预约</view> -->
+  <view class='bannerPosition'>
+      <image src='{{homepage.banner.image_url}}' class='bannerImgs' mode='widthFix' bindload="imgload"></image>
+      <view class='flex-row searchIcon'>
+          <icon type="search" size="16" color="#D0CDD0"/> 
+          <input type='text' placeholder='搜索我的小区' cursor-spacing='20' bindinput='bindInput' bindconfirm='confirm' confirm-type='search'></input>
+      </view>
+  </view>
+<!--内容-->
+<view class='boxs'>
+<!--tab切换-->
+  <view class='tabs {{fixedClass?"fixeds":""}}' id="tab">
+     <view class='flex-row-around '>
+       <block wx:for='{{arrTab}}' wx:key='q'>
+          <view class='{{current==index?"active":""}}' catchtap='tabClick' data-index='{{index}}'> <text>{{item}}</text> </view>
+       </block>
+     </view>
+    </view>  
+<!--内容展示-->
+<!-- （0验房团申请中,1正在组团,2已成团,3已经结束,4所有订单验房完成）  0 4 用不到 -->
+
+  <view class="joins">
+      <view class='listbgFFF' wx:for='{{list}}' wx:key='qs'>
+       <navigator url='../y-indexDetail/y-indexDetail?status={{item.status}}&id={{item.id}}&project_id={{item.project_id}}' hover-class='none'>
+
+        <view class='listConent' wx:if='{{item.status!=0}}'>
+            <view class='listBox'>
+                <view class='flex-row'>
+                  <view class='boxShowModel'>
+                    <image src='{{item.image_url}}'></image>
+                    <view wx:if='{{item.status==3}}' class='endActive'>已结束</view>
+                    <view wx:else class='notEndActive'>
+                         <text>{{item.status==1?"正在组团":item.status==2?"组团成功":""}}</text>
+                    </view>
+                  </view>
+                  <view class='listTextBox' style='width:{{item.status!=3?262:300}}rpx;'>
+                      <view class='hosueName'>{{item.name}}</view>
+                      <view class='houseInformation o-hs-2' wx:if='{{item.status!=1}}'>
+ {{item.status==3?'此小区组团验房已结束，可单户预约验房':item.status==2?'已满'+item.can_group_sum+'户,组团成功!预约验房进行中':''}}
+                      </view>
+                      <view wx:elif='{{item.status==1}}' class='houseInformation' style='flex:1;'>
+             <view style="width:310rpx;">{{item.can_group_sum}}户成团还差{{item.can_group_sum - item.applied_sum}}人成团</view>
+                          <view class='colok flex-r v-center'>
+                           <view class="textsEnds">剩余</view> 
+                          <count countType="custorm"  time="{{item.end_enroll_time}}" show="true"></count></view>
+                      </view>
+                  </view>
+                </view>
+                <view class='orderBtns'>
+                    {{item.status==3?"单独预约":item.status==1?"立即参团":item.status==2?"立即预约":""}}
+                </view>
+            </view>
+        </view>
+      </navigator>
+        <!--参团头像-->
+        <view class='fllowImg flex-row space-between'>
+          <view class="flex-row">
+            <view class='userImg flex-row'>
+              <view class="imgServer" wx:for='{{item.userInfoList}}' wx:key='ids'> 
+                  <image src='{{item.icon}}'></image>
+              </view>
+              
+              <text wx:if='{{item.userInfoList.length>=1}}'>...</text>
+            </view>
+            <view class='fllowNum'>等<text>{{item.applied_sum}}</text>户预约成功</view>
+          </view>
+          <view>{{item.company_name}}</view>
+        </view>
+
+    </view>
+  </view>
+
+<!-- can't find my neighborhood-->
+    <view class='neighborhood'>
+        <text catchtap='modelShow'>找不到我的小区？申请开通</text> 
+    </view>
+  </view>
+<!--弹框-->
+<view wx:if='{{changeModel}}'>
+  <view class='model' catchtap='closeModel' catchtouchmove='return'></view>
+   <view class='contentWidth' catchtouchmove='return'>
+   <image src='../../images/modelDel.png' class='closeModel' catchtap='closeModel'></image>
+       <view class='changeTitleBox'>
+         <view class='title_change'>选择适合你的验房方式</view>
+         <view class='text_change'>若小区还未开始交房，建议选择验房团</view>
+       </view>
+       <view class='clearRoom'>
+          <navigator url='../y-inspectionGroup/y-inspectionGroup' hover-class='none'>申请开通小区验房团</navigator>
+       </view>
+       <view class='aloneRoom'>
+          <navigator url='../y-indexDetail/y-indexDetail?status=-1' hover-class='none'>单独验房</navigator>
+       </view>
+       <view class='lookMyAskFo'>
+         <navigator url='../y-myorderHouse/y-myorderHouse?current=0' hover-class='none'>查看我的申请</navigator>
+       </view>
+   </view>
+</view>
+
+<!-- 
+<view class="detailList">
+  <image src='{{item.image_url}}' mode="widthFix" wx:for='{{homepage.detailList}}' wx:key='{{index}}'></image>
+</view> -->
+
+</view>

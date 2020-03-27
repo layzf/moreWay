@@ -1,0 +1,206 @@
+<import src="../../../tpls/loginPublic/loginPublic.wxml" />
+<import src="../../../tpls/signUp/signUp.wxml" />
+<!--<view class="total-order" wx:if="{{progressList.so_count!=0}}">-->
+  <!--<text>{{collect.collectName}}</text>-->
+  <!--<text> 累计已达 </text>-->
+  <!--<text class="order-num">{{progressList.so_count}}</text>-->
+  <!--<text> 单</text>-->
+<!--</view>-->
+<tip wx:if="{{collectRecordDto}}" type="{{collectRecordDto.return_type}}"></tip>
+<view class="banner">
+  <button open-type='share' class="shareButtom" bindtap='shareFriden'>
+  </button>
+  <image src="/images/icon_share@2x_collect.png" class='share'></image>
+  <image src="{{collectRecordDto.project_img_url}}" class="banner-img" mode='widthFix'></image>
+  <view class='banner_tip-left'>
+    <!--<view class='banner_tip'>-->
+      <!--<view>{{collectRecordDto.project_name}}</view>-->
+      <!--<view>{{collectRecordDto.beg_at}}~{{collectRecordDto.end_at}}</view>-->
+      <!--<view>{{collectRecordDto.limit_num}}户团</view>-->
+    <!--</view>-->
+  </view>
+</view>
+
+<view class="con flow">
+  <view class="con-title">{{collectRecordDto.project_name}}</view>
+  <view class="subscri">
+    <text class="money">订金{{collectRecordDto.so_price}}元</text>
+    <text class="stip">(订金有效期两个月，去商家转单可抵货款)</text>
+  </view>
+  <!--<view wx:if="{{showMore}}">-->
+    <!--<view class="apply-tittle flex-row-center" wx:if="{{collectRecordDto.enroll_num!=0}}">累计报名-->
+      <!--<text class='apply_titles'>{{collectRecordDto.enroll_num}}</text> 次-->
+      <!--<view class='seeALLs'>-->
+        <!--<navigator url="../collectJoin/collectJoin?collectId={{collectId}}&judgeNum=1&collectJoin={{progressList.enroll_count}}&village_id={{villageId}}" hover-class="none">-->
+          <!--,查看全部-->
+        <!--</navigator>-->
+      <!--</view>-->
+    <!--</view>-->
+    <!--<view class='scroll-view-item flex-row-center'>-->
+      <!--<view class='flex-c-between left_head' wx:for="{{collectEnrolls}}" wx:key="">-->
+        <!--<image src="{{item.icon?item.icon:'http://via.placeholder.com/28x28'}}" class="avatar"></image>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</view>-->
+</view>
+<!-- <view class='detail-title shopAdress_top'>门店地址</view>
+<view class='shopAdress flex-row-center'>
+  <view class='shopAdress_left flex-r'>
+    <view class='shopAdress_right flex-row-center'>
+      <image src='/images/icon_estate_location@2x.png'></image>
+    </view>
+    <view class='shopAdress_bottom'>
+      <text>{{collectRecordDto.shop_name}}</text>
+      <view>{{collectRecordDto.shop_address}}</view>
+    </view>
+    <view class='shopAdress_middle flex-row-center' bindtap='contactShop'>联系商家</view>
+  </view>
+</view> -->
+<!-- <view wx:if="{{collectComment.length>0}}">
+    <view class="con-title flex-row-between comment-title">
+      <view>集采评价</view>
+      <view class="rate">
+        <navigator url="../comment/comment?collectId={{collectId}}" open-type="navigate" hover-class="none">
+          <text>全部评价 </text>
+          <image src="../../../images/icon_arrow_next_authcode@2x.png"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="comments">
+      <swiper next-margin="120rpx" bindchange="swiperChange">
+        <block wx:for="{{collectComment}}" wx:key="{{item.commentId}}">
+          <swiper-item>
+            <view class="flex-row-between comment-item">
+              <view class="left">
+                <view class="flex-row top">
+                  <image src="{{item.icon}}" class="avatar"></image>
+                  <view>
+                    <view class="name">{{item.user_name}}</view>
+                  </view>
+                </view>
+                <view class="bottom">{{item.label}}</view>
+              </view>
+              <view class="right">
+                  <view class="num">{{item.img_url.length}}张</view>
+                  <image src="{{item.img_url[0]}}"></image>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="more" wx:if="{{isMore}}">
+        <navigator url="../comment/comment?collectId={{collectId}}" open-type="navigate" hover-class="none">
+          更多>
+        </navigator>
+      </view>
+    </view>
+</view> -->
+<view class="cashback" wx:if="{{collectRecordDto.return_type>0}}">
+  <text class="title">返现</text>
+  <text class="money">订单验收后，可获得下单金额{{collectRecordDto.return_value}}的返现</text>
+</view>
+<view class="con-title detail-title">集采详情</view>
+<view class='imagesImg'>
+  <image src="{{item.img_url}}" mode="widthFix" wx:for="{{collectRecordDto.projectImgs}}" wx:key=""></image>
+</view>
+
+<!-- <view class="flex-row fix-bottom fix-bottoms" wx:if="{{collectRecordDto.investigate_status==0}}">
+  <view class="flex-row-center left" bindtap='contactGroup' data-service="{{collectDespoit.userAut.id}}">
+    <image src="../../../images/icon_connect@2x.png"></image>
+    <text>联系团长</text>
+  </view>
+  <view class="flex-row-center right" wx:if="{{beg_at==true&&progressList.enroll_status==0}}" bindtap="onAppointTap">
+    <view class="flex-row-center right">立即报名</view>
+  </view>
+  <view class="flex-row-center right" wx:if="{{beg_at==true&&progressList.enroll_status==1}}" bindtap='alreadyGroup'>
+    <view class="flex-row-center right">已报名</view>
+  </view>
+  <view class="flex-row-center right" wx:elif="{{end_at==true&&progressList.so_info==false}}">
+    <view class="flex-row-center rights">开团中</view>
+  </view>
+  <view class="flex-row-center right" wx:elif="{{end_at==true&&progressList.so_info!=false}}">
+    <view class="flex-row-center rights" bindtap='goToMySoInfoList'>已交订金</view>
+  </view>
+  <view class="flex-row-center right" wx:elif="{{end_detail==true}}">
+    <view class="flex-row-center right">集采结束</view>
+  </view>
+  <view class="flex-row-center right" wx:else>
+    <view class="flex-row-center right" bindtap="onAppointTap">立即报名</view>
+  </view>
+</view> -->
+<!-- <view class="flex-row fix-bottom" wx:if="{{collectRecordDto.pricedis_type==0&&collectRecordDto.deposit_type==0}}">
+  <view class="flex-row-center left changeColor" bindtap='contactGroup' data-service="{{collectDespoit.userAut.id}}">
+    <image src="../../../images/icon_connect@2x.png"></image>
+    <text>联系团长</text>
+  </view>
+</view> -->
+<view class="flex-row fix-bottom">
+  <view class="flex-row-center left" bindtap='contactGroup' data-service="{{collectDespoit.userAut.id}}">
+    <image src="../../../images/icon_connect@2x.png"></image>
+    <text>联系团长</text>
+  </view>
+  <!-- <view class="flex-row-center middle" bindtap='seePrice' wx:if="{{collectRecordDto.pricedis_type == 1}}">
+    <text>查看价格表</text>
+  </view> -->
+  <!-- <view wx:else class="flex-row-center middle middColor">
+    <text>查看价格表</text>
+  </view> -->
+  <view class="flex-row-center right" wx:if="{{beg_at==true&&progressList.enroll_status==0}}">
+    <view class="flex-row-center right" wx:if="{{isLogin}}" bindtap="onAppointTap">立即报名</view>
+    <button class="flex-row-center right" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>立即报名</button>
+  </view>
+  <view class="flex-row-center right" wx:if="{{beg_at==true&&progressList.enroll_status==1}}" bindtap='alreadyGroup'>
+    <view class="flex-row-center right middColores">已报名</view>
+  </view>
+  <!-- <view class="flex-row-center right" wx:if="{{end_at==true&&progressList.so_info==false}}">
+    <view class="flex-row-center rights">开团中</view>
+  </view> -->
+  <view class="flex-row-center right" wx:if="{{end_at==true&&progressList.so_info==false}}">
+    <view wx:if="{{collectRecordDto.deposit_type == 1}}">
+      <view wx:if="{{isLogin}}" class="flex-row-center rights" bindtap='depositGold'>交订金 ￥{{collectRecordDto.so_price}}</view>
+      <button wx:else class="flex-row-center rights" open-type="getPhoneNumber" bindgetphonenumber="wxLoginGold">交订金</button>
+    </view>
+    <view class='flex-row-center rights' wx:else>现场集采中</view>
+  </view>
+  <view class="flex-row-center right" wx:if="{{end_at==true&&progressList.so_info!=false}}">
+    <view class="flex-row-center rights middColores">已交订金</view>
+  </view>
+  <view class="flex-row-center right middColores" wx:if="{{end_detail==true}}">
+    <view class="flex-row-center right middColores">集采结束</view>
+  </view>
+  <!-- <view class="flex-row-center right" wx:else>
+    <view class="flex-row-center right" bindtap="onAppointTap">立即报名</view>
+  </view> -->
+</view>
+<view class='returnFirst' wx:if="{{returnIndex==true}}" bindtap='returnPage'>
+  <image src='/images/returnIndex.png'></image>
+</view>
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px'}}">
+  <movable-view
+          class="rimg"
+          direction="all">
+    <image class="returnImg" src="../../../images/returnIndex.png" catchtap="returnHome"></image>
+  </movable-view>
+</movable-area>
+<template is="signUp" data="{{chooseMessage,chooseContactBack,appointTap,pageStatus,animationData,showRoom}}"></template>
+<template is="login_public" data="{{loginData}}"></template>
+<login
+       wx:if="{{show}}"
+       isShow="{{show}}"
+       mask="{{masks}}"
+       bindhideRowLogin="hideRowLogin"
+       isCollect="{{true}}"
+       isSub="{{isSub}}"
+       cid="{{collectId}}"
+       bindcollect="showLoginData"
+       bindsubData="changeData"></login>
+<enroll
+        wx:if="{{showLogin}}"
+        isShow="{{showLogin}}"
+        mask="{{mask}}"
+        dataid="{{options}}"
+        user="{{collectDespoit}}"
+        cid="{{collectId}}"
+        info="{{info}}"
+        address="{{addrlist}}"
+        bindhideRow="hideRow"></enroll>

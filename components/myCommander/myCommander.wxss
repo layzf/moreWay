@@ -1,0 +1,137 @@
+/*蒙版*/
+.maskIngBox{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -351rpx;
+  margin-top: -338rpx;
+  border-radius: 30rpx;
+  width: 702rpx;
+  height: 676rpx;
+  background: #FFF;
+  z-index: 999;
+}
+.ybgColor{
+  height: 300rpx;
+  width: 100%;
+  background: #FFD1BC;
+  border-radius:60rpx 60rpx 100% 100%;
+}
+.commanderbgColor{
+  padding: 48rpx 0 0 48rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 48rpx;
+  border-radius: 10rpx;
+  left: 50%;
+  height: 326rpx;
+  width:  622rpx;
+  margin-left: -311rpx;
+  background: linear-gradient(to right  bottom, #EEF2F5 25%,#E5E8ED 40%,#DEE2E8 60%,#D8DDE3 60%,#CBCFDA  80%,#C4C9D5 60%,#B5BDCA 100%);
+}
+.commanderIcon,.Rcmd,.functionBox,.functionBox >view,.bottomFlexBtns>view{
+  display: flex;
+  align-items: center;
+}
+.Rcmd{
+  margin-top: 6rpx;
+}
+.commanderName{
+    display: flex;
+    align-items: center;
+    color: #FF5F2D;
+    font-size: 28rpx;
+}
+.commanderName>view image{
+  width: 25.42rpx;
+  height: 29.24rpx;
+  margin-right: 6rpx;
+}
+.commanderName .name{
+  margin-right: 10rpx;
+  font-size: 38rpx;
+  color: #1F1F1F;
+}
+.commanderIcon>image{
+  margin-right: 24rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 100%;
+}
+.serveNumber{
+  font-size: 28rpx;
+  color: #777777;
+  margin-top: 8rpx;
+}
+.dashed{
+  border-top: 1px  dashed #707070;
+  width: 448rpx;
+  height: 1px;
+  margin-top: 60rpx;
+}
+.functionBox{
+  margin-top: 24rpx;
+}
+.functionBox  image{
+  margin-right: 6rpx;
+}
+.functionBox >view:first-of-type image{
+  width: 19.3rpx;
+  height: 28.2rpx;
+}
+.functionBox >view:last-of-type{
+  margin-left: 62rpx;
+}
+.functionBox >view:last-of-type image{
+  width: 35.14rpx;
+  height: 28.82rpx;
+}
+.bottomFlexBtns{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 108rpx;
+  width: 100%;
+  margin-left:40rpx;
+}
+.bottomFlexBtns >view{
+  color: #FFF;
+  font-size: 36rpx;
+  justify-content: center;
+  width: 298rpx;
+  padding: 22rpx 0;
+  border-radius: 10rpx;
+}
+.bottomFlexBtns >view:first-of-type{
+  background: #584F60;
+}
+.bottomFlexBtns >view:last-of-type{
+  background: #FF5F2D;
+}
+.bottomFlexBtns >view:first-of-type image{
+  width: 46.32rpx;
+  height: 37.86rpx;
+}
+.bottomFlexBtns >view:last-of-type{
+  margin-left: 26rpx;
+}
+.bottomFlexBtns >view:last-of-type image{
+  width: 36.14rpx;
+  height: 44.58rpx;
+}
+.clearBtn{
+  position: absolute;
+  bottom: -74rpx;
+  left: 50%;
+  margin-left: -15px;
+  z-index: 99;
+}
+.maskIngShadow{
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+}

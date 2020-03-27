@@ -1,0 +1,100 @@
+@import "/tpls/order-detail-tpl/order-detail-tpl";
+.only_clock{
+  justify-content: flex-start;
+}
+
+.rightImg{
+  width: 30rpx;
+  height: 42rpx;
+}
+.moneys text,.downOrdermoney text{
+  margin-left: 10rpx;
+  color: #E94816;
+}
+.rightImgs image{
+  margin-left: 8rpx;
+}
+.newlists{
+  border-top: 16rpx solid #FFF;
+}
+.titles{
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 33rpx;
+}
+.upImgs{
+  margin-top: 20rpx;
+}
+.contens{
+  padding: 20rpx 33rpx;
+  background: #FFF;
+}
+.upImgs image{
+    margin-top: 20rpx;
+    width: 220rpx;
+    height: 210rpx;
+    margin-right:10rpx;
+}
+.upImgs image:nth-of-type(3n+3){
+     margin-right: 0;
+}
+.upImgs>view{
+  display: flex;
+  align-items: center;
+   flex-wrap: wrap;
+}
+.replace{
+  margin-top:40rpx;
+}
+.replace .flexs{
+  display: flex;
+  align-items: center
+}
+.activesType{
+  color: #E94816;
+  margin-left: 6rpx;
+  font-size: 24rpx;
+}
+
+.titleHeader{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 25rpx;
+  background: #FFF;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+.headerImg{
+  display: flex;
+  align-items: center;
+}
+.headerImg image{
+  width: 28rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
+}
+.footerContent .flex-p{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 25rpx;
+}
+.footerContent .once{
+  justify-content: space-between;
+}
+.footerContent .once view{
+  color: red;
+}
+.flex-rs{
+  display: flex;
+  justify-content: flex-end;
+  padding: 8rpx 25rpx;
+}
+.flex-rs>view{
+  border: 1px solid #E94816;
+  padding: 8rpx 30rpx;
+  border-radius: 100px;
+  color: #E94816;
+}
+.marghin_r{
+  margin-right: 26rpx;
+}

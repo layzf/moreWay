@@ -1,0 +1,40 @@
+<!--pages/sw-layout/sw-layout.wxml-->
+<view class="setps">
+  <step typeSetp="1" class='margins'></step>
+</view>
+
+
+  <view class="empty-page" wx:if="{{load}}">
+    <image src="/images/icon_empty_order@2x.png" bindload='bindload' ></image>
+
+  <navigator class="notMyVillage"
+    wx:if='{{imgLoad}}'
+    url="../sw-inspectionGroup/sw-inspectionGroup?categoryId={{categoryId}}&vilageNameId={{vilageNameId}}&shareName={{shareName}}&shareUrl={{shareUrl}}" hover-class="none">
+    <text>没有我的户型？手动输入窗户面积获取报价</text>
+  </navigator>
+
+  </view>
+<!--户型-->
+  <view class="buildings" wx:else>
+    <view wx:for='{{newVillage}}' wx:key='ins'>
+      <view>栋数：{{item.building_no}}</view>
+      <view  class="buildClass">
+        <view wx:for='{{item.houseTypeList}}'
+            wx:for-item='items' 
+            wx:key='{{index}}' 
+            data-id = '{{items.id}}'
+            data-settleId='{{items.settle_status}}'
+            catchtap="_goDetail"
+            data-buildname='{{items.name}}'
+            class='{{items.settle_status?"":"disable"}}'
+            data-index='{{index}}'>
+      {{items.name}}</view>
+      </view>
+    </view>
+  </view>
+ <!--户型 end-->
+
+  <navigator class="notMyVillage" wx:if='{{!load}}'
+    url="../sw-inspectionGroup/sw-inspectionGroup?categoryId={{categoryId}}&vilageNameId={{vilageNameId}}&shareName={{shareName}}&shareUrl={{shareUrl}}" hover-class="none">
+    <text>没有我的户型？手动输入窗户面积获取报价</text>
+  </navigator>

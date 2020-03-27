@@ -1,0 +1,41 @@
+<view class="border-top header">我邀请的好友</view>
+
+<view class="date">2018年1月23日</view>
+
+<view class="con">
+  <view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">微笑的鱼</text>
+  <view class="status status-auth">认证成功</view>
+</view>
+<view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">一只小鸟</text>
+  <view class="status status-auth">认证成功</view>
+</view>
+<view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">呵呵哒哒</text>
+  <view class="status status-sign">签到成功</view>
+</view>
+</view>
+
+<view class="date">2018年1月23日</view>
+
+<view class="con">
+  <view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">一只小鸟</text>
+  <view class="status status-sign">签到成功</view>
+</view>
+<view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">呵呵哒哒</text>
+  <view class="status status-auth">认证成功</view>
+</view>
+<view class="flex-row-between list">
+  <image src="http://via.placeholder.com/70x70"></image>
+  <text class="name">微笑的鱼</text>
+  <view class="status status-sign">签到成功</view>
+</view>
+</view>

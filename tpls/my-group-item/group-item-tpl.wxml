@@ -1,0 +1,13 @@
+<template name="my-group-item">
+  <view class="flex-row tpl-item">
+    <image src="{{item.img_url}}" class="item-cover"></image>
+    <view class="info">
+      <view class="o-hs-2 name">{{item.village_name}}</view>
+       <!-- <view class="o-hs-2 name1 ">{{item.create_at}}</view> -->
+         <!-- <view class="price">
+            <text class='tt'>订单：</text>
+            <text class='pay_price'>{{item.pay_price}}元</text>
+          </view> -->
+    </view>
+  </view>
+</template>

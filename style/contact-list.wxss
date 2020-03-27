@@ -1,0 +1,88 @@
+page {
+  padding-bottom: 110rpx;
+}
+.w{
+  padding-left:0;
+}
+.item {
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.footer {
+  height: 100rpx;
+  font-size: 26rpx;
+  color: #999;
+  padding-left:28rpx;
+}
+
+.footer image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 24rpx;
+}
+
+.footer .icon-choose {
+  width: 40rpx;
+}
+
+.footer .icon-delete {
+  flex: 0 0 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0;
+}
+
+.footer text {
+  flex: 1;
+}
+
+.con {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height:128rpx;
+  position: relative;
+}
+
+.icon-edit {
+  flex: 0 0 34rpx;
+  margin-left: 20rpx;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.con-left {
+  flex: 1;
+  padding: 38rpx 0 38rpx 28rpx;
+}
+
+.con-left .title {
+  margin-right: 30rpx;
+  white-space:normal;
+  word-break:break-all;
+}
+
+.con-left .w-label {
+  font-size: 22rpx;
+  padding: 0 10rpx;
+  margin-left: 16rpx;
+}
+
+.left-select{
+  width:140rpx;
+  height:100%;
+  position: absolute;
+  margin-right:10rpx;
+  background-color: #F0F0F0;
+}
+.left-select .left-icon{
+  width:42rpx;
+  height:28rpx;
+}
+.left-select-mask{
+  width:140rpx;
+  min-height:128rpx;
+  margin-right:10rpx;
+}

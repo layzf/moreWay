@@ -1,0 +1,179 @@
+
+<!-- <import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template> -->
+
+
+<view class="shop">
+    <header>
+        <image class="himg" mode="widthFix" src="{{dataList.productImage}}"></image>
+        <view class="h-info">
+            <view class="hprice">
+                <text class="symbol">￥</text>
+                <text>{{dataList.productSellPrice}}</text>
+            </view>
+            <text class="h-txt">零售底价 ￥{{dataList.productOriginalPrice}}</text>
+            <text class="h-title">{{dataList.productName}}{{dataList.productCode}}</text>
+            <text class="h-desc">{{dataList.productDesc}}</text>
+        </view>
+    </header>
+    <view class="content">
+        <view class="c-con">
+            <view class="c-item">
+                <text class="c-left">发货</text>
+                <view class="c-right">仅限长沙地区，发货时间和物流具体咨询客服</view>
+            </view>
+            <view class="c-item" wx:if="{{option.txt}}">
+                <text class="c-left">运费</text>
+                <view class="c-right">{{option.txt}}</view>
+            </view>
+        </view>
+
+        <view class="c-con">
+            <view class="c-item" wx:if="{{option.auth == 1 || option.ptype == 1}}">
+                <text class="c-left">购买</text>
+                <view class="c-right {{isAuth?'':'padding'}}">{{option.auth == 1?'认证之后可购买 ':option.ptype == 1?'认证之后':''}}{{option.ptype == 1?'可获得'+option.percent+'返现':''}}</view>
+                <view class="right-icon" catchtap="toAuth" wx:if="{{!isAuth && (option.auth == 1 || option.ptype == 1)}}">
+                    <text>立即认证</text>
+                    <image src="../../images/icon_arrow_more_center@2x.png"></image>
+                </view>
+            </view>
+            <view class="c-item" wx:if="{{promotions}}">
+                <text class="c-left">优惠</text>
+                <view class="c-right">{{promotions}}</view>
+            </view>
+            <view class="c-item">
+                <text class="c-left">服务</text>
+                <view class="c-right">正品保证 · 底价承诺 · 售后保障</view>
+            </view>
+        </view>
+
+        <view class="comment" wx:if="{{dataList.evaluateInfo}}">
+            <view class="ctitle">
+                <text class="ctxt">{{dataList.evaluateInfo.evaluteType==2?'商品评价':'项目评价'}}（{{dataList.evaluateCount}}）</text>
+                <text class="call" catchtap="showAll">查看全部</text>
+            </view>
+            <view class="c-user">
+                <view class="c-head">
+                    <view class="userInfo">
+                        <image class="cavar" src="{{dataList.evaluateInfo.icon}}"></image>
+                        <view class="cname">
+                            <text>{{dataList.evaluateInfo.userName}}</text>
+                            <text>{{dataList.evaluateInfo.updateAt}}</text>
+                        </view>
+                    </view>
+                    <view class="remark">{{dataList.evaluateInfo.content}}</view>
+                </view>
+                <view class="c-img">
+                    <image class="reImg" src="{{dataList.evaluateInfo.imgUrl}}"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="shop-desc">
+            <view class="s-d-title">商品详情</view>
+            <block wx:for="{{dataList.productImgList}}" wx:key>
+                <image class="s-d-img" mode="widthFix" src="{{item.imgUrl}}"></image>
+            </block>
+        </view>
+    </view>
+    <view class="bottomstep"></view>
+    <view class="foot" style='padding-bottom:{{iPhoneX?"50rpx":"0"}}'>
+        <button open-type="contact" class="contactView  fitem" style="">
+          <view class="fimg">
+              <image src='http://img.duorang.com/upload/v/kefu.png' ></image>
+          </view>
+            <text>在线咨询</text>
+        </button>
+        <view class="fitem" catchtap="toProject">
+            <view class="fimg">
+                <image src="../../images/shop.png"></image>
+            </view>
+            <text>{{enroll?"店铺":"首页"}}</text>
+        </view>
+        <view class="fitem" catchtap="shopCarData">
+            <view class="fimg">
+                <image src="../../images/shopCar2.png"></image>
+                <view class="carNum" wx:if="{{shopCar.count>0}}">{{shopCar.count}}</view>
+            </view>
+            <text>购物车</text>
+        </view>
+        <view class="addcar" catchtap="addToCar" wx:if="{{isLogin}}">加入购物车</view>
+        <button class="addcar" id="car" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>加入购物车</button>
+        <!--<view class="buy" catchtap="submitOrder" wx:if="{{isLogin}}">结算</view>-->
+        <!--<button class="buy" id="submit" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>结算</button>-->
+    </view>
+</view>
+<!--浮窗-->
+<view class="modal"  hidden="{{!isShow}}" catchtap="hideModal">
+    <view class="modal_content" animation="{{animationData}}" hidden="{{!isShow}}" catchtap="s" style="background-color: #F2F2F2">
+        <view class="clearCar" catchtap="clear"><image src="../../images/icon_sc@2x.png"></image>清空购物车</view>
+        <scroll-view
+                scroll-y
+                style="{{'height:'+windowHeight*0.4+'px;'}}">
+            <view class="shop_list">
+                <block wx:for="{{allOfGoods}}" wx:for-index="idx" wx:key="{{item.productId}}">
+                    <view class="shop_item">
+                        <view class="s_i_title">
+                            <text class="i_title">{{item.pntName}} {{item.productCode}}</text>
+                            <text class="i_txt">{{item.remark}}</text>
+                        </view>
+                        <view class="s_i_price">￥{{item.pntPrice}}</view>
+                        <view class="s_i_num">
+                            <image data-type="car" data-idx="{{idx}}" id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                            <text>{{item.productCount }}</text>
+                            <image data-type="car" data-idx="{{idx}}" id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="foot2" wx:if="{{shopCar.amount>0}}" style='bottom:{{iPhoneX?"6rpx":"0"}}'>
+            <view class="fimg">
+                <image src="{{allOfGoods.length>0?'../../images/shopCar.png':'../../images/car.png'}}"></image>
+            </view>
+            <view class="fprice">
+                <text class="price">￥{{shopCar.payTotal}}</text>
+                <view class="f_txt">
+                    <text>总额 ￥{{shopCar.amount}}</text>
+                    <text class="f_sub" wx:if="{{shopCar.promotion>0}}">立减 ￥{{shopCar.promotion}}</text>
+                    <text class="f_sub" wx:if="{{shopCar.freightFee>0}}">运费 ￥{{shopCar.freightFee}}</text>
+                </view>
+            </view>
+            <view class="fbtn" catchtap="submitOrder">结算</view>
+        </view>
+    </view>
+    <view class="modal_img" animation="{{animationImg}}" hidden="{{checkImg == null}}">
+        <image mode="aspectFit" src="{{checkImg}}"></image>
+    </view>
+</view>
+<!--shareHome-->
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+windowHeight+'px;pointer-events: none'}}">
+    <movable-view
+            style="pointer-events:auto"
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>
+
+
+<login
+       wx:if="{{show}}"
+       isShow="{{show}}"
+       mask="{{masks}}"
+       bindhideRowLogin="hideRowLogin"
+       isCollect="{{true}}"
+       isSub="{{isSub}}"
+       cid="{{collectId}}"
+       bindcollect="showLoginData"
+       bindsubData="changeData"></login>
+
+       
+<choose wx:if="{{showChoose}}"
+        showChoose="{{showChoose}}"
+        mask="{{cmask}}"
+        isBuy="{{isBuy}}"
+        bindbuy="submitOrder"
+        bindchangeCar="changeCar"
+        animationData="{{animationData}}"
+        currentGoods="{{dataList}}"></choose>

@@ -1,0 +1,79 @@
+<import src="../../../../tpls/loginPublic/loginPublic.wxml" />
+<view class="flex-col header">
+  <view class="flex-row head">
+    <image src="/images/icon_member_border@2x.png"></image>
+    <view>多让会员 享六大权益</view>
+    <image src="/images/icon_member_border@2x.png"></image>
+  </view>
+  <view class="summery">多让会员 装小家 省大钱 每个家庭预计可省五万</view>
+</view>
+
+<view class="flex-r space-between icon-w">
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_01@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">降价补差（价保3个月)</view>
+      <view class="text-foot">集采价格三个月内发生降价变动，商家补贴差额（灯具、电器、开关除外）</view>
+    </view>
+  </view>
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_04@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">免费大巴</view>
+      <view class="text-foot">每周末现场集采，多让安排大巴接送用户</view>
+    </view>
+  </view>
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_02@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">假货全额退款不退货</view>
+      <view class="text-foot">平台商家正品保障，所有商户已缴纳诚信保证金，买到假货全额退款不退货</view>
+    </view>
+  </view>
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_03@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">专属消费顾问</view>
+      <view class="text-foot">专业人员帮助会员识别市场套路、解答装修问题，彻底避开消费陷阱</view>
+    </view>
+  </view>
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_06@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">订金随时可退</view>
+      <view class="text-foot">集采订金无任何理由随时可退</view>
+    </view>
+  </view>
+  <view class="flex-r h-center item">
+    <view class='item_left'>
+      <image src="/images/icon_member_06@2x.png"></image>
+    </view>
+    <view class='item_right'>
+      <view class="text-head">1小时极速售后响应</view>
+      <view class="text-foot">平台1小时快速响应售后投诉，公平公正透明处理</view>
+    </view>
+  </view>
+</view>
+<!-- <view> -->
+  <!-- <button class="btn-default" wx:if="{{judgeStatus==true}}">多让会员审核中</button> -->
+  <!-- <view  wx:if="{{isLogin}}">
+    <button class="btn-default" bindtap="onBeMemberTap" wx:if="{{!authUser}}">成为多让会员</button> -->
+    <!--<button class="btn-default" open-type="getPhoneNumber" bindgetphonenumber="wxLoginGold" wx:else>认证成为多让会员</button>-->
+  <!-- </view> -->
+  <!-- <view class='applyCompany' bindtap='applyCompany'><text>申请成为小区合伙人</text></view> -->
+<!-- </view> -->
+<!-- <view class='returnFirst' bindtap='returnPage' wx:if="{{returnIndex==true}}">
+  <image src='/images/returnIndex.png'></image>
+</view> -->
+<!-- <template is="login_public" data="{{show_modal}}"></template>
+<login wx:if="{{show}}" isShow="{{show}}" mask="{{mask}}" isAuth="{{isAuth}}" village="{{options}}" isCode="{{option}}" bindhideRowLogin="hideRow"></login> -->

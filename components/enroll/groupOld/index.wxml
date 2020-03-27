@@ -1,0 +1,21 @@
+
+    <view wx:for='{{item}}' wx:key='index' style="{{margin}}">
+        <view class="imgRelatve">
+          <image src="{{item.banner}}"></image>
+          <view class="viewImgShowMa">
+              <view>
+                  <block  wx:for='{{item.childrenImg}}' wx:for-item='itemImg' wx:key='index'>
+                     <image src="{{itemImg.img}}"></image>
+                  </block>
+                  <view class="groupNumber">199人已报名</view>
+             </view>
+             <countdown countType="custorm"  hasDays='{{true}}'  time="2020-02-15 10:13:00" bgColor='fff' fontSizeColor='000'></countdown>
+          </view>
+        </view>
+<!--文字详情-->
+      <view class="gruopPurchaseOld">
+          <view class="gruopPurchaseOldDate">12月29日第97期</view>
+          <view class="text">橱柜/热水器/床垫/灯具/木门/净水器 集成吊顶/铝合金门</view>
+          <view class="goBtn">立即报名</view>
+      </view>
+    </view>

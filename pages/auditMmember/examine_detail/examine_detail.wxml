@@ -1,0 +1,62 @@
+<view class='head'>
+<view class='nickname'>
+<view class='nickname_c'>昵称</view>
+<view class='nickname_p'>{{user_id}}</view>
+</view>
+<view class='button' bindtap='call_phone'>联系TA</view>
+</view>
+
+<view class='content'>
+
+<view class='village'>
+  <view class='villageBig'><view class='title'>申请小区</view>
+  <view wx:if="{{village_name=='体验小区'}}" class='village_input'>
+      <input type='text' placeholder="体验小区" placeholder-class="placeStyle" bindblur="applyPlace"></input>
+  </view>
+  <view class='village_name' wx:else>{{village_name}}</view>
+
+  <!-- <picker range="{{estateList}}" range-key="village_name" value="{{estateInitValue}}" bindchange="bindEstatePickerChange">
+    <view class="form-group">
+      <text class="label">认证小区</text>
+      <view class="right">
+        <text class="light-des" wx:if="{{selectedEstate.village_name}}">{{selectedEstate.village_name}}</text>
+        <text class="light-des" wx:else>请选择小区</text>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </picker> -->
+
+  
+  </view>
+</view>
+
+<view class='address'>
+ <view class='box'><input  bindinput="bindKeyInput1" value='{{door_number1}}'/>楼</view>
+  <view class='box'><input  bindinput="bindKeyInput2" value='{{door_number2}}'/>单元</view>
+   <view class='box'><input  bindinput="bindKeyInput3" value='{{door_number3}}'/>号</view>
+</view>
+
+<view class='prove'>
+<view class='title'>证明材料</view>
+<image class='img' src='{{certificate_img}}' bindtap='openImg'></image>
+</view>
+
+<view class='prove'>
+<view class='title'>身份证</view>
+<image class='img1' src='{{card_img}}' bindtap='openImg_left'></image>
+</view>
+</view>
+
+<view class='foot'>
+<view class='left' bindtap='not_through'>不通过</view>
+<view class='right' bindtap='through'>通过</view>
+</view>
+
+<view wx:if="{{show}}">
+<view class='bg' bindtap='bg_show'></view>
+<view class='model'>
+<view class='title'>请填写未通过原因</view>
+<textarea class='textarea' bindblur="bindTextAreaBlur" placeholder='单行输入' />
+<button bindtap='sub'>提交</button>
+</view>
+</view>

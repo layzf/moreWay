@@ -1,0 +1,44 @@
+<import src="../../../../tpls/my-group-item/group-item-tpl.wxml" />
+<view class="banner">
+  <template is="my-group-item" data="{{item:groupObj}}"></template>
+</view>
+<view class="w comment-con">
+  <view class="flex-row border-bottom head">
+     <text>{{groupObj.pageType == 'order'? '订单评价': '参团评价'}}</text> 
+    <!-- <image src="/images/icon_comment_verygreat@2x.png"></image>
+    <image src="/images/icon_comment_great@2x.png"></image>
+    <image src="/images/icon_comment_ungreat@2x.png"></image> -->
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio-item" wx:for="{{radioItems}}" wx:key="{{index}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />
+        <image wx:if="{{item.checked}}" src="{{item.imgSelected}}"></image>
+        <image wx:else src="{{item.img}}"></image>
+      </label>
+    </radio-group>
+  </view>
+  <view class="key-words">
+    <checkbox-group bindchange="checkboxChange">
+      <label bindtap="click" wx:for="{{checkboxItems}}" wx:key="{{index}}" class="checkbox-label">
+        <checkbox value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}" hidden='true'></checkbox>
+        <text class="w-label {{item.checked?'selected':''}}">{{item.value}}</text>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="textarea">
+    <textarea name="textarea" placeholder="分享你的感受给邻居们…" bindinput="textareaInput" placeholder-style="color:#999;" />
+    <!-- <textarea name="textarea" placeholder="分享你的感受给邻居们…" bindinput="textareaInput" placeholder-style="color:#999;" focus="{{isTextareaFocus}}" value="{{textareaDefaultValue}}" /> -->
+  </view>
+  <!-- upload-image-group -->
+  <view class="upload-image-group">
+    <block wx:for="{{imgSrcArr}}" wx:key="{{index}}">
+      <view class="img-box">
+        <view class="btn-delete" bindtap="onDeleteTap" data-index="{{index}}">x</view>
+        <image src="{{item}}" bindtap="previewImage" data-current-src="{{item}}" />
+      </view>
+    </block>
+    <image wx:if="{{!imgSrcArr.length}}" src="/images/icon_camera@2x.png" class="icon-camera" bindtap="chooseImage"></image>
+    <image wx:else src="/images/upload_image_add@2x.png" class="img-input-box" bindtap="chooseImage"></image>
+  </view>
+</view>
+
+<view class="w-btn-bottom"  bindtap="onSubmitTap">提交评价</view>

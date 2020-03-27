@@ -1,0 +1,17 @@
+<view class="tips">验证你要更换的手机号</view>
+
+<view class="form-con">
+  <view class="form-group text-group">
+    <input type="number" maxlength="11" placeholder="请输入手机号" bindinput="phoneInput" />
+  </view>
+
+  <view class="form-group border-none">
+    <input type="number" placeholder="请输入验证码" bindinput="codeInput" />
+    <view class="btn-code" bindtap="onCodeTap">
+      <text wx:if="{{time==60}}">获取验证码</text>
+      <text wx:else>{{time}}s</text>
+    </view>
+  </view>
+</view>
+
+<button class="btn-default btn-confirm" bindtap="onConfirmTap">立即更换</button>

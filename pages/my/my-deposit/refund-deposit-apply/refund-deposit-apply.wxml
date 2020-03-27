@@ -1,0 +1,42 @@
+<import src="/tpls/my-group-item/group-item-tpl.wxml" />
+<!-- <view class="banner">
+  <template is="my-group-item" data="{{item:Obj}}"></template>
+</view> -->
+<!-- <view class="flex-row-between border-bottom head">
+    <text>退款方式</text>
+    <text>原路返回</text>
+  </view>
+
+<view class="flex-row-between contact">
+    <view class="left">
+      {{chooseContactBack.name}}
+    </view>
+    <view class="middle">{{chooseContactBack.phone}}</view>
+    <navigator url="/pages/my/my-contact/contact-list/contact-list?pageType=select" hover-class="none">
+      <view class="flex-row right">
+        <text>更改联系人信息</text>
+        <image src="/images/icon_arrow_next_light_gray@2x.png"></image>
+      </view>
+    </navigator>
+  </view> -->
+  
+<view class="w comment-con">
+  <view class="reason">申请原因</view>
+  <view class="textarea">
+    <textarea name="textarea" placeholder="" bindinput="textareaInput" placeholder-style="color:#999;" />
+    <view>若商家已上门量尺或出了设计图，退订金时将扣除相应费用。</view>
+  </view>
+  <!-- upload-image-group -->
+   <!-- <view class="upload-image-group">
+    <block wx:for="{{imgSrcArr}}" wx:key="{{index}}">
+      <view class="img-box">
+        <view class="btn-delete" bindtap="onDeleteTap" data-index="{{index}}">x</view>
+        <image src="{{item}}" bindtap="previewImage" data-current-src="{{item}}" />
+      </view>
+    </block>
+    <image wx:if="{{!imgSrcArr.length}}" src="/images/icon_camera@2x.png" class="icon-camera" bindtap="chooseImage"></image>
+    <image wx:else src="/images/upload_image_add@2x.png" class="img-input-box" bindtap="chooseImage"></image>
+  </view>  -->
+</view>
+
+<view class="w-btn-bottom" bindtap="onSubmitTap">提交</view>

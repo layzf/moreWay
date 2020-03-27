@@ -1,0 +1,230 @@
+<import src="/tpls/auth-code/auth-code-tpl.wxml" />
+
+  <!--添加到我的小程序-->
+  <add-routine  group='{{options.shareAfter}}' shareHome="0"></add-routine>
+
+<view class='showIndex' bindtouchstart='touchstart' bindtouchend='touchend' bindtouchmove="touchstart" >
+    <tip id='tip'></tip>
+  <view class="w flex-row-between header" wx:if="{{isLogin && isAuth}}">
+    <view class="flex-row estate">
+      <image class="icon-location" src="/images/icon_estate_location@2x.png"></image>
+      <text>{{easteName.village_name}}</text>
+    </view>
+    <view class="code" bindtap='loginCode'>
+      <template is="auth-code"></template>
+    </view>
+  </view>
+
+  <view>
+    <swiper indicator-dots="{{false}}" indicator-color="#fff" indicator-active-color="#333" interval="3000" autoplay class='lunbo'>
+      <block wx:for="{{sliders}}" wx:key="{{item.sliderId}}">
+        <swiper-item class="slider-item">
+          <image src="{{item.img_url}}" mode="aspectFill" bindtap='lunboJudge' data-id="{{item.id}}" data-url="{{item.jump_url}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="flex-head">
+      <view class="flex-con">
+          <view class="f-item">
+              <image src="../../images/1.png"></image>
+              <text>免费参团</text>
+          </view>
+          <view class="f-item">
+              <image src="../../images/2.png"></image>
+              <text>底价承诺</text>
+          </view>
+          <view class="f-item">
+              <image src="../../images/3.png"></image>
+              <text>售后无忧</text>
+          </view>
+          <view class="f-item">
+              <image src="../../images/4.png"></image>
+              <text>正品保障</text>
+          </view>
+      </view>
+      <view class="f-head">
+         <navigator url='../intelligence/intelligence' hover-class='none'>业主必读</navigator>
+      </view>
+  </view>
+
+  <view wx:if="{{collectPerdect.length>0}}" style="background-color: #ffffff">
+    <view class="flex-row-between collects-header">
+      <view class="title">
+          <view class="tline"></view>
+          <view class="ttxt">周末团</view>
+      </view>
+      <text>严选品牌 周末开团</text>
+    </view>
+
+    <view class='limitTime flex-wx'>
+      <block wx:for="{{collectPerdect}}" wx:key="">
+          <view class="img_item"
+                data-type="{{item.base_type}}"
+                data-base_id="{{item.id}}"
+                catchtap="collectPreview">
+                  
+               <view class="prositions" >
+                <image src='{{item.index_img}}' class="img {{index==0?'seleact':''}}" mode="widthFix"></image>
+               </view>
+              
+              <view class="img_txt">
+                  <view class="txt1">
+                      <text class="t-type">{{item.name}}</text>
+                      <view class="date">开团
+                        <count countType="custorm" 
+                               time="{{item.end_at}}" 
+                               hasDays='true'
+                               dataColor='E94615' 
+                               bgColor='F9F9F9' 
+                               fontSizeColor='E94615' ></count>
+                      </view>
+                  </view>
+                  <view class="txt2">
+                      <view class="t-left">
+                          <view class="bg1" wx:if="{{item.enrollCount>0}}">
+                              <image src="{{item.enrollList[0].icon}}"></image>
+                          </view>
+                          <view class="bg2 bgSlide" wx:if="{{item.enrollCount>0}}">
+                              <image src="{{item.enrollList[1].icon}}"></image>
+                          </view>
+                          <view class="bg3 bgSlide" wx:if="{{item.enrollCount>0}}">
+                              <image src="{{item.enrollList[2].icon}}"></image>
+                          </view>
+                          <image class="bg4 bgSlide" wx:if="{{item.enrollCount>0}}" src="../../images/copy.png"></image>
+                          <text>等{{item.enrollCount}}人报名</text>
+                      </view>
+                      <view wx:if="{{!item.isOver}}" class="tbtn">立即报名</view>
+                      <view wx:else class="tbtn over2">已结束</view>
+                  </view>
+              </view>
+          </view>
+      </block>
+    </view>
+  </view>
+
+
+  <navigator url='../guide/guide' hover-class='none'>
+    <view class="step">
+      <view class="tip">团长提示</view>
+      <text class="txt">你收到一份业主装修省钱攻略</text>
+      <view class="end">
+          <text class="red">点击查收</text>
+          <text></text>
+      </view>
+    </view>
+  </navigator>
+<!--自助报价-->
+  <view  class="g-item">
+    <view class="g-head">
+        <view class="title">
+            <view class="tline"></view>
+            <view class="ttxt">自助报价</view>
+        </view>
+    </view>
+
+    <view wx:for='{{newProductLbw}}' wx:key='index' 
+          catchtap="changeProduct" 
+          data-shareUrl='{{item.share_url}}'
+          data-shareName='{{item.share_name}}'
+          data-code='{{item.code}}'
+          class="runzhuang"
+          data-id='{{item.id}}'><image src='{{item.icon}}' mode="widthFix" /></view>
+  </view>
+  <!--长期自助团-->
+  <view class="g-item " id="1">
+      <view class="g-head"  catchtap="look">
+          <view class="title">
+              <view class="tline"></view>
+              <view class="ttxt">长期团</view>
+          </view>
+          <view class="g-more">更多></view>
+      </view>
+
+      <navigator url="../anjujia/anjujia" hover-class="none">
+          <image class="bannersan" src="http://img-test.duorang.com/upload/adv/2019/8/29/b5616c1d-d208-46f8-a910-c2a33ceb1fa1.png" mode="widthFix"></image>
+      </navigator>
+
+      <view class="g-text">
+          <block wx:for="{{proImgList}}" wx:for-index="index" wx:key>
+              <view class="g-li" id="time" data-index="{{index}}" catchtap="chooseItem">
+                  <image mode="aspectFit" src="{{item.index_img}}"></image>
+              </view>
+          </block>
+      </view>
+  </view>
+
+  <!--临时接龙团-->
+    <!-- <view class="g-item" id="2" catchtap="look"   彭健：暂时注释>
+        <view class="g-head">
+            <view class="title">
+                <view class="tline"></view>
+                <view class="ttxt">临时接龙团</view>
+            </view>
+        </view>
+        <view class="g-template" wx:if="{{proList.length>0}}">
+            <block wx:for="{{proList}}" wx:for-index="index" wx:key>
+                <view class="g-temp {{index>0?'borderTop':''}}" id="temp" data-index="{{index}}" catchtap="chooseItem">
+                    <view class="g-img">
+                        <image mode="aspectFit" src="{{item.logo}}"></image>
+                    </view>
+                    <view class="g-name">
+                        <text class="gtitle">{{item.project_name}}</text>
+                        <view class="time">
+                            <text class="t-title">下单倒计时</text>
+                            <count countType="custorm" wx:if="{{item.end_at}}" time="{{item.end_at}}" show="true"></count>
+                            <text wx:else class="red">无固定期限</text>
+                        </view>
+                    </view>
+                    <view class="g-btn">
+                        <text class="tip">{{item.project_content}}</text>
+                        <view class="btn" wx:if="{{!item.isOver}}">立即参团</view>
+                        <view class="btn over2" wx:else>已结束</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <image mode="widthFix" style="height:auto" class="g-temp" src="../../images/end.jpg" wx:else></image>
+    </view> -->
+
+
+
+    <!--<view class="bottom-line">-我也是有底线的-</view>-->
+  <!--<view class="flex-row-between collects-header">-->
+    <!--<view class="title">随时集采项目</view>-->
+    <!--<view class="summary">邻居一起买，大家说了算</view>-->
+  <!--</view>-->
+
+  <!--<view class="collects">-->
+    <!--<block wx:for="{{collects}}" wx:key="{{item.collectId}}">-->
+        <!--<view class="collect" bindtap='judgeCollect' data-id="{{item.id}}">-->
+          <!--<image src="{{item.img_url}}" mode="widthFix" class="cover" />-->
+          <!--<view class="container">-->
+            <!--<view class="flex-row-between top">-->
+              <!--<view class="title">{{item.project_name}}</view>-->
+              <!--&lt;!&ndash;<view class="apply">&ndash;&gt;-->
+                <!--&lt;!&ndash;<text wx:if="{{item.limit_num!=0 || item.limit_num != null}}">{{item.limit_num}}户团</text>&ndash;&gt;-->
+                <!--&lt;!&ndash;<text wx:if="{{item.limit_num && item.enroll_num}}">，</text>&ndash;&gt;-->
+                <!--&lt;!&ndash;<text wx:if="{{item.enroll_num!=0}}">{{item.enroll_num}}户已报名</text></view>&ndash;&gt;-->
+            <!--&lt;!&ndash;</view>&ndash;&gt;-->
+            <!--&lt;!&ndash;<view class="info">&ndash;&gt;-->
+              <!--&lt;!&ndash;<view class="date" wxif="{{item.investigate_status==0}}">#{{item.beg_at}}~{{item.end_at}}#</view>&ndash;&gt;-->
+              <!--&lt;!&ndash;&lt;!&ndash; <view class="label">{{item.project_content}}</view> &ndash;&gt;&ndash;&gt;-->
+            <!--</view>-->
+          <!--</view>-->
+        <!--</view>-->
+    <!--</block>-->
+    <view class="empty flex-row-center">-已经到底了-</view>
+  <!--</view>-->
+</view>
+<view class="bottomLine"></view>
+<!--验房入口-->
+    <image mode="widthFix"
+                      wx:if='{{showImgs}}'
+                       class="postionImgs"
+                       catchtap="goYindex"
+                       style='right:{{lever?-65:-10}}rpx;top:{{tabTop+(tabHeight/2)-35}}px'
+                       src="http://img-test.duorang.com/upload/adv/2019/9/11/be9363da-4388-47d5-9273-e966652f0eeb.gif"></image>
+
+                     

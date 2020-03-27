@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "choose":"../../components/chooseGoods/choose",
+    "login": "../../components/enroll/login/login"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "step": "../../components/sw/step/index"
+  },
+  "navigationBarTitleText": "多让封窗自助报价系统"
+}

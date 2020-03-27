@@ -1,0 +1,9 @@
+@import "/tpls/deposit-detail-tpl/deposit-detail-tpl";
+
+.refund-deposit-detail .order-info{
+  margin:0;
+}
+
+.refund-deposit-detail .progress{
+  margin-bottom:20rpx;
+}

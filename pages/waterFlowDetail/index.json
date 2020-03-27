@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "comment-all": "../../components/comment/index",
+    "newCardList": "../../components/enroll/newCardList/index",
+    "water-flow": "../../components/enroll/waterFlow/index"
+  },
+  "enablePullDownRefresh": true
+}

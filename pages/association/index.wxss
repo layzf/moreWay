@@ -1,0 +1,55 @@
+/* pages/association/index.wxss */
+page{
+  background: #FFF;
+}
+.tabFlex{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.tabFlex>view{
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f7f7f7;
+  font-size: 28rpx;
+}
+.tabFlex .active{
+  background: #F94929;
+  color: #fff;
+}
+
+.radio-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.content{
+  margin: 0 30rpx;
+}
+
+radio .wx-radio-input {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 100%;
+  background: none;
+  border-color: #ccc !important;
+}
+
+/*单选按钮选中后内部样式*/
+
+radio .wx-radio-input.wx-radio-input-checked {
+  background: transparent !important;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  width: 15rpx;
+  height: 15rpx;
+  background: #F94929;
+  border-radius: 100%;
+  content: '';
+  transform: translate(-50%, -50%) scale(1);
+}
+

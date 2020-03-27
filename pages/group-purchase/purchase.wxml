@@ -1,0 +1,303 @@
+<!-- <import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template> -->
+
+<!--添加到我的小程序-->
+<add-routine wx:if="{{shareHome}}" shareHome="{{options.shareType}}" ></add-routine>
+
+<view class="purchase">
+    <view class="p_head">
+        <image class="h_img" src="{{banner}}"></image>
+        <div class="color">
+            <view class="c_left"></view>
+            <view class="c_right"></view>
+        </div>
+        <div class="h_content">
+            <view class="h_list">
+                <view class="h_li">
+                    <image src="../../images/signUp.png" class="h_l_img"></image>
+                    <text>报名</text>
+                </view>
+                <text class="h_arrow">  >  </text>
+                <view class="h_li">
+                    <image src="../../images/signIn.png" class="h_l_img"></image>
+                    <text>签到入场</text>
+                </view>
+                <text class="h_arrow">  >  </text>
+                <view class="h_li">
+                    <image src="../../images/pay.png" class="h_l_img"></image>
+                    <text>支付订金</text>
+                </view>
+                <text class="h_arrow">  >  </text>
+                <view class="h_li">
+                    <image src="../../images/payorder.png" class="h_l_img"></image>
+                    <text>正式下单</text>
+                </view>
+            </view>
+            <view class="h_tip">
+                <view class="h_t_title">
+                    <image src="../../images/call@2x.png" class="h_t_img"></image>
+                    <view class="h_t_txt">
+                        已有
+                        <text class="h_t_num">{{rNumber}}</text>
+                        户业主报名
+                    </view>
+                </view>
+                <swiper
+                        class="info"
+                        interval="2000"
+                        circular="true"
+                        indicator-dots="{{false}}"
+                        vertical="{{true}}"
+                        autoplay="{{true}}">
+                    <block wx:for="{{infoList}}" wx:key="{{item.mobile}}">
+                        <swiper-item>
+                           <image src="{{item.icon}}" wx:if='{{item.icon}}'></image>
+                            <view>{{item.user_name}} {{item.mobile}} {{item.content}}</view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </div>
+    </view>
+    <view class="h_content">
+        <!--严选-->
+        <view class="h_c_item">
+            <view class="h_c_head">
+                严选品牌 一站配齐
+            </view>
+            <text class="h_c_tip">排名不分前后，当前集采以现场为准</text>
+            <!--<image class="h_c_img" mode="aspectFill" src="http://img.duorang.com/upload/v/base_info_dock.png"></image>-->
+            <view class="h_c_content">
+                <swiper
+                        class="brands"
+                        indicator-dots="{{true}}"
+                        interval="2000"
+                        circular="{{true}}"
+                        autoplay="{{true}}">
+                    <block wx:for="{{imgUrls}}" wx:key="">
+                        <swiper-item>
+                            <view>
+                                <image mode="aspectFit" class="brandImg" src="{{item.img_url}}"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </view>
+        <!--集采-->
+        <view class="h_c_item">
+            <view class="h_c_head">
+                <text class="h_c_h_title">业主集采 周末开团</text>
+            </view>
+            <text class="h_c_tip">集采价远低于零售价，厂商担心价格泄露，更多产品及价格现场公布</text>
+            <view class="h_c_content" wx:for="{{products}}" wx:for-index="idx" wx:key="{{item.id}}">
+               <image class="h_c_image" mode="widthFix" src="{{item.img_url}}"></image>
+               <div class="h_c_foot">
+                   <view class="h_c_txt">{{item.project_content}}</view>
+                   <view wx:if="{{!item.isOver}}">
+                       <view wx:if="{{collectDespoit.user_name}}">
+                           <view wx:if="{{item.enroll_id == 0}}" class="h_c_btn" data-index="{{idx}}" data-id="{{item.id}}" catchtap="bespeak">立即报名</view>
+                           <view wx:else class="h_c_btn over">已报名</view>
+                       </view>
+                       <!-- <button class="h_c_btn" data-id="{{item.id}}" data-type="{{'single'}}" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>立即报名</button> -->
+                       <navigator  class="h_c_btn"  wx:else url="../newLogin/index?id={{item.id}}&changeProjectType=true">立即报名</navigator>
+
+                   </view>
+                   <view wx:else class="h_c_btn over">已结束</view>
+               </div>
+                <countdown countType="{{'custorm'}}" time="{{item.enroll_end_at}}"></countdown>
+            </view>
+        </view>
+        <!--门店-->
+        <view class="h_c_item">
+            <view class="h_c_head">
+                <text class="h_c_h_title">免费参团 门店体验</text>
+            </view>
+            <text class="h_c_tip">在线报名，社群交流，空调大巴免费接送</text>
+            <view class="h_c_content">
+                <view class="h_c_c_head">
+                    <view class="h_list">
+                        <view class="h_li" id="0" catchtap="changeTip">
+                            <image class="h_l_imgs" src="../../images/11.png"></image>
+                            <text>在线报名</text>
+                        </view>
+                        <text class="h_arrow">  >  </text>
+                        <view class="h_li" id="1" catchtap="changeTip">
+                            <image class="h_l_imgs" src="../../images/12.png"></image>
+                            <text>进入集采群</text>
+                        </view>
+                        <text class="h_arrow">  >  </text>
+                        <view class="h_li" id="2" catchtap="changeTip">
+                            <image class="h_l_imgs" src="../../images/13.png"></image>
+                            <text>签到对比</text>
+                        </view>
+                        <text class="h_arrow">  >  </text>
+                        <view class="h_li" id="3" catchtap="changeTip">
+                            <image class="h_l_imgs" src="http://img.duorang.com/upload/v/menu.png"></image>
+                            <text>正式下单</text>
+                        </view>
+                    </view>
+                    <view class="h_info">{{tip}}</view>
+                    <view class="h_c_c_tip">
+                        <view class="tip">
+                            <text class="t_num">{{rNumber}}人正在强势围观</text>
+                            <swiper
+                                    class="swiper-img"
+                                    circular="{{true}}"
+                                    autoplay="{{true}}"
+                                    display-multiple-items="3">
+                                <block wx:for="{{imgList}}" wx:key="{{item}}">
+                                    <swiper-item>
+                                        <image class="t_img" src="{{item}}"></image>
+                                    </swiper-item>
+                                </block>
+                            </swiper>
+                        </view>
+                        <text class="t_txt">加入多让集采群，装修问题全解决</text>
+                        <view class="t_btn">
+                            <text>微信群号:duoranghuazhu</text>
+                            <view class="btn" catchtap="copyTBL">复制</view>
+                        </view>
+                    </view>
+                    <view class="h_c_c_addr">
+                        <view class="addr_item">
+                            <view class="time">
+                                集采时间:
+                                <view class="t_color"></view>
+                            </view>
+                            <text class="t_txt" style="padding-top: 10rpx;">集采当天8:30-17:30</text>
+                        </view>
+                        <view class="addr_item">
+                            <view class="time">
+                                乘车地点:
+                                <view class="t_color"></view>
+                            </view>
+                            <view class="t_txt">
+                                <view class="t_addrDesc" wx:for="{{rideList}}" wx:key="{{item.id}}">
+                                    <text>{{item.name}}</text>
+                                    <view class="t_adc">{{item.addr}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="h_d_btn" catchtap="openLocation">
+                        <text>查看地图</text>
+                        <image class="h_d_img" src="http://img.duorang.com/upload/v/point_1.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="h_foot">
+        <view class="f_summarize">
+            <image mode="aspectFill" class="f_img" src="http://img.duorang.com/upload/v/result.png"></image>
+        </view>
+        <view class="h_f_one">
+            <div class="f_item">
+                <image src="../../images/right.png"></image>
+                <view class="f_i_txt">
+                    <text class="f_txt">75%业主来自口碑介绍,超7成业主多次参团</text>
+                    <text class="f_data">多让集采，比普通团购再低10%-30%</text>
+                </view>
+                <image src="../../images/left.png"></image>
+            </div>
+            <swiper
+                    class="remarks"
+                    interval="2000"
+                    circular="{{true}}"
+                    autoplay="{{true}}">
+                <block wx:for="{{remark}}" wx:key="{{item.id}}">
+                    <swiper-item>
+                        <view>
+                            <image mode="aspectFit" class="remarkImg" src="{{item.img_url}}"></image>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <view class="line"></view>
+        <view class="h_f_two">
+            <text class="f_title">集采承诺</text>
+            <view class="f_contxt">
+                <view class="f_c_item bg0">
+                    <text class="title">正品保证</text>
+                    <text class="context">严把商家资质，承诺假一罚十</text>
+                </view>
+                <view class="f_c_item bg1">
+                    <text class="title">底价承诺</text>
+                    <text class="context">专业买手全渠道比价，确保低价才开团</text>
+                </view>
+                <view class="f_c_item bg2">
+                    <text class="title">订金可退</text>
+                    <text class="context">正式转单前，订金随时可退</text>
+                </view>
+                <view class="f_c_item bg3">
+                    <text class="title">降价补差</text>
+                    <text class="context">两个月内降价补差额</text>
+                    <text class="except">(灯具，电器，开关除外)</text>
+                </view>
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="h_f_third">
+            <view class="f_context">
+                <text class="f_title">关于多让</text>
+                <view>多让不是商家，更不卖产品，作为消费者组织，我们希望改变
+                业主在装修消费上被坑被套路的劣势地位，通过业主群选、专
+                业买手严选，组织大量业主向商家集中发起采购，借助社群的
+                力量，帮助大家避开装修消费陷阱，用更少的钱，买到更优质
+                的商品，享受更好的服务。
+                </view>
+            </view>
+            <view class="f_t_bg"></view>
+            <slideimg list="{{senceList}}"></slideimg>
+        </view>
+    </view>
+    <view class="button">
+        <view class="consult" catchtap="callCapital">咨询团长</view>
+        <view wx:if="{{!allOver}}" class="signUp">
+            <view wx:if="{{collectDespoit.user_name}}">
+                <view class="over2" wx:if="{{allEnroll}}">已全部报名</view>
+                <view wx:else if="{{!showLogin}}" catchtap="register">立即报名</view>
+            </view>
+            <navigator  wx:else url="../newLogin/index">立即报名</navigator>
+            <!-- <button class="signUp" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>立即报名</button> -->
+        </view>
+        <view  wx:else class="over2">已全部结束</view>
+    </view>
+   <!--咨询团长-->
+    <my-commander isTab='{{showTab}}'  height='{{height}}' isShow='{{commanderHiden}}' id='my-commander'></my-commander>
+    <!--shareHome-->
+    <movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+    <movable-view
+            style="pointer-events: auto"
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>
+
+
+    <enroll
+            wx:if="{{showLogin}}"
+            mask="{{mask}}"
+            dataid="{{options}}"
+            user="{{collectDespoit}}"
+            cid="{{collectId}}"
+            info="{{info}}"
+            newuserNamescofs='{{newuserNamescofs}}'
+            shareHome="{{shareHome}}"
+            checkAll="{{checkAll}}"
+            address="{{rideList}}"
+            isOver="{{timeOver}}"
+            invterUserId='{{userId}}'
+            bindhideRow="hideRow"></enroll>
+    <login
+           wx:if="{{show}}"
+           isShow="{{show}}"
+           mask="{{masks}}"
+           bindhideRowLogin="hideRowLogin"
+           isCollect="{{true}}"
+           bindcollect="showLoginData"
+           collect="{{collectId}}"></login>
+</view>

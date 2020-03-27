@@ -1,0 +1,148 @@
+/* pages/sw-index/sw-index.wxss */
+page{
+  background: #FFF;
+}
+.setps{
+  height: 150rpx;
+}
+.searchBoxs{
+  background: #fff;
+  margin-top: 20rpx;
+  padding-top:30rpx;
+}
+
+
+
+.searchView{
+  display: flex;
+  align-items: center;
+  width: 672rpx;
+  margin: 0 auto;
+  padding: 15rpx 0;
+  border:1px solid #999999;
+  border-radius: 8px;
+  padding-left: 16rpx;
+  margin-bottom: 30rpx;
+}
+.searchView input{
+  margin-left: 16rpx;
+  width: 100%;
+}
+.hotVillage{
+  width: 672rpx;
+  margin: 0 auto;
+}
+
+.colseInt{
+  margin-right:20rpx;
+}
+.villageList,.buildClass{
+  display:flex;
+  align-items: center;
+  margin-top: 35rpx;
+  flex-wrap: wrap;
+}
+.villageList>view,.buildClass>view{
+  margin-right:20rpx;
+  border: 1px solid #F19216;
+  color: #F19216;
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx; 
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.buildClass .disable{
+  color: #898989;
+  border-color: #898989;
+}
+.villageList view{
+  color: #F19216;
+}
+
+.flexRimg{
+  display: flex;
+  align-items: center;
+}
+.buildings{
+  margin-top: 50rpx;
+}
+
+.num{
+  padding: 0;
+  line-height: normal;
+  font-size: 28rpx;
+  color: #F19216;
+}
+.fixedPos{
+  /* height: 100rpx; */
+}
+
+.fixedPos>view{
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  background: #FFF;
+  top: 145rpx;
+  left: 0;
+  border-top: 40rpx solid #f7f7f7;
+  padding-left: 30rpx;
+  padding: 20rpx 0 20rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.notMyVillage,.num{
+  text-align: center;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+
+
+
+.nameFlex{
+  display:flex;
+  color: #EA6239;
+  align-items: center;
+  font-size: 30rpx;
+  margin-left: -10rpx;
+  margin-bottom: 30rpx;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  padding-left: 40rpx;
+  background: #f7f7f7;
+  height: 100rpx;
+  top: 150rpx;
+}
+.nameFlex image{
+  width: 46rpx;
+  height: 46rpx;
+  margin-right: 0
+}
+.nameFixed{
+  height:60rpx;
+}
+.villageList .num{
+  padding: 0;
+  color: #F19216;
+}
+.fixdes{
+  position: fixed;
+  bottom: 20rpx;
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.fixdes text{
+  display: block;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 140px;
+  background: linear-gradient(to right, #EA4717, #F19216 );
+  color: #FFF;
+  margin: 0 auto;
+  border-radius: 14rpx;
+}
+

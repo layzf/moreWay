@@ -1,0 +1,177 @@
+/* pages/sw-two-detail/index.wxss */
+
+page {
+  background: #fff;
+}
+
+.setps {
+  height: 150rpx;
+}
+
+.w_672 {
+  color: #fff;
+  width: 672rpx;
+  margin: 0 auto;
+  background: #e94816;
+  box-sizing: border-box;
+  padding: 26rpx 0 20rpx 22rpx;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+}
+
+.titleFlexs text {
+  color: #e94816;
+}
+
+.colorClass {
+  font-size: 24rpx;
+  color: rgba(226, 226, 215, 0.8);
+  margin-top: 6rpx;
+}
+
+.styleClass {
+  margin-top: 20rpx;
+}
+
+.w_672 text {
+  display: inline-block;
+  padding: 0 14rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.w_672 .titles {
+  font-size: 24rpx;
+  color: #efefef;
+  margin-bottom: 20rpx;
+}
+
+.w_672 .titles text {
+  font-size: 24rpx;
+}
+
+.M_18 {
+  margin: 0 30rpx;
+  padding-top: 36rpx;
+}
+
+.viewBoxs {
+  border-bottom: 40rpx solid #666;
+  padding-bottom: 30rpx;
+}
+
+.changeBrand {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  background: rgba(216, 216, 216, 0.8);
+  margin-top: 36rpx;
+  font-size: 28rpx;
+}
+
+.planTab {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  flex-wrap: wrap;
+}
+
+.planTab .active {
+  color: #fff;
+  background: #e94816;
+  position: relative;
+}
+
+/* .planTab .active::after {
+  content: '';
+  position: absolute;
+  left: 30rpx;
+  top: 65rpx;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-bottom: 20rpx solid #e94816;
+}
+
+.planTab .active::before {
+  content: '';
+  position: absolute;
+  left: 32rpx;
+  top: 67rpx;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 19rpx solid transparent;
+  border-right: 19rpx solid transparent;
+  border-bottom: 19rpx solid #fff;
+  z-index: 9999;
+} */
+
+.planTab>view, .swPlan .planTabActive .bb {
+  padding: 6rpx 10rpx;
+  border: 1px solid #e94816;
+  color: #e94816;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-right: 25rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.planTab>view:last-of-type {
+  margin-right: 0;
+}
+
+.titleFlexs {
+  display: flex;
+  align-items: center;
+  margin-left: -14rpx;
+  margin-top: 10rpx;
+}
+
+.titleFlexs>view {
+  margin-right: 20rpx;
+}
+
+.titleFlexs>view:last-of-type {
+  margin-right: 0;
+}
+
+.planContent {
+  margin-top: 20rpx;
+}
+
+.imgs {
+  margin-bottom: 30rpx;
+  border: 1px solid #e94816;
+}
+
+.nextGo {
+  width: 100%;
+  background: #e94816;
+  color: #fff;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 40rpx;
+  font-size: 32rpx;
+}
+
+.botmKeys text {
+  color: #e94816;
+}
+
+
+.botmKeys {
+  margin-left: -13rpx;
+}
+
+.botmKeys .actives{
+   color: #999;
+}
+.imgs image{
+  width: 100%;
+  display: block;
+}

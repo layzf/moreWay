@@ -1,0 +1,14 @@
+<template name="result-pay">
+  <view class="res-w">
+    <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+    <view class="text-res-s">支付成功</view>
+    <view class="btn-group res-btn-group">
+      <navigator url="/pages/index/index">
+        <button class="btn-default btn-white">回首页</button>
+      </navigator>
+      <navigator url="/pages/my/my-order/order-list/order-list" open-type="redirect">
+        <button class="btn-white">完成</button>
+      </navigator>
+    </view>
+  </view>
+</template>

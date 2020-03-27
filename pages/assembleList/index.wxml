@@ -1,0 +1,28 @@
+<!--pages/assembleList/index.wxml-->
+<view>
+  <image src="../../images/bannerList.png" mode="widthFix" class="bannerImg"></image>
+
+  <view class="main" wx:for='{{item}}' wx:key='index'>
+    <view class="contentFlex">
+      <!--时间-->
+      <countdown countType="custorm" time="2020-1-15 09:57:00"  hasDays='{{false}}' fontSizeColor='fff' bgColor='000'></countdown>
+      <view class="fl">
+        <text>119</text>
+        <view>名业主已参团</view>
+      </view>
+    </view>
+  <!--产品布局-->
+    <view class="prodect">
+        <image src="../../images/share.jpg"></image>
+        <view class="prodectR">
+            <view class="prodectName">潜水艇地漏干湿gf50-10a</view>
+            <view class="prodectTip">防臭洗衣机地漏</view>
+            <view class="prodectAssembleMoney">拼团价￥10099</view>
+            <view class="prodectMoney">原价￥1199</view>
+        </view>
+        <view class="goAssemble" catchtap="goAssemble">立即参团</view>
+    </view>
+  </view>
+ 
+  <view class="flagTitle">-没有更多内容了-</view>
+</view>

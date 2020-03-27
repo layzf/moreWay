@@ -1,0 +1,54 @@
+/* pages/y-inspectionGroup/y-inspectionGroup.wxss */
+.leftImg image{
+  width: 19rpx;
+  height: 31rpx;
+}
+.formss>view{
+  background: #fff;
+  height: 84rpx;
+  line-height: 84rpx;
+  padding: 0 22rpx;
+  margin: 0 22rpx;
+  margin-top: 24rpx;
+}
+.formss label{
+  margin-right: 30rpx;
+}
+.formss input{
+  height: 100%;
+}
+.formss label,.formss input{
+  font-size: 30rpx;
+  display: block;
+}
+.formss text{
+  font-size: 30rpx;
+}
+.pointOut{
+  margin-left: 43rpx;
+  color: #838083;
+  margin-top: 23rpx;
+  font-size: 24rpx;
+}
+.leftImg>.flex-row{
+  flex: 1;
+  height: 100%;
+}
+.section{
+  flex: 1;
+}
+.picker{
+  color: #838083;
+}
+.y_btns{
+  width: 706rpx;
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  color: #FFF;
+  background: #F35B1D !important;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  margin: 0 auto;
+  margin-top: 102rpx;
+}

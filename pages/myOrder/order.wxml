@@ -1,0 +1,50 @@
+<view class="order">
+    <view class="head">
+        <view id="0" catchtap="checkItem" class="{{checkItem===0?'check':'head_item'}}">全部</view>
+        <view id="1" catchtap="checkItem" class="{{checkItem===1?'check':'head_item'}}">待支付</view>
+        <view id="2" catchtap="checkItem" class="{{checkItem===2?'check':'head_item'}}">待交付</view>
+        <view id="3" catchtap="checkItem" class="{{checkItem===3?'check':'head_item'}}">待验收</view>
+        <view id="4" catchtap="checkItem" class="{{checkItem===4?'check':'head_item'}}">待评价</view>
+    </view>
+    <view class="content">
+        <swiper style="{{'height:'+(height-30)+'px'}}" bindchange="changeIndex" current="{{checkItem}}">
+            <block wx:for="{{res}}" >
+                <swiper-item>
+                    <view class="c_content">
+                        <view class="c_head">
+                            <view class="c_h_time">2018.10.11</view>
+                            <view class="c_h_text">找团长支付</view>
+                        </view>
+                        <view class="c_list">
+                            <view class="c_item">
+                                <image class="item_img"></image>
+                                <view class="item_desc">
+                                    <text class="item_desc_title">恒洁智能马桶</text>
+                                    <view class="item_desc_mark">项目备注</view>
+                                    <view class="item_desc_price">
+                                        <text>￥3000</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="c_item">
+                                <image class="item_img"></image>
+                                <view class="item_desc">
+                                    <text class="item_desc_title">恒洁智能马桶</text>
+                                    <view class="item_desc_mark">项目备注</view>
+                                    <view class="item_desc_price">
+                                        <text>￥3000</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="all">应付金额：<text style="color: #E94816;">600元</text></view>
+                        <view class="c_foot">
+                            <view class="cancel">取消订单</view>
+                            <view class="confirm">联系团长</view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>

@@ -1,0 +1,37 @@
+<!--pages/sw-index/sw-index.wxml-->
+<!--步骤-->
+<view class="setps">
+  <step typeSetp="1" class='margins'></step>
+</view>
+
+<!--搜索，选择小区-->
+
+<view class="searchBoxs">
+  <view class="searchView" >
+    <icon type="search" size="20" color="#B1B1B1"/>
+    <input placeholder="搜索我的小区" disabled catchtap="goLayout"></input>
+    <!-- <icon type="cancel" size="20" color="#B1B1B1" class="colseInt" bindtap="cancelClick"/> -->
+  </view>
+
+  <view class="hotVillage">
+     <view class="hotvillagename" >热门小区</view>
+
+     <view class="villageList" >
+          <view  wx:for='{{villageList}}' wx:key='id'>  
+            <view
+              data-name='{{item.name}}' 
+              data-id='{{item.id}}'
+              wx:key='{{item}}'  
+              wx:if='{{userInfo.id}}'
+              catchtap="_changeVillage">{{item.name}}</view>
+
+            <navigator class="num" url="../newLogin/index" hover-class="none" wx:else >{{item.name}}</navigator>
+          </view>
+     </view>
+
+  </view>
+
+</view>
+
+
+

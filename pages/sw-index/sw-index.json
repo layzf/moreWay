@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "step": "../../components/sw/step/index"
+  },
+  "navigationBarTitleText": "选择小区"
+}

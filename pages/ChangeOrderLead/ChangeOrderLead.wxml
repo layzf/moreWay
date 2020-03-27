@@ -1,0 +1,81 @@
+<!--pages/ChangeOrderLead/ChangeOrderLead.wxml-->
+<view>
+    <view class='orderName'>
+        <view>项目名称：{{project_name}}</view>
+    </view>
+    <view class='leadTit'>转单流程</view>
+    <view class='stepOne'>
+        <view class='stepOneTitle'>
+           <view><text>第 1 步 </text>联系商家</view>
+            <text catchtap='setCard' data-img ='{{wechat_code}}'>生成商家名片</text>
+        </view>
+<!--商家信息-->
+        <view class='orderInformation'>
+            <view class='orderInformationImg'>
+              <image src='../../images/shoopImgs.png'></image>
+              <view>
+                  <view class='conant' style='width:540rpx;'>
+                      <view class='title'>{{data.shop_name}}</view>
+                      <view class='tells'><text>联系电话：{{data.phone}} ({{data.name}})</text></view>
+                      <view class='tells'><text>微信：{{wechat}}</text> <text catchtap='copy' data-wechat='{{wechat}}' class='copyWechat'>复制</text> </view>
+                  </view>
+                  <!-- <view style='width:540rpx;'><text>主营：中高端儿童床、书桌、衣柜书桌、衣柜等</text></view> -->
+              </view>
+              <view class='rightTell' catchtap='callPhone'>
+                <image src='../../images/icon_dh@2x.png'></image>
+              </view>
+            </view>           
+        </view>
+<!--商家地址--> 
+     <block wx:for='{{data.businessShopAddressDTOList}}' wx:key='k'>
+         <view class='orderAddress'>
+            <image src='../../images/address.png'></image>
+            <view class='addressO'>
+              <view>{{item.name}}</view>
+              <text>{{item.address}}</text>
+            </view>
+            <view class='lookMap' catchtap='lookMap' data-index='{{index}}'>查看地图</view>
+        </view>
+     </block> 
+    </view>
+<!--第二步-->
+      <view class='setTwo'>
+          <text>第 2 步 </text> 选择商品，核对价格
+          <view class='setTwoText'>{{data.remark}}</view>
+      </view>
+<!--第三步-->
+      <view class='sethree'>
+         <view class='threeColor'><text>第 3 步 </text> 出示转单码，商家转单，抵扣订金</view>
+          <view class='leadCard'>
+              <text>转单码：{{user_code}}</text>
+              <view class='leadImg'>
+                <image src='{{code}}' wx:if='{{code}}'></image>
+              </view>
+              <view><text>向商家出示以上转单码即可转单</text></view>
+          </view>
+          <view class='takeCare'>
+              <view>1、请妥善保管好转单码，转单码是300元订金的凭证 </view>
+              <view>2、首次转单两个月内有效。转单后，三个月内可继续转单。非首次转单不可抵扣订金</view>
+          </view>
+      </view>
+
+<!--第四步-->
+      <view class='setTwo'>
+          <text>第 4 步 </text> 查看已转订单
+          <view class='setTwoText'>转单成功后，可在我的订单-待交付中查看我的订单详情</view>
+      </view>      
+</view>
+
+
+<view class="commodity_screen2" bindtap='closePoste'  style='opacity: 0.8;' wx:if="{{showpost}}"  catchtouchmove='return'></view>
+<view class='poste_box'  bindlongpress='saveShareImg' hidden='{{!showpost}}' catchtouchmove='return'>
+  <view class='poste_content' id='canvas-container' style='height:{{imgHeight}}px;"' >
+    <canvas canvas-id="myCanvas" style="width:100%;height:{{imgHeight}}px;" catchtouchmove='return'/>
+  </view>
+
+</view>
+
+  <view class='close-poste' catchtap='setCanvas' wx:if="{{showpost}}" catchtouchmove='return'>
+     <text>保存到相册</text>
+  </view>
+

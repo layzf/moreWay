@@ -1,0 +1,4 @@
+<view wx:if="{{loginData.show_modal}}">
+  <import src="/tpls/loginPublic/loginPublic.wxml" />
+  <template is="login_public"  data="{{loginData}}"></template>
+</view>

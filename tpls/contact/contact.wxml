@@ -1,0 +1,7 @@
+<view class="container" style="{{'height:'+height+'px'}}">
+    <view class="content">
+        <view class="c_item" id="online" catchtap="func">在线咨询</view>
+        <view class="c_item" id="tel" catchtap="func">客服电话：400-762-8762</view>
+        <view class="c_item" id="cancel" catchtap="func">取消</view>
+    </view>
+</view>

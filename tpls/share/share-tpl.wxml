@@ -1,0 +1,18 @@
+<template name="share">
+  <view class="flex-col share-w">
+    <image src="{{collectRecordDto.img_url}}" class="share-img"></image>
+    <text>一键分享到</text>
+    <view class="flex-row-between share-btn">
+      <view class="flex-col share-wechart">
+        <button open-type="share" class="btn-share-wechart" plain="true" hover-class="none"></button>
+        <image src="/images/icon_share_wechart@2x.png"></image>
+        <text>微信</text>
+      </view>
+      <view class="flex-col share-friends" bindtap="saveImgToPhotosAlbumTap">
+        <image src="/images/icon_share_friends@2x.png"></image>
+        <text>朋友圈</text>
+      </view>
+    </view>
+    <image src="/images/icon_share_close@2x.png" class="share-close" bindtap="onCloseShareTap"></image>
+  </view>
+</template>

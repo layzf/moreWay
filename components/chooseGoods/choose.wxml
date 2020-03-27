@@ -1,0 +1,37 @@
+<view class="choose" catchtouchmove="true" wx:if="{{showChoose}}" catchtap="hidePage">
+    <view class="modal_content {{mask?'showContent':'hideContent'}}" catchtouchmove="true" catchtap>
+        <view class="modal_head">
+            <image class="m_head_img" src="{{currentGoods.productImage}}"></image>
+            <view class="m_head_txt">
+                <text class="m_head_title">{{newcurrentGoods.productName||currentGoods.productName}}</text>
+                <view class="m_head_price">
+                    <text class="symbol">￥</text>
+                    <text>{{newcurrentGoods.sellPrice||currentGoods.productSellPrice}}</text>
+                    <text class="h-txt" wx:if="{{newcurrentGoods.originalPrice|| currentGoods.productOriginalPrice}}">￥{{newcurrentGoods.originalPrice || currentGoods.productOriginalPrice}}</text>
+                </view>
+            </view>
+        </view>
+        <scroll-view
+                scroll-y>
+            <block wx:for="{{currentGoods.pntAttrKeyList}}" wx:for-index="ix" wx:key="{{item.id}}">
+                <view class="m_content_color">
+                    <text class="m_head_title">{{item.attrName}}</text>
+                    <view class="m_content_choose">
+                        <block wx:for="{{item.pntAttrValueList}}" wx:for-item="list" wx:for-index="idx" wx:key>
+                            <view class="{{chooseId[ix] == list.id?'check':'tag'}}" data-index="{{ix}}" data-id="{{item.id}}" id="{{list.id}}" catchtap="changeTag">{{list.attrValue}}</view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="m_content_num">
+            <text class="m_head_title">数量</text>
+            <view class="m_num_right">
+                <image id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                <text>{{currentGoods.num}}</text>
+                <image id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+            </view>
+        </view>
+        <view class="addToCar" catchtap="addToCar">确定</view>
+    </view>
+</view>

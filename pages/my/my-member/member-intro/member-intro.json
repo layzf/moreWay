@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "多让会员",
+  "usingComponents": {
+    "login":"../../../../components/enroll/login/login"
+  }
+}

@@ -1,0 +1,112 @@
+<import src="../../tpls/loginPublic/loginPublic.wxml" />
+<import src="../../tpls/signUp/signUp.wxml" />
+<view class="banner">
+  <image src="{{collectRecordDto.img_url}}" class="banner-img" mode='widthFix'></image>
+</view>
+<view class="con flow">
+  <view class="con-title">{{collectRecordDto.project_name}}</view>
+  <view class="subscri">
+    <text class="txt">订金</text>
+    <view class="tip">
+      <view class="kes">
+        <text class="money">￥{{collectRecordDto.so_price}}</text>
+        <view class="stip" wx:if='{{collectRecordDto.valid_days}}' catchtap="messageMole">
+          (订金有效期<text>{{collectRecordDto.valid_days}}天</text><image src="../../images/tags.png"></image>)
+        </view>
+      </view>
+
+       <view>订金使用：转单可抵货款，不转单可退</view>
+    </view>
+  </view>
+  <view class="subscri">
+    <text class="txt">尾款</text>
+    <text class="tip">联系商家转单时按照实际下单金额支付</text>
+  </view>
+  <view class="subscri {{collectRecordDto.return_type>0?'':'paddingBottom'}}">
+    <text class="txt">流程</text>
+    <text class="tip">1.交订金 - 2.联系商家转单 - 3.支付尾款 - 4.发货</text>
+  </view>
+  <view class="subscri paddingTop {{isAuth?'paddingBottom':''}}" wx:if="{{collectRecordDto.return_type>0}}"><!-- wx:if="{{collectRecordDto.return_type>0}}"-->
+    <text class="txt">返现</text>
+    <view class="tip">认证业主订单评价后，可在线申请<text class="mpercent">{{collectRecordDto.return_value}}</text>的返现{{collectRecordDto.return_value.length>3?'（不同商品返现比例不同）':''}}</view>
+  </view>
+  <view class="right-icon" wx:if="{{collectRecordDto.return_type>0 && !isAuth}}" catchtap="toAuth"><!-- wx:if="{{!isAuth}}"-->
+    <text>立即认证</text>
+    <image src="../../images/icon_arrow_more_center@2x.png"></image>
+  </view>
+</view>
+
+<view class="comment" wx:if="{{collectRecordDto.evaluateInfo}}">
+  <view class="ctitle">
+    <text class="ctxt">{{collectRecordDto.evaluateInfo.evaluteType==2?'商品评价':'项目评价'}}</text>
+    <text class="call" catchtap="showAll">查看全部</text>
+  </view>
+  <view class="c-user">
+    <view class="c-head">
+      <view class="userInfo">
+        <image class="cavar" src="{{collectRecordDto.evaluateInfo.icon}}"></image>
+        <view class="cname">
+          <text >{{collectRecordDto.evaluateInfo.userName}}</text>
+          <text>{{collectRecordDto.evaluateInfo.updateAt}}</text>
+        </view>
+      </view>
+      <view class="remark">{{collectRecordDto.evaluateInfo.content}}</view>
+    </view>
+    <view class="c-img">
+      <block wx:for='{{imgList}}'>
+       <image class="reImg" src="{{item}}"></image>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="con-title detail-title">集采详情</view>
+<view class='imagesImg'>
+  <image src="{{item.img_url}}" mode="widthFix" wx:for="{{collectRecordDto.projectImgs}}" wx:key=""></image>
+</view>
+<view class="flex-row fix-bottom">
+  <view class="flex-row-center left" bindtap='callCapital' data-service="{{collectDespoit.userAut.id}}">
+    <image src="../../images/icon_connect@2x.png"></image>
+    <text>联系团长</text>
+  </view>
+  <view class="flex-row-center right">
+    <view wx:if="{{!isOver}}" style="width: 100%;height: 100%;">
+      <view wx:if="{{isLogin}}" class="flex-row-center rights" bindtap='depositGold'>交订金 ￥{{collectRecordDto.so_price}}</view>
+      <button wx:else class="flex-row-center rights" open-type="getPhoneNumber" bindgetphonenumber="wxLoginGold">交订金 
+      ￥{{collectRecordDto.so_price}}</button>
+    </view>
+    <view wx:else class="flex-row-center rights middColores" catchtap="showDeposit">查看订金</view>
+  </view>
+</view>
+<view class='returnFirst' wx:if="{{returnIndex==true}}" bindtap='returnPage'>
+  <image src='/images/returnIndex.png'></image>
+</view>
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+  <movable-view
+          style="pointer-events: auto"
+          class="rimg"
+          direction="all">
+    <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+  </movable-view>
+</movable-area>
+<template is="signUp" data="{{chooseMessage,chooseContactBack,appointTap,pageStatus,animationData,showRoom}}"></template>
+
+<login
+       wx:if="{{show}}"
+       isShow="{{show}}"
+       mask="{{masks}}"
+       bindhideRowLogin="hideRowLogin"
+       isCollect="{{true}}"
+       isSub="{{isSub}}"
+       cid="{{collectId}}"
+       bindcollect="showLoginData"
+       bindsubData="changeData"></login>
+<enroll
+        wx:if="{{showLogin}}"
+        isShow="{{showLogin}}"
+        mask="{{mask}}"
+        dataid="{{options}}"
+        user="{{collectDespoit}}"
+        cid="{{id}}"
+        bindhideRow="hideRow"></enroll>
+<my-commander isTab='{{showTab}}'  height='{{height}}' isShow='{{commanderHiden}}' id='my-commander'></my-commander>

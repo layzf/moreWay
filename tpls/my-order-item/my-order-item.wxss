@@ -1,0 +1,55 @@
+@import "../my-deposit-item/my-deposit-item.wxss";
+.footer-btn{
+  height: auto;
+}
+.float{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.pay{
+    border: 1px solid #FF5D22 !important;
+    color: #FF5D22 !important;
+    margin-left: 10rpx;
+    border-radius: 200px;
+    padding:8rpx 36rpx;
+}
+.obligationFlex{
+  display: flex;
+  align-items: center;
+  height:104rpx;
+}
+.price{
+  text-align: right;
+  margin:auto 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.scroll-view_H {
+  white-space:nowrap;
+}
+.middle image{
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.wx-head .date{
+  color: #333;
+}
+.wx-head image {
+  width: 14rpx;
+}
+.btn-default{
+  height:104rpx;
+}
+.wx-head .dateColor{
+  color: #999999;
+}
+.btn-default{
+  height: auto;
+}
+.middColores {
+    border:1px solid rgba(180,180,180,0.3)!important;
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}

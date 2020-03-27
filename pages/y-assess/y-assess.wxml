@@ -1,0 +1,69 @@
+<view class="margins">
+  <view class="star flex-row">
+     <text>服务评价：</text>
+     <image src="{{item.flag==1?item.img:item.aimg}}" data-type='{{item.type}}' wx:for='{{stars}}' catchtap="star" data-index='{{index}}' wx:key='{{index}}' data-status='1'></image>
+  </view>
+</view>
+
+<!--服务评价-->
+  <view class="serve">
+    <view class="serveFlex">
+          <view  class="{{item.type?'active':''}} tabs" wx:for='{{serve}}' wx:key='{{index}}' data-type='{{item.type}}' data-index='{{index}}' catchtap="checkBox" data-status='1'>
+        {{item.text}}
+      </view>
+    </view>
+
+    <textarea placeholder="请输入服务评价" value="{{objs.service_desc}}" disabled='{{lookType}}'  cursor-spacing='20' bindinput='areaInt' data-status='1'></textarea>
+    
+    <up-pic url="{{picUrl}}" bindupImgData="upImgData" notli class='up-pic' status='0' wx:if='{{!lookType}}'/>
+<!--查看评论显示图片-->
+    <view wx:else class="lookImgs">
+     <view>
+      <image  
+             wx:for='{{objs.arrServiceImg}}' 
+             wx:key='{{index}}' 
+             style='margin-right:{{index==3?0:2}}%'
+             src="{{item}}" 
+             data-id='true' 
+             data-item='{{item}}' 
+             catchtap="lookimgs"></image>
+     </view>
+    </view>
+
+  </view>
+
+
+<view class="margins" style="margin-top:84rpx;">
+  <view class="star flex-row">
+     <text>验房师评价：</text><image src="{{item.flag==1?item.img:item.aimg}}" data-type='{{item.type}}' wx:for='{{stars_1}}' catchtap="star" data-index='{{index}}' data-status='2' wx:key='{{index}}'></image>
+  </view>
+</view>
+
+<!--验房师评价-->
+  <view class="serve">
+    <view class="serveFlex">
+          <view  class="{{item.type?'active':''}} tabs" wx:for='{{serve_1}}' wx:key='{{index}}' data-type='{{item.type}}'data-index='{{index}}' catchtap="checkBox" data-status='2'>
+        {{item.text}}
+      </view>
+    </view>
+
+    <textarea placeholder="请输入服务评价" value="{{objs.desc}}" disabled='{{lookType}}' cursor-spacing='20' bindinput='areaInt' data-status='2'></textarea>
+    
+     <up-pic url="{{picUrl}}" bindupImgData="upImgData" notli class='up-pic'  status='1' wx:if='{{!lookType}}'/>
+ <!--查看评论显示图片-->
+    <view wx:else class="lookImgs">
+      <view>
+        <image 
+             wx:for='{{objs.image_urls}}' 
+             wx:key='{{index}}' 
+             style='margin-right:{{index==3?0:2}}%'
+             src="{{item}}" 
+             data-id='false' 
+             data-item='{{item}}' 
+             catchtap="lookimgs"></image>
+      </view>
+    </view>  
+  </view>
+
+
+<view class="putBtn" catchtap="put" wx:if='{{!lookType}}'>提交评价</view>

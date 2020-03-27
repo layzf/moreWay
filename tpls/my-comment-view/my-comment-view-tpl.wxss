@@ -1,0 +1,27 @@
+.comment-w .time{
+  font-size:24rpx;
+  color:#999;
+  margin-top:16rpx;
+}
+.comment-w .right image{
+  width: 76rpx;
+  height:76rpx;
+  margin-right:20rpx;
+}
+.comment-w .right text{
+  color:#FF5D22;
+}
+
+.comment-w .desc{
+  color:#666;
+  margin:40rpx 0;
+}
+.comment-w .img-list{
+  margin-right:-20rpx; 
+}
+.comment-w .img-list image{
+  width:220rpx;
+  height:160rpx;
+  margin-right:19rpx; 
+  margin-bottom:30rpx;
+}

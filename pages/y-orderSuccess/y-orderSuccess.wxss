@@ -1,0 +1,65 @@
+/* pages/y-orderSuccess/y-orderSuccess.wxss */
+page{
+  background: #F8F8F8;
+}
+.topImgs{
+  border-bottom: 1px solid #D7D7D7;
+  width: 90vw;
+  margin: 0 auto;
+  padding-bottom: 60rpx;
+
+}
+.success{
+  width: 130rpx;
+  height: 130rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 116rpx;
+}
+.explainType{
+  text-align: center;
+  color: #535353;
+  font-size: 36rpx;
+  margin-top: 30rpx;
+}
+.contents{
+  width: 86vw;
+  margin: 0 auto;
+  margin-top: 70rpx;
+  color: #4B4B4B;
+}
+.contents>text{
+  font-size: 36rpx;
+}
+.contents>view{
+  font-size: 28rpx;
+  margin-top: 14rpx;
+  line-height: 40rpx;
+}
+.contents>view text {
+ color: #F35B1D;
+}
+.y_btn{
+  margin-top: 137rpx;
+}
+.y_btn>view{
+  width: 288rpx;
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  border: 1px solid #F35B1D;
+  color: #F35B1D;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+}
+.y_btn>view:last-of-type{
+  color: #FFF;
+   background: #F35B1D !important;
+}
+.y_btn button{
+  margin: 0 auto;
+  padding: 0;
+  color: #FFF;
+  font-size: 34rpx;
+  background: #F35B1D !important;
+}

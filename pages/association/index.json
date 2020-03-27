@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "postsave":"../../components/postSave/index",
+    "my-commander": "../../../components/myCommander/myCommander"
+  },
+  "navigationBarTitleText": "集采社群"
+}

@@ -1,0 +1,70 @@
+.tip{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+}
+.t_content{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    transition: all .3s linear;
+}
+.t_content .t_tip{
+    font-size: 40rpx;
+    color: #000;
+    padding-top: 16px;
+}
+.t_content .t_title{
+    font-size: 14px;
+    color: #888888;
+}
+.t_content .t_c_context{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50rpx;
+    width: 88%;
+}
+.t_c_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40rpx;
+}
+.t_c_item .t_c_title{
+    font-size: 36rpx;
+    color: #000;
+    padding-bottom: 30rpx;
+}
+.t_c_item .t_c_img{
+    width: 270rpx;
+    height: 224rpx;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.t_content .f_txt{
+    color: #888888;
+    font-size: 28rpx;
+}
+.t_content .foot{
+    color: #E94816;
+    font-size: 40rpx;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    border-top: 1px solid rgba(180,180,180,0.2);
+    width: 90%;
+    margin: 20rpx auto 0 auto;
+    text-align: center;
+}
+
+
+

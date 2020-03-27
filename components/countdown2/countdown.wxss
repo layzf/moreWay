@@ -1,0 +1,20 @@
+.countdown{
+  display: flex;
+  align-items: center;
+}
+.dataeBefore{
+  margin-right: 12rpx;
+  font-size: 24rpx;
+}
+.date text{
+  display: inline-block;
+  color: #000;
+  /* width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx; */
+  text-align: center;
+  background: #FFF;
+  border-radius: 10rpx;
+  margin-right:6rpx;
+  font-size: 24rpx;
+}

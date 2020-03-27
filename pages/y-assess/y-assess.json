@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "up-pic":"../../components/up-pic/index"
+  },
+  "navigationBarTitleText": "评价"
+}

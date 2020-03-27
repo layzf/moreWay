@@ -1,0 +1,43 @@
+.header{
+  background-color: #fff;
+  font-size:30rpx;
+  height:110rpx;
+  line-height: 110rpx;
+  padding-left:28rpx;
+}
+.date{
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left:28rpx;
+  color:#999;
+}
+.con{
+  padding:0 28rpx;
+  background-color: #fff;
+}
+.list{
+  height:134rpx;
+  border: 2rpx solid #f7f7f7;
+}
+.list image{
+  width:70rpx;
+  height:70rpx;
+  margin-right:24rpx;
+  border-radius: 50%;
+}
+.list .name{
+  flex:1;
+   width:60%; 
+   height:134rpx;
+   line-height: 134rpx;
+   overflow: hidden; 
+}
+.list .status{
+  margin-left:28rpx;
+}
+.list .status-auth{
+  color:#FF5D22;
+}
+.list .status-sign{
+  color:#3979D4;
+}

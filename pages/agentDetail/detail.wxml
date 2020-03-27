@@ -1,0 +1,163 @@
+<import src="/tpls/auth-code/auth-code-tpl.wxml" />
+
+<import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template>
+
+<view class="detail">
+    <movable-area style="width: 100%;height: 100%;">
+    <!--项目信息-->
+        <view class="head">
+            <view class="head_img">
+                <image style="left: 0;" class="search" src="../../images/search.png"></image>
+                <input placeholder="找找自己喜欢的" disabled="{{!isShow}}" value="{{inputData}}" bindconfirm="showData" class="head_input" />
+                <image style="right: 0;" class="search" catchtap="close" src="../../images/searchClose.png"></image>
+            </view>
+            <view class="contactView">
+                <button class="contact" style="background-image: url('http://img.duorang.com/upload/v/headset.png');" open-type="contact" />
+                <text>联系客服</text>
+            </view>
+        </view>
+        <view class="classfication">
+            <view id="0" class="{{index==0?'checkData':''}}" catchtap="showItem">全部商品</view>
+            <view id="1" class="{{index==1?'checkData':''}}"  catchtap="showItem">代购须知</view>
+        </view>
+        <swiper style="{{'height:'+(height*0.7)+'px;'}}" current="{{index}}" bindchange="showItem">
+            <!--项目产品-->
+            <swiper-item>
+                <view hidden="{{!now}}" class="content" style="{{'height:'+(height*0.7)+'px;'}}">
+                    <view class="content_left">
+                        <scroll-view
+                                scroll-y
+                                style="{{'height:'+(height*0.7)+'px;'}}">
+                            <view class="left_list">
+                                <block wx:for="{{items}}" wx:for-index="idx" wx:key>
+                                    <view class="list_item"
+                                          style="{{idx==chooseItem?'background-color:#ffffff':''}}"
+                                          id="{{idx}}"
+                                          wx:if="{{item.proFlag}}"
+                                          catchtap="changeItem"><view class="{{idx==chooseItem?'choose':''}}">{{item.categoryName}}</view></view>
+                                </block>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <scroll-view
+                            scroll-top="{{top}}"
+                            bindscrolltolower="scrollData"
+                            scroll-y
+                            style="{{'height:'+(height*0.7)+'px;'}}">
+                            <view class="content_right">
+                        <block wx:for="{{catagoryInfo}}" wx:for-index="idx" wx:key="{{item.id}}">
+                            <view hidden="{{catagoryInfo.length==0}}" class="item" catchtap="getGoodsDesc">
+                                <view class="item_img" id="{{item.productImage}}" catchtap="showImg"><image mode="aspectFit" src="{{item.productImage==null?'../../images/default.png':item.productImage}}"></image></view>
+                                <view class="item_content">
+                                    <view class="item_content_title">{{item.productName}}</view>
+                                    <view class="item_content_content">{{item.productDesc == null?'暂无':item.productDesc}}</view>
+                                    <view class="item_content_price">
+                                        <text class="item_text">集采价:</text>
+                                        <!--<image class="item_image" wx:if="{{projectData.oprice_status !== 0?userInfo.userAut?true:false:true }}" src="../../images/dollar.png"></image>-->
+                                        <text class="base_price {{userInfo!==null && userInfo.userAut !== null && userInfo.userAut !== ''?'':projectData.oprice_status == 0?'base_width':''}}">{{ projectData.oprice_status == 0?userInfo == null?'认证业主可查看':userInfo.userAut && userInfo.userAut.status >0?'￥'+item.productSellPrice:'认证业主可见价格':'￥'+item.productSellPrice}}</text>
+                                        <view class="i_c_s_view">
+                                            <image hidden="{{item.count===null || item.count === 0}}" data-type="page" data-idx="{{idx}}" id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                                            <text hidden="{{item.count===null || item.count === 0}}">{{item.count==null?0:item.count}}</text>
+                                        </view>
+                                        <image style="margin-right: 10rpx;" wx:if="{{projectData.oprice_status == 0?userInfo==null?false:userInfo.userAut && userInfo.userAut.status>0?true:false:true}}" data-type="page" data-idx="{{idx}}" id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+                                    </view>
+                                    <view class="item_content_store">
+                                        <view class="tip" hidden="{{item.productOriginalPrice == 0}}">{{projectData.line_price_name}}￥{{item.productOriginalPrice}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view hidden="{{catagoryInfo.length>0}}" class="none">
+                            <image src="../../images/no-data.png"></image>
+                            <text>暂无数据</text>
+                        </view>
+                    </view>
+                    </scroll-view>
+                </view>
+            </swiper-item>
+            <!--项目详情-->
+            <swiper-item>
+                <scroll-view
+                        scroll-y
+                        style="{{'height:'+(height*0.7)+'px;'}}">
+                        <view class="imgs">
+                            <image mode="widthFix" hidden="{{projectData.projectImgs.length==0}}" wx:for="{{projectData.projectImgs}}" src="{{item.img_url}}" class="img"></image>
+                            <view hidden="{{projectData.projectImgs.length>0}}" class="none">
+                                <image src="../../images/no-data.png"></image>
+                                <text>暂无数据</text>
+                            </view>
+                        </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+        <movable-view
+                wx:if="{{showFloatImg}}"
+                class="movable_view"
+                direction="all"
+                scale
+                scale-min="0.5"
+                scale-max="4"
+                scale-value="2">
+            <image  catchtap="toHome" class="floatImg" src="../../images/returnIndex.png"></image>
+        </movable-view>
+    </movable-area>
+</view>
+<!--底部-->
+<view class="foot" style="{{ix?'padding-bottom:30rpx':''}}">
+    <view class="foot_left">
+        <view style="position: absolute;top:-22rpx;left:30rpx">
+            <view class="foot_img"
+                  catchtap="shopCarData"
+                  style="{{shopCar.count==0?'background-image: url(http://img.duorang.com/upload/v/carempty.png)':'background-image: url(http://img.duorang.com/upload/v/shopcar.png)'}}">
+                <view wx:if="{{shopCar.count!=0}}" class="buyNum">{{shopCar.count}}</view>
+            </view>
+        </view>
+        <view class="foot_content">
+            <image  wx:if="{{shopCar.count!=0}}" class="p_img" style="padding-top: 11rpx;" src="../../images/dollar.png"></image>
+            <view class="f_desc">
+                <text wx:if="{{shopCar.count!=0}}" style="color: #E94816;font-size:34rpx">{{shopCar.amount}}</text>
+                <view style="color: #9B9B9B;font-size: 20rpx;margin-left: -10rpx;">{{shopCar.count!=0?'':'未选购商品'}}</view>
+            </view>
+            <view wx:if="{{money>0 && pMoney.price - money>0}}" class="f_discount">￥{{shopCar.amount}}</view>
+        </view>
+    </view>
+    <view wx:if="{{isLogin}}" class="submitBtn" catchtap="submitOrder">结算</view>
+    <button wx:else class="submitBtn" open-type="getPhoneNumber" bindgetphonenumber="wxLogin">结算</button>
+</view>
+<!--浮窗-->
+<view class="modal {{checkImg === null?'':'showImg'}}"  hidden="{{isShow}}" catchtap="hideModal">
+    <view class="modal_content" animation="{{animationData}}" hidden="{{isShow?'':checkImg!==null}}" style="background-color: #F2F2F2">
+        <view class="clearCar" catchtap="clear"><image src="../../images/icon_sc@2x.png"></image>清空购物车</view>
+        <scroll-view
+                scroll-y
+                style="{{'height:'+height*0.4+'px;'}}">
+            <view class="shop_list">
+                <block wx:for="{{allOfGoods}}" wx:for-index="idx" wx:key="{{item.productId}}">
+                    <view class="shop_item">
+                        <view class="s_i_title">
+                            <text class="i_title">{{item.pntName}}</text>
+                        </view>
+                        <view class="s_i_price">￥{{item.pntPrice}}</view>
+                        <view class="s_i_num">
+                            <image data-type="car" data-idx="{{idx}}" id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                            <text>{{item.productCount }}</text>
+                            <image data-type="car" data-idx="{{idx}}" id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="car_foot" style="{{ix?'bottom:30rpx':''}}">
+            <text class="f_text">总计</text>
+            <view class="f_price">
+                <text>￥{{shopCar.amount}}</text>
+                <!--<text style="color:#9B9B9B;font-size:22rpx">不含运费，运费请咨询客服</text>-->
+            </view>
+            <view class="fbtn" catchtap="submitOrder">结算</view>
+        </view>
+    </view>
+    <view class="modal_img" animation="{{animationImg}}" hidden="{{checkImg == null}}">
+        <image mode="aspectFit" src="{{checkImg}}"></image>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+<view class="container">
+    <scroll-view
+            class="slide"
+            scroll-x>
+            <!--<view class="s-item">-->
+                <!--<image src="../../images/ceshi.jpg"></image>-->
+                <!--<view class="s-txt">-->
+                    <!--<view class="s-line"></view>-->
+                    <!--<text>好好集采香肠</text>-->
+                <!--</view>-->
+            <!--</view>-->
+            <image mode="widthFix"
+                   class="s-item"
+                   wx:for="{{list}}"
+                   wx:key=""
+                   src="{{item.img_url}}"></image>
+    </scroll-view>
+</view>

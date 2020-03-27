@@ -1,0 +1,36 @@
+<view class="W_90">
+    <view class="img_item">
+      <view wx:for="{{col1}}" wx:key="index">
+        <image src="{{item.pic}}" wx:if='{{item.pic}}' style="width:100%;height:{{item.height}}px"></image>
+
+        <view class="o-hs-2">问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我 </view>
+        <view class="userContent">
+           <view class="flexs">
+              <image src="../../../images/share.jpg"></image>
+              <view class="o-hs">纸飞机飞飞飞飞飞</view>
+           </view>
+           <view class="date">刚刚</view>
+        </view>
+
+      </view> 
+    </view>
+    <view class="img_item">
+      <view wx:for="{{col2}}"  wx:key="index" >
+        <image src="{{item.pic}}" wx:if='{{item.pic}}'  style="width:100%;height:{{item.height}}px"></image>
+
+        <view class="o-hs-2">问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我问子阿达爱我爱我 </view>
+        <view class="userContent">
+           <view class="flexs">
+              <image src="../../../images/share.jpg"></image>
+              <view class="o-hs">纸飞机飞飞飞飞飞</view>
+           </view>
+           <view class="date">刚刚</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+<view style="display:none">
+  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.pic}}" bindload="onImageLoad"></image>
+</view>

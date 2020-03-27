@@ -1,0 +1,99 @@
+page{
+    background-color: #ffffff;
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.head .h_avar{
+    height: 160rpx;
+    width: 160rpx;
+    border-radius: 100%;
+    border: 1px solid #A9A9A9;
+}
+.head .h_name{
+    color: #333333;
+    font-size: 28rpx;
+}
+.head .h_row{
+    display: flex;
+    align-items: center;
+    margin-top:42rpx
+}
+.h_row .row{
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+}
+.row .star{
+    width: 26rpx;
+    height: 26rpx;
+}
+.row .r_txt{
+    color:#333333;
+    padding-right:20rpx
+}
+.h_row .h_step{
+    padding: 0 40rpx;
+}
+.row .r_num{
+    color: #E94816;
+    font-size: 26rpx;
+}
+
+.content .c_title{
+    display: flex;
+    align-items: center;
+    margin-left: 114rpx;
+    margin-top: 80rpx;
+}
+.c_title .line{
+    background-color: #E94816;
+    width: 8rpx;
+    height: 30rpx;
+    border-radius: 10rpx;
+}
+.c_title text{
+    color: #333333;
+    font-size: 28rpx;
+    padding-left: 10rpx;
+}
+.c_item{
+    display: flex;
+    padding-left: 108rpx;
+    margin-top: 54rpx;
+    margin-bottom: 54rpx;
+}
+.c_item .c_i_img{
+    width: 90rpx;
+    height: 90rpx;
+}
+.c_item .c_i_line{
+    display: flex;
+    flex-direction: column;
+    padding-top:20rpx;
+    padding-left:32rpx;
+}
+.c_i_line .c_i_txt{
+    color: #4A90E2;
+    font-size: 40rpx;
+}
+.c_i_line .c_i_tip{
+    color: #A9A9A9;
+    font-size: 28rpx;
+    padding-top: 20rpx;
+}
+.bottomLine{
+    width: 100%;
+    border-top: 1rpx solid rgba(180,180,180,0.3);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

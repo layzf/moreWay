@@ -1,0 +1,99 @@
+<import src="/tpls/deposit-detail-tpl/deposit-detail-tpl" />
+<!-- <template is="deposit-detail-tpl" data="{{tabsData: tabsData}}"></template> -->
+<import src="/tpls/showImg/showImg" />
+<view class=" pay-time {{tabsData.status==1 || tabsData.status==2 ?'flex-row-between':'flex-row'}}">
+      <view class='flex-r'>
+          <image src="/images/icon_clock@2x.png" class='pay-time_left' style='margin-right:{{tabsData.status==1 || tabsData.status==2?25:0}}rpx'></image>
+            <view class='{{tabsData.status==0?"disFlex":""}}'>
+              <view class="{{tabsData.status==1 || tabsData.status==2?'leadeCeadr':'to-pay'}}">{{tabsData.status==0?'待付款':tabsData.status==1?'待转单':tabsData.status==2?'已转单':tabsData.status==-2?'已退订金':tabsData.status==-3?'退款中':tabsData.status==-4?'部分退款中':'已取消'}}</view>
+        <!--待转单 和 已转单 显示转单码--->    
+              <view class='leadWidth' wx:if='{{tabsData.status==1 || tabsData.status==2}}'>
+                向商家出示转单码即可转单。首次转单两个月内有效。转单后，三个月内可继续转单。
+              </view>
+
+              <view class='leftIcon' wx:if='{{tabsData.status==0}}'>（订金单将在24小时后取消）</view>
+
+            </view>
+      </view>
+      <view class="flex-col auth-code-w" bindtap='headCode'  wx:if="{{tabsData.status==1 || tabsData.status==2}}">
+        <image src="/images/icon_ewm@2x.png" class="auth-code"></image>
+        <text>转单码</text>
+      </view>
+</view>
+<navigator  wx:if='{{tabsData.status==1 || tabsData.status==2}}' url='../../../ChangeOrderLead/ChangeOrderLead?leadId={{options.id}}&shoopid={{business_shop_id}}&user_code={{user_code}}&project_name={{tabsData.project_name}}' hover-class='none'>
+<view class='leaderShow'>
+  <image src='/images/icon-p.png' class='icons'></image>
+  <text>转单引导：查看商家联系方式、门店地址、注意事项</text>
+  <image src='/images/rightImgs.png' class='rightImg'></image>
+</view>
+</navigator>
+  <view class="w info-w">
+    <view class="flex-row item">
+      <image src="/images/icon_address@2x.png"></image>
+      <view class="desc">
+        <view class="estate">{{tabsData.village_name}} {{tabsData.door_number}}</view>
+        <!--<view class="address">{{tabsData.address_detail}}</view>-->
+      </view>
+    </view>
+    <view class="flex-row item">
+      <image src="/images/icon_user_order@2x.png"></image>
+      <view class="desc">
+        <text class="user-name">{{tabsData.link_name}}</text>
+        <text class="user-phone">{{tabsData.link_mobile}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="project-con">
+    <view class="flex-row-between head">
+      <view>集采项目</view>
+      <!-- <view class="flex-row contect-call" bindtap='call_mobile' wx:if='{{tabsData.status>=1}}'>
+        <image src="/images/icon_contact_call@2x.png"></image>
+        <view class="contact">联系商家</view>
+      </view> -->
+    </view>
+    <view class="flex-row con">
+      <image class="cover" src="{{tabsData.img_url}}"></image>
+      <view class="flex-col-between right">
+        <view class="o-hs title">{{tabsData.project_name}}</view>
+        <view class="o-hs-2 name">{{tabsData.remark}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="deposit">
+    <view class="d_item">
+      <view class="d_title">
+        <text class="d_t_name">项目订金</text>
+        <text class="d_t_date" wx:if="{{tabsData.status==1 || tabsData.status==2}}">(有效期至{{tabsData.end_at}})</text>
+      </view>
+      <view class="d_price">￥{{tabsData.pay_price}}</view>
+    </view>
+   <view class="d_total">总计：￥{{tabsData.total_price}}</view>
+  </view>
+
+
+
+    <!-- 待转单 -->
+  <view class="w flex-c order-info">
+    <view>订金单编号：<text class="order-num">{{tabsData.so_number}}</text></view>
+    <view>订金单时间：<text class="order-time">{{tabsData.create_at}}</text></view>
+    <view wx:if='{{tabsData.pay_at}}'>支 付 时 间：<text class="order-time">{{tabsData.pay_at}}</text></view>
+ <!-- 已转单 -->
+     <view wx:if="{{tabsData.status==2}}"> 转 单 时 间：<text class="order-time">{{tabsData.soItemList[0].create_at}}</text></view>
+    <!-- 已退单 -->
+    <view wx:elif="{{tabsData.status==-2}}">
+        <view>申请退订时间： <text class="order-time">{{tabsData.soCancel.create_at}}</text></view>
+        <view>退 款 时 间：<text class="order-time">{{tabsData.soCancel.pay_at}}</text></view>
+    </view>
+  </view>
+  <view class="footer-btn" wx:if="{{tabsData.status == 0}}">
+    <button class="btn-white" data-id="{{tabsData.id}}" bindtap="onCancelTap">取消订单</button>
+    <navigator hover-class="none">
+      <button class="btn-default" bindtap='pay'>去支付</button>
+    </navigator>
+  </view>
+
+<!-- 转单码弹框-->
+
+<template is="share" data="{{showShareModal,drawImage,drawImages,code,proName,user_code}}"></template>

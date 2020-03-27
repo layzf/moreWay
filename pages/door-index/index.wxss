@@ -1,0 +1,176 @@
+/* pages/door-index/index.wxss */
+page{
+  padding-bottom: 120rpx;
+}
+.headers{
+  display: flex;
+  align-items: center;
+  color: #4751A4;
+  font-weight: bold;
+  margin: 26rpx 0;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+.productName .active{
+  background: #ff5d22;
+  color: #FFF;
+}
+.footerMoneys{
+  color: #ff5d22;
+  margin-top: 11px;
+  font-size: 24rpx;
+  text-indent: 1em;
+}
+.headers text{
+  font-size: 24rpx;
+  color: #BE7773;
+}
+.intBox{
+  background: #FFF;
+  margin: 0 20rpx;
+  padding: 35rpx 30rpx;
+  border-radius: 20rpx;
+}
+.intBox>view{
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.intBox>view:first-of-type{
+  margin-top: 0;
+}
+
+.intBox>view label{
+  font-size: 32rpx;
+  letter-spacing: 10rpx;
+}
+
+.intBox>view:nth-of-type(2) label{
+  letter-spacing: 0rpx;
+}
+
+.intBox>view input{
+  flex: 1;
+  text-align: right;
+  margin-right: 30rpx;
+  border-bottom: 2rpx solid #efefef;
+  margin-left: 40rpx;
+  color: #ff5d22;
+}
+.intBox>view text{
+  color: #999;
+}
+.placeholderClass{
+  color: #ff5d22;
+}
+
+/*品牌选择*/
+.productName{
+  display: flex;
+  align-items: center;
+}
+.productName>view{
+  padding: 6rpx 20rpx;
+  border: 1px solid #ff5d22;
+  border-radius: 10rpx;
+  color: #ff5d22;
+  margin-left: 20rpx;
+}
+.productionBoxs{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 20rpx;
+}
+.productionBoxs>view{
+  margin-right: 10rpx;
+  width: 231rpx;
+  background: #FFF;
+  padding: 20rpx 15rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+.productionBoxs>view:nth-of-type(3n){
+  margin-right:0;
+}
+.productionBoxs image{
+  width: 100%;
+  height: 190rpx;
+  margin: 6rpx 0;
+}
+.productionBoxs .price{
+  font-size: 28rpx;
+  color: #ff5d22;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.productionBoxs .oldPrice{
+  color: #9999;
+  font-size: 20rpx;
+  text-decoration:line-through;
+  text-align: center;
+  margin-top: 5rpx;
+}
+.productionBoxs .productName{
+  font-size: 24rpx;
+}
+.smallText{
+  margin:30rpx 20rpx 0 20rpx;
+}
+radio-group {
+  text-align: center;
+  margin-top: 25rpx;
+}
+
+/*底部按钮*/
+.footerBtn{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid #999;
+}
+.footerBtn button{
+  margin: 0;
+  padding: 30rpx 0;
+  flex: 2;
+  line-height: normal;
+  font-size: 28rpx;
+  border-radius: 0;
+}
+.footerBtn>view:first-of-type{
+  background: #FFF;
+  color: #000;
+}
+.footerBtn>view:nth-of-type(2){
+  border-right: 1px solid #fff;
+}
+.footerBtn>view{
+  flex: 1;
+  background: #ff5d22;
+  color: #FFF;
+  padding: 30rpx 0;
+}
+.lookMoneys{
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 12px;
+}
+.lookMoneys text{
+  padding: 6rpx 10rpx;
+  border-radius: 10rpx;
+  color: #FFF;
+  background: #ff5d22;
+}
+.allMoney{
+  border-top: 1px solid #000;
+  margin-top: 30rpx;
+  padding-top: 25rpx;
+  font-size: 32rpx;
+  color: #ff5d22;
+  font-weight: bold;
+
+}

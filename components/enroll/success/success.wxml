@@ -1,0 +1,21 @@
+<view class="success" style="{{'height:'+height+'px'}}">
+    <image class="head" src="../../../images/chenggong.png"></image>
+    <text class="h_tip">恭喜你，报名成功</text>
+    <view class="content">
+        <text class="c_word">加入多让集采装修交流群</text>
+        <text class="c_word">获取集采地点以及乘车地点等相关信息</text>
+    </view>
+    <view class="h_num">(微信群号duoranghuazhu)</view>
+    <view class="btn" catchtap="copyWechat">复制微信号</view>
+    <view class="footer">
+        <view class="f_tip" data-phone="15629083308" catchtap="callPhone">咨询我的专属团长：15629083308</view>
+        <view class="f_tip" data-phone="4007658762" catchtap="callPhone">咨询多让官方客服：400-765-8762</view>
+    </view>
+    <movable-area wx:if="{{isShare}}" class="marea" style="{{'height:'+height+'px'}}">
+        <movable-view
+                direction="all">
+            <image class="returnImg" src="../../../images/returnIndex.png" catchtap="returnHome"></image>
+        </movable-view>
+    </movable-area>
+    <tip showLogin="{{showLogin}}" mask="{{mask}}" bindhideRow="hideRow"></tip>
+</view>

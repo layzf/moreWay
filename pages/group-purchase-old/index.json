@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "group-old": "../../components/enroll/groupOld/index"
+  },
+  "navigationBarTitleText": "往期回顾"
+}

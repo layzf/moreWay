@@ -1,0 +1,44 @@
+.tpl-item{
+  background-color: #F0F0F0;
+  padding:30rpx 28rpx;
+}
+
+.tpl-item image{
+  flex: 0 0 300rpx;
+  width:300rpx;
+  height:144rpx;
+  margin-right:20rpx;
+}
+
+.info{
+  height:144rpx;
+  flex:1;
+}
+
+.info .name{
+  color:#000;
+  margin-bottom:20rpx;
+}
+.info .name1{
+  color:#999;
+  margin-bottom:20rpx;
+}
+
+.time{
+  color:#666;
+  font-size:26rpx;
+}
+
+.time text{
+  display: inline-block;
+  margin-right:30rpx;
+}
+.pay_price{
+  color: #e94816
+}
+.tit{
+  color: #999;
+}
+.tt{
+  color: #999;
+}

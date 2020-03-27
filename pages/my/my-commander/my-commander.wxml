@@ -1,0 +1,50 @@
+<!-- <view class="center" style="{{'height:'+height+'px'}}">
+  <view class="commandar">
+    <view class="head">
+
+    <!-- https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2973129073,1580688704&fm=171&app=20&f=JPEG?w=121&h=91&s=61BD36D61F67712054FB96780300407F&bpow=399&bpoh=249 -->
+      <!-- <image class="h_avar" src="{{commandar.icon}}"></image>
+      <text class="h_name">{{commandar.name}}</text>
+      <view class="h_row">
+        <view class="row">
+          <text class="r_txt">星级</text>
+          <image class="star" src="../../../images/star.png"></image>
+          <image class="star" src="../../../images/star.png"></image>
+          <image class="star" src="../../../images/star.png"></image>
+          <image class="star" src="../../../images/star.png"></image>
+          <image class="star" src="../../../images/star.png"></image>
+        </view>
+        <view class="h_step"> | </view>
+        <view class="row">
+          <text class="r_txt">已服务会员数</text>
+          <text class="r_num">{{count}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="c_title">
+        <view class="line"></view>
+        <text>联系TA</text>
+      </view>
+      <view class="c_item">
+        <image class="c_i_img" src="../../../images/commander_call@2x.png"></image>
+        <view class="c_i_line" catchtap="callPhone">
+          <text class="c_i_txt">手机 {{commandar.mobile}}</text>
+          <text class="c_i_tip">点击拨打专属团长电话</text>
+        </view>
+      </view>
+      <view class="c_item">
+        <image class="c_i_img" src="../../../images/commander_wechart@2x.png"></image>
+        <view class="c_i_line" catchtap="copyWechat">
+          <text class="c_i_txt">微信号 {{commandar.wechat}}</text>
+          <text class="c_i_tip">点击复制添加团长微信</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bottomLine"></view>
+<tip showLogin="{{showLogin}}" mask="{{mask}}" shopTip="{{true}}" bindhideRow="hideRow"></tip> --> 
+
+
+<my-commanders height='{{height}}' isShow='{{commanderHiden}}' isTab='{{showTab}}' id='my-commander'></my-commanders>

@@ -1,0 +1,72 @@
+<form report-submit='true' bindsubmit='getFormID'>
+<view  class="container showBg" catchtouchmove='true' style="{{'height:'+height+'px'}}" catchtap="hidePage">
+
+    <scroll-view class="content {{mask?'showContext':'hideContext'}}"
+                 scroll-y="{{true}}"
+                 catchtap="showtip"
+                 style="height:471px;">
+  
+        <view class="c_item" wx:if="{{itemList.length>0}}">
+            <view class="c_title">
+                选择报名项目
+                <image class="closebtn" src="../../../images/searchClose.png" catchtap="close"></image>
+            </view>
+            <view class="c_choose">
+                <div class="c_checkbox">
+                  <view class='width_line'> 
+                   <checkbox-group style="width: 100%;" bindchange="checkboxChangeAll" data-val='{{itemList}}'>
+                    <label class="checkbox1 width_line">
+                      <checkbox value="1" checked='{{changeAll}}' />全选</label>
+                    </checkbox-group>
+                  </view>
+
+                <checkbox-group style="width: 100%;" bindchange="checkboxChange">
+                    <block wx:for="{{itemList}}" wx:for-index="idx" >
+                        <label class="checkbox1 {{item.project_name.length>8?'width_line':''}}">
+<!--报名判断：changeAll代表是否全选-->                     
+                             <checkbox value="{{idx}}" checked="{{item.enroll_id!=0 || item.check?item.check:changeAll?true:false}}" disabled="{{item.enroll_id!=0 || item.isOver }}" />
+                            {{item.project_name}}
+                        </label>
+                    </block>
+                </checkbox-group>
+                </div>
+            </view>
+        </view>
+        <view class="c_item" wx:if="{{addressList.length>0}}">
+            <view class="c_title">选择免费巴士的乘车点</view>
+            <view class="c_line">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{addressList}}">
+                    <view class="line">
+                        <view class="c_l_title">{{index==''?'请选择乘车地点':addressList[index]}}</view>
+                        <image class="c_l_img" src="../../../images/iconfontjiantou5.png"></image>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="c_item">
+            <view class="c_title">填写报名信息</view>
+<!--授权按钮-->
+ <!-- -->
+            <view class="c_line">
+             
+<!--选择联系人-->
+              <navigator url="/pages/my/my-contact/contact-list/contact-list" open-type="navigate" hover-class="none">
+                <view class="line">
+                <!-- newuserNamescofs 为重新选择后的名字和手机号-->
+                    <view class="c_l_title">
+                      {{newuserNamescofs.link_name   || user.user_name}} 
+                      {{newuserNamescofs.link_mobile || user.mobile}}</view>
+                      <image class="c_l_img" src="../../../images/iconfontjiantou5.png"></image>
+                  </view>
+              </navigator>
+            </view>
+            
+            
+        </view>
+            <view class="row">
+                <!-- <view class="c_btn" catchtap="submitData">确定提交</view> -->
+                <button catchtap="submitData" class="c_btn" form-type='submit'>确定提交</button>
+            </view>
+    </scroll-view>
+</view>
+</form>

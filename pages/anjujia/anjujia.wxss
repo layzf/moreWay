@@ -1,0 +1,136 @@
+/* pages/anjujia/anjujia.wxss */
+page{
+  background: #FFF;
+  padding-bottom:90rpx;
+}
+.marea{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+.rimg{
+    left:20rpx;
+    top:710rpx;
+}
+.returnImg{
+    width: 80rpx;
+    height:80rpx;
+    -webkit-border-radius: 80rpx;
+    -moz-border-radius: 80rpx;
+    border-radius: 80rpx;
+}
+.banner{
+  width: 100%;
+}
+.titles{
+  margin: 0 32rpx;
+  text-align:center;
+  margin-top: 62rpx;
+  margin-bottom: 100rpx;
+}
+.titles view{
+  font-size: 36rpx;
+  margin-bottom:  36rpx;
+}
+.Margin_20{
+  margin: 0 32rpx;
+  margin-bottom: 100rpx;
+}
+.Margin_20 image{
+  width: 100%;
+}
+.Margin_20>view{
+  margin-top: 60rpx;
+  position: relative;
+}
+.news{
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  background: #EA4515;
+  text-align: center;
+  padding: 0 10rpx;
+  color: #FFFF00;
+}
+.Margin_20>view:first-of-type{
+  margin-top: 40rpx;
+}
+.productName{
+  color: #313131;
+  font-size: 30rpx;
+  margin: 26rpx 0;
+}
+.bootoms{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bootoms>view{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.bootoms view text{
+  color: #A0A0A0;
+  font-size: 24rpx;
+}
+.bootoms>view:first-of-type{
+  color: #E60012;
+}
+.bootoms>view:first-of-type text{
+  margin-left: 6rpx;
+}
+.bootoms>view>view ,.goHref{
+  background: #EA4515;
+  color: #FFF;
+  border-radius: 100px;
+  padding: 7rpx 22rpx;
+  margin-left: 12rpx;
+}
+.flexends{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.orderbtnes{
+  flex: 3;
+  background: #EA4515;
+  color: #FFF;
+}
+.consult{
+    background-color: #E3E2E2;
+    color: #757575;
+    flex:2
+}
+.titleImgs{
+  width: 713rpx;
+  margin-left:  30rpx;
+}
+.kous{
+  margin: 0 32rpx;
+  margin-top: 40rpx;
+}
+.kous image{
+  width:49.5%;
+  margin-top: 8rpx;
+}
+.topMargin{
+  margin-top: 60rpx;
+}
+.anImgs{
+  margin: 0 32rpx;
+  margin-top: 20rpx;
+}
+.anImgs image{
+  width: 224rpx;
+  height: 224rpx !important;
+  margin-top: 10rpx;
+}

@@ -1,0 +1,16 @@
+ <!--授权弹框-->
+   <view class="makeUserInfoModel" wx:if='{{userInfoModelFlag}}'>
+      <view class="shaw"></view>
+      <view class="userInfoBox">
+         <view class="titles">多让需要读取您的微信昵称和头像</view>
+         <button open-type="getUserInfo" bindgetuserinfo="getUser" disabled="{{checked}}" class="{{checked?'unactive':''}}">一键授权微信昵称和头像</button>
+        <view class='checkboxClass'>
+          <checkbox-group bindchange="checkboxChange" >
+            <label class="checkbox">
+              <checkbox value="1"/>
+            </label>
+          </checkbox-group>
+          请遵循 <text catchtap="userBook" data-tag='1'>《多让用户协议》</text>和<text catchtap="userBook" data-tag='2'>《多让用户保密协议》</text>
+        </view>
+      </view>
+   </view> 

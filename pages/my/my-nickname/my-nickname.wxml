@@ -1,0 +1,7 @@
+<view class="form-con">
+  <view class="form-group">
+    <input bindinput="bindReplaceInput" placeholder="昵称" value='{{inputValue}}'></input>
+  </view>
+</view>
+
+<button class="btn-default btn-confirm" bindtap='save'>保存</button>

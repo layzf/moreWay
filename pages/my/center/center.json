@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#FF5D22",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "tip": "../../../components/tip/tip",
+    "login":"../../../components/enroll/login/login",
+    "my-commander": "../../../components/myCommander/myCommander"
+  }
+
+
+  
+}

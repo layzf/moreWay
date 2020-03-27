@@ -1,0 +1,41 @@
+/* pages/newLogin/index.wxss */
+page{
+  background: #FFF;
+}
+.logo{
+  display: block;
+  width:210rpx;
+  height:86rpx;
+  margin:60rpx auto 180rpx;
+}
+.border{
+  background: #DCDCDC;
+  height: 1px;
+  width: 96vw;
+  margin: 0 auto;
+  margin-top: 150rpx;
+}
+.functionBox{
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 64rpx;
+}
+.functionBox .titleBold{
+  color: #1F1F1F;
+  font-size: 36rpx;
+} 
+.functionBox .text{
+  font-size: 28rpx;
+  color: #1F1F1F;
+  margin-top: 26rpx;
+}
+.functionBox .loginBtn{
+  background: #FF5F2D !important;
+  color: #FFF;
+  padding: 24rpx 0;
+  width: 100%;
+  text-align: center;
+  line-height: normal;
+  font-size: 32rpx;
+  margin-top: 80rpx;
+}

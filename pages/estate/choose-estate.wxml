@@ -1,0 +1,163 @@
+<view class="w border-top flex-row search-w">
+  <view class="city">长沙</view>
+  <view class="con">
+    <image src="/images/icon_search@2x.png"></image>
+    <input type="text" placeholder="请输入您的小区名称" bindinput="onSearchInput"></input>
+  </view>
+</view>
+
+<view wx:if="{{isAuth && !searchDataShow}}">
+  <view class="w label-estate label-auth">
+    <view class="flex-row title">
+      <image src="/images/icon_search_auth@2x.png"></image>
+      <text>已认证小区</text>
+    </view>
+    <view>
+      <view class="w-label">梅溪湖·金茂悦</view>
+      <view class="w-label">嘉和苑</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{!isAuth && !searchDataShow && !searchResShow}}">
+  <view wx:if="{{isOpenGps && hasLocation}}">
+    <view class="w label-estate">
+      <view class="border-bottom invite-w" wx:if="{{hasInvite}}">
+        <view class="flex-row-between title">
+          <text>邀请你的小区</text>
+          <image src="/images/icon_delete_dark@2x.png"></image>
+        </view>
+        <view>
+          <view class="w-label">梅溪湖·金茂悦</view>
+          <view class="w-label">嘉和苑</view>
+        </view>
+      </view>
+      <view class="history-w" wx:if="{{historyList.length>0}}">
+        <view class="flex-row-between title">
+          <text>历史访问小区</text>
+          <image src="/images/icon_delete_dark@2x.png" bindtap="onDeleteHistoryTap"></image>
+        </view>
+        <view class='flex-row'>
+          <block wx:for="{{historyList}}" wx:key="{{index}}">
+           <view wx:if="{{item.estateId==undefined}}"></view>
+          <view wx:else class='interest'>
+            <view class="w-label" data-id="{{item.estateId}}" data-villageName="{{item.estateName}}" data-status="{{item.estateStatus}}" bindtap="toGroupPage">{{item.estateName}}</view>
+          </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="gps-w">
+    <view class="head">定位地址</view>
+    <view class="flex-row-between con" wx:if="{{!isOpenGps}}">
+      <view class="flex-row no-gps">
+        <image src="/images/icon_gps_error@2x.png"></image>
+        <text>定位未开启</text>
+      </view>
+      <text class="re-gps" bindtap="getWxSetting">开启定位</text>
+    </view>
+    <view class="flex-row-between con" wx:if="{{isOpenGps && !hasLocation}}">
+      <view class="flex-row no-gps">
+        <image src="/images/icon_gps_error@2x.png"></image>
+        <text>未找到结果，请重新定位</text>
+      </view>
+      <text class="re-gps">重新定位</text>
+    </view>
+    <view class="flex-row-between con" wx:if="{{isOpenGps && hasLocation}}">
+      <view class="o-hs-2 location">{{localStreet}}</view>
+      <text class="re-gps" bindtap="relocation">重新定位</text>
+    </view>
+  </view>
+  <view wx:if="{{isOpenGps && hasLocation}}">
+    <view class="near-w" wx:if="{{nearEaste.length>0}}">
+      <view class="flex-row head">
+        <image src="/images/icon_near_location@2x.png"></image>
+        <text>附近的小区</text>
+      </view>
+      <view class="w">
+        <view class="item" wx:for="{{nearEaste}}" wx:key="" data-villageName="{{item.village_name}}" data-id="{{item.id}}" bindtap="nearVillage" wx:if="{{item.status==1}}">
+          <view class="felx-row name">
+            {{item.village_name}}
+          </view>
+          <view class="flex-row address">
+            <image src="/images/icon_location@2x.png"></image>
+            <text>{{item.address_detail}}</text>
+          </view>
+        </view>
+        <view class="item" wx:for="{{nearVillage}}" wx:key="" wx:if="{{item.status==0}}"      data-id="{{item.id}}" data-villageName="{{item.village_name}}" data-status="{{item.status}}"         bindtap="runOpen">
+          <view class="felx-row name">
+            {{item.village_name}}
+            <text class="w-label">即将开通</text>
+          </view>
+          <view class="flex-row address">
+            <image src="/images/icon_location@2x.png"></image>
+            <text>{{item.address_detail}}</text>
+          </view>
+        </view> 
+      </view>
+    </view>
+    <view wx:if="{{nearEaste.length <= 0}}" class='nearEatate'>附近暂无开通小区</view>
+  </view>
+</view>
+
+<view wx:if="{{!isAuth && searchResShow}}">
+  <view class="gps-w">
+    <view class="head">搜索地址</view>
+    <view class="flex-row-between con">
+      <view class="o-hs-2 location">{{village}}</view>
+      <text class="re-gps" bindtap="relocation">重新定位</text> 
+    </view>
+  </view>
+  <view wx:if="{{isOpenGps && hasLocation}}">
+    <view class="near-w" wx:if="{{nearVillage.length>0}}">
+      <view class="flex-row head">
+        <image src="/images/icon_near_location@2x.png"></image>
+        <text>附近的小区</text>
+      </view>
+      <view class="w">
+        <view class="item" wx:for="{{nearVillage}}" wx:key="" data-villageName="{{item.village_name}}" data-id="{{item.id}}"  bindtap="nearVillage" wx:if="{{item.status==1}}">
+          <view class="felx-row name">
+            {{item.village_name}}
+          </view>
+          <view class="flex-row address">
+            <image src="/images/icon_location@2x.png"></image>
+            <text>{{item.address_detail}}</text>
+          </view>
+        </view>
+        <view class="item" wx:for="{{nearVillage}}" wx:key="" wx:if="{{item.status==0}}" data-id="{{item.id}}" data-villageName="{{item.village_name}}" data-status="{{item.status}}" bindtap="runOpen">
+          <view class="felx-row name">
+            {{item.village_name}}
+            <text class="w-label">即将开通</text>
+          </view>
+          <view class="flex-row address">
+            <image src="/images/icon_location@2x.png"></image>
+            <text>{{item.address_detail}}</text>
+          </view>
+        </view> 
+      </view>
+    </view>
+    <view wx:if="{{nearEaste.length <= 0}}" class='nearEatate'>附近暂无开通小区</view>
+    <view class="apply-open">
+      如果搜不到所在小区，可能该小区未开通。
+      <text>\n请联系团长:</text>
+      <text class="mobile" bindtap='contactGroupMaster'>{{groupMasterPhone}}</text>(微信同号)申请开通。
+      <!-- <text bindtap='applyOpen'>申请开通</text> -->
+    </view>
+    
+  </view>
+</view>
+
+<view class="search-panel" wx:if="{{!isAuth && isOpenGps && hasLocation && searchDataShow}}">
+    <view class="item" bindtap="onSelectSearchTap" data-village="{{item.title}}" data-villageId="{{item.id}}" data-locationLat="{{item.location.lat}}" data-locationIng="{{item.location.lng}}" wx:for="{{adressList}}" wx:key="">
+      <view class="felx-row name">
+        {{item.title}}
+      </view>
+      <view class="flex-row address">
+        <image src="/images/icon_location@2x.png"></image>
+        <text>{{item.address}}</text>
+      </view>
+    </view>
+  <!-- <view wx:else>搜索小区不存在</view> -->
+</view>

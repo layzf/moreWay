@@ -1,0 +1,30 @@
+<view class="border-top global-label">
+  <text class="w-label">全部</text>
+  <text class="w-label">订单评价(67)</text>
+</view>
+<view class="w item">
+  <view class="flex-row top">
+    <image class="w-avatar" src="http://via.placeholder.com/30x30"></image>
+    <view class="center">
+      <view class="info">
+        <text>钱先生</text>
+        <text>（17-2010）</text>
+        <text class="w-label">参团评价</text>
+      </view>
+      <view class="time">2018-02-03 12:23:23</view>
+    </view>
+    <view class="flex-row right">
+      <image src="../../../images/icon_comment_verygreat@2x_selected.png"></image>
+      <text>非常满意</text>
+    </view>
+  </view>
+  <view class="comment">
+    这次参团我感觉服务很好，产品性价比也非常高，期待这次参团我感觉服务很好
+  </view>
+  <view class="pic">
+    <image src="http://via.placeholder.com/110x80"></image>
+    <image src="http://via.placeholder.com/110x80"></image>
+    <image src="http://via.placeholder.com/110x80"></image>
+    <image src="http://via.placeholder.com/110x80"></image>
+  </view>
+</view>

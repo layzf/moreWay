@@ -1,0 +1,130 @@
+.content{
+    background-color: #f4f4f4;
+    z-index: 100;
+}
+.content .c_item{
+    display: flex;
+    flex-direction: column;
+}
+.content .c_item .c_title{
+    color: #999999;
+    height: 44px;
+    line-height: 44px;
+    text-align: left;
+    padding-left: 5%;
+    font-size: 13px;
+}
+.c_choose{
+    background-color: #FFFFFF;
+}
+.c_checkbox{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.c_checkbox .checkbox{
+    /* width: 50%; */
+    display: inline-block;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    height:44px;
+    line-height:44px;
+    color: #000;
+}
+.c_checkbox .widthx{
+  width: 50%
+}
+.c_line{
+    background-color: #FFFFFF;
+}
+.c_line .line{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 44px;
+    align-items: center;
+}
+.c_line .line .c_l_title{
+    font-size: 14px;
+    color: #000;
+}
+.c_line .line .c_l_img{
+    width: 40rpx;
+    height: 44rpx;
+}
+.c_info{
+    background-color: #FFFFFF;
+}
+.c_info .c_name{
+    height: 44px;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    color: #000000;
+    font-size: 14px;
+    line-height: 44px;
+    text-align: left;
+}
+.c_info .c_phone{
+    height: 44px;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    color: #000000;
+    font-size: 14px;
+    line-height: 44px;
+    text-align: left;
+}
+.c_info .c_btn{
+    width: 90%;
+    height:90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 10rpx;
+    color: #FFFFFF;
+    margin: 30rpx auto 30rpx auto;
+    background-color: #E94816;
+}
+/*checkbox 整体大小  */
+checkbox {
+    width: 60rpx;
+    height: 90rpx;
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+    width: 48rpx;
+    height: 48rpx;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #FF5D22;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 28rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}/* pages/r-main/main.wxss */
+.overflow{
+    width: 100% !important;
+}
+.button_sure{
+  padding: 0;
+  text-align: left;
+  padding-left: 40rpx;
+  font-size: 30rpx;
+  color: #000;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.checkboxClass{
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+.share-w{
+  /* display:none; */
+  position: absolute;
+  top:0;
+  bottom:0;
+  width:100%;
+  background:#606162;
+  color:#fff;
+  z-index: 200;
+}
+.share-img{
+  width:400rpx;
+  height:710rpx;
+  margin-bottom:58rpx;
+}
+.share-btn{
+  width:300rpx;
+  margin-top:58rpx;
+}
+.share-wechart {
+  position: relative;
+}
+.share-wechart .btn-share-wechart{
+  position: absolute;
+  width:114rpx;
+  height:114rpx;
+}
+button[plain]{
+  border-color:transparent;
+} 
+.share-btn image{
+  width:114rpx;
+  height:114rpx;
+  margin-bottom:10rpx;
+}
+.share-close{
+  width:58rpx;
+  height:58rpx;
+  margin-top:46rpx;
+}

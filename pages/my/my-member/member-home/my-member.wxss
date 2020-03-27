@@ -1,0 +1,147 @@
+@import "/tpls/auth-code/auth-code-tpl.wxss";
+.w-avatar{
+  width:120rpx;
+  height:120rpx;
+  margin-right:24rpx;
+}
+.icon-auth{
+  display: inline-block;
+  width:40rpx;
+  height:28rpx;
+  margin-left:10rpx;
+}
+.code{
+  color:#666;
+}
+.code .auth-code{
+  margin-bottom:0;
+  width:42rpx;
+  height:42rpx;
+}
+
+/* w-con */
+.w-con{
+  padding-bottom:0;
+  margin-bottom:0;
+}
+.w-con .top image{
+  width: 190rpx;
+  height:140rpx;
+}
+
+.w-con .right{
+  margin-left:30rpx;
+}
+
+.w-con .right .info{
+  color:#666;
+}
+
+.w-con .auth-success{
+  color:#FF5D22;
+}
+
+.footer{
+  margin-top:30rpx;
+  height:104rpx;
+  border-top:1px solid #F1F1F1;
+  justify-content: flex-end;
+}
+.w-label{
+  border:1px solid #E9E9E9;
+  border-radius:20px;
+  padding:4rpx 20rpx;
+  color:#666;
+}
+.member-menu{
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+.certified {
+  text-align:center;
+  border:1px solid #cccccc;
+  font-size:12px;
+  border-radius:4px;
+  top:35px;
+  left:78px;
+  padding:2px;
+}
+.reqColecct{
+  margin-top: 8px;
+}
+.contactTel{
+  padding: 10px 0 15px 0;
+  color: #333333;
+  padding-left: 10px;
+}
+.contactTel view{
+  color: #9B9B9B;
+}
+.applyMoney_left{
+  width: 95%;
+}
+.applyMoney{
+  width: 95%;
+  padding-top: 40rpx;
+}
+.applyMoney_right{
+  flex: 8;
+  line-height: 28px;
+}
+.applyMoney_top{
+  flex: 2;
+  background: #E94816;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px;
+}
+.applyMoney_rights{
+  flex: 7;
+  line-height: 15px;
+}
+.applyMoney_tops{
+  flex: 3;
+}
+.applyMoney_bottom{
+  margin-bottom: 2px;
+  display: flex;
+}
+.applyMoney_middle{
+  border: 1px solid #E94816;
+  margin-left: 5px;
+  font-size: 10px;
+  color: #E94816;
+  padding: 0 4px 0 4px;
+}
+.alreadyTime{
+  color: #FF7B4A;
+}
+.becomeFlex{
+  color: #ffffff;
+  background: #E94816;
+  padding: 5px;
+  font-size: 12px;
+}
+.applyMoney_bottomess{
+  width: 50%;
+}
+.applyMoney_bottom image{
+  width: 55px;
+  height: 20px;
+  margin-left: 3px;
+}
+.applyMoney_bottomes{
+  width: 38px;
+  height: 13px;
+}
+.wx-heads image{
+width:10rpx;
+height:18rpx;
+display:inline-block;
+margin-left:10rpx;
+}
+.applyMoney_middleed{
+  width: 55px;
+  height: 19px;
+  margin-left: 3px;
+}

@@ -1,0 +1,67 @@
+<!--组团状态-->
+  <view class='y-detailModel-1'>
+      <view class='model-title flex-row' wx:if='{{type!=-1}}'>
+        <view class='title-type'>
+            <image src='{{type==3?"../../images/y-titleimg.png":"../../images/y-titleimg-active.png"}}'></image>
+            <view>{{type==3?"组团结束":type==1?"正在组团":type==2?"组团成功":""}}</view>
+        </view>
+      <view class='title-village'>{{name}}</view>
+    <!--参团要求-->
+      <view class='W_706 flex-row-around'>
+          <view>
+              <view class='teamNumbers'>{{groupSum}}<text>人</text></view>
+              <view class='teamins flex-row'>
+                <image src='../../images/y-teamSuc.png'></image>
+                <view>成团要求</view>
+              </view>
+          </view> 
+
+          <view>
+              <view class='teamNumbers'>{{appliedSum}}<text>人</text></view>
+              <view class='teamins flex-row'>
+                <image src='../../images/y-teamSuc-2.png'></image>
+                <view>已参团人数</view>
+              </view>
+          </view> 
+
+          <view>
+              <view class='teamNumbers'>
+                {{type==1? y_day:''}}<text>{{type==3 || type==-1 ?'已结束':type==2?'组团成功':type==1?'天':''}}</text>
+              </view>
+              <view class='teamins flex-row'>
+                <image src='../../images/y-teamSuc-3.png'></image>
+                <view>剩余时间</view>
+              </view>
+          </view> 
+         </view>
+      </view>  
+  <!--报名数据-->
+      <!-- <view class='enrollBox' wx:if='{{groupList.length>=1}}'>
+          <view class='y-commonTitle flex-row' style='margin-top:{{type<0?"0":"32"}}rpx'>
+              <image src='../../images/y-leftImg-1.png'></image>
+              <view>{{appliedSum+'户业主已参团'}}</view>
+          </view>
+          <view class='swiper_enroll'>
+              <navigator url="" hover-class="none" class="shade">
+              <view class="shades"></view>
+              
+                <swiper autoplay="true"  vertical='true' duration='2000' interval='5000' easing-function='linear' circular='true'     
+                display-multiple-items='{{groupList.length==1?1:groupList.length==2?2:3}}'  
+                style='height:{{groupList.length==1 ? height:groupList.length==2?(2*height):(3*height)}}px'>
+                  <swiper-item wx:for='{{groupList}}' wx:key='q' >
+                    <view class='swiper_enroll_view '>
+                      <view class='flex-row newflex-row'>
+                        <image src='{{item.userInfo.icon}}'></image>
+                          <view class='flex-row-between'>
+                              <view class='userSuccess-enroll'><text>{{item.userInfo.user_name}}</text></view>
+                              <text class='clockDate-enroll'>{{item.enroll_time}}</text>
+                          </view>
+                        </view>
+                    </view>
+                    </swiper-item>
+              </swiper>
+
+              </navigator>
+          </view>
+      </view>  -->
+  </view>   

@@ -1,0 +1,23 @@
+<view class="content" style="{{'height:'+height+'px'}}">
+    <view class="c_item">
+        <view class="c_title">签到前，选择感兴趣的集采项目</view>
+        <view class="c_choose">
+            <div class="c_checkbox">
+                <checkbox-group bindchange="checkboxChange" class='checkboxClass'>
+                    <label class="checkbox {{item.project_name.length>8?'overflow':''}} {{itemList.length>1?'widthx':''}}" wx:for="{{itemList}}" wx:key="{{item.id}}">
+                        <checkbox value="{{item.id}}" />
+                        {{item.project_name}}
+                    </label>
+                </checkbox-group>
+            </div>
+        </view>
+    </view>
+
+    <view class="c_item">
+        <view class="c_title">填写签到的信息</view>
+        <div class="c_info">
+          <view class="button_sure">{{userNamescof.user_name}} {{userNamescof.mobile}}</view>
+          <view class="c_btn" catchtap="sumbitData">确定提交</view>
+        </div>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<view class="flex-c space-between header">
+  <view class="flex-row-between top">
+    <text>当前多币</text>
+    <navigator url="/pages/my/my-point/point-rule/point-rule" hover-class="none">
+      <view class="flex-row tips">
+        <image src="../../../images/icon_tips_help@2x.png"></image>
+        <text>多币规则</text>
+      </view>
+    </navigator>
+  </view>
+  <view class="flex-wx point">60</view>
+</view>
+
+<view class="w">
+  <view class="list-head">收支明细</view>
+  <view class="list">
+    <view class="flex-row-between item">
+      <view class="left">
+        <view class="label">考察团签到</view>
+        <view class="time">2018-01-20 11:11:11</view>
+      </view>
+      <view class="right">+10</view>
+    </view>
+    <view class="flex-row-between item">
+      <view class="left">
+        <view class="label">考察团签到</view>
+        <view class="time">2018-01-20 11:11:11</view>
+      </view>
+      <view class="right">+10</view>
+    </view>
+    <view class="flex-row-between item">
+      <view class="left">
+        <view class="label">考察团签到</view>
+        <view class="time">2018-01-20 11:11:11</view>
+      </view>
+      <view class="right">+10</view>
+    </view>
+  </view>
+</view>

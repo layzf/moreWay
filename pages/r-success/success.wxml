@@ -1,0 +1,15 @@
+<view class="success">
+    <image class="head" src="../../images/chenggong.png"></image>
+    <text class="h_tip">{{tip.title}}</text>
+    <view class="content">
+        <text class="c_title">集采须知</text>
+        <text class="c_word">1.签到后领取会员标，凭借会员标入场</text>
+        <text class="c_word">2.集采现场价格不能泄露</text>
+        <text class="c_word">3.认证后部分项目可以获得返现</text>
+        <text class="c_word">4.集采现场没有任何问题，都可以咨询多让团长，解答你的疑惑</text>
+    </view>
+    <view class="btn" catchtap="back" wx:if="{{tip.showBtn}}">返回首页</view>
+    <view class="footer">
+        <view class="f_tip" data-phone="4007658762" catchtap="callPhone">多让官方客服：400-765-8762</view>
+    </view>
+</view>

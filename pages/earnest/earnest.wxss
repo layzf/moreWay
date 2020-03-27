@@ -1,0 +1,335 @@
+/* pages/earnest/earnest.wxss */
+.c_line{
+    background-color: #FFFFFF;
+}
+.m-line{
+  background-color: #FFFFFF;
+}
+.m-line>view{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button_sure{
+  padding: 0;
+  margin: 0 ;
+  flex: 1;
+}
+.m-line text{
+  color: #999999;
+}
+.home  .line{
+    display: flex;
+    height: 44px;
+    align-items: center;
+}
+ .m-line .line .c_l_title{
+    font-size: 14px;
+    color: #666666;
+}
+ .m-line .line .c_l_img{
+    width: 40rpx;
+    height: 40rpx;
+}
+.home  .item{
+    display: flex;
+    text-align: left;
+    background-color:#FFFFFF;
+}
+.home  .item .i_content{
+    width: 90%;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin: 0 auto;
+}
+.scrollView{
+    /*margin-top:24rpx;*/
+    /*margin-bottom:24rpx*/
+}
+.contactView{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:50rpx;
+    font-size:18rpx;
+    margin-top:10rpx;
+    flex: 2;
+}
+.home  .item .i_content text{
+    color: #999999;
+    flex: 2;
+}
+.home  .item .i_content input{
+    flex: 6;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: right;
+}
+.home  .item .i_content .i_link{
+    flex: 6;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: right;
+    color: #666666;
+}
+.home  .item .i_content .i_img{
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.home  .item .i_content image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.home .content{
+    background-color: #FFFFFF;
+    margin-bottom: 24rpx;
+}
+
+.home .content .c_title{
+    display: flex;
+    width: 100%;
+}
+
+.home .content .c_title view{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333333;
+    width: 90%;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: left;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.home .content .c_title image{
+    width:20rpx;
+    height:26rpx;
+    padding-left:20rpx;
+}
+
+.home .content .c_title .c_list{
+    display: flex;
+    flex-direction: column;
+}
+.more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+}
+.more text{
+    font-size: 26rpx;
+    color: #333333;
+}
+.more image{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.c_item{
+    display: flex;
+    height: 270rpx;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+}
+ .c_item .item_img{
+    width: 190rpx;
+    height: 210rpx;
+    border: 1rpx solid rgba(180,180,180,0.2);
+     margin-left: 5%;
+     margin-top: 25rpx;
+}
+ .c_item .item_desc{
+     display: flex;
+     flex-direction: column;
+     margin-top: 25rpx;
+     padding-left: 25rpx;
+     width: 60%;
+     position: relative;
+ }
+
+.c_item .item_desc .item_desc_title{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333333;
+    display:-webkit-box;
+    display:-moz-box;
+    display:box;
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+    -moz-box-orient:vertical;
+    -webkit-line-clamp:2;
+    -moz-line-clamp:2;
+    line-clamp:2;
+    overflow:hidden;
+}
+
+.c_item .item_desc .item_desc_mark{
+    height: 80rpx;
+    font-size: 28rpx;
+    padding-top: 10rpx;
+    color: #999999;
+    padding-bottom: 10rpx;
+    display:-webkit-box;
+    display:-moz-box;
+    display:box;
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+    -moz-box-orient:vertical;
+    -webkit-line-clamp:2;
+    -moz-line-clamp:2;
+    line-clamp:2;
+    overflow:hidden;
+}
+
+.c_item .item_desc .item_desc_price{
+    position: absolute;
+    bottom: 25rpx;
+    left: 25rpx;
+    width: 100%;
+    display: flex;
+}
+.c_item .item_desc .item_desc_price .i_d_p1{
+    flex: 1;
+    color: #E94816;
+    font-size: 28rpx;
+    text-align: left;
+}
+
+.c_item .item_desc .item_desc_price .i_d_p2{
+    flex: 1;
+    color: #333333;
+    font-size: 28rpx;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.c_item .item_desc image{
+    width: 18rpx;
+    height: 22rpx;
+}
+.home .line{
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home .line .l_item{
+    display: flex;
+    border-bottom: 1rpx solid rgba(180,180,180,0.2);
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.home .line .l_item .l_title{
+    color: #333333;
+    font-size: 28rpx;
+    flex: 2;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+}
+
+.home .line .l_item .l_desc{
+    flex: 4;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.home .line .l_item .l_discount{
+    color:#9B9B9B!important;
+    font-size:11px!important;
+    font-weight:600;
+    letter-spacing:1px;
+    height:36rpx;
+    text-decoration:line-through;
+    font-style:italic;
+    padding-top:5px;
+}
+
+.home .line .l_item .l_desc image{
+    width: 18rpx;
+    height: 22rpx;
+}
+
+.home .line .l_item .l_desc text{
+    color: #E94816;
+    font-size: 28rpx;
+}
+.home .line .l_item .l_desc .text{
+    color:#E94816;
+    font-size:28rpx;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.home .all{
+    height: 110rpx;
+    line-height: 110rpx;
+    color: #000000;
+    background-color: #FFFFFF;
+    text-align: right;
+    padding-right: 5%;
+}
+.foot{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    background-color: #FFFFFF;
+    display: flex;
+    font-size: 28rpx;
+    border-top: 1rpx solid rgba(180,180,180,0.2);
+}
+
+.foot .f_title{
+    color: #333333;
+    flex: 6;
+    text-align: right;
+    line-height: 90rpx;
+    padding-right:10rpx;
+}
+
+ .foot .f_tip{
+    color:#E94816;
+    flex:6;
+    padding-left:10rpx;
+    line-height:90rpx;
+    text-align:right;
+    padding-right:40rpx;
+}
+
+.foot .f_tip image{
+    width: 18rpx;
+    height: 22rpx;
+}
+
+ .foot .submitOrder{
+    flex: 4;
+    background-color: #E94816;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 90rpx;
+}
+.c-line{
+    background-color: #f7f7f7;
+    height: 24rpx;
+    width: 100%;
+}
+.fstep{
+    height: 90rpx;
+}

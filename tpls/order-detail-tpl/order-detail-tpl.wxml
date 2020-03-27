@@ -1,0 +1,292 @@
+<template name="order-detail-tpl">
+ <!-- hidden="{{tabsData.pay==0 }}" -->
+  <view class="flex-row-between pay-time">
+    <image src="/images/icon_clock@2x.png" class="pay-time_left"></image>
+    <view class="to-pay only_clock" wx:if="{{tabsData.pay_status==0}}">
+      <view>待付款 </view>
+      <!-- <text wx:if='{{countDown!=""}}'>还剩下{{countDown.countDownHour}}：{{countDown.countDownMinute}}：{{countDown.countDownSecond}}</text> -->
+    </view>
+    <view class="to-pay" wx:if="{{tabsData.status==0 && tabsData.pay_status==1}}">
+      <view>待交付</view>
+      <!-- <view class="pay-time-desc">由于交付过程比较复杂，你可以反馈交付过程中的问题，以备后续使用</view> -->
+    </view>
+     <view class="to-pay" wx:if="{{tabsData.status==1}}">
+      <view>待验收 </view>
+    </view>
+
+     <view class="to-pay" wx:if="{{tabsData.status==2}}">
+      <view>已完成 </view>
+    </view>
+
+    <view class="to-pay" wx:if="{{tabsData.status==3}}">
+      <view>已完成 </view>
+    </view>
+
+    <view class="to-pay" wx:if="{{tabsData.status==-1}}">
+      <view>已取消 </view>
+    </view>
+  </view>
+
+  <view class="w info-w">
+    <view class="flex-row item">
+      <image src="/images/icon_address@2x.png" class="pay-time_left"></image>
+      <view class="desc">
+        <view class="estate">{{tabsData.village_name}} {{tabsData.door_number}}</view>
+        <!--<view class="address">{{tabsData.address_detail}}</view>-->
+      </view>
+    </view>
+    <view class="flex-row item">
+      <image src="/images/icon_user_order@2x.png" class="pay-time_left"></image>
+      <view class="desc">
+        <text class="user-name">{{tabsData.link_name}}</text>
+        <text class="user-phone">{{tabsData.link_mobile}}</text>
+      </view>
+    </view>
+    <!--<view class="flex-row item" hidden="{{tabsData.pay==0}}">-->
+      <!--<image src="/images/icon_contact_commander@2x.png" class="pay-time_left"></image>-->
+      <!--<view class="desc">-->
+       <!--服务团长:{{tabsData.user_name}}-->
+      <!--</view>-->
+    <!--</view>-->
+  </view>
+
+  <!--项目信息 转单详情-->
+  <view hidden="{{tabsData.soItemDetailList.length>0}}" class="project-con">
+    <view class="flex-row-between head">
+      <view>集采项目</view>
+      <view class="flex-row contect-call" bindtap='call_mobile'>
+        <image src="/images/icon_contact_call@2x.png"></image>
+        <view class="contact">联系商家</view>
+      </view>
+    </view>
+    <view class="flex-row con">
+      <image class="cover" src="{{tabsData.img_url}}"></image>
+      <view class="flex-col-between right">
+        <view class="o-hs title">{{tabsData.project_name}}</view>
+        <view class="o-hs-2 name">{{tabsData.project_content}}</view>
+
+      </view>
+    </view>
+
+    <view class="line">
+      <view class="l_item">
+        <text class="l_title">转单支付</text>
+        <view class="l_desc">
+          <!-- <image src="/images/dollar.png" class="l_img"></image> -->
+          <text>￥{{tabsData.prod_price-tabsData.pay_price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="line">
+      <view class="l_item">
+        <text class="l_title">项目订金</text>
+        <view class="l_desc">
+          <!-- <image src="/images/dollar.png" class="l_img"></image> -->
+          <text>￥{{tabsData.pay_price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="flex foot">
+      <view class="foot-con">
+        <view class='allMoneys'>实付款总计：￥{{tabsData.prod_price}}</view>
+        <view class="record" wx:if="{{tabsData.return_money}}">(订单验收后，该项目可获得{{tabsData.return_money}}元返现)</view>
+      </view>
+    </view>
+  </view>
+
+  <!--产品信息 在线订单详情 -->
+  <view hidden="{{tabsData.pay==0 || tabsData.soItemDetailList.length<=0}}" class="project-con">
+    <view class="content">
+      <view class="c_title flex-row-between head">
+        <view style="flex:5;font-size: 28rpx;" >
+          <view catchtap='shoopUrl'>
+               <text>{{tabsData.prot_name}}</text>
+               <image src="/images/icon_jt@3x.png"></image>
+          </view>
+        </view>
+        <view class="flex-row contect-call"  style="margin-top: 6rpx;" hidden="{{tabsData.pay!=0}}">
+          <!-- <button class="contact" style="background-image: url('http://img.duorang.com/upload/v/service.png');" open-type="contact" />
+          <text style="color: #d81e06;">联系客服</text> -->
+
+           <button open-type="contact" class='contactBtn'>
+            <image src="/images/icon_contact_call@2x.png"></image>
+          <view class="contact">在线咨询</view>
+           </button>
+        </view>
+
+      </view>
+      <view class="c_list">
+        <view class="c_item" wx:for="{{tabsData.soItemDetailList}}" wx:for-index="idx">
+          <image src="{{item.productImage==null?'/images/default.png':item.productImage}}" class="item_img"></image>
+          <view class="item_desc">
+            <text class="item_desc_title">{{item.prodName}}</text>
+            <view class="item_desc_mark">{{item.prodContent==null?'暂无':item.prodContent}}</view>
+            <view class="item_desc_price">
+              <view class="i_d_p1">
+                <!-- <image src="/images/dollar.png"></image> -->
+                <text>￥{{item.prodPrice}}</text>
+              </view>
+              <view class="i_d_p2">
+                <text>x {{item.prodCount}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line">
+      <view class="l_item">
+        <text class="l_title">商品总价</text>
+        <view class="l_desc">
+          <!-- <image src="/images/dollar.png" class="l_img"></image> -->
+          <text>￥{{tabsData.prod_price}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="line" wx:if="{{tabsData.freight}}">
+      <view class="l_item">
+        <text class="l_title">运费</text>
+        <view class="l_desc">
+          <!-- <view class="text">{{tabsData.remark}}</view> -->
+          <view class="text">￥{{tabsData.freight}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="line"  wx:if="{{tabsData.discounts}}">
+      <view class="l_item">
+        <text class="l_title">立减</text>
+        <view class="l_desc">
+          <!-- <view class="text">{{tabsData.remark}}</view> -->
+          <view class="text">￥{{tabsData.discounts}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="all">
+      <text  class='allMoneys'>实付款总计：￥{{tabsData.pay_price}}</text>
+      <view class="record" wx:if="{{tabsData.return_money}}">(订单评价后，该项目可获得{{tabsData.return_money}}元返现)</view>
+    </view>
+  </view>
+
+  <!--待付款产品信息-->
+  <view hidden="{{tabsData.pay!=0}}"  class="project-con">
+    <view class="content">
+      <view class="c_title  flex-row-between head">
+        <view style="flex:5;font-size: 28rpx;">
+          <view catchtap='shoopUrl'>
+               <text>{{tabsData.prot_name}}</text>
+               <image src="/images/icon_jt@3x.png"></image>
+          </view>
+
+        </view>
+        <!-- <view class="contactView" style="margin-top: 6rpx;" hidden="{{tabsData.pay!=0}}">
+          <button class="contact" style="background-image: url('http://img.duorang.com/upload/v/service.png');" open-type="contact" />
+          <text style="color: #d81e06;">联系客服</text>
+        </view> -->
+
+        <view class="flex-row contect-call" bindtap='call_mobile' style="margin-top: 6rpx;" hidden="{{tabsData.pay!=0}}">
+          <button open-type="contact" class='contactBtn'>
+            <image src="/images/icon_contact_call@2x.png"></image>
+          <view class="contact">在线咨询</view>
+           </button>
+        </view>
+      </view>
+      <view class="c_list">
+        <view class="c_item" wx:for="{{tabsData.soItemDetailList}}" wx:for-index="idx">
+          <image src="{{item.productImage==null?'/images/default.png':item.productImage}}" class="item_img"></image>
+          <view class="item_desc">
+            <text class="item_desc_title">{{item.prodName}}</text>
+            <!-- <view class="item_desc_mark">{{item.prodContent==null?'暂无':item.prodContent}}</view> -->
+            <view class="item_desc_price">
+              <view class="i_d_p1">
+                <!-- <image src="/images/dollar.png"></image> -->
+                <text>￥{{item.prodPrice}}</text>
+              </view>
+              <view class="i_d_p2">
+                <text>x {{item.prodCount}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line">
+      <view class="l_item">
+        <text class="l_title">商品总价</text>
+        <view class="l_desc">
+          <!-- <image src="/images/dollar.png" class="l_img"></image> -->
+          <text>￥{{tabsData.prod_price}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="line" wx:if="{{tabsData.freight}}">
+      <view class="l_item">
+        <text class="l_title">运费</text>
+        <view class="l_desc">
+          <!-- <view class="text">{{tabsData.remark}}</view> -->
+          <view class="text">+￥{{tabsData.freight}}</view>
+        </view>
+      </view>
+    </view>
+      <view class="line" wx:if="{{tabsData.discounts}}">
+        <view class="l_item">
+          <text class="l_title">立减</text>
+          <view class="l_desc">
+            <!-- <view class="text">{{tabsData.remark}}</view> -->
+            <view class="text">-￥{{tabsData.discounts}}</view>
+          </view>
+      </view>
+    </view>
+
+    <view class="all">
+      <text  class='allMoneys'>实付款总计：￥{{tabsData.pay_price}}</text>
+      <view class="record" wx:if="{{tabsData.return_money}}">(订单评价后，该项目可获得{{tabsData.return_money}}元返现)</view>
+    </view>
+  </view>
+  <!-- <view class="flex-row-between w w-head">
+    <text>订单详情记录</text>
+    <navigator url="/pages/my/my-order/order-detail-record/order-detail-record" hover-class="none">
+      <text class="more">查看详情</text>
+      <image src="/images/icon_arrow_next_gray@2x.png"></image>
+    </navigator>
+  </view> -->
+
+  <view class="w flex-c order-info " style="margin-bottom:{{tabsData.status==0 && tabsData.pay_status==1?0:70}}rpx;">
+    <view>
+      订金单编号：
+      <text class="order-num">{{tabsData.so_number}}</text>
+    </view>
+    <view>
+      订金单时间：
+      <text class="order-time">{{tabsData.create_at}}</text>
+    </view>
+    <view wx:if="{{tabsData.status==1||tabsData.status==2||tabsData.status==3 || tabsData.payStatus==1}}">
+      订单支付时间：
+      <text class="order-time">{{tabsData.pay_at}}</text>
+    </view>
+    <view wx:if="{{tabsData.status==2||tabsData.status==3}}">
+      订单验收时间：
+      <text class="order-time">{{tabsData.pay2_at}}</text>
+    </view>
+  </view>
+
+  <view class='footerFixed'>
+      <view class="footer-btn">
+        <!-- <navigator url="/pages/my/my-order/order-detail-record/order-detail-record?type=issue" hover-class="none" wx:if="{{tabsData.status ==0||tabsData.status ==1}}">
+          <button class="btn-white">问题反馈</button>
+        </navigator> -->
+        <view class="f-pay margin" catchtap="record" data-id="{{tabsData.id}}" wx:if="{{tabsData.status==3 && tabsData.return_money_status==0}}">申请返现</view>
+        <view class="f-pay margin middColores" catchtap="returnMoneyView" data-id="{{tabsData.id}}" wx:if="{{tabsData.return_money_status==1}}">查看返现</view>
+        <view class="f-pay margin middColores" catchtap="showevalute" data-id="{{tabsData.id}}" wx:if="{{tabsData.status==3 }}">查看评价</view>
+        <!-- <view wx:if="{{tabsData.pay == 0 && tabsData.status==0}}" ></view>
+        <view wx:if="{{tabsData.pay == 0 && tabsData.status==0}}"></view> -->
+
+        <view class='obligationFlex' wx:if="{{tabsData.pay == 0 && tabsData.status==0}}">
+            <text data-id="{{tabsData.id}}" class="f-pay pay" catchtap="cancel">取消订单</text>
+            <text class="f-pay" catchtap="pay">去支付</text>
+        </view>
+        <button catchtap="submit" data-id="{{tabsData.id}}" data-status="{{tabsData.status}}" class="btn-default" wx:if="{{tabsData.status==1||tabsData.status==2}}">{{ tabsData.status == 1? '确定验收':tabsData.status == 2? '评价': ""}}</button>
+      </view>
+  </view>
+</template>

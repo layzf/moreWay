@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tip": "../enroll/success-tip/tip"
+  }
+}

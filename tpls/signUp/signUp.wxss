@@ -1,0 +1,67 @@
+.fix-bottom-submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  background-color: #fff;
+  box-shadow: 0 0 3px #ddd;
+  padding: 0 28rpx 30rpx;
+}
+
+.fix-bottom-submit .item {
+  height: 108rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.fix-bottom-submit .item.date text {
+  margin-left: 40rpx;
+  color: #666;
+}
+
+.fix-bottom-submit .item .left {
+  margin-right: 68rpx;
+  color: #999;
+}
+
+.fix-bottom-submit .item .middle {
+  flex: 1;
+  color: #666;
+}
+
+.fix-bottom-submit .item .right text {
+  color: #3979d4;
+  font-size: 24rpx;
+}
+
+.fix-bottom-submit .item image {
+  width: 18rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.fix-bottom-submit .btn-default {
+  margin-top: 30rpx;
+}
+
+.checkBox {
+  zoom: 70%;
+}
+
+.collectAll_foot {
+  color: #ff5d22;
+}
+
+.loadMore {
+  line-height: 30px;
+  text-align: center;
+  color: #666;
+}
+
+.scrollViews {
+  height: auto;
+}
+.writeRoom_left {
+  height: 80rpx;
+  border-bottom: 1px solid #e9e9e9;
+}

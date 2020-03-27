@@ -1,0 +1,4 @@
+<!--pages/commentAll/index.wxml-->
+
+
+<comment-all item='{{item}}' waterFlowShow = '{{waterFlowShow}}'></comment-all>

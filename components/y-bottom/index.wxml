@@ -1,0 +1,22 @@
+<view class='botomHeight'>
+   <view class='fixed_bottom flex-row'>
+        <button class='btns' open-type="share"> 
+          <image src='../../images/y-btom-1.png'></image>
+          <view>邀请邻居</view>
+        </button>
+        <view class='btns' catchtap="callCapital"> 
+          <image src='../../images/y-btom-2.png'></image>
+          <view>联系团长</view>
+        </view>
+        <view class='aloneOrderbtn' catchtap='showOrderModel' wx:if='{{isLogin.user_name}}'>
+         {{type==3 || type==-1?"单独预约":type==2?"立即预约":type==1?"立即参团":""}}
+        </view>
+        <navigator class="aloneOrderbtn" wx:else url="../newLogin/index">
+          {{type==3 || type==-1?"单独预约":type==2?"立即预约":type==1?"立即参团":""}}
+        </navigator>
+        <!-- <button class="aloneOrderbtn" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>
+           {{type==3 || type==-1?"单独预约":type==2?"立即预约":type==1?"立即参团":""}}
+        </button> -->
+        
+   </view>
+</view>

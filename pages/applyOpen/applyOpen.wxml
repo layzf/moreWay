@@ -1,0 +1,6 @@
+<view class="container">
+  <image src="/images/bg@2x.jpg"></image>
+  <view class='container_top'><image src="/images/logo@3x.png"></image></view>
+  <!-- <button class='container_left'>我是业主，申请开通小区</button> -->
+  <button class='container_left container_right' bindtap='becomeCompany'>我是业主,成为小区合伙人</button>
+</view>

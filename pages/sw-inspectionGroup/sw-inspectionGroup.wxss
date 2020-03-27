@@ -1,0 +1,49 @@
+/* pages/sw-inspectionGroup/sw-inspectionGroup.wxss */
+page{
+  background: #FFF;
+}
+.setps{
+  height:150rpx;
+}
+.formClass{
+  margin: 0 20rpx;
+  margin-top: 60rpx;
+}
+.formClass .inputBorder{
+  border: 1px solid #999;
+  border-radius: 10rpx;
+  padding: 16rpx 0 16rpx 16rpx;
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+.forClass{
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.forClass>text{
+  flex: 1;
+}
+.formClass .inputBorder text{
+  margin-right: 20rpx;
+}
+.formClass input{
+  width: 100%;
+}
+.formClass button{
+  width: 100%;
+  background: #EA4717 !important;
+  padding: 0;
+  font-size: 30rpx;
+  color: #fff;
+  height: 100rpx;
+  line-height:100rpx; 
+  margin-top: 60rpx;
+}
+.tags{
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  color: #999;
+  font-size: 24rpx;
+}

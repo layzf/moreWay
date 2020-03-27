@@ -1,0 +1,30 @@
+<view class='form_l' wx:for="{{no_list}}" wx:key="index">
+<view class='box'>
+<view class='info'>
+<image class='img' src='{{item.icon}}'></image>
+<view class='detail_info'>
+<view class='name'>{{item.user_name}}</view>
+<view class='time'>{{item.create_at}}</view>
+</view>
+</view>
+<view class='button'  bindtap='examine' data-id='{{item.id}}'>审核</view>
+</view>
+</view>
+
+
+<!-- <view class='title'>审核记录</view>
+<view class='form_record'>
+<view class='box'>
+<view class='info'>
+<image class='img' src='../../../images/commander_wechart@2x.png'></image>
+<view class='detail_info'>
+<view class='name'>成陈</view>
+<view class='time'>2017.8.6</view>
+</view>
+</view>
+<view class='stuat'>
+<view class='y_n'>审核通过</view>
+<view class='date'>20186.5</view>
+</view>
+</view>
+</view> -->

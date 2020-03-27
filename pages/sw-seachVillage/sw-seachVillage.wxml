@@ -1,0 +1,53 @@
+
+  <view class="seachBox">
+    <view class="searchView" >
+      <icon type="search" size="20" color="#B1B1B1"/>
+      <input placeholder="搜索我的小区"  cursor-spacing='20' value="{{val}}"  bindinput='_bindinput' bindconfirm='confirm' confirm-type='search' focus></input>
+      <icon type="cancel" size="20" color="#B1B1B1" class="colseInt" bindtap="cancelClick"/>
+    </view>
+    <view class="seachBtn" catchtap="confirm">搜索</view>
+  </view>
+
+
+    <view class="empty-page {{textLoad?'absoluteBotm':''}}" wx:if="{{load || textLoad}}">
+      <image src="/images/icon_empty_order@2x.png" wx:if='{{!textLoad}}'></image>
+          <view class="hotvillagename">
+            <navigator class="notMyVillage"
+               wx:if='{{userInfo.id}}'
+              url="../sw-inspectionGroup/sw-inspectionGroup?categoryId={{categoryId}}&shareName={{shareName}}&shareUrl={{shareUrl}}&changeNotMyVill=1" hover-class="none"><text>没有我的小区？手动输入窗户面积获取报价</text>
+            </navigator>
+
+              <navigator url="../newLogin/index?seachVillage={{seachVillage}}"
+                class="num" 
+                hover-class="none"
+                wx:else ><text>没有我的小区？手动输入窗户面积获取报价</text>
+              </navigator>
+          </view> 
+    </view>
+<!--小区显示-->
+    <view class="hotVillage" wx:if='{{!load}}'>
+      <view class="villageList" >
+            <view  wx:for='{{villageList}}' wx:key='id'>  
+              <view
+              data-name='{{item.name}}' 
+              data-id='{{item.id}}'
+              wx:key='{{item}}'  
+              wx:if='{{userInfo.id}}'
+              catchtap="_changeVillage">{{item.name}}</view>
+
+
+              <navigator url="../newLogin/index?villageId={{item.id}}&villageName={{item.name}}"
+                class="num" 
+                hover-class="none"
+                wx:else >{{item.name}}
+              </navigator>
+
+
+            </view>
+
+      </view>
+    </view>
+ <!--小区 end-->
+
+
+ 

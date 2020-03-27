@@ -1,0 +1,38 @@
+<!--步骤-->
+<view class="setps">
+  <step typeSetp="2" class='margins'></step>
+</view>
+
+<view class="tags">请输入以下封窗基础数据获得报价</view>
+<!--提交表单-->
+<view  class="formClass" wx:if='{{beat!=""}}'>
+  <form bindsubmit='submit' class="borders">
+    <view class="forClass">
+       <text>小区名字：</text>
+       <input  class="inputBorder" 
+               placeholder="输入小区名字" 
+               name='villageName' 
+               value="{{villageName}}" 
+               disabled="{{villageName!='' && changeNotMyVill==''?true:false}}"></input>
+    </view>
+
+    <view wx:for='{{beat}}' wx:key='id' class="forClass">
+      <text>{{item.show_name}}：</text>
+      <view class="inputBorder">
+        <input placeholder="输入总{{item.show_name}}" 
+             name='key_{{item.id}}'
+             type="digit"
+             data-id='{{item.id}}'
+             data-index='{{index}}'
+             data-vals = '{{item.vals}}'
+             bindinput="bindinputs" value="{{item.indexs==index?item.vals:''}}"></input>
+             <text>{{item.unit}}</text>
+      </view>
+    </view>
+
+    <button form-type='submit' wx:if='{{isLogin}}'>下一步</button>
+
+    <button form-type='submit' class="aloneOrderbtn" open-type="getPhoneNumber" bindgetphonenumber="wxLogin" wx:else>下一步</button>
+
+  </form>
+</view>

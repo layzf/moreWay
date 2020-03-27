@@ -1,0 +1,10 @@
+<view class="content">
+    <view class="c_item">
+        <view class="c_title">填写银行卡的信息</view>
+        <div class="c_info">
+            <input id="name" class="c_name" placeholder="输入账户姓名" value="{{user.user_name}}" bindinput="getData" />
+            <input id="card" class="c_phone" placeholder="输入银行卡号" value="{{user.card}}" bindinput="getData" />
+            <view class="c_btn" catchtap="sumbitData">确定提交</view>
+        </div>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<template name="login_public"><!--"-->
+<view class='model' catchtouchmove="true" hidden="{{!loginData.show_modal}}" style="{{'height:'+loginData.height+'px'}}">
+   <view class='model_head'>
+    <view class='model_left'></view>
+    <image class="m_img" src='../../images/logo@2x.png'></image>
+    <view class="notice1">
+        <text>多让需要得到您的授权</text>
+        <text>才能给您提供后续服务</text>
+    </view>
+    <button class='button_sure' open-type="getUserInfo" bindgetuserinfo="getUser">点击授权</button>
+  </view>
+ </view>
+</template>

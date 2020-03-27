@@ -1,0 +1,8 @@
+<import src="../../../../tpls/my-group-item/group-item-tpl.wxml" />
+<import src="../../../../tpls/my-comment-view/my-comment-view-tpl.wxml" />
+<view class="banner">
+  <template is="my-group-item" data="{{item:groupObj}}"></template>
+</view>
+<view class="group-comment">
+  <template is="my-comment-view" data="{{item:groupObj}}"></template>
+</view>

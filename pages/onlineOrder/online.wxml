@@ -1,0 +1,135 @@
+<view class="online">
+    <view class="headstep"></view>
+    <view class="head">
+        <view class="h_left">
+            <image src="../../images/CombinedShape.png"></image>
+            <input bindconfirm="search" class="searchInput" placeholder="搜索你想要的商品"/>
+        </view>
+        <view class="h_img" catchtap="more">
+            <image src="../../images/online.png"></image>
+            <text>全部商品</text>
+        </view>
+        <view class="contactView" style="margin-left:10px;margin-top: 5rpx;padding-bottom: 12rpx;">
+            <button class="contact" style="background-image: url('http://img.duorang.com/upload/v/headset.png?1=2');width:18px;height:18px" open-type="contact" />
+            <text>联系客服</text>
+        </view>
+    </view>
+    <scroll-view scroll-y>
+        <view class="banner">
+            <image mode="widthFix" src="{{pageData.img_url}}"></image>
+            <view class="content" wx:if="{{pageData.pntProductList.length>0}}">
+                <view class="item">
+                    <view class="title">
+                        <view class="tline"></view>
+                        <text class="ttxt">爆款商品推荐</text>
+                    </view>
+                    <view class="i_more" catchtap="more">
+                        <text>更多</text>
+                        <image src="../../images/icon_jt@2x.png"></image>
+                    </view>
+                </view>
+                <view class="c_list">
+                    <block wx:for="{{pageData.pntProductList}}" wx:key>
+                        <view class="c_li" id="{{item.id}}" catchtap="toDesc">
+                            <view class="li_img">
+                                <image mode="widthFix" src="{{item.showImg}}"></image>
+                                <text class="li_txt">{{item.productName}}</text>
+                                <view class="li_foot">
+                                    <view class="li-price">
+                                        <view class="symbol">
+                                            <text class="s1">￥</text>
+                                            <text class="s2">{{item.productSellPrice}}</text>
+                                        </view>
+                                        <text class="del">￥{{item.productOriginalPrice}}</text>
+                                    </view>
+                                    <view class="shopCar">
+                                        <image class="carimg" src="../../images/shopCar2.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="more" catchtap="more">
+                        <text>查看全部商品</text>
+                        <image src="../../images/icon_jt@2x.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{pageData.projectImgs.length>0}}">
+                <view class="title" style="margin-bottom: 24rpx">
+                    <view class="tline"></view>
+                    <text class="ttxt">项目详情介绍</text>
+                </view>
+            </view>
+            <block wx:for="{{pageData.projectImgs}}" wx:key>
+                <image mode="widthFix" src="{{item.img_url}}"></image>
+            </block>
+            <view  wx:if="{{shopCar.amount>0}}" class="step"></view>
+        </view>
+    </scroll-view>
+    <!--浮窗-->
+    <view class="modal"  hidden="{{isShow}}" catchtap="hideModal">
+        <view class="modal_content" animation="{{animationData}}" catchtap="s" style="background-color: #F2F2F2">
+            <view class="clearCar" catchtap="clear"><image src="../../images/icon_sc@2x.png"></image>清空购物车</view>
+            <scroll-view
+                    scroll-y
+                    style="{{'height:'+windowHeight*0.4+'px;'}}">
+                <view class="shop_list">
+                    <block wx:for="{{allOfGoods}}" wx:for-index="idx" wx:key="{{item.productId}}">
+                        <view class="shop_item">
+                            <view class="s_i_title">
+                                <text class="i_title">{{item.pntName}}</text>
+                                <text class="i_txt">{{item.remark}}</text>
+                            </view>
+                            <view class="s_i_price">￥{{item.pntPrice}}</view>
+                            <view class="s_i_num">
+                                <image data-type="car" data-idx="{{idx}}" id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                                <text>{{item.productCount }}</text>
+                                <image data-type="car" data-idx="{{idx}}" id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+            <view class="foot">
+                <view class="fimg">
+                    <image src="{{allOfGoods.length>0?'../../images/shopCar.png':'../../images/car.png'}}"></image>
+                </view>
+                <view class="fprice">
+                    <text class="price">￥{{shopCar.payTotal}}</text>
+                    <view class="f_txt">
+                        <text>总额 ￥{{shopCar.amount}}</text>
+                        <text class="f_sub" wx:if="{{shopCar.promotion>0}}">立减 ￥{{shopCar.promotion}}</text>
+                        <text class="f_sub" wx:if="{{shopCar.freightFee>0}}">运费 ￥{{shopCar.freightFee}}</text>
+                    </view>
+                </view>
+                <view class="fbtn" catchtap="submitOrder">结算</view>
+            </view>
+        </view>
+        <view class="modal_img" animation="{{animationImg}}" hidden="{{checkImg == null}}">
+            <image mode="aspectFit" src="{{checkImg}}"></image>
+        </view>
+    </view>
+    <view class="foot" wx:if="{{shopCar.amount>0}}">
+        <view class="fimg" catchtap="shopCarData">
+            <image src="{{allOfGoods.length>0?'../../images/shopCar.png':'../../images/car.png'}}"></image>
+            <view class="carNum" hidden="{{shopCar.count == 0}}">{{shopCar.count}}</view>
+        </view>
+        <view class="fprice">
+            <text class="price">￥{{shopCar.payTotal}}</text>
+            <view class="f_txt">
+                <text>总额 ￥{{shopCar.amount}}</text>
+                <text class="f_sub" wx:if="{{shopCar.promotion>0}}">立减 ￥{{shopCar.promotion}}</text>
+                <text class="f_sub" wx:if="{{shopCar.freightFee>0}}">运费 ￥{{shopCar.freightFee}}</text>
+            </view>
+        </view>
+        <view class="fbtn" catchtap="submitOrder">结算</view>
+    </view>
+</view>
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px'}}">
+    <movable-view
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>

@@ -1,0 +1,33 @@
+<template name="my-comment-view">
+  <view class="w comment-w">
+    <view class="flex-row-between border-bottom head">
+      <view class="left">
+        <!-- <view>{{item.pageType == 'order'? '订单评价': '参团评价'}}</view> -->
+        <view class="time">{{item.create_at}}</view>
+      </view>
+ 
+<view class="flex-row right" wx:if="{{item.score==1}}">
+<image src="http://47.92.76.199/group1/M00/00/17/rBoeylrLe82AFkr-AAAKB6_eUx0457.png"></image>
+        <text>非常满意</text>
+</view>
+ <view class="flex-row right" wx:if="{{item.score==2}}">
+        <image src="http://47.92.76.199/group1/M00/00/17/rBoeylrLfA-AAqkuAAAJDRecRLA588.png"></image>
+        <text>满意</text>
+ </view>
+ <view class="flex-row right" wx:if="{{item.score==3}}">
+        <image src="http://47.92.76.199/group1/M00/00/17/rBoeylrLfB-AHDxFAAAJ_pjAGks326.png"></image>
+        <text>不满意</text>
+</view>
+     
+    </view>
+    <text class="w-label" wx:for="{{item.label}}" wx:key="">{{item}}</text>
+    <view class="desc">
+      {{item.content}}
+    </view>
+    <view class="img-list">
+    <view wx:for="{{item.img_url1}}" wx:key=''>
+      <image  src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+</template>

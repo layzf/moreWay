@@ -1,0 +1,119 @@
+/*model*/
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.flex-row-around {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.flex-row-between{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.y-detailModel-1{
+  background: #fff;
+  padding: 45rpx 22rpx;
+  box-sizing: border-box;
+}
+.title-type{
+  padding:6rpx 10rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 27rpx;
+  position: relative;
+}
+.title-type image{
+  width: 137rpx;
+  height: 40rpx;
+}
+.title-type view{
+ position:absolute;
+  left:22rpx;
+  top:8rpx;
+}
+.title-village{
+  font-size: 32rpx;
+  margin-left: 14rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+
+}
+.W_706{
+  width: 706rpx;
+  margin: 0 auto;
+  background: #F5F7F8;
+  padding: 35rpx 0;
+  margin-top: 30rpx;
+}
+.W_706>view{
+  text-align: center;
+}
+.teamNumbers{
+  font-size: 38rpx;
+  color: #666666;
+}
+.teamNumbers text{
+  font-size: 26rpx;
+}
+.teamins image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 7rpx;
+}
+.teamins{
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.y-commonTitle image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.y-commonTitle {
+  font-size: 32rpx;
+  margin-top: 42rpx;
+  padding-bottom: 48rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+
+.swiper_enroll_view image{
+  width: 66rpx;
+  height: 66rpx;
+  margin-right: 31rpx;
+  border-radius: 100rpx
+}
+.swiper_enroll_view>.flex-row{
+  align-items: flex-start;
+}
+.swiper_enroll_view .flex-row-between{
+  flex: 1;
+  padding-bottom: 24rpx;
+  border-bottom:  1px solid #E0E0E0;
+}
+.clockDate-enroll{
+  color: #999999;
+  font-size: 26rpx;
+}
+.swiper_enroll>swiper{
+  height: 360rpx;
+}
+
+.shade{
+  position: relative;
+}
+.shades{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}

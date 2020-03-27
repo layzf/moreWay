@@ -1,0 +1,31 @@
+<block wx:for="{{contactList}}" wx:key="{{item.id}}">
+  <view class="w item">
+    <view class="con" data-id="{{item.id}}" data-name="{{item.link_name}}" data-phone="{{item.link_mobile}}" bindtap="onSelectContactTap">
+      <view class="flex-wx left-select" wx:if="{{item.isSelected}}" animation='{{animationData}}'>
+        <image src="/images/icon_left_selected@2x.png" class="left-icon"></image>
+      </view>
+      <view class="flex-wx left-select-mask" wx:if="{{item.isSelected}}" animation='{{animationData}}'></view>
+      <view class="con-left">
+        <view class="head">
+          <text class="title">{{item.link_name}}</text>
+          <text class="title">{{item.link_mobile}}</text>
+        </view>
+      </view>
+      <image class="icon-edit" src="/images/icon_edit@2x.png" data-id="{{item.id}}" data-name="{{item.link_name}}" data-phone="{{item.link_mobile}}" catchtap="onUpdateTap"></image>
+    </view> 
+    <view  class="flex-row border-top footer" bindtap="changeDefaultTap" 
+    data-contact-id="{{item.id}}" data-name="{{item.link_name}}" data-phone="{{item.link_mobile}}">
+      <image wx:if="{{item.is_default}}" src="/images/icon_choose_selected@2x.png" class="icon-choose"></image>
+      <image wx:else src="/images/icon_choose@2x.png" class="icon-choose"></image>
+      <text>{{item.is_default == 1 ? '默认联系人': '设为默认联系人'}}</text>
+      <view wx:if="{{item.is_default==0}}">
+      <image src="/images/icon_delete@2x.png" class="icon-delete" data-contact-id="{{item.id}}" catchtap="onDeleteTap"></image>
+      </view>
+      <view wx:else></view>
+    </view>
+  </view>
+</block>
+
+<navigator url="/pages/my/my-contact/contact-add/contact-add" hover-class="none">
+  <view class="w-btn-bottom">添加常用联系人</view>
+</navigator>

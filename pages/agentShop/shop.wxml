@@ -1,0 +1,153 @@
+<!-- <import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template> -->
+
+
+<view class="shop">
+    <view class="head">
+        <view class="h_left">
+            <image src="../../images/CombinedShape.png"></image>
+            <input placeholder="搜索商品" bindinput="showData"/>
+        </view>
+        <view class="contactView" style="margin-left:10px;margin-top: 5rpx;">
+            <button class="contact" style="background-image: url('http://img.duorang.com/upload/v/headset.png?1=1');width:55rpx;height:55rpx" open-type="contact" />
+            <text>在线咨询</text>
+        </view>
+    </view>
+    <scroll-view
+            class="slide-list"
+            scroll-with-animation="{{true}}"
+            scroll-into-view="{{viewId}}"
+            scroll-x>
+            <view class="slide-item">
+                <block wx:for="{{itemList}}" wx:for-index="idx" wx:key>
+                    <view data-index="{{idx}}" id="{{'view'+idx}}" class="slide-li {{idx == checkIndex?'check':''}}" catchtap="chooseItem">{{item.categoryName}}</view>
+                </block>
+            </view>
+    </scroll-view>
+    <scroll-view scroll-y
+                 style="height:{{height}}px"
+                 bindscrolltolower="loadMore">
+        <view class="content">
+            <view class="c-left">
+               <block wx:for="{{catagoryInfo.left}}" wx:for-index="idx" wx:key>
+                    <view class="citem" id="{{item.id}}" catchtap="showDesc">
+                        <image class="cimg" src="{{item.productImage?item.productImage:'../../images/default.png'}}"></image>
+                        <text class="ctitle">{{item.productName}}{{item.productCode}}</text>
+                        <view class="cfoot">
+                            <view class="cp">
+                                <view class="p1">
+                                    <text class="symbol">￥</text>
+                                    <text>{{item.productSellPrice }}</text>
+                                </view>
+                                <view class="p1 gray" wx:if="{{item.productOriginalPrice}}">
+                                    <text class="symbol">￥</text>
+                                    <text class="price">{{item.productOriginalPrice}}</text>
+                                </view>
+                            </view>
+                            <!--<image data-idx="{{idx}}" id="sub" hidden="{{!item.count}}" data-type="page" class="addimg" src="../../images/icon_sub.png" catchtap="chooseNum"></image>-->
+                            <!--<text hidden="{{!item.count}}" class="num">{{item.count?item.count:0}}</text>-->
+                            <image class="addimg" src="../../images/shopCar2.png"></image>
+                        </view>
+                    </view>
+               </block>
+            </view>
+            <view class="c-right">
+                <block wx:for="{{catagoryInfo.right}}" wx:for-index="idx" wx:key>
+                    <view class="citem" id="{{item.id}}" catchtap="showDesc">
+                        <image class="cimg" src="{{item.productImage?item.productImage:'../../images/default.png'}}"></image>
+                        <text class="ctitle">{{item.productName}}{{item.productCode}}</text>
+                        <view class="cfoot">
+                            <view class="cp">
+                                <view class="p1">
+                                    <text class="symbol">￥</text>
+                                    <text>{{item.productSellPrice }}</text>
+                                </view>
+                                <view class="p1 gray" wx:if="{{item.productOriginalPrice}}">
+                                    <text class="symbol">￥</text>
+                                    <text class="price">{{item.productOriginalPrice}}</text>
+                                </view>
+                            </view>
+                            <!--<image data-idx="{{idx}}" id="sub" hidden="{{!item.count}}" data-type="page" class="addimg" src="../../images/icon_sub.png" catchtap="chooseNum"></image>-->
+                            <!--<text hidden="{{!item.count}}" class="num">{{item.count?item.count:0}}</text>-->
+                            <image class="addimg" src="../../images/shopCar2.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view  hidden="{{catagoryInfo && catagoryInfo.data.length >0}}" class="none">
+                <image src="../../images/no-data.png"></image>
+                <text>暂无商品</text>
+            </view>
+        </view>
+    </scroll-view>
+
+
+    <view class="foot" wx:if="{{shopCar.amount>0}}">
+        <view class="fimg" catchtap="shopCarData">
+            <image src="{{allOfGoods.length>0?'../../images/shopCar.png':'../../images/car.png'}}"></image>
+            <view class="carNum" hidden="{{shopCar.count == 0}}">{{shopCar.count}}</view>
+        </view>
+        <view class="fprice">
+            <text class="price">￥{{shopCar.payTotal}}</text>
+            <view class="f_txt">
+                <text>总额 ￥{{shopCar.amount}}</text>
+                <text class="f_sub" wx:if="{{shopCar.promotion>0}}">立减 ￥{{shopCar.promotion}}</text>
+                <text class="f_sub" wx:if="{{shopCar.freightFee>0}}">运费 ￥{{shopCar.freightFee}}</text>
+            </view>
+        </view>
+        <view class="fbtn" catchtap="submitOrder">结算</view>
+    </view>
+</view>
+<!--浮窗-->
+<view class="modal"  hidden="{{isShow}}" catchtap="hideModal">
+    <view class="modal_content" animation="{{animationData}}" hidden="{{isShow}}" style="background-color: #F2F2F2">
+        <view class="clearCar" catchtap="clear"><image src="../../images/icon_sc@2x.png"></image>清空购物车</view>
+        <scroll-view
+                scroll-y
+                style="{{'height:'+windowHeight*0.4+'px;'}}">
+            <view class="shop_list">
+                <block wx:for="{{allOfGoods}}" wx:for-index="idx" wx:key="{{item.productId}}">
+                    <view class="shop_item">
+                        <view class="s_i_title">
+                            <text class="i_title">{{item.pntName}}{{item.productCode}}</text>
+                            <text class="i_txt">{{item.remark}}</text>
+                        </view>
+                        <view class="s_i_price">￥{{item.pntPrice}}</view>
+                        <view class="s_i_num">
+                            <image data-type="car" data-idx="{{idx}}" id="sub" catchtap="chooseNum" src="../../images/icon_sub.png"></image>
+                            <text>{{item.productCount }}</text>
+                            <image data-type="car" data-idx="{{idx}}" id="add" catchtap="chooseNum" src="../../images/icon_add.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="foot" wx:if="{{shopCar.amount>0}}">
+            <view class="fimg">
+                <image src="{{allOfGoods.length>0?'../../images/shopCar.png':'../../images/car.png'}}"></image>
+            </view>
+            <view class="fprice">
+                <text class="price">￥{{shopCar.payTotal}}</text>
+                <view class="f_txt">
+                    <text>总额 ￥{{shopCar.amount}}</text>
+                    <text class="f_sub" wx:if="{{shopCar.promotion>0}}">立减 ￥{{shopCar.promotion}}</text>
+                    <text class="f_sub" wx:if="{{shopCar.freightFee>0}}">运费 ￥{{shopCar.freightFee}}</text>
+                </view>
+            </view>
+            <view class="fbtn" catchtap="submitOrder">结算</view>
+        </view>
+    </view>
+    <view class="modal_img" animation="{{animationImg}}" hidden="{{checkImg == null}}">
+        <image mode="aspectFit" src="{{checkImg}}"></image>
+    </view>
+</view>
+<!--shareHome-->
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+    <movable-view
+            style="pointer-events: auto"
+            out-of-bounds="{{true}}"
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>

@@ -1,0 +1,7 @@
+<view class="imgs">
+    <image mode="widthFix" hidden="{{imgs.length==0}}" wx:for="{{imgs}}" src="{{item.img_url}}" class="img"></image>
+    <view hidden="{{imgs.length>0}}" class="none">
+        <image src="../../images/no-data.png"></image>
+        <text>暂无数据</text>
+    </view>
+</view>

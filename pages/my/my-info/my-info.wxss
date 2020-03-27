@@ -1,0 +1,21 @@
+@import "/style/form-input.wxss";
+.avatar-group{
+  height:180rpx;
+}
+.w-avatar{
+  width:120rpx;
+  height:120rpx;
+}
+
+.auth-code{
+  width:36rpx;
+  height:36rpx;
+}
+
+.change-account{
+  margin:80rpx 28rpx 20rpx;
+  background-color: #ff5d22!important;
+}
+.margin{
+  margin-top: 20rpx;
+}

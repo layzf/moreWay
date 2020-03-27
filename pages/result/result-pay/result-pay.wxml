@@ -1,0 +1,12 @@
+<view class="res-w">
+  <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+  <view class="text-res-s">支付成功</view>
+  <view class="btn-group res-btn-group">
+    <navigator url="/pages/my/my-deposit/deposit-list/deposit-list?type=1" open-type="redirect">
+      <button class="btn-default">查看记录</button>
+    </navigator>
+    <navigator url="/pages/group/group" open-type="switchTab">
+      <button class="btn-white">完成</button>
+    </navigator>
+  </view>
+</view>

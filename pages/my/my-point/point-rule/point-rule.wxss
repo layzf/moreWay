@@ -1,0 +1,12 @@
+.head{
+  margin:60rpx 40rpx 40rpx 40rpx;
+  font-size:30rpx;
+}
+.con{
+  padding:0 28rpx;
+}
+.con .p{
+  font-size:30rpx;
+  color:#999;
+  margin-bottom:30rpx;
+}

@@ -1,0 +1,18 @@
+.scale{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.simg{
+    width: 90%;
+    transition: all .3s linear;
+    transform: scale(0,0);
+}
+.show{
+    transform: scale(1,1);
+}

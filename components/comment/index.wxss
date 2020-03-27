@@ -1,0 +1,86 @@
+/* pages/commentAll/index.wxss */
+
+.W_96 {
+  padding: 0 24rpx;
+  padding-bottom: 26rpx;
+  border-bottom: 1px solid #F2F2F2;
+  margin-top: 24rpx;
+}
+.W_96:last-of-type{
+  border-bottom: 0;
+}
+.content{
+  display: flex;
+  align-items: flex-start;
+}
+.content>.c{
+  flex: 1;
+  color: #1F1F1F;
+}
+.content>.c .userName{
+  font-size: 34rpx;
+}
+.content>.c .text{
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.content>image{
+  border-radius: 100px;
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 22rpx;
+}
+.content .date{
+  font-size: 24rpx;
+  color: #BFBFBF;
+  margin-top: 4rpx;
+}
+.boxSec9 {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-top: 24rpx;
+}
+
+.boxSec9 > image {
+  height: 160rpx;
+  width: 160rpx;
+  margin-right: 10rpx;
+  line-height: 160rpx;
+  margin-bottom: 10rpx;
+}
+
+/*晒单详情*/
+.header{
+  display: flex;
+  align-items: center;
+}
+.header>image{
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 100%;
+  margin-right: 24rpx;
+}
+.header>view>view{
+  color: #1F1F1F;
+  font-size: 38rpx;
+}
+.header>view>text{
+  color: #BFBFBF;
+  font-size: 28rpx;
+}
+.headerBox{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.headerBox>.date{
+  color: #BFBFBF;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.waterFlowContent > .text{
+  font-size: 28rpx;
+  color: #1F1F1F;
+  margin-top: 26rpx;
+}

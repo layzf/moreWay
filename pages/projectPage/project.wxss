@@ -1,0 +1,10 @@
+.imgs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.imgs .img{
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+}

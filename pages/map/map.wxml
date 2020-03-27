@@ -1,0 +1,10 @@
+<view class="mapContainer">
+    <map
+        wx:if="{{markers.length>0}}"
+        style="{{'width:100%;height:'+height+'px'}}"
+        id="map"
+        markers="{{markers}}"
+        show-compass="{{true}}"
+        zIndex = "100"
+        enable-scroll="{{true}}"></map>
+</view>

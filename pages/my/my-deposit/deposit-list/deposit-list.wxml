@@ -1,0 +1,145 @@
+<import src="/tpls/tab-bar/tab-bar.wxml" />
+<import src="/tpls/my-deposit-item/my-deposit-item.wxml" />
+
+<template is="tab-bar" data="{{tabsData: tabsData}}"></template>
+
+<!-- <template is="my-deposit-item" data="{{listData:listData}}"></template> -->
+
+  <view class="list-page">
+    <view class="empty-page" wx:if="{{!listData.length}}">
+      <image src="/images/icon_empty_order@2x.png"></image>
+      <view>您还没有下过单～</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key>
+      <view class="tpl-item">
+        <view class="flex-row-between wx-head">
+          <!--<view class='top' wx:if="{{item.page_type == 'deposit'&& tabsData.currentSelectTab==1}}">-->
+            <!--<text>退单号：{{item.so_number}}</text>-->
+            <!--<text class="status">{{item.status == -1? '已取消':item.status == 1? '待转单': ''}}</text>-->
+          <!--</view>-->
+          <!--<view class='top' wx:if="{{item.page_type == 'deposit'&& item.menu_type==1}}">-->
+            <!--<text>退单号：{{item.cancel_number}}</text>-->
+            <!--<text class="status">{{item.status == 0? '申请中':item.status == 1? '已退款': item.status == 2 ? '已取消' : ''}}</text>-->
+          <!--</view>-->
+          <!--<view class='top' wx:if="{{item.page_type == 'order'}}">-->
+            <!--<text>订单号：{{item.so_number}}</text>-->
+            <!--<text class="status">{{item.status == 0? '待支付': item.status == 1? '待转单':item.status == 2? '已转单':item.status == 3? '已评价': item.status == -1? '已取消': item.status == -2? '已退款':item.status == -3? '退款中':''}}</text>-->
+          <!--</view>-->
+          <text class="date">{{item.pay_at?item.pay_at:item.create_at}}</text>
+          <text class="status">{{item.status}}</text>
+        </view>
+
+        <view wx:if="{{item.page_type == 'deposit'}}">
+
+            <view class="flex-row middle" 
+                  catchtap="goDetail"
+                  data-id='{{item.id}}' 
+                  data-status='{{item.status}}' 
+                  data-sotype='{{item.so_type}}'>
+
+              <image src="{{item.img_url}}"></image>
+              <view class="flex-c-between right">
+                <view>
+                  <view class="o-hs title">{{item.project_name}}</view>
+                  <view class="o-hs-2 name">{{item.remark}}</view>
+                </view>
+                <view class="price">
+                  {{item.status!=='待付款'?'已付订金：':'待付订金：'}}{{item.total_price}}元
+                  <text class="deadline" wx:if="{{tabsData.statuss==1 || tabsData.statuss==2}}">(有效期到{{item.end_at?item.end_at:item.update_at}})</text>
+                </view>
+              </view>
+            </view>
+
+
+          <!-- url="../refund-deposit-detail/refund-deposit-detail?id={{item.id}}&status={{item.status}}" -->
+            <view class="flex-row middle"
+                  wx:if="{{tabsData.currentSelectTab==2}}" 
+                  catchtap="goDetail"
+                  data-id='{{item.id}}' 
+                  data-status='{{item.status}}' 
+                  data-sotype='{{item.so_type}}'
+            >
+              <image src="{{item.img_url}}"></image>
+              <view class="flex-c-between right">
+                <view>
+                  <view class="o-hs title">{{item.project_name}}</view>
+                  <view class="o-hs-2 name">{{item.remark}}</view>
+                </view>
+                <view class="price">
+                  {{item.status!=='待付款'?'已付订金：':'待付订金：'}}{{item.total_price}}元
+                  <text class="deadline">(有效期到{{item.end_at}})</text>
+                </view>
+              </view>
+            </view>
+        </view>
+
+        <view wx:else 
+              catchtap="goDetail"
+              data-id='{{item.id}}' 
+              data-status='{{item.status}}' 
+              data-sotype='{{item.so_type}}'
+        >
+            <view class="flex-row middle">
+              <image src="{{item.img_url}}"></image>
+              <view class="flex-c-between right">
+                <view>
+                  <view class="o-hs title">{{item.project_name}}</view>
+                  <view class="o-hs-2 name">{{item.remark}}</view>
+                </view>
+                <!--<view class="price">-->
+                  <!--{{item.pay_price}}元-->
+                  <!--<text class="deadline">(有效期到{{item.end_at}})</text>-->
+                <!--</view>-->
+              </view>
+            </view>
+        </view>
+        <view class="foot" wx:if="{{item.page_type != 'deposit'&& item.menu_type!=1}}">
+          <!--<text class="date">{{item.pay_at}}</text>-->
+          <view>订金金额：
+            <text>{{item.total_price}}元</text>
+            <view class="deadline" wx:if="{{ item.statuss == 1}}" catchtap="message">
+            (有效期到{{item.end_at}} <image src="../../../../images/tags.png"></image> )</view>
+          </view>
+        </view>
+
+        <view wx:if="{{item.page_type == 'deposit'}}">
+          <view class="footer-btn" wx:if="{{tabsData.currentSelectTab==1}}">
+            <!-- <navigator url="/pages/my/my-deposit/refund-deposit-apply/refund-deposit-apply?id={{item.id}}&village_name={{item.village_name}}&project_name={{item.project_name}}&img_url={{item.img_url}}&pay_price={{item.pay_price}}&page_type={{item.page_type}}" hover-class="none"> -->
+            <view>
+              <button bindtap='cancelDeposit'
+                data-id="{{item.id}}"
+                data-village_name="{{item.village_name}}"
+                data-project_name="{{item.project_name}}"
+                data-img_url="{{item.img_url}}"
+                data-pay_price="{{item.total_price}}"
+                data-page_type="{{item.page_type}}"
+                class="btn-white">申请退订金</button>
+            </view>
+            <!-- </navigator> -->
+          </view>
+        </view>
+
+        <view wx:if="{{item.page_type == 'deposit' && item.menu_type == '1' && item.state == '0'}}">
+          <view class="footer-btn">
+            <button class="btn-white" bindtap='cancel' data-id="{{item.id}}">取消申请</button>
+          </view>
+        </view>
+
+        <view wx:if="{{item.page_type == 'order'}}">
+          <view class="footer-btn" wx:if="{{item.status == '待支付'}}">
+            <button class="btn-white" bindtap="onCancelTap" data-id="{{item.id}}">取消订单</button>
+            <button class="btn-default" bindtap='pay' data-sotype="{{item.so_type}}" data-id="{{item.id}}" data-pay_type="{{item.pay_type}}">去支付</button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+
+
+<!-- //提交返回的支付二维码 -->
+<view class='bg_model' wx:if="{{er_show}}" bindtap='model_show'></view>
+<view class='img_model' wx:if="{{er_show}}">
+ <image class='er_model' src="{{er_model}}" bindtap='previewImage'></image> 
+<view class='er_title'>请长按保存再扫码支付</view>
+</view>

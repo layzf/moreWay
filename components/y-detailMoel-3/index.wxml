@@ -1,0 +1,49 @@
+<view class='y-detail-model-3'>
+    <view class='y-commonTitle flex-row'>
+        <image src='../../images/y-leftImg-3.png'></image>
+        <view>验房流程</view>
+     </view>
+ <!--验房图片集合-->
+    <view class='flex-row-around'>
+         <view class='positionRlat'>
+            <view class='model-3-list'>
+              <image src='../../images/y-model-3-1.png'></image>
+              <view>
+                <view>在线参团</view>
+                <view>支付定金</view>
+              </view>  
+            </view>
+            <image src='../../images/y-rightImg.png' class='rightImgs'></image>
+         </view>
+
+          <view class='positionRlat'>
+            <view class='model-3-list'>
+              <image src='../../images/y-model-3-2.png'></image>
+              <view>
+                 <view>人满开团</view>
+                 <view>集中验房</view>
+              </view>  
+            </view>
+            <image src='../../images/y-rightImg.png' class='rightImgs'></image>
+         </view>
+
+          <view class='positionRlat'>
+            <view class='model-3-list'>
+              <image src='../../images/y-model-3-3.png'></image>
+              <view>
+                <view>分配</view>
+                <view>验房师</view>
+              </view>  
+            </view>
+            <image src='../../images/y-rightImg.png' class='rightImgs'></image>
+         </view>
+
+          <view class='model-3-list positionRlat'>
+            <image src='../../images/y-model-3-4.png'></image>
+            <view>
+              <view>验房结束</view>
+              <view>满意付尾款</view>
+            </view>  
+          </view>
+    </view>    
+</view>

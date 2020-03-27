@@ -1,0 +1,6 @@
+<!--提示语--->
+<view class="tips" wx:if="{{show}}" catchtap="toPage">
+    <text class="tip_txt">升级认证会员，享受更多集采特权</text>
+    <view class="tip_btn">立即认证</view>
+</view>
+

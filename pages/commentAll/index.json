@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment-all":"../../components/comment/index"
+  },
+  "navigationBarTitleText": "全部评论"
+}

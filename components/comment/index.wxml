@@ -1,0 +1,39 @@
+<!--pages/commentAll/index.wxml-->
+<view class="W_96" wx:for='{{item}}' wx:key='index'>
+    <view class="content" wx:if='{{!waterFlowShow}}'>
+        <image src="{{item.icon}}"></image>
+
+        <view class="c">
+          <view>
+              <view class="userName">{{item.name}}</view>
+              <view class="text">{{item.text}}</view>
+          </view>
+
+        <!--图片展示-->
+          <view class="boxSec9">
+              <block wx:for='{{item.img}}' wx:key='idx' wx:for-item='itemImg'>
+                <image src="{{itemImg.imgs}}" catchtap="_previewImage" data-index='{{index}}' data-item='{{item.img}}'></image>
+              </block>
+          </view>
+          <!--时间-->
+          <view class="date">{{item.date}}</view>
+      </view>
+
+    </view> 
+
+    <view class="waterFlowContent" wx:else>
+      <view class="headerBox">
+        <view class="header">
+          <image src="{{item.icon}}"></image>
+          <view>
+              <view>琪琪</view>
+              <text>来自金茂悦小区</text>
+          </view>
+        </view>
+        <view class="date">刚刚</view>
+      </view>
+      <view class="text">{{item.text}}</view>
+    </view>
+
+    
+</view>

@@ -1,0 +1,86 @@
+  <view class="form-con">
+  <view class="form-group avatar-group" bindtap="onChangeAvatar" data-icon="{{default_icon}}">
+    <image src="{{default_icon}}" class="w-avatar"></image>
+    <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+  </view>
+
+  <navigator url="/pages/my/my-nickname/my-nickname?nickname={{name}}" open-type="navigate" hover-class="none">
+    <view class="form-group">
+      <text class="label">昵称</text>
+      <view class="right">
+        <text class="des">{{name}}</text>
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/my/my-phone/my-current-phone/my-current-phone?phone={{phone}}" open-type="navigate" hover-class="none">
+    <view class="form-group">
+      <text class="label">我的账户</text>
+      <view class="right">
+        <text class="des">{{mobile}}</text>
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/my/my-address/address-list/address-list?type=0" open-type="navigate" hover-class="none">
+    <view class="form-group">
+      <text class="label">我的地址</text>
+      <view class="right">
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/my/my-contact/contact-list/contact-list" open-type="navigate" hover-class="none">
+    <view class="form-group border-none">
+      <text class="label">常用联系人</text>
+      <view class="right">
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+</view>
+<view class="form-con margin">
+  <!-- <view class="form-group" wx:if="{{status==1||status==2}}">
+    <text class="label">实名认证</text>
+    <view class="right">
+      <text class="des">已认证</text>
+    </view>
+  </view> -->
+
+     <view class="form-group border-none" catchtap='wonerAttestation'>
+      <text class="label">业主认证</text>
+      <view class="right">
+<view class="des" style='color:#E94816;'>
+{{status==0 && userAutDTO.length>0?"待审核":status==1 && userAutDTO.length>0?userAutDTO[0].content+userAutDTO[0].door_number:"未认证"}}</view>
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow" wx:if='{{status!=1}}'></image>
+      </view>
+    </view>
+
+
+  <navigator url="/pages/bankList/list?type=1" open-type="navigate" hover-class="none">
+    <view class="form-group border-none">
+      <text class="label">银行卡</text>
+      <view class="right">
+        <text class="des">我的银行卡</text>
+        <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<!--<view class="form-con item-group" wx:if="{{status==1||status==2}}">-->
+  <!--<view hover-class="none" bindtap='loginCode'>-->
+    <!--<view class="form-group">-->
+      <!--<text class="label">我的会员码</text>-->
+      <!--<view class="right">-->
+        <!--<image src="/images/icon_code_auth@2x.png" class="auth-code"></image>-->
+        <!--<image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</view>-->
+<!--</view>-->
+
+<button class="btn-default change-account"  bindtap="onLogoutTap" loading="{{loadingSubmit}}" disabled="{{loadingSubmit}}">切换账户</button>

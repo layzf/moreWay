@@ -1,0 +1,106 @@
+<view>
+   <view class='headerHeight'>
+        <view class='flex-row-around header'>
+          <view class='{{current==1?"active":""}}' data-type='1' catchtap='clickOrder'>验房订单</view>
+          <view class='{{current==0?"active":""}}' data-type='0' catchtap='clickOrder'>小区开通申请</view>
+        </view>
+   </view>
+
+    <view class="empty-page" wx:if='{{type1.length<=0}}'>
+      <image src="/images/icon_empty_order@2x.png"></image>
+      <view>暂无记录～</view>
+    </view>
+
+<!--内容-->    
+    <view>
+       <block wx:for='{{type1}}' wx:key='q'>
+          <view class='marginList' wx:if='{{load}}'>
+<!--中间图片跟文字布局-->
+            <view class='list' style='padding:{{current==1?"30rpx 21rpx 35rpx":"52rpx 21rpx 49rpx"}};'>
+            <!--状态-->
+              <view class='typeTeam' wx:if='{{current==1}}'>
+                
+                <view wx:if='{{item.status== -1}}'>已取消</view>
+
+                <view wx:if='{{item.status==0 && item.soInfo.status==1}}'>已付定金</view>
+
+                <view wx:if='{{item.status==0 && item.soInfo.status==0}}'>未支付</view>
+
+                <view wx:if='{{item.status==1 && item.soInfo.status==-3}}'>退款中</view>
+                
+                <view wx:if='{{ item.status==2 && item.soInfo.status==-2}}'>已退款</view>
+
+                <view wx:if='{{item.status==4 }}'>已完成</view>
+
+                <view wx:if='{{item.status==3 && item.soInfo.status==1}}'>已驳回，请联系团长</view>
+                
+                <view wx:if='{{item.status==5}}'>已评价</view>
+
+              </view>
+
+               <view class='makeRoomInformation flex-row' style='margin-top:{{current==1?30:0}}rpx' >
+                 <image src='{{current==1?item.houseCheckGroup.image_url  :"http://img.duorang.com/upload/adv/2019/9/11/db36cf55-cf36-4005-9e72-142b53f9f73d.png"}}'></image>
+                  <view class='houseName'>
+                     <view class='roomName'>{{current==1?item.houseCheckGroup.name:item.village_name}}</view>
+                     <view class='orderRoomDate' wx:if='{{current==1}}'>预约时间：{{item.check_house_time}}</view>
+                     <view class='orderRoomDate' wx:if='{{current==0}}'>交房时间：{{item.handed_house_time}}</view>
+                  </view>
+                  <view class='type' wx:if='{{current==0}}'>
+                    {{item.status==0?"审核中":item.status==2?"审核通过":item.status==3?"审核不通过":""}}
+                  </view>
+               </view>
+  <!--已付订金 待付尾款-->
+              <view class='flex-row orderMoney' wx:if='{{current==1 && item.soInfo.status>0}}'>
+                  <view wx:if='{{item.status==0 && item.soInfo.status==1}}'>
+                  已付订金: <text>￥{{item.pay_price}}</text> </view>
+
+                  <view wx:if='{{item.status==0 && item.soInfo.status==0}}'>
+                  待付订金: <text>￥{{item.pay_price}}</text> </view>
+
+                  <!-- <view wx:if='{{item.endMoney}}'>待付尾款: <text>￥{{item.endMoney}}</text> </view> -->
+              </view>
+<!--右下角按钮显示-->
+        <view wx:if='{{current==1 && item.soInfo.status>=0}}' class='flex_jin'>
+
+          <view wx:if='{{(item.status==0 || item.status==3)&& item.soInfo.status==1 }}' class='style_0'>
+            <text catchtap="socancel" data-id='{{item.id}}' data-soid='{{item.so_id}}'>申请退订金</text>
+          </view>
+                  
+          <view wx:if='{{item.status==4}}' class='flex-row style_2'>
+              <view>
+                <navigator url="/pages/y-assess/y-assess?groupId={{item.house_check_group_id}}&applyId={{item.id}}" hover-class="none">去评价</navigator>
+              </view>
+          </view>
+
+        <view wx:if='{{item.status==0 && item.soInfo.status==0}}' class='flex-row style_2'  >
+            <view catchtap="goPay" data-items='{{item}}'>去支付</view>
+            <view catchtap="cancelApplyGroup" data-id='{{item.id}}'>取消订单</view>
+        </view>
+
+          <view wx:if='{{item.status==5}}' class='flex-row style_2'  >
+            <view catchtap="lookDetail" data-applyId='{{item.id}}' data-look='true'>查看评价</view>
+          </view>
+
+         <view catchtap="linkTeam" data-group='{{item.houseCheckGroup}}' class='flex-row style_2'>
+           <view>联系团长</view>
+         </view>
+          
+        </view>
+      </view>
+<!--list end-->          
+          </view>
+       </block>
+    </view>
+
+    <!--咨询团长-->
+  <my-commander  
+        orderListType='true' 
+        orderInformation='{{orderInformation}}' 
+        isTab='{{showTab}}'  
+        height='{{height}}' 
+        isShow='{{commanderHiden}}' 
+        id='my-commander'>
+</my-commander>
+
+
+</view>

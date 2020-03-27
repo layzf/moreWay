@@ -1,0 +1,20 @@
+.container{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.container .content{
+    background-color: #FFFFFF;
+}
+
+.container .content .c_item{
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    font-size: 18px;
+    border-top: 1px solid rgba(180,180,180,0.3);
+}

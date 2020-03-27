@@ -1,0 +1,126 @@
+<!--pages/assemble/index.wxml-->
+<view class="opacte"></view>
+<view class="fixedTop tops" wx:if='{{navFlag.topNavFlag}}'>
+    <view wx:for='{{[1,2,3]}}' wx:key='index' >
+       <view catchtap="topNavClick" 
+             data-index='{{index}}' 
+             class="{{curs== index ?'actives':''}}">
+             {{item==1?'业主说':item==2?'拼团详情':item==3?'拼团须知':''}}
+        </view>
+    </view>
+</view>
+
+<scroll-view style="width:100%;height:{{height}}px;padding-bottom:116rpx;" 
+             scroll-y 
+             bindscroll="scrollTopFun" 
+             scroll-top='{{navFlag.topNavMove}}' >
+  <image src="../../images/share.jpg" class="banners" mode="widthFix"></image>
+  <!--拼团状态-->
+  <view class="gradient gradientBgColor">
+    <view class="typeName">正在开团</view>
+    <view class="dateFlex">
+      <countdown countType="hour" time="2020-1-17 10:05:30"  hasDays='{{false}}' fontSizeColor='FF5F2D'></countdown>
+    </view>
+  </view>
+  <!--参数配置-->
+  <view class="W_96" style="margin-top:50rpx;padding-bottom:50rpx;">
+    <!--项目名字 分享部分-->
+    <view class=" flex-row-between">
+      <view class="prodectName">3M/怡口之一 | 前置过滤器，直饮机， 纯水机</view>
+      <button class="prodectShareBtn" open-type="share">
+        <image src="../../images/probtn.png"></image>
+        <view>分享</view>
+      </button>
+    </view>
+    <!--项目订金红字部分-->
+    <view class=" flex-row-between" style="margin-top:24rpx;">
+      <view class="orderMoney">
+        <view>订金￥300 转单后付尾款</view>
+        <text>仅限长沙，本订金可退</text>
+      </view>
+      <view class="groupNum">199名业主已参团</view>
+    </view>
+    <!--流程-->
+    <view class="" style="margin-top:48rpx;">
+      <view class="flex-row-around">
+        <view wx:for='{{[1,2,3,4]}}' wx:key='index' class="keysItems">
+          <view class="item-number">{{item}}</view>
+          <view class="item-text">
+            {{item==1? '报名参团 项目咨询':item==2?'支付订金 锁定优惠':item==3?'联系商家 支付尾款':item==4? '商家发货 售后监督': ''}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!--proRIght.png  服务-->
+  <view class="P_96" style="border-top:24rpx solid #F9F9F9;border-bottom:24rpx solid #F9F9F9;" catchtap="showModal">
+    <view class="serveBox">
+      <view>服务</view>
+      <view class="forTip">
+        <view wx:for='{{[1,2,3,4]}}' wx:key='index'>
+          <image src="../../images/proSuccess.png"></image>
+          <view>{{item==1?'正品保障':item==2?'低价保障':item==3?'交易保障':item==4?'售后保障':''}}</view>
+        </view>
+      </view>
+      <image src="../../images/proRIght.png"></image>
+    </view>
+  </view>
+
+  <!--评论-->
+  <view id="keys_0" class= 'commonViews'>
+    <view class="commentClass">
+      <view class="flBorder">业主说</view>
+      <navigator url="../commentAll/index" open-type='navigate' class="flexNavigator " hover-class="none">
+        <view>441条评论</view>
+        <image src="../../images/proRIght.png"></image>
+      </navigator>
+    </view>
+    <comment-all item='{{item}}' waterFlowShow='{{waterFlowShow}}'></comment-all>
+  </view>
+
+<!--评论-->
+  <view id="keys_1" class= 'commonViews' style="height:1200rpx">
+    <view class="commentClass">
+      <view class="flBorder">拼团详情</view>
+    </view>
+  </view>
+
+
+ <!--评论-->
+  <view id="keys_2" class= 'commonViews' style="height:1800rpx;">
+    <view class="commentClass">
+      <view class="flBorder">拼团须知</view>
+    </view>
+  </view>
+
+</scroll-view>
+
+  <!--底部悬按钮-->
+  <view class="bottomFixed">
+    <view class="home">
+      <image src="../../images/proHome.png"></image>
+      <view>首页</view>
+    </view>
+    <view catchtap="callCapital">联系团长</view>
+    <view>报名参团</view>
+  </view>
+  
+  <!--团长-->
+  <my-commander isTab='{{showTab}}' height='{{height}}' isShow='{{commanderHiden}}' id='my-commander'></my-commander>
+<!--底部蒙版-->
+<masking-out id='masking' heightMasking='848'>
+     <view  slot="content" class="maskingContent">
+          <text>服务</text>
+          <view wx:for='{{[1,2,3,4]}}' wx:key='index' class="maskMean">
+            <image src="../../images/proSuccess.png"></image>
+            <view>
+              <view class="titles">{{item==1?'正品保障':item==2?'低价保障':item==3?'交易保障':item==4?'售后保障':''}}</view>
+              <view class="smallMean">{{item==1?'商家资质审核，买到假货全额退款不退货':item==2?'专业买手全渠道比价，确保真省钱才能开团':item==3?'交易过程平台护航，付款安全有保障':item==4?'出现售后问题集体维权，人多力量大':''}}</view>
+            </view>
+          </view>
+
+          <view class="trueBtn" catchtap="hideModal">确定</view>
+     </view>
+</masking-out>

@@ -1,0 +1,38 @@
+/* pages/sw-count/index.wxss */
+page{
+  background: #FFF;
+}
+.steps{
+  height: 150rpx;
+}
+.titles{
+  color: #101010;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.intForsm{
+  margin: 0 20rpx;
+  margin-top: 60rpx;
+}
+.forms>view{
+  margin-bottom: 40rpx;
+  border: 1px solid #999;
+  border-radius: 10rpx;
+  padding: 16rpx 0 16rpx 16rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.forms>view input,picker{
+  width: 100%;
+  height: 100%;
+}
+.updata{
+  width: 100%;
+  background: #EA4717 !important;
+  padding: 0;
+  font-size: 30rpx;
+  color: #fff;
+  height: 100rpx;
+  line-height:100rpx; 
+  margin-top: 60rpx;
+}

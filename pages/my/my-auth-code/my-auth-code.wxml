@@ -1,0 +1,105 @@
+<view class='flex-y h-center'>
+  <view class="owner-code-w">
+    <view class="flex-row w-head">
+      <image src="{{icon}}" class="avatar"></image>
+      <view class="flex-c info">
+        <view class="flex-row name">
+          <text>{{user_name}}</text>
+          <view wx:if="{{villageContent.pay_status==1}}">
+            <image class='applyMoney_middleed' src='/images/vip@3x.png'></image>
+          </view>
+          <view wx:elif="{{villageApply.status==1}}">
+              <image class='applyMoney_middleed' src='/images/vips@3x.png'></image>
+          </view>
+          <view wx:elif="{{mallTime==true}}">
+              <image src='/images/vipYes@3x.png' class='applyMoney_p'></image>
+          </view>
+          <view wx:else>
+              <image src='/images/vipYes@3x.png' class='applyMoney_p' wx:if="{{villageContent.is_activate==0}}"></image>
+              <image src='/images/vipYes@3x.png' wx:if="{{villageContent.is_activate==1}}" class='applyMoney_p'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flex-col w-con">
+      <view class="code-tips">扫一扫下面的二维码图案，识别我的身份</view>
+      <image src="{{code}}" class="auth-code" catchtap="dd"></image>
+    </view>
+    <!--<view wx:if="{{villageContent.pay_status==1}}">-->
+      <!--<view class='flex-y forever'>-->
+        <!--<view class="forever_left">-->
+          <!--<view class='flex-row'>-->
+            <!--<image src='/images/icon_auth_v@2x.png'></image>-->
+            <!--<text>永久集采资格</text>-->
+          <!--</view>-->
+        <!--</view>-->
+        <!--<view class='forever_right flex-row'>-->
+          <!--<navigator url="../my-member/member-home/my-member" open-type="navigate" hover-class="none"> -->
+            <!--<text>查看详情</text>-->
+            <!--<image src="../../../images/icon_arrow_next_authcode@2x.png" class="arrow-next"></image>-->
+          <!--</navigator>-->
+        <!--</view>-->
+      <!--</view>-->
+    <!--</view>-->
+    <!--<view wx:elif="{{villageApply.status==1}}">-->
+      <!--<view class='flex-y forever'>-->
+        <!--<view class="forever_left">-->
+          <!--<view class='flex-row'>-->
+            <!--<image src='/images/icon_auth_v@2x.png'></image>-->
+            <!--<text>永久集采资格</text>-->
+          <!--</view>-->
+        <!--</view>-->
+        <!--<view class='forever_right flex-row'>-->
+          <!--<navigator url="../my-member/member-home/my-member" open-type="navigate" hover-class="none"> -->
+            <!--<text>查看详情</text>-->
+            <!--<image src="../../../images/icon_arrow_next_authcode@2x.png" class="arrow-next"></image>-->
+          <!--</navigator>-->
+        <!--</view>-->
+      <!--</view>-->
+    <!--</view>-->
+    <!--<view class='flex-y forever' wx:elif="{{mallTime==true}}">-->
+      <!--<view class="forever_left">-->
+        <!--<view class='flex-row'>-->
+          <!--<image src='/images/icon_auth_v@2x.png'></image>-->
+          <!--<text>暂无集采资格</text>-->
+        <!--</view>-->
+      <!--</view>-->
+      <!--<view class='forever_right flex-row'>-->
+        <!--<navigator url="../my-member/member-home/my-member" open-type="navigate" hover-class="none"> -->
+          <!--<text>立即获取</text>-->
+          <!--<image src="../../../images/icon_arrow_next_authcode@2x.png" class="arrow-next"></image>-->
+        <!--</navigator>-->
+      <!--</view>-->
+    <!--</view>-->
+    <!--<view wx:else>-->
+      <!--<view class='flex-y forever' wx:if="{{villageContent.is_activate==0}}">-->
+      <!--<view class="forever_left">-->
+        <!--<view class='flex-row'>-->
+          <!--<image src='/images/icon_auth_v@2x.png'></image>-->
+          <!--<text>30天体验资格</text>-->
+        <!--</view>-->
+      <!--</view>-->
+      <!--<view class='forever_right flex-row'>-->
+        <!--<navigator url="../my-member/member-home/my-member" open-type="navigate" hover-class="none"> -->
+          <!--<text>立即激活</text>-->
+          <!--<image src="../../../images/icon_arrow_next_authcode@2x.png" class="arrow-next"></image>-->
+        <!--</navigator> -->
+      <!--</view>-->
+    <!--</view>-->
+    <!--<view class='flex-y forever' wx:if="{{villageContent.is_activate==1}}">-->
+      <!--<view class="forever_left">-->
+        <!--<view class='flex-row'>-->
+           <!--<image src='/images/icon_auth_v@2x.png'></image>-->
+           <!--<text>30天集采体验资格</text>-->
+        <!--</view>-->
+      <!--</view>-->
+      <!--<view class='forever_right flex-row'>-->
+        <!--<navigator url="../my-member/member-home/my-member" open-type="navigate" hover-class="none"> -->
+          <!--<text>立即升级会员</text>-->
+          <!--<image src="../../../images/icon_arrow_next_authcode@2x.png" class="arrow-next"></image>-->
+        <!--</navigator>-->
+      <!--</view>-->
+    <!--</view>-->
+    <!--</view>-->
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="h_head">
+        <image></image>
+        <text>签到成功</text>
+    </view>
+    <view class="content">
+        <view class="c_title">集采现场须知</view>
+        <view class="c_li">签到后领取会员标，凭借会员标即可入场</view>
+        <view class="c_li">集采现场价格不能泄露</view>
+        <view class="c_li">认证后部分项目可以获得返现</view>
+        <view class="c_li">集采现场有任何问题，都可以咨询多让团长，解答你的疑难问题</view>
+    </view>
+</view>

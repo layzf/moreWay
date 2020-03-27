@@ -1,0 +1,32 @@
+<!-- <import src="../../../tpls/result/result-pay2/result-pay.wxml" /> -->
+<!-- <template is="result-pay"></template> -->
+
+<progress percent="100" active duration='50' stroke-width='4' wx:if='{{progress}}' bindactiveend='activeend'/>
+
+<view wx:else>
+    <image src='../../../images/chenggong.png' class='paySuccessIcon'></image>
+    <view class='paySuccessTit'>{{payType==1?"订单支付成功":"订金支付成功"}}</view>
+    <view class='paySuccessText'>
+        {{ payType==1?"后续可以在【我的—我的团长】中联系你的专属团长咨询送货安装等售后问题":"后续在我的订金详情页可以联系商家转单或者咨询安装售后问题"}}
+    </view>
+    <view wx:if='{{payType==1}}'>
+      <view  class='paySuccessView paySuccessUrl' data-phone='{{mobile}}' catchtap='calltell'>联系团长安排发货</view>
+        <view class='paySuccessView'>
+          <navigator url="../../my/my-order/order-detail/order-detail?id={{payId}}">
+            查看详情
+          </navigator>
+       </view>
+    </view>
+<view  wx:else>
+    <view class='paySuccessView paySuccessUrl'>
+       <navigator url="../../my/my-deposit/deposit-detail/deposit-detail?id={{payId}}">查看详情</navigator>
+    </view>
+    <view class='paySuccessView ends'>
+       <navigator url="/pages/group/group" open-type="switchTab">完成</navigator>
+    </view>
+</view>
+
+
+
+ 
+</view>

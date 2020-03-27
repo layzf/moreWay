@@ -1,0 +1,30 @@
+<view class="evalute">
+    <view class="head">
+        <text class="h_txt">订单评价</text>
+        <view class="h_level">
+            <image class="himg" id="0" catchtap="changeState" src="{{'../../images/'+(checkStatus==0?'icon_comment_verygreat@2x_selected.png':'icon_comment_verygreat@2x.png')}}"></image>
+            <image class="himg" id="1" catchtap="changeState" src="{{'../../images/'+(checkStatus==1?'icon_comment_great@2x_selected.png':'icon_comment_great@2x.png')}}"></image>
+            <image class="himg" id="2" catchtap="changeState" src="{{'../../images/'+(checkStatus==2?'icon_comment_ungreat@2x_selected.png':'icon_comment_ungreat@2x.png')}}"></image>
+        </view>
+    </view>
+    <view class="content">
+        <view class="clist">
+            <block wx:for="{{labels[checkStatus]}}" wx:for-index="idx" wx:key>
+                <view catchtap="checkLabel" data-index="{{idx}}" class="c_label {{item.check?'check':''}}">{{item.txt}}</view>
+            </block>
+        </view>
+        <textarea class="context" placeholder="评价内容" bindinput="remarkData"/>
+        <view class="img">
+            <image catchtap="uploadImg" src="../../images/icon_camera@2x.png"/>
+            <view class="imgList">
+                <block wx:for="{{imgList}}" wx:for-index="idx" wx:key>
+                    <view class="imgLi">
+                        <image class="img" src="{{item}}" mode="aspectFit"></image>
+                        <image class="delete" data-index="{{idx}}" src="../../images/icon_hyrzsb.png" catchtap="deleteImg"></image>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="foot" catchtap="submitData">提交评价</view>
+</view>

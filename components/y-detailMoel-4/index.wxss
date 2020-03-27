@@ -1,0 +1,42 @@
+.y-commonTitle image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.y-commonTitle {
+  font-size: 32rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+.y-detail-model-4{
+  background: #FFF;
+  padding: 48rpx 22rpx;
+  margin-top: 22rpx;
+}
+.charge{
+  padding: 0 rpx;
+  margin-top: 1px;
+}
+.charge>view{
+  background: #FBDAD0;
+  flex: 3;
+  text-align: center;
+  margin-right: 1px;
+  padding: 26rpx 0rpx;
+  font-size: 24rpx;
+}
+.charge>view:first-of-type{
+  flex: 2.5;
+  padding: 26rpx 0rpx;
+}
+.charge>view:last-of-type{
+  margin-right: 0;
+  text-decoration: line-through;
+}
+.chargeMtop{
+  margin-top: 41rpx;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+}

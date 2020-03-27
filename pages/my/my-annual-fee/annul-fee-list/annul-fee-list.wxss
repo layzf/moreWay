@@ -1,0 +1,33 @@
+.con{
+  font-size:30rpx;
+  margin-top:300rpx;
+}
+
+button{
+  color:#FF5D22;
+  font-size:30rpx;
+  border-color:#FF5D22;
+  margin-top:40rpx;
+  background: RGBA(255, 93, 34, .1);
+  padding:4rpx 54rpx;
+}
+
+.list{
+  margin-top:20rpx;
+}
+.header{
+  height:108rpx;
+  line-height:108rpx;
+  color:#E94816;
+  font-size:30rpx;
+  border-bottom: 1px solid #F7F7F7;
+}
+.list-con{
+  padding:28rpx 0;
+}
+.item{
+  line-height:56rpx;
+}
+.label{
+  color:#999;
+}

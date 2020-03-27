@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "集采",
+    "usingComponents": {
+        "enroll":"../../../components/enroll/main/enroll",
+        "login":"../../../components/enroll/login/login",
+        "tip":"../../../components/tip/tip"
+    }
+}

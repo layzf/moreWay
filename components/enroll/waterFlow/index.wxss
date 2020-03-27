@@ -1,0 +1,59 @@
+.W_90 {
+  width: 94vw;
+  margin: 0 auto;
+  display: flex;
+}
+
+.img_item {
+  flex: 1;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.img_item:first-of-type {
+  margin-right: 26rpx;
+}
+
+.img_item>view {
+  margin-bottom: 48rpx;
+}
+
+.img_item>view:last-of-type {
+  margin-bottom: 0;
+}
+
+.img_item .o-hs-2 {
+  margin-top: 26rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+
+.userContent {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+  color: #bfbfbf;
+}
+
+.userContent, .userContent .flexs, .fiexedBottom {
+  display: flex;
+  align-items: center;
+}
+
+.userContent {
+  justify-content: space-between;
+}
+
+.userContent .flexs .o-hs {
+  width: 190rpx;
+}
+
+.userContent .flexs image {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 100px;
+  margin-right: 6rpx;
+}
+
+.userContent .date {
+  font-size: 20rpx;
+}

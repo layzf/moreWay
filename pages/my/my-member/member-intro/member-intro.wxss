@@ -1,0 +1,84 @@
+@import "../../../../tpls/loginPublic/loginPublic.wxss";
+
+page {
+  background: #fff;
+}
+
+page image {
+  width: 48px;
+  height: 48px;
+}
+
+.header {
+  padding: 80rpx 56rpx;
+}
+
+.header image {
+  width: 78rpx;
+  height: 18rpx;
+}
+
+.header .head {
+  font-size: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.header .head view {
+  margin: 0 10rpx;
+}
+
+.header .summery {
+  color: #999;
+  text-align: center;
+}
+
+.icon-w {
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: #666;
+  color: 26rpx;
+}
+
+.icon-w .item {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.item_left {
+  flex: 3;
+}
+
+.item_left img {
+  width: 48px;
+  height: 48px;
+}
+
+.item_right {
+  flex: 7;
+  padding-left: 4px;
+}
+
+.text-head {
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.text-foot {
+  font-size: 9px;
+  color: #666;
+}
+
+.btn-default {
+  margin: 90rpx 100rpx 0;
+  background: rgba(255, 93, 34, 0.1);
+  color: #ff5d22;
+  font-size: 28rpx;
+  border: 2rpx solid rgba(255, 93, 34, 0.5);
+}
+
+.applyCompany {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}

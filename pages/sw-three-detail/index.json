@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "step": "../../components/sw/step/index",
+    "my-commander": "../../components/myCommander/myCommander",
+    "getUserInfo": "../../components/getUserInfo/index"
+  },
+  "disableSwipeBack": true
+}

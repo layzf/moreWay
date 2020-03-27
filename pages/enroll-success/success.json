@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "success":"../../../components/enroll/success/success"
+  },
+  "enablePullDownRefresh": true
+}

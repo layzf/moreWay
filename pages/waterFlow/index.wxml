@@ -1,0 +1,19 @@
+
+
+<scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+  <water-flow Pimage='{{Pimage}}' imgWidth = '{{imgWidth}}' id='waters'></water-flow>
+</scroll-view>
+
+<view class="fiexedBottom">
+
+  <view>
+    <image src="../../images/waterFlowHome.png"></image>
+    <view>返回首页</view>
+  </view>
+  
+  <view>
+    <image src="../../images/waterFlowphoto.png"></image>
+    <view>我要晒单</view>
+  </view>
+
+</view>

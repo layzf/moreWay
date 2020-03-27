@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "water-flow": "../../components/enroll/waterFlow/index"
+  },
+  "navigationBarTitleText": "业主晒单"
+}

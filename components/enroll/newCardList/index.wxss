@@ -1,0 +1,21 @@
+/*组件卡片*/
+  .contentCard{
+    width: 70vw;  /*商城中卡片的宽度：70vw  首页宽度：96vw*/
+    margin: 0 auto;
+    border: 1px solid;
+    border-radius: 20rpx;
+    padding: 36rpx 0;
+    box-sizing: border-box;
+    padding-left: 56rpx;
+  }
+  .contentCard .fontBold{
+    font-size: 38rpx;
+    margin-bottom: 8rpx;
+  }
+  .contentCard .mean{
+    font-size: 28rpx;
+    margin-bottom: 44rpx;
+  }
+  .contentCard .bottomNumber{
+    font-size: 24rpx;
+  }

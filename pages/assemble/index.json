@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "comment-all": "../../components/comment/index",
+    "my-commander": "../../../components/myCommander/myCommander",
+    "countdown": "../../components/countdown2/countdown",
+    "masking-out": "../../components/enroll/masking-out/index"
+  }
+}

@@ -1,0 +1,29 @@
+<template name="signUp">
+  <view class="mask" wx:if="{{appointTap}}" catchtap="hideAppointModal"></view>
+  <view class="fix-bottom-submit" wx:if="{{appointTap}}" animation='{{animationData}}'>
+    <view class="item flex-row-between contact">
+      <view class="item flex-row-between contact" wx:if="{{pageStatus==true}}">
+        <view class="left">
+          {{chooseMessage.link_name}}
+        </view>
+        <view class="middle">{{chooseMessage.link_mobile}}</view>
+      </view>
+      <view class="item flex-row-between contact" wx:if="{{pageStatus==false}}">
+        <view class="left">
+         {{chooseContactBack.name}}
+        </view>
+        <view class="middle">{{chooseContactBack.phone}}</view>
+      </view>
+      <navigator url="/pages/my/my-contact/contact-list/contact-list?pageType=select" hover-class="none">
+        <view class="flex-row right">
+          <text>更改报名信息</text>
+          <image src="/images/icon_arrow_next_light_gray@2x.png"></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='writeRooms' wx:if="{{showRoom==true}}">
+      <input type='text' placeholder='填写小区楼栋和房号（示例：金茂悦17-2101)' class='writeRoom_left' bindblur='writeNone'></input>
+    </view>
+    <button class="btn-default" bindtap="onSubmitAppoint">确认提交</button>
+  </view>
+</template>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "count": "../../components/countdown2/countdown"
+  },
+  "navigationBarTitleText": "多让验房集采",
+  "backgroundColor": "#E94615",
+  "enablePullDownRefresh": true
+}

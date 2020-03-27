@@ -1,0 +1,89 @@
+<!--pages/door-index/index.wxml-->
+<view>
+  <view class="headers">
+      <view>输入面积数据</view>
+      <text>（怎样测量面积？）</text>
+  </view>
+  <form  bindsubmit="formSubmit">
+    <view  class="intBox">
+      <view wx:for='{{inputArr}}' wx:key='id'>
+       <label>{{item.name}}</label>
+       <input placeholder="请输入{{item.name}}" data-id='{{item.id}}' type='digit' hold-keyboard placeholder-class="placeholderClass" name='area_{{item.id}}' bindinput="intInput"></input>
+       <text>{{item.unit}}</text>
+      </view>
+
+    </view>
+
+    <view class="headers">
+      <view>选择品牌</view>
+    </view>
+
+    <view class="productName">
+      <block wx:for='{{productList}}' wx:key='id'>
+        <view  class="{{productListIndex.index == index ? 'active':''}}" 
+               catchtap="changeProductId" 
+               data-vaildDays='{{projectInfo.valid_days}}'
+               data-id='{{item.id}}' 
+               data-index='{{index}}'> {{item.name}} </view>
+      </block>
+    </view>
+ 
+<!--产品-->
+    <block wx:for='{{selectProductList}}' wx:key='id' wx:for-index='Pindex'>
+      <view class="headers">
+        <view>{{item.name}}</view>
+      </view>
+
+      <view class="productionBoxs">
+        <view wx:for='{{item.productInfo}}' wx:key='id'  wx:for-item='cItem' >
+          <view class="productName">{{cItem.name}}</view>
+          <image src="../../images/default.png"></image>
+
+          <view class="price" wx:if='{{loginStatus}}'>集采价:{{cItem.sale_price}}/{{cItem.unit}}</view>
+          <view class="price" wx:else>集采价:????</view>
+
+          <view class="oldPrice">原价:{{cItem.price}}/{{cItem.unit}}</view>
+
+
+         <view  wx:if='{{!loginStatus}}' catchtap="getUserInfo" class="lookMoneys"><text>查看集采价</text></view>
+          <radio-group class="radio-group" 
+                       wx:else
+                       bindchange="radioChange" 
+                       data-categoryid='{{cItem.category_attr_id}}' 
+                       data-index='{{Pindex}}'  >
+
+              <radio class="radio" 
+                    data-checked="{{cItem.checked}}" 
+                    data-index="{{Pindex}}"
+                    data-id="{{cItem.id}}"
+                    data-categoryid="{{cItem.category_attr_id}}"
+                    catchtap="radioChange1"  
+                    checked="{{cItem.checked}}"  wx:key="name" color='#ff5d22' value="{{cItem.id}}"></radio>
+          </radio-group>
+
+        </view>
+      </view> 
+
+    </block>
+
+<view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText">
+    <view style="font-size:32rpx;">根据您选择的品牌和配置：</view>
+    <view wx:for='{{smallText}}' wx:key='id' class="footerMoneys">{{item}}</view>
+    <view class="allMoney">总价：￥{{moneyAll}} 元</view>
+</view>
+
+<!--底部按钮-->
+    <view class="footerBtn">
+      <view catchtap="callCapital">联系团长</view>
+      <view catchtap="godetails">预约量尺</view>
+      <view catchtap="getMoney">交订金300元</view>
+    </view>
+
+  </form>
+</view>
+
+
+<!--咨询团长-->
+  <my-commander isTab='{{commander.showTab}}'  
+                height='{{commander.height}}' 
+                isShow='{{commander.commanderHiden}}' id='my-commander'></my-commander>

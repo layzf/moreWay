@@ -1,0 +1,7 @@
+@import "/tpls/tab-bar/tab-bar.wxss";
+@import "/tpls/my-deposit-item/my-deposit-item.wxss";
+.tabs-item{
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}

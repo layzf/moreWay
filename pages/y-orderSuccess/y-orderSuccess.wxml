@@ -1,0 +1,49 @@
+<view>
+  <view class="topImgs">
+      <image src='../../images/chenggong.png' class='success'></image>
+      <view class='explainType' wx:if='{{status==1 && groupSum-appliedSum-1!=0}}'>支付成功，等待开团</view>
+      <view class='explainType' wx:if='{{status==2 || groupSum-appliedSum-1==0}}'>支付成功，等待团长确认</view>
+      <view class='explainType' wx:if='{{status==-1 || status==3}}'>支付成功，等待验房</view>
+  </view>
+
+  <view class="contents">
+    <text>团长温馨提示：</text>
+
+    <view wx:if='{{status==1 && groupSum-appliedSum-1!=0}}'>
+        此验房团还差<text>{{groupSum-appliedSum-1}}人</text>
+        成团即可享受优惠验房，点击下方<text>"一键加速成团"</text>按钮，<text>分享到验房群</text>，快速成团
+    </view>
+    
+    <view wx:if='{{status==2 || groupSum-appliedSum-1==0}}'>
+        点击下方<text>"提醒团长接单"</text>按钮，<text>分享到验房群</text>，提醒团长快速确认你的订单
+    </view>
+
+    <view  wx:if='{{status==-1 || status==3}}'>
+        点击下方<text>"邀请邻居验房"</text>按钮，分享给邻居，验房当天同小区<text>4户</text>组团即可向团长申请优惠验房
+    </view>
+  </view>  
+
+
+    <view class='y_btn flex-row-around'>
+      <view><navigator url="/pages/index/index" hover-class="none">返回首页</navigator></view>
+      <view>
+        <button open-type="share" wx:if='{{status==1 && groupSum-appliedSum-1!=0}}'>一键加速成团</button>
+        <button open-type="share" wx:if='{{status==2 || groupSum-appliedSum-1==0}}'>提醒团长接单</button>
+        <button open-type="share" wx:if='{{status==-1 || status==3}}'>邀请邻居验房</button>
+      </view>
+    </view>
+
+   <!--组团中--> 
+    <!-- <view class='explainText' wx:if='{{status==1 && groupSum-appliedSum-1!=0}}'>
+        还差{{groupSum-appliedSum-1}}户即可成团，邀请好友享受集采优惠价验房
+    </view> -->
+    <!--组团成功-->
+    <!-- <view class='explainText' wx:if='{{status==2 || groupSum-appliedSum-1==0}}'>
+        邀请邻居验房即可享受集采优惠价复验
+    </view> -->
+
+    <!-- <view class='y_btn flex-row-around'>
+      <view><navigator url="/pages/y-myorderHouse/y-myorderHouse" hover-class="none">查看订单</navigator></view>
+      <view><button open-type="share">去分享</button></view>
+    </view> -->
+</view>

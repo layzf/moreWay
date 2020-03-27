@@ -1,0 +1,53 @@
+page{
+  background-color: #fff;
+  padding:0 40rpx;
+}
+.logo{
+  display: block;
+  width:210rpx;
+  height:86rpx;
+  margin:60rpx auto 180rpx;
+}
+.input-group{
+  border-bottom:1px solid #EBEBEB;
+  padding-top:72rpx;
+  padding-bottom:12rpx;
+}
+input{
+  font-size:32rpx; 
+}
+
+.input-placeholder {
+  font-size: 32rpx; 
+}
+.login-icon{
+  width:40rpx;
+  height:50rpx;
+  margin-right:36rpx;
+}
+.btn-code{
+  flex: 0 0 180rpx;
+  border-left: 1px solid #EBEBEB;
+  padding-left:20rpx;
+  color:#E94816;
+}
+.input-group-code{
+  flex:1;
+}
+.btn-login{
+  margin-top:60rpx;
+  margin-bottom:44rpx;
+  color:#fff;
+  height:100rpx;
+  line-height:100rpx;
+  background:linear-gradient(to right,rgba(233,72,22,1) 50%,rgba(248,147,34,1) 100%);
+  border-radius:8px;
+  border:none;
+}
+.info{
+  font-size:24rpx;
+  color:#999;
+}
+.terms{
+  color:#666;
+}

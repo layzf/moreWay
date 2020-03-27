@@ -1,0 +1,126 @@
+page {
+  background-color: #FF5D22;
+}
+
+.owner-code-w {
+  width: 80%;
+  background-color: #fff;
+  position: relative;
+}
+
+.w-head {
+  padding: 40rpx 40rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+ .w-head::before {
+  width: 40rpx;
+  height: 40rpx;
+  content: "";
+  right: -20rpx;
+  top: 160rpx;
+  position: absolute;
+  display: block;
+  background: #FF5D22;
+  border-radius: 50%;
+}
+
+  .w-head::after {
+  width: 40rpx;
+  height: 40rpx;
+  content: "";
+  left: -20rpx;
+  top: 160rpx;
+  position: absolute;
+  display: block;
+  background: #FF5D22;
+  border-radius: 50%;
+} 
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 50rpx;
+}
+
+.name {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.member-points {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.icon-auth-success {
+  margin-left: 24rpx;
+  width: 90rpx;
+  height: 34rpx;
+}
+
+.w-con{
+  padding:50rpx 0 40rpx;
+  color:#333;
+}
+
+.code-tips{
+  font-size:24rpx;
+  color:#999;
+}
+
+.auth-code {
+  width: 300rpx;
+  height: 300rpx;
+  padding: 18rpx;
+  border: 1px solid #e9e9e9;
+  margin:30rpx 0 40rpx;
+}
+
+.arrow-next {
+  width: 10rpx;
+  height: 18rpx;
+  margin-left: 10rpx;
+}
+.forever{
+  padding: 25rpx;
+  background: #333333;
+}
+.forever_left{
+  flex: 7;
+  color: #CEC5AC;
+}
+.forever_right{
+  flex: 4;
+  color: #C3B99D;
+}
+.alreadyTime{
+  color: #FF7B4A;
+}
+.applyMoney_middle{
+  border: 1px solid #E94816;
+  margin-left: 5px;
+  font-size: 10px;
+  color: #E94816;
+  padding: 0 4px 0 4px;
+}
+.applyMoney_middles{
+  width: 38px;
+  height: 23px;
+}
+.applyMoney_p{
+  width: 38px;
+  height: 13px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.forever_left view image{
+  width: 20px;
+  height: 20px;
+}
+.applyMoney_middleed{
+  width: 55px;
+  height: 19px;
+  margin-left: 3px;
+}

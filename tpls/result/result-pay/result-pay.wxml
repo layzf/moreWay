@@ -1,0 +1,14 @@
+<template name="result-pay">
+  <view class="res-w">
+    <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+    <view class="text-res-s">支付成功</view>
+    <view class="btn-group res-btn-group">
+      <navigator url="{{item.pathLeft}}">
+        <button class="btn-default">{{item.btnLeft}}</button>
+      </navigator>
+      <navigator url="/pages/group/group" open-type="switchTab">
+        <button class="btn-white">完成</button>
+      </navigator>
+    </view>
+  </view>
+</template>

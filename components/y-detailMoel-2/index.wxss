@@ -1,0 +1,88 @@
+.y-detail-model-2{
+  background: #fff;
+  padding: 52rpx 22rpx;
+  box-sizing: border-box;
+  margin-top: 22rpx;  
+}
+.y-commonTitle image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.y-commonTitle {
+  font-size: 32rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+.progress{
+  margin-top: 43rpx;
+  position: relative;
+  height: 450rpx;
+}
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.flex_start{
+  align-items: flex-start;
+  margin-bottom: 50rpx;
+  left: 4rpx;
+}
+.flex_start:last-of-type{
+  margin-bottom: 0;
+}
+.list_1{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 100px;
+  background: #535353;
+  color: #fff;
+  text-align: center;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:17rpx;
+  position: relative;
+}
+.list_1::after{
+  content: '';
+  width: 1px;
+  height: 100rpx;
+  background: #999999;
+  position: absolute;
+  left: 15rpx;
+  top: 38rpx;
+}
+
+.flex_start .active,.active::after{
+  background: #E94615;
+}
+.rightTitles{
+  margin-top: -6rpx;
+  font-size: 28rpx;
+  width: 625rpx;
+}
+.rightTitles view{
+  color: #535353;
+  margin-bottom: 26rpx;
+}
+.rightTitles text{
+  color: #999999;
+}
+.flex_start .colors text,.flex_start .colors view{
+  color: #E94615;
+}
+.progress .flex_start:first-of-type{
+  position: absolute;
+  top: 0;
+}
+.progress .flex_start:nth-of-type(2){
+  position: absolute;
+  top: 165rpx;
+}
+.progress .flex_start:last-of-type{
+  position: absolute;
+  top: 328rpx;
+}

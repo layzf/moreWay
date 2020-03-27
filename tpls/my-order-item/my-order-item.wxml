@@ -1,0 +1,83 @@
+<template name="my-order-item">
+  <view class="list-page">
+    <view class="empty-page" wx:if="{{!listData.length}}">
+      <image src="/images/icon_empty_order@2x.png"></image>
+      <view>您还没有下过单～</view>
+    </view>
+    <block wx:for="{{listData}}" wx:for-index="idx" wx:key>
+      <view class="tpl-item" >
+        <view class="flex-row-between wx-head">
+          <view catchtap='shoopUrl' data-index='{{idx}}' wx:if='{{item.so_type==1}}'>
+              <text class='date'>{{item.project_name}}</text>
+              <image src='/images/icon_jt@2x.png'></image>
+          </view>
+          <text class='date dateColor' wx:elif='{{item.so_type==0}}'>{{item.create_at}}</text>
+          <text hidden="{{item.pay_status===0}}" class="status">{{item.status == 0? '待交付': item.status == 1? '待验收':item.status == 2? '已完成': item.status == 3? '已完成' : '' }}</text>
+          <text wx:if="{{item.pay_status==0 && item.status== 0}}" class="status">待付款</text>
+          <text  class="status" wx:if="{{item.status== -1}}">已取消</text>
+        </view>
+
+        <navigator url="../order-detail/order-detail?id={{item.id}}&status={{item.status}}&pay={{item.pay_status}}&soType={{item.so_type}}" hover-class="none">
+          <view class="flex-row middle">
+              <image src="{{item.img_url}}"></image>
+            <view class="flex-c-between right">
+              <view>
+                <view class="o-hs title">{{item.project_name}}</view>
+               <!-- <view class="o-hs-2 name">{{item.activity_name}}</view> -->
+                <!-- <view class='o-hs-2 name'>{{item.create_at}}</view> -->
+                 <view class='o-hs-2 name'>项目备注</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+          <view class="price">
+            <view><text class="deadline">订单金额：</text> {{item.pay_price}}元</view>
+          </view>
+
+        <!-- <view class="foot" wx:if="{{item.status == 2}}">
+          订单总额：
+          <text>{{item.payPrice}}元</text>
+        </view> -->
+        <view class="footer-btn">
+          <!-- <navigator url="/pages/my/my-order/order-detail-record/order-detail-record?id={{item.id}}" hover-class="none" wx:if="{{item.status ==0||item.status ==1}}">
+            <button class="btn-white">问题反馈</button>
+            <button class="btn-white">添加反馈</button>
+          </navigator> -->
+           <!-- <navigator url="/pages/my/my-order/order-detail-record/order-detail-record?prod_img={{item.prod_img}}&prod_img={{item.village_name}}&prod_img={{item.project_name}}&prod_img={{item.prod_price}}" hover-class="none" > -->
+
+          <view wx:if="{{item.pay_status==0 && item.status !== -1}}" class='obligationFlex'>
+           <view data-id="{{item.id}}" data-index="{{idx}}" class="btn" catchtap="cancel">取消订单</view>
+            <view  class="btn {{item.pay_status==0?'pay':''}}"
+                data-status="{{item}}"
+                bindtap="{{item.pay_status==0?'payData':''}}">
+               {{item.pay_status==0?'去支付':item.pay_status==-1?'已退款':'已支付'}}
+            </view>
+          </view>
+          <view  wx:if="{{item.status==1||item.status==2||item.status==3}}" class='obligationFlex'>
+          <button class="btn-default {{item.status == 3?'middColores':''}}"
+                  data-status="{{item.status}}"
+                  data-prod_img="{{item.prod_img}}"
+                  data-village_name="{{item.village_name}}"
+                  data-project_name="{{item.project_name}}"
+                  data-prod_price="{{item.prod_price}}"
+                  data-return="{{'temp'}}"
+                  data-id="{{item.id}}"
+                  data-evaluate_id="{{item.evaluate_id}}"
+                  bindtap="onConfirmTap">
+          {{ item.status == 1? '确定验收':item.status == 2? '评价': item.status == 3 ?'查看评价':''}}
+          </button>
+          <button wx:if="{{item.return_money_status>=0 && item.status == 3}}" class="btn-default {{item.return_money_status>0?'middColores':''}}"
+                  data-status="{{item.status}}"
+                  data-return="{{item.return_money_status}}"
+                  data-id="{{item.id}}"
+                  data-evaluate_id="{{item.evaluate_id}}"
+                  bindtap="onConfirmTap">
+            {{item.status == 3 && item.return_money_status==0?'申请返现': item.status == 3 && item.return_money_status>0?'查看返现':''}}
+          </button>
+          </view>
+             <!-- </navigator> -->
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

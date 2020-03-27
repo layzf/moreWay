@@ -1,0 +1,33 @@
+<view>
+    <view class='formss'>
+        <view class='flex-row'>
+          <label>小区名称</label>
+          <input type='text' placeholder='请输入小区名称' name='villageName' bindinput="plVillageName"></input>
+        </view>
+        <view class='flex-row-between leftImg'>
+          <view class='flex-row'>
+            <label>交房时间</label>
+            <view class="section">
+              <picker mode="date" value="{{date}}"  bindchange="bindDateChange">
+                <view class="picker"></view>
+                <input class="picker" disabled value="{{date}}" name='days' placeholder="选择小区交房时间"></input>
+              </picker>
+            </view>
+          </view>
+          <image src='../../images/icon_jt@2x.png'></image>
+        </view>
+        <view class='flex-row'>
+          <label>成团人数</label>
+          <text>30</text>
+        </view>
+        <view class='flex-row'>
+          <label>拼团时间</label>
+          <text>审核通过后7天内</text>
+        </view>
+    </view>
+    <view class='pointOut'>温馨提示: 开通小区验房团，最好不要晚于小区交房时间</view>
+    <button bindtap="addInt" class='y_btns'>确认提交</button>
+
+
+
+</view>

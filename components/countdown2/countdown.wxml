@@ -1,0 +1,11 @@
+
+
+<view class="countdown">
+    <view class="dataeBefore" wx:if='{{hasDays}}'>剩余{{day}}天</view>
+    <view class="dataeBefore" wx:else>距结束</view>
+    <view class="date" style="color:#{{dataColor}};">
+      <text style="background:#{{bgColor}};color:#{{fontSizeColor}};">{{hour}}</text>:
+      <text style="background:#{{bgColor}};color:#{{fontSizeColor}};">{{minute}}</text>:
+      <text style="background:#{{bgColor}};color:#{{fontSizeColor}};">{{second}}</text>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="bank">
+    <scroll-view
+        scroll-y
+        style="{{'height:'+(height-45)+'px'}}">
+        <view class="item" wx:for="{{cardList}}" wx:for-index="idx" wx:key="{{item.id}}" id="{{idx}}" catchtap="{{type?'':'chooseBank'}}">
+            <view class="i_title">
+               <text>{{item.userName}}</text>
+               <text class="phone">{{item.bankCard}}</text>
+            </view>
+            <view class="i_content">
+                <view class="i_img">
+                    <image src="{{item.isDefault === 1?'../../images/icon_choose_selected@2x.png':'../../images/icon_choose@2x.png'}}"></image>
+                    <text>默认银行卡</text>
+                </view>
+                <image src="../../images/icon_delete_dark@2x.png"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="foot" catchtap="addCard">
+        添加银行卡
+    </view>
+</view>

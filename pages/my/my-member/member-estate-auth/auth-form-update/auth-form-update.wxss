@@ -1,0 +1,5 @@
+@import "../estate-auth-form/estate-auth-form.wxss";
+.upload-con image{
+  width: 100%;
+  height: 100%;
+}

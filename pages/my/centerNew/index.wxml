@@ -1,0 +1,95 @@
+<view class="" catchtap="GophoneBtn" wx:if='{{loginType}}'></view>
+
+<view class="topModel">
+  <!--登录状态 显示--> 
+    <view class="box">
+      <view class="flexModel">
+        <view class="fl" wx:if='{{loginType}}'>
+          <image src="../../../images/bannerList.png"></image>
+          <view class="rightModel">
+            <view class="name">没有亚军》《只有冠军</view>
+            <view class="icon">普通会员</view>
+          </view>
+        </view>
+
+        <view wx:else class="fl loginBtnClass">
+              <image src="/images/placeholder_avatar@2x.png" class="w-avatar"></image>
+              <view class="loginBtn">登录/注册</view>
+        </view>
+
+        <view class="rightsModel">
+          <image src="../../../images/icon_code_auth@2x.png"></image>
+          <view>我的会员码</view>
+        </view>
+      </view>
+      <!--list-->
+       <view class="listBox">
+          <view wx:for='{{[1,2,3]}}' wx:key='index' class="listClass">
+            <navigator>
+<image src="../../../images/{{item==1?'y-model-3-1.png':item==2?'y-model-3-2.png':item==3?'y-model-3-3.png':''}}"></image>
+              <view>{{item==1?'我的报名':item==2?'我的订金':item==3?'我的订单':''}}</view>
+            </navigator>
+          </view>
+       </view>
+    </view>
+<!--认证权益-->
+    <view class="vipClass">
+       <view>升级认证会员，享受更多权益</view>
+       <view class="go">立即认证</view>
+    </view>
+</view>
+
+<!--广告位置-->
+    <view class="swiperClass">
+      <swiper autoplay  interval="5000" duration="1500" indicator-dots circular style="width:96vw;height:254rpx;margin:0 auto;padding-bottom:24rpx;">
+            <block wx:for="{{itemSwiper}}" wx:key="*this">
+              <swiper-item>
+                <image src="{{item.img}}"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+    </view>  
+  <!--列表框-->
+ <view class="W_6">
+   <view class="borderBtom">
+        <navigator class="nav">
+        <image src="../../../images/bannerList.png"></image>
+        <view >
+            <view>我的团长</view>
+            <image src="../../../images/icon_jt@3x.png"></image>
+        </view>
+    </navigator>
+
+    <navigator class="nav">
+        <image src="../../../images/bannerList.png"></image>
+        <view >
+            <view>意见反馈</view>
+            <image src="../../../images/icon_jt@3x.png"></image>
+        </view>
+    </navigator>
+
+    <navigator class="nav">
+        <image src="../../../images/bannerList.png"></image>
+        <view >
+            <view>官方客服</view>
+            <image src="../../../images/icon_jt@3x.png"></image>
+        </view>
+    </navigator>
+  </view>
+
+    <navigator class="nav">
+        <image src="../../../images/bannerList.png"></image>
+        <view >
+            <view>设置</view>
+            <image src="../../../images/icon_jt@3x.png"></image>
+        </view>
+    </navigator>
+
+    <navigator class="nav">
+        <image src="../../../images/bannerList.png"></image>
+        <view >
+            <view>推荐「多让」给邻居</view>
+            <image src="../../../images/icon_jt@3x.png"></image>
+        </view>
+    </navigator>    
+ </view>

@@ -1,0 +1,44 @@
+<view class='form-list'>
+<view class='form-con'>
+<image class='img' src='../../../images/commander_wechart@2x.png'></image>
+<view class='title'>陈先生(17-2541)</view>
+</view>
+</view>
+
+<view class='statistics'>
+<view class='tit-box'>
+<view class='tit'>累计报名/预约</view>
+<view class='num'>123</view>
+</view>
+<view class='line'></view>
+<view class='tit-box'>
+<view class='tit'>累计签到</view>
+<view class='num'>23</view>
+</view>
+<view class='line'></view>
+<view class='tit-box'>
+<view class='tit'>累计定金</view>
+<view class='num'>50</view>
+</view>
+<view class='line'></view>
+<view class='tit-box'>
+<view class='tit'>累计订单</view>
+<view class='num'>123</view>
+</view>
+</view>
+
+<view class='detail_title'>
+数据详细
+</view>
+
+<view class='time'>
+2017.6.25
+</view>
+
+<view class='list'>
+<view class='content'>
+<view class='name'>金戈门窗【第一啊】</view>
+<view class='stuat'>报名成功</view>
+</view>
+</view>
+

@@ -1,0 +1,28 @@
+@import "/style/contact-list.wxss";
+.address-label-auth{
+  border-color:#FF5D22;
+  color:#FF5D22;
+}
+.address-label-ofen{
+  border-color:#3979D4;
+  color:#3979D4;
+}
+.address{
+  font-size:26rpx;
+  color:#666;
+  margin-top:26rpx;
+  white-space:normal;
+  word-break:break-all;
+}
+.address image{
+  flex: 0 0 50rp;
+  width:50rpx;
+  height:50rpx;
+  margin-right:10rpx;
+}
+.address text{
+  flex:1;
+}
+.con .head{
+  padding-left:12rpx;
+}

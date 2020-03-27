@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "countdown":"../../components/countdown/countdown",
+    "slideimg":"../../components/slideImg/slide",
+    "enroll":"../../components/enroll/main/enroll",
+    "login":"../../components/enroll/login/login",
+    "my-commander": "../../../components/myCommander/myCommander",
+    "add-routine": "../../components/addRoutine/addRoutine"
+  }
+}

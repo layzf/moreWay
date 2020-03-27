@@ -1,0 +1,57 @@
+page{
+  background: #FFF;
+}
+
+/*d轮播图*/
+.swiperBox image{
+  width: 100%; 
+}
+.heightImgsClass { 
+  transition: all 0.4s ease
+}
+.css3{
+  transition: all 0.5s ease 0.2s
+}
+.swiperViewImgs{
+  position: relative;
+  height: 100%;
+}
+.imLength{
+  position: absolute;
+  right: 24rpx;
+  top: 24rpx;
+  background: rgba(0,0,0,0.8);
+  color: #FFF;
+  font-size: 26rpx;
+  text-align: center;
+  padding: 10rpx 28rpx;
+  border-radius: 6rpx;
+}
+.W_94{
+  width: 94vw;
+  margin: 0 auto;
+}
+.project{
+  margin-top: 24rpx;
+}
+.projectName{
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #2D2D2D;
+  margin-bottom: 24rpx;
+}
+.P_12{
+  padding: 44rpx 24rpx 0 24rpx;
+  border-top:  24rpx solid #F9F9F9;
+  margin-top: 50rpx;
+}
+.shareWaterFlow{
+  background: #FF5F2D;
+  color: #FFF;
+  font-size: 32rpx;
+  width: 100%;
+  text-align: center;
+  margin-top: 50rpx;
+  border-radius: 20rpx;
+  padding: 24rpx 0;
+}

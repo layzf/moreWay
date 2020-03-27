@@ -1,0 +1,60 @@
+/* components/sw/step/index.wxss */
+.fixeds{
+  position: fixed;
+  top: 0;
+  height: 150rpx;
+  line-height: 150rpx;
+  width: 100%;
+  background: #EA4717;
+  z-index: 99999;
+}
+.setBoxs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.setList{
+  flex: 1;
+}
+.setList view{
+  color: #F7F0E0;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+
+.setList .setNum::after{
+    width: 40rpx;
+    height: 2rpx;
+    background: #F7F0E0;
+    position: absolute;
+    top: 50%;
+    right: -18rpx;
+    content: '';
+}
+.setList:last-of-type .setNum::after{
+    width: 0rpx;
+    height: 0rpx;
+}
+
+.setList .setNum{
+  font-size: 45rpx;
+  position: relative
+}
+.setNum text{
+  font-size: 26rpx;
+}
+.active .setNum{
+  color: #fff;
+  font-size: 70rpx
+}
+.active view text{
+  font-size: 26rpx
+}
+.active .setNum::after{
+    background: #fff;
+}
+.active .setNum::after{
+    right: -24rpx;
+}

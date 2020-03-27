@@ -1,0 +1,49 @@
+<view class="container">
+  <view class='sections flex-y'>
+    <text>申请小区</text>
+    <input type='text' placeholder="填写你申请团长的小区名称,不超过三十个字" placeholder-class="placeStyle" bindblur="applyPlacehead"></input>
+  </view>
+  <view class='flex-row-between form-con'>
+    <view class='section flex-y'>
+      <text>楼栋</text>
+      <view>
+      <input type='text' maxlength="3" placeholder="" placeholder-class="placeStyle" bindblur="applyPlace"></input>
+      </view>
+    </view>
+    <view class='section flex-y'>
+      <text>单元号</text>
+      <view>
+        <input type='text' maxlength="5" placeholder="" placeholder-class="placeStyle" bindblur="delAdress"></input>
+      </view>
+    </view>
+    <view class='section flex-y'>
+      <text>房号</text>
+      <view>
+      <input type='text' maxlength="5" placeholder="" placeholder-class="placeStyle" bindblur="writeRoom"></input>
+      </view>
+    </view>
+  </view> 
+  <view class="form-group-large">
+    <text class="label">证明材料</text>
+    <view class="right">
+      <view class="flex-col-center upload-con" data-upload-type="material" bindtap="chooseImage">
+        <image hidden="{{imgMaterial}}" src="/images/icon_camera@2x.png" class="icon-upload-camera"></image>
+        <view hidden="{{imgMaterial}}" class="text-upload-camera">上传材料</view>
+        <image hidden="{{!imgMaterial}}" src="{{imgMaterial}}" class="img-upload-camera"></image>
+      </view>
+      <view class="upload-desc">上传购房合同、购房发票、契税发票或物业收据（要求“房号”和“业主姓名”清晰可见）</view>
+    </view>
+  </view>
+  <view class="form-group-large">
+    <text class="label">身份证</text>
+    <view class="right">
+      <view class="flex-col-center upload-con upload-con-rectangle" data-upload-type="identity" bindtap="chooseImage">
+        <image hidden="{{imgIdentity}}" src="/images/icon_camera@2x.png" class="icon-upload-camera"></image>
+        <view hidden="{{imgIdentity}}" class="text-upload-camera">上传正面</view>
+        <image hidden="{{!imgIdentity}}" src="{{imgIdentity}}" class="img-upload-rectangle"></image>
+      </view>
+      <view class="upload-desc">上传证明材料上业主的身份证的正面（不允许复印件）</view>
+    </view>
+  </view>
+  <button class="btn-default btn-submit" bindtap="onSubmitTap">确认提交</button>
+</view>

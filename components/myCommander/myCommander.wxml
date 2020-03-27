@@ -1,0 +1,50 @@
+<tip showLogin="{{showLogin}}" mask="{{mask}}" shopTip="{{true}}" bindhideRow="hideRow"></tip>
+
+<view  wx:if='{{isShow}}' >
+  <view class="maskIngShadow" catchtouchmove="true" catchtap='hidenCommander'></view>
+  <view class="maskIngBox" catchtouchmove="true">
+      <view class="ybgColor" ></view>
+      <view class="commanderbgColor">
+         <view class="commanderIcon">
+            <image  src="{{commandar.icon}}" wx:if='{{commandar.icon}}'></image>
+            <view class="commanderR">
+                <view class="commanderName">
+                    <view class="name">{{commandar.name}}</view>
+                    <view class="Rcmd">
+                       <image src="../../images/commdrenLogo.png"></image>
+                       <view>团长</view>
+                    </view>
+                </view>
+                <view class="serveNumber">已服务会员数 {{orderInformation.applied_sum || count}}</view>
+            </view>
+         </view>
+    <!--过渡线-->     
+         <view class="dashed"></view>
+    <!--微信，手机号--> 
+        <view class="functionBox">
+          <view>
+              <image src="../../images/comd_tell.png"></image>
+              <view>{{commandar.mobile}}</view>
+          </view>
+          <view >
+              <image src="../../images/comd_wx.png"></image>
+              <view>{{commandar.wechat}}</view>
+          </view>
+        </view>  
+      </view>
+<!--银卡 结束-->
+      <view class="bottomFlexBtns">
+          <view catchtap="copyWechat">
+              <image src="../../images/comd_wxbig.png"></image>
+              <view>加微信</view>
+          </view>
+          <view catchtap="callPhone">
+              <image src="../../images/comd_phone.png"></image>
+              <view>打电话</view>
+          </view>
+      </view>
+<!--关闭按钮-->
+      <icon type="clear" size="30" color='#FFF' class="clearBtn" catchtap='hidenCommander' wx:if='{{!isTab}}'/>
+  </view>
+</view>
+

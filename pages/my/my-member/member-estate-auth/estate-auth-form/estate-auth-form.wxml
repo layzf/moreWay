@@ -1,0 +1,80 @@
+
+<view class="form-con">
+  <!-- <picker range="{{estateList}}" range-key="village_name" value="{{estateInitValue}}" bindchange="bindEstatePickerChange">
+    <view class="form-group">
+      <text class="label">认证小区</text>
+      <view class="right">
+        <text class="light-des" wx:if="{{selectedEstate.village_name}}">{{selectedEstate.village_name}}</text>
+        <text class="light-des" wx:else>请选择小区</text>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </picker> -->
+  <view class='village_name'>
+    <view class='flexVillageName'>
+      <text>认证小区</text>
+      <input placeholder='请输入小区名' bindinput="bindinput" value="{{inputValue}}" ></input>
+    </view>
+
+
+    <view class='changeVillageName' hidden="{{hideScroll}}">
+      <scroll-view scroll-y='true'  style='height:700rpx;' >
+         <block wx:for='{{searchEstateList}}'  wx:key="*this">
+               <view data-name="{{item.village_name}}" data-id='{{item.id}}' catchtap="itemtap" class="itemview">
+                 {{item.village_name}}
+               </view>
+          </block>
+      </scroll-view>
+    </view>
+
+
+  </view>
+  <view class='flex-row-between'>
+    <view class='section flex-y'>
+      <text>楼栋</text>
+      <view>
+        <input type='text' maxlength="3" placeholder="" placeholder-class="placeStyle" bindblur="applyPlace"></input>
+      </view>
+    </view>
+    <view class='section flex-y'>
+      <text>单元号</text>
+      <view>
+        <input type='text' maxlength="5" placeholder="" placeholder-class="placeStyle" bindblur="delAdress"></input>
+      </view>
+    </view>
+    <view class='section flex-y'>
+      <text>房号</text>
+      <view>
+        <input type='text' maxlength="5" placeholder="" placeholder-class="placeStyle" bindblur="writeRoom"></input>
+      </view>
+    </view>
+  </view>
+  <view class="form-group-large">
+    <text class="label">证明材料</text>
+    <view class="right">
+      <view class="flex-col-center upload-con" data-upload-type="material" bindtap="chooseImage">
+        <image hidden="{{imgMaterial}}" src="/images/icon_camera@2x.png" class="icon-upload-camera"></image>
+        <view hidden="{{imgMaterial}}" class="text-upload-camera">上传材料</view>
+        <image hidden="{{!imgMaterial}}" src="{{imgMaterial}}" class="img-upload-camera"></image>
+      </view>
+      <view class="upload-desc">上传购房合同、购房发票、契税发票或物业收据（要求“房号”和“业主姓名”清晰可见）</view>
+    </view>
+  </view>
+  <view class="form-group-large">
+    <text class="label">身份证</text>
+    <view class="right">
+      <view class="flex-col-center upload-con upload-con-rectangle" data-upload-type="identity" bindtap="chooseImage">
+        <image hidden="{{imgIdentity}}" src="/images/icon_camera@2x.png" class="icon-upload-camera"></image>
+        <view hidden="{{imgIdentity}}" class="text-upload-camera">上传正面</view>
+        <image hidden="{{!imgIdentity}}" src="{{imgIdentity}}" class="img-upload-rectangle"></image>
+      </view>
+      <view class="upload-desc">上传证明材料上业主的身份证的正面（不允许复印件）</view>
+    </view>
+  </view>
+</view>
+
+<button class="btn-default btn-submit" bindtap="onSubmitTap">确认提交</button>
+
+<view class="tips">
+  1、上传资料只用户验证业主身份，不作为其他用途，图片上传后我们会后置水印，以防传播
+</view>

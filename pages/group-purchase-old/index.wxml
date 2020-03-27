@@ -1,0 +1,5 @@
+
+
+<view class="w_94"> 
+  <group-old item='{{item}}' margin='margin-bottom:24rpx;'></group-old>
+</view>

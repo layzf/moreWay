@@ -1,0 +1,20 @@
+<!--pages/guide/guide.wxml-->
+<!-- <import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template> -->
+
+<view>
+  <view class='guideImg'>
+    <block wx:for='{{url}}'>
+      <image src='{{item}}' mode='widthFix'></image>
+    </block>
+  </view>
+</view>
+<!--shareHome-->
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+  <movable-view
+          style="pointer-events: auto"
+          class="rimg"
+          direction="all">
+    <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+  </movable-view>
+</movable-area>

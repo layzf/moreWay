@@ -1,0 +1,49 @@
+<template name="share">
+  <view class='mask112' bindtap='closeModel' wx:if="{{showShareModal||drawImage}}"></view>
+  <!-- <view class="flex-col share-w" wx:if="{{showShareModal}}">
+    <view class='share_bright'>
+      <view class='shareLeft'>
+        <view class='shareLeft_left'>分享</view>
+        <view class='shareRight_right flex-row-centers'>
+          <view class='shareLeft_top'>
+            <button open-type="share" class="btn-share button-hover"></button>
+            <image src="/image/icon_share_wechart@2x.png"></image>
+            <view>微信</view>
+          </view>
+          <view class='shareLeft_bottom'>
+            <image src="/image/icon_share_friends@2x.png" bindtap="saveImgToPhotosAlbumTap"></image>
+            <view>朋友圈</view>
+          </view>
+        </view>
+        <view class='close' bindtap="onCloseShareTap">取消</view>
+      </view>
+    </view>
+  </view> -->
+  <view class='models' wx:if="{{drawImage}}">
+    <view class='model_heads'>
+        <text>商家扫码即可转单</text>
+        <image src='{{code}}' class='model_imgs'></image>
+        <view class="code">{{user_code}}</view>
+    </view>
+    <view class='bottomFlow'>
+        <view>转单流程</view>
+        <view>
+           <text class='iocnRadius'>1</text>
+           <text>出示转单码....</text>
+           <text class='iocnRadius'>2</text>
+           <text>商家转单....</text>
+           <text class='iocnRadius'>3</text>
+           <text>支付尾款....</text>
+           <text class='iocnRadius'>4</text>
+           <text>商家送货/安装</text>
+        </view>
+    </view>
+    <image src='/images/closeModelS.png' bindtap='closeModel' class='closeModelImg'></image>
+    <!-- <view class='downLoad flex-col' bindtap='downLoadlocal'>
+      <view class='downLoad_right'>
+        <image src='/images/downLoad.png'></image>
+      </view>
+    </view>
+    <view class='downLoad_left'>下载到本地</view> -->
+  </view>
+</template>

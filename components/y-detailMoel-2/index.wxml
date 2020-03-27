@@ -1,0 +1,33 @@
+<view class='y-detail-model-2'  wx:if='{{type!=-1}}'>
+     <view class='y-commonTitle flex-row'>
+        <image src='../../images/y-leftImg-2.png'></image>
+        <view>组团进展</view>
+     </view>
+ <!--进展-->    
+     <view class='progress'>
+          <view class='flex-row flex_start'>
+              <view class='list_1 {{type==1?"active":""}}'>1</view>
+              <view class='rightTitles {{type==1?"colors":""}}'>
+                <view>正在组团</view>
+                <text>{{type==1?"本小区正在发起组团，规定时间内满足成团人数即可开团验房，未成团订金原路退回":"规定时间内满足成团人数即可开团"}}</text>
+              </view>
+          </view>
+
+          <view class='flex-row flex_start'>
+              <view class='list_1 {{type==2?"active":""}}'>2</view>
+              <view class='rightTitles {{type==2?"colors":""}}'>
+                <view>组团成功</view>
+                <text>{{type==2?"本小区已满足开团条件，目前预约验房可享受集采价优惠":"满足开团条件组团成功，可享受团购价验房"}}</text>
+              </view>
+          </view>
+
+          <view class='flex-row flex_start'>
+            <view class='list_1  {{type==3?"active":""}}'>3</view>
+            <view class='rightTitles {{type==3?"colors":""}}'>
+              <view>组团结束</view>
+              <text>{{type==3?"本小区组团验房已结束，不再享受团购优惠，目前单户预约验房可享受集采价验房":"组团验房已结束，可单户预约验房"}}</text>
+            </view>
+          </view>
+     </view>
+
+</view>

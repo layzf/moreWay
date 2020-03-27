@@ -1,0 +1,78 @@
+<!-- <import src="../../../../tpls/my-group-item/group-item-tpl.wxml" /> -->
+
+<view class="empty-page" wx:if='{{groupList.length<=0}}'>
+  <image src="/images/icon_empty_order@2x.png"></image>
+  <view>暂无记录～</view>
+</view>
+
+<block wx:for="{{groupList}}" wx:key="{{item.id}}">
+  <view class="item-list">
+    <view class="w header">
+      <text class="contact-name">{{item.user_name}}</text>
+      <text class="contact-phone">{{item.mobile}}</text>
+
+      <text wx:if='{{!type && item.status==0}}' class="is-cancel">已取消</text>
+
+      <text  wx:if="{{type}}" class="is-cancel">{{item.status==0?"申请中":item.status==1?"已取消":"已完成"}}</text>
+
+    </view>
+
+  <view class="flex-row tpl-item">
+    <image src="{{item.img_url}}" class="item-cover"></image>
+    <view class="info">
+      <view class="o-hs-2 name">{{item.project_name}}</view>
+       <view class="names" wx:if='{{!type}}'>#{{item.beg_at}}~{{item.end_at}}#</view>
+
+       <view class="o-hs-2 namess orderClass" wx:if="{{type}}">
+         {{item.village_name +' '+item.building_no}}
+       </view>
+
+       <view class="o-hs-2 namess" wx:if="{{item.activity_project_enroll_create_at!=''}}">
+          {{type?'预约':'报名'}}时间：{{item.activity_project_enroll_create_at}}
+       </view>
+      <view class="o-hs-2 namess" wx:if="{{item.activity_project_sign_create_at!='' && !type}}">
+        签到时间：{{item.activity_project_sign_create_at}}
+      </view>
+         <!-- <view class="price">
+            <text class='tt'>订单：</text>
+            <text class='pay_price'>{{item.pay_price}}元</text>
+          </view> -->
+    </view>
+  </view>
+    <view class="flex-row flex-end control" wx:if='{{type && !item.status}}'>
+    <view  class="w-label btn" >
+      <picker mode="date"  bindchange="bindDateChange" data-id='{{item.id}}' start='{{startTime}}' end='{{endTime}}'>修改预约时间</picker>
+    </view>
+
+    <view  class="w-label btn" catchtap="Cancel" data-id='{{item.id}}'>取消量尺</view>
+
+      <!-- <view wx:if="{{item.activity_project_sign_id==''}}"></view> -->
+      <!-- <view wx:else> -->
+       <!-- <view  class="w-label btn" wx:if="{{item.activity_project_sign_status==1}}">
+        <navigator url="/pages/my/my-group/group-comment-add/group-comment-add?id={{item.activity_project_sign_id}}&activity_name={{item.project_name}}&img_url={{item.img_url}}&datatype=1" open-type="navigate" hover-class="none">参团评价</navigator>
+      </view> -->
+      <!-- <view  class="w-label btn" wx:if="{{item.activity_project_sign_status==2}}">
+        <navigator url="/pages/my/my-group/group-comment-view/group-comment-view?groupId={{item.activity_project_sign_id}}&groupName={{item.project_name}}&cover={{item.cover}}" open-type="navigate" hover-class="none">查看评价</navigator>
+      </view> -->
+      <!-- </view> -->
+    </view>
+  </view>
+</block>
+
+
+<!-- <block wx:for="{{groupList}}" wx:key="{{item.id}}" wx:if="{{item.datatype==2}}">
+  <view class="item-list">
+    <view class="w header">
+      <text class="contact-name">{{item.user_name}}</text>
+      <text class="contact-phone">{{item.mobile}}</text>
+      <text class="is-cancel" wx:if="{{!item.status}}">已取消</text>
+    </view>
+
+    <template is="my-group-item" data="{{item}}"></template>
+
+    <view class="flex-row flex-end control">
+      <view wx:if="{{item.status == 1}}" class="w-label btn" data-id="{{item.village_activity_id}}" bindtap="onCancelTap">取消报名</view>
+      <view wx:else class="w-label btn">已取消</view>
+    </view>
+  </view>
+</block> -->

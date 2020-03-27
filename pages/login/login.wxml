@@ -1,0 +1,19 @@
+<view>
+  <image class="logo" src="../../images/logo@2x.png"></image>
+  <view class="flex-row input-group">
+    <label><image class="login-icon icon-phone" src="../../images/icon_sj@2x.png"></image></label>
+    <input type="number" maxlength="11" placeholder="请输入您的手机号" bindinput="phoneInput" />
+  </view>
+  <view class="flex-row input-group">
+    <view class="flex-row input-group-code">
+      <label><image class="login-icon icon-code" src="../../images/icon_yzm@2x.png"></image></label>
+      <input type="number" placeholder="请输入收到的验证码" bindinput="codeInput" />
+    </view>
+    <view class="btn-code" bindtap="onCodeTap">
+      <text wx:if="{{time==60}}">获取验证码</text>
+      <text wx:else>{{time}}s</text>
+    </view>
+  </view>
+  <button class="btn-login" bindtap="onLoginTap">登录</button>
+  <!-- <view class="info">未注册的手机号登录时将自动注册，且代表你已同意<text class="terms">用户协议</text></view> -->
+</view>

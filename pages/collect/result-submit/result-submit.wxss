@@ -1,0 +1,4 @@
+@import "/tpls/result/result.wxss";
+page{
+  background-color: #fff;
+}

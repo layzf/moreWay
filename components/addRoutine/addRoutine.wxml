@@ -1,0 +1,5 @@
+<!--components/addRoutine/addRoutine.wxml-->
+
+<view class='title' catchtap='titles' catchtap='titles' wx:if='{{group!=1 || shareHome==1 }}'>
+    <view>添加到我的小程序，下次使用更方便</view>
+</view>

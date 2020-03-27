@@ -1,0 +1,14 @@
+@import "/style/form-input.wxss";
+
+.tips{
+  color:#666;
+  font-size:30rpx;
+  line-height: 110rpx;
+  padding:0 28rpx;
+}
+.btn-code{
+  line-height:38rpx;
+  border-left: 1px solid #EBEBEB;
+  padding-left:20rpx;
+  color:#E94816;
+}

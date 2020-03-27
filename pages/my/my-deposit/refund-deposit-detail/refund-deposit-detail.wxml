@@ -1,0 +1,65 @@
+<view class="refund-deposit-detail">
+  <view class="project-con">
+    <view class="flex-row-between head">
+      <view>退订金单号：
+        <text class="gray-six">328473853</text>
+      </view>
+      <view class="gray-six">申请时间：2018-01-01</view>
+    </view>
+    <view class="flex-row con">
+      <image class="cover" src="http://via.placeholder.com/240x180"></image>
+      <view class="flex-col-between right">
+        <view class="o-hs title">【冠珠】冠珠瓷砖</view>
+        <view class="o-hs-2 name">线下集采经阁门窗直采专场NO.1</view>
+        <view>
+          <text class="price">300元</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="wx-header">退订金进度</view>
+  <view class="w order-info progress">
+    1、提交
+    2、审核
+    3、取消申请
+  </view>
+
+  <view class="wx-header">服务单信息</view>
+  <view class="w flex-c order-info">
+    <view>
+      服务类型：
+      <text class="order-num">申请退订金</text>
+    </view>
+    <view>
+      退款金额：
+      <text class="order-num">300元</text>
+    </view>
+    <view>
+      申请时间：
+      <text class="order-time">2018-01-01 18：17：45</text>
+    </view>
+    <view>
+      退款方式：
+      <text>原路退回</text>
+    </view>
+    <view>
+      申请原因：
+      <text>质量问题</text>
+    </view>
+    <view>
+      联系人：\t\t<text>钟灵</text>
+    </view>
+    <view>
+      联系方式：
+      <text>1349878543</text>
+    </view>
+  </view>
+
+  <!-- <view class="footer-btn">
+     <navigator url="/pages/my/my-deposit/refund-deposit-apply/refund-deposit-apply?&page_type=deposit" hover-class="none">
+      <button class="btn-white">修改申请</button>
+    </navigator> 
+    <button class="btn-default" bindtap="onCancelTap">取消申请</button>
+  </view> -->
+</view>

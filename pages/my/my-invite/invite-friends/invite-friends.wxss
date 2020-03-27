@@ -1,0 +1,15 @@
+page{
+  background-color: #fff;
+}
+.bg{
+  width:750rpx;
+   height:890rpx; 
+}
+.footer{
+   padding:40rpx 104rpx; 
+}
+.btn-default{
+  width:100%;
+   margin-top:20rpx; 
+   margin-bottom:20rpx; 
+}

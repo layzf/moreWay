@@ -1,0 +1,48 @@
+/* pages/sw-layout/sw-layout.wxss */
+page{
+  background: #FFF;
+}
+.setps {
+  height: 150rpx;
+}
+
+.buildings{
+  width: 672rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+
+.villageList,.buildClass{
+  display:flex;
+  align-items: center;
+  margin-top: 35rpx;
+  flex-wrap: wrap;
+}
+.villageList>view,.buildClass>view{
+  margin-right:20rpx;
+  border: 1px solid #F19216;
+  color: #F19216;
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx; 
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.buildClass .disable{
+  color: #898989;
+  border-color: #898989;
+}
+
+.notMyVillage{
+  font-size: 28rpx;
+  width: 100%;
+  text-align: center;
+  color: #F19216;
+  padding: 20rpx 0;
+}
+.notMyVillage text{
+  text-decoration: underline;
+}
+.buildClass .disable{
+  color: #898989;
+  border-color: #898989;
+}

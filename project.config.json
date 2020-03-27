@@ -1,0 +1,450 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wx20860146dba6f5f7",
+	"projectname": "%E5%A4%9A%E8%AE%A9%E7%94%A8%E6%88%B7%E7%AB%AF",
+	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 64,
+			"list": [
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "applyOpen",
+					"pathName": "pages/applyOpen/applyOpen",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "helpOpen",
+					"pathName": "pages/helpOpen/helpOpen",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "inviteFriend",
+					"pathName": "pages/helpOpen/inviteFriend/inviteFriend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "submitResult",
+					"pathName": "pages/becomeCompany/submitResult/submitResult",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "group",
+					"pathName": "pages/group/group",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-auth-code",
+					"pathName": "pages/my/my-auth-code/my-auth-code",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "becomeCompany",
+					"pathName": "pages/becomeCompany/becomeCompany",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "collect",
+					"pathName": "pages/collect/collect/collect",
+					"query": "collectId=10001"
+				},
+				{
+					"id": 3,
+					"name": "collectPreview",
+					"pathName": "pages/collect/collectPreview/collectPreview",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "collectJoin",
+					"pathName": "pages/collect/collectJoin/collectJoin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "price-table",
+					"pathName": "pages/collect/price-table/price-table",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/collect/comment/comment",
+					"query": "collectId=10001"
+				},
+				{
+					"id": -1,
+					"name": "center",
+					"pathName": "pages/my/center/center",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "my-member",
+					"pathName": "pages/my/my-member/member-home/my-member",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-point",
+					"pathName": "pages/my/my-point/my-point",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "annul-fee-list",
+					"pathName": "pages/my/my-annual-fee/annul-fee-list/annul-fee-list",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "annual-fee-pay",
+					"pathName": "pages/my/my-annual-fee/annual-fee-pay/annual-fee-pay",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "address-list",
+					"pathName": "pages/my/my-address/address-list/address-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "address-add",
+					"pathName": "pages/my/my-address/address-add/address-add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "contact-list",
+					"pathName": "pages/my/my-contact/contact-list/contact-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "contact-add",
+					"pathName": "pages/my/my-contact/contact-add/contact-add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-info",
+					"pathName": "pages/my/my-info/my-info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-nickname",
+					"pathName": "pages/my/my-nickname/my-nickname",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-current-phone",
+					"pathName": "pages/my/my-phone/my-current-phone/my-current-phone",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-new-phone",
+					"pathName": "pages/my/my-phone/my-new-phone/my-new-phone",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my-group-list",
+					"pathName": "pages/my/my-group/my-group-list/my-group-list",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "group-comment-add",
+					"pathName": "pages/my/my-group/group-comment-add/group-comment-add",
+					"query": "groupId=10003&groupName=经阁门窗集采【第1场】&cover=http://dummyimage.com/375x175/f28479"
+				},
+				{
+					"id": 21,
+					"name": "group-comment-view",
+					"pathName": "pages/my/my-group/group-comment-view/group-comment-view",
+					"query": "groupId=10002&groupName=安居乐观沙岭店集采【第1场】&cover=http://dummyimage.com/375x175/79f2a7"
+				},
+				{
+					"id": -1,
+					"name": "my-commander",
+					"pathName": "pages/my/my-commander/my-commander",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "estate-auth-form",
+					"pathName": "pages/my/my-member/member-estate-auth/estate-auth-form/estate-auth-form",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "auth-form-res",
+					"pathName": "pages/my/my-member/member-estate-auth/auth-form-res/auth-form-res",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "result-pay",
+					"pathName": "pages/result/result-pay/result-pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "auth-form-update",
+					"pathName": "pages/my/my-member/member-estate-auth/auth-form-update/auth-form-update",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "collect-result-submit",
+					"pathName": "pages/collect/result-submit/result-submit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "deposit-add",
+					"pathName": "pages/my/my-deposit/deposit-add/deposit-add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "deposit-pay-res",
+					"pathName": "pages/my/my-deposit/deposit-pay-res/deposit-pay-res",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "deposit-list",
+					"pathName": "pages/my/my-deposit/deposit-list/deposit-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "deposit-detail",
+					"pathName": "pages/my/my-deposit/deposit-detail/deposit-detail",
+					"query": ""
+				},
+				{
+					"id": 32,
+					"name": "order-list",
+					"pathName": "pages/my/my-order/order-list/order-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order-detail",
+					"pathName": "pages/my/my-order/order-detail/order-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order-detail-record",
+					"pathName": "pages/my/my-order/order-detail-record/order-detail-record",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "contact-update",
+					"pathName": "pages/my/my-contact/contact-update/contact-update",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "address-update",
+					"pathName": "pages/my/my-address/address-update/address-update",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "choose-estate",
+					"pathName": "pages/estate/choose-estate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "refund-deposit-list",
+					"pathName": "pages/my/my-deposit/refund-deposit-list/refund-deposit-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "refund-deposit-apply",
+					"pathName": "pages/my/my-deposit/refund-deposit-apply/refund-deposit-apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "member-intro",
+					"pathName": "pages/my/my-member/member-intro/member-intro",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "point-rule",
+					"pathName": "pages/my/my-point/point-rule/point-rule",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "invite-list",
+					"pathName": "pages/my/my-invite/invite-list/invite-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "invite-friends",
+					"pathName": "pages/my/my-invite/invite-friends/invite-friends",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "refund-deposit-detail",
+					"pathName": "pages/my/my-deposit/refund-deposit-detail/refund-deposit-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "auditMmember",
+					"pathName": "pages/auditMmember/auditMmember",
+					"query": ""
+				},
+				{
+					"id": 48,
+					"name": "member_list",
+					"pathName": "pages/auditMmember/member_list/member_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "member_info",
+					"pathName": "pages/auditMmember/member_info/member_info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "group_data",
+					"pathName": "pages/auditMmember/group_data/group_data",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "examine_member",
+					"pathName": "pages/auditMmember/examine_member/examine_member",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "examine_detail",
+					"pathName": "pages/auditMmember/examine_detail/examine_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "becomeMember",
+					"pathName": "pages/becomeMember/becomeMember",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "invitationFriend",
+					"pathName": "pages/becomeMember/invitationFriend/invitationFriend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "invitationDetail",
+					"pathName": "pages/becomeMember/invitationDetail/invitationDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "InvitationPage",
+					"pathName": "pages/becomeMember/InvitationPage/InvitationPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "小程序跳转",
+					"pathName": "pages/group/group",
+					"query": "id=110",
+					"scene": 1037,
+					"referrerInfo": {
+						"appId": "wxffe22e7bd3929397",
+						"extraData": "{\"from\":\"博文\"}"
+					}
+				}
+			]
+		}
+	}
+}

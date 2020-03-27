@@ -1,0 +1,291 @@
+<import src="/tpls/auth-code/auth-code-tpl.wxml" />
+<tip id='tip'></tip>
+
+
+<view class="load" wx:if='{{load}}'>
+    <image src="http://img-test.duorang.com/upload/adv/2019/8/28/9f28589c-c9f8-4d73-9e8e-ab552e35ab03.gif"></image>
+</view> 
+
+<!--load end-->
+<view wx:else>
+  <view wx:if="{{noLogin}}" class="head">
+    <view class="head-bg"></view>
+    <view class="flex-wx card">
+      <image class="w-avatar" src="{{'/images/placeholder_avatar@2x.png'}}"></image>
+      <view class="flex-row info">
+          <!-- <button open-type="getPhoneNumber" class="num" bindgetphonenumber="wxLogin">登录 / 注册</button> -->
+          <navigator url="../../newLogin/index" hover-class="none">登录 / 注册</navigator>
+      </view>
+      <view class="flex-row card-footer">
+        <image class="icon-auth" src="/images/icon_auth_v@2x.png"></image>
+        <text>认证会员</text>
+        <!--<navigator url="/pages/my/my-member/member-intro/member-intro" hover-class="none">-->
+          <!--<view class="more-center">-->
+            <!--<text>查看会员权益</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!noLogin}}" class="head">
+    <view class="head-bg"></view>
+    <view class="flex-wx card">
+      <navigator url="{{loginUser.user_name!= '' && loginUser.user_name!=null?'/pages/my/my-info/my-info':''}}" hover-class="none">
+        <image  class="w-avatar" src="{{loginUser.user_name!= '' && loginUser.user_name!=null?(loginUser.icon || scopeUserInfo.userInfo.avatarUrl):'/images/placeholder_avatar@2x.png'}}"></image>
+      </navigator>
+      <view class="flex-row info">
+      <!--登陆后，判断是否授权-->
+        <text wx:if='{{loginUser.user_name}}'>{{loginUser.user_name || scopeUserInfo.userInfo.nickName }} </text>
+
+         <navigator url="../../newLogin/index" hover-class="none" wx:else>点击授权头像/昵称</navigator>
+
+        <view wx:if="{{loginUser.userAut.pay_status==1&&loginUser.userAut.status==1}}">
+          <image class='applyMoney_middleed' src='/images/vip@3x.png'></image>
+        </view>
+        <view class='certified' wx:if="{{loginUser.villageApply.status==1}}">
+          <image class='applyMoney_middleed' src='/images/vips@3x.png'></image>
+        </view>
+        <view class='certified' wx:if="{{loginUser.userAut.pay_status==0&&loginUser.userAut.status==1}}">
+          <view wx:if="{{mallTime==true}}">
+            <image src='/images/vipYes@3x.png' class='applyMoney_p'></image>
+          </view>
+          <view wx:else>
+            <image src='/images/vipYes@3x.png' class='applyMoney_p' wx:if="{{loginUser.userAut.is_activate==0}}"></image>
+            <image src='/images/vipYes@3x.png' wx:if="{{loginUser.userAut.is_activate==1}}" class='applyMoney_p'></image>
+          </view>
+        </view>
+
+      </view>
+      <view class="code" bindtap='loginCode'>
+        <template is="auth-code"></template>
+      </view>
+
+      <view class="flex-row card-footer">
+        <image class="icon-auth" src="/images/icon_auth_v@2x.png"></image>
+        <text>多让会员</text>
+        <!--<navigator wx:if="{{loginUser.userAut.status == -1}}" url="../my-member/member-estate-auth/auth-form-res/auth-form-res?fail=1" hover-class="none">-->
+          <!--<view class="more-center">-->
+            <!--<text>会员审核未通过</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+        <!--<navigator url="../my-member/member-home/my-member" hover-class="none" wx:if="{{loginUser.userAut.status == 0}}">-->
+          <!--<view class="more-center">-->
+            <!--<text>会员认证正在审核</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+        <!--<navigator url="../my-member/member-home/my-member" hover-class="none" wx:if="{{loginUser.userAut.status == 1&&loginUser.userAut.pay_status == 0}}">-->
+          <!--<view class="more-center">-->
+            <!--<text>升级多让会员</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+        <!--<navigator url="../my-member/member-home/my-member" hover-class="none" wx:if="{{loginUser.userAut.status == 1&&loginUser.userAut.pay_status == 1}}">-->
+          <!--<view class="more-center">-->
+            <!--<text>查看详情</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+      <!--</view>-->
+      <!--<view class="flex-row card-footer" wx:elif="{{loginUser.villageApply!=null}}">
+        <image class="icon-auth" src="/images/icon_auth_v@2x.png"></image>
+        <text>多让团长</text>
+        <navigator wx:if="{{loginUser.villageApply.status == -1}}" url="../my-member/member-home/my-member" hover-class="none">
+          <view class="more-center">
+            <text>团长审核未通过</text>
+            <image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>
+          </view>
+        </navigator>
+        <navigator url="../my-member/member-home/my-member" hover-class="none" wx:if="{{loginUser.villageApply.status == 0}}">
+          <view class="more-center">
+            <text>团长申请正在审核</text>
+            <image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>
+          </view>
+        </navigator>-->
+        <view class="more-center" catchtap="inviolable">
+          <text>查看会员权益</text>
+          <image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>
+      </view>
+
+      </view>
+    <!--<view class="flex-row card-footer" wx:elif="{{loginUser.spreadIdentity == 1}}">-->
+        <!--<image class="icon-auth" src="/images/icon_auth_v@2x.png"></image>-->
+        <!--<text>多让团长</text>-->
+        <!--<navigator url="../my-member/member-home/my-member" hover-class="none" wx:if="{{loginUser.spreadIdentity == 1}}">-->
+          <!--<view class="more-center">-->
+            <!--<text>查看详情</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+      <!--</view>-->
+
+
+
+      <!--<view class="flex-row card-footer" wx:if="{{!noLogin}}">-->
+        <!--<image class="icon-auth" src="/images/icon_auth_v@2x.png"></image>-->
+        <!--<text>认证会员</text>-->
+        <!--<navigator url="/pages/my/my-member/member-intro/member-intro" hover-class="none" wx:if="{{loginUser.userAut==null&&loginUser.villageApply==null}}">-->
+          <!--<view class="more-center">-->
+            <!--<text>认证成为认证会员</text>-->
+            <!--<image class="icon-more-center" src="/images/icon_arrow_more_center@2x.png"></image>-->
+          <!--</view>-->
+        <!--</navigator>-->
+      <!--</view>-->
+    </view>
+    <view class="w" wx:if="{{!noLogin}}">
+    <view class="flex-row-between w-head">
+      <text>我的订金</text>
+      <navigator url="/pages/my/my-deposit/deposit-list/deposit-list?type=9" hover-class="none">
+        <text class="more">查看全部</text>
+        <image src="/images/icon_arrow_next_gray@2x.png"></image>
+      </navigator>
+    </view>
+    <view class="flex-row-around w-con newClass " style="justify-content: initial;">
+      <navigator url="/pages/my/my-deposit/deposit-list/deposit-list?type=0" hover-class="none" style="margin-bottom:0;">
+        <view class="flex-col item">
+          <image src="/images/icon_center_topay@2x.png"></image>
+          <view>待付款
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+      <navigator url="/pages/my/my-deposit/deposit-list/deposit-list?type=1" hover-class="none" style="margin-bottom:0;">
+        <view class="flex-col item">
+          <image src="/images/icon_center_toconfirm@2x.png"></image>
+          <view>待转单
+            <!-- <text class="count">(1)</text> -->
+          </view>
+        </view>
+      </navigator>
+      <navigator url="/pages/my/my-deposit/refund-deposit-list/refund-deposit-list" hover-class="none" style="margin-bottom:0;">
+        <view class="flex-col item">
+          <image src="/images/icon_center_back@2x.png"></image>
+          <view>退订金
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="w" wx:if="{{!noLogin}}">
+    <view class="flex-row-between w-head ">
+      <text>我的订单</text>
+      <navigator url="/pages/my/my-order/order-list/order-list" hover-class="none">
+        <text class="more">查看全部</text>
+        <image src="/images/icon_arrow_next_gray@2x.png"></image>
+      </navigator>
+    </view>
+    <view class=" w-con newClass" style="justify-content: initial;">
+      <navigator url="/pages/my/my-order/order-list/order-list?type=1" hover-class="none">
+        <view class="flex-col item">
+          <image src="/images/icon_center_topay@2x.png"></image>
+          <view>待付款
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+ 
+      <navigator url="/pages/my/my-order/order-list/order-list?type=2" hover-class="none">
+        <view class="flex-col item">
+          <image src="/images/icon_center_tocheck@2x.png"></image>
+          <view>待验收
+            <!-- <text class="count">(32)</text> -->
+          </view>
+        </view>
+      </navigator>
+      <navigator url="/pages/my/my-order/order-list/order-list?type=3" hover-class="none">
+        <view class="flex-col item">
+          <image src="/images/icon_center_comment@2x.png"></image>
+          <view>待评价
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+
+
+        <navigator url="/pages/my/my-order/order-list/order-list?type=4" hover-class="none" style="margin-top:60rpx;">
+        <view class="flex-col item">
+          <image src="/images/drpesActive.png"></image>
+          <view>退补款
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+  <view class="w my-w" wx:if="{{!noLogin}}">
+    <view class="flex-row-between w-head">
+      <text>我的多让</text>
+    </view>
+    <view class="flex-row w-con my-w-con space-between" >
+      <navigator url="/pages/my/my-group/my-group-list/my-group-list" hover-class="none">
+        <view class="flex-col my-item">
+          <image src="/images/icon_my_1@2x.png"></image>
+          <view>我的参团
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+
+      <navigator url="/pages/my/my-group/my-group-list/my-group-list?type=1" hover-class="none">
+        <view class="flex-col my-item">
+          <image src="/images/myorder.png"></image>
+          <view>我的预约
+            <text class="count"></text>
+          </view>
+        </view>
+      </navigator>
+
+
+      <view class="flex-col my-item" id='support' catchtap='support'>
+        <image src="/images/icon_my_2@2x.png"></image>
+        <view>我的团长
+          <text class="count"></text>
+        </view>
+      </view>
+
+       <navigator url="/pages/y-myorderHouse/y-myorderHouse" hover-class="none">
+        <view class="flex-col my-item">
+          <image src="/images/myorderHouse.png"></image>
+          <view>我的验房</view>
+        </view>
+      </navigator>
+      
+      <view class="flex-col my-item" bindtap='contactTel' >
+          <image src="/images/icon_my_3@2x.png"></image>
+          <view>在线客服
+            <text class="count"></text>
+          </view>
+      </view>
+
+    </view>
+  </view>
+  </view>
+
+</view>
+
+
+<view class="bottomLine"></view>
+
+<!--弹框-->
+<my-commander height='{{height}}' isShow='{{commanderHiden}}'  isTab='{{showTab}}' id='my-commander'></my-commander>
+<!--其他手机号登录-->
+<login  wx:if="{{showData}}"
+        isShow="{{showData}}"
+        mask="{{masks}}"
+        isBottom="{{true}}"
+        bindhideRowLogin="hideRowLogin"></login>
+
+<!-- new 会员码 -->
+<view class="codeImgBox" wx:if='{{codeImgsHidden}}'>
+  <view class="shadowRgba0" catchtap="hidenCommander" catchtouchmove="return"></view>
+  <view class="content" catchtouchmove="return">
+     <text>我的会员码</text>
+     <image src="{{codeImgs}}" catchtap="lookImg"></image>
+     <view>向商家展示二维码，获取更低价格</view>
+  </view>
+  <icon type="clear" size="30" color='#FFF' class="clearBtn" catchtap='hidenCommander' />
+</view>

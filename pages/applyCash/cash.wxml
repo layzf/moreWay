@@ -1,0 +1,14 @@
+<view class="content">
+    <view class="c_item">
+        <view class="c_title">选择银行卡</view>
+        <view class="c_line">
+            <view class="line" catchtap="addCard">
+                <view class="c_l_title">{{card?card.userName:'请添加银行卡'}}</view>
+                <image class="c_l_img" src="../../images/iconfontjiantou5.png"></image>
+            </view>
+            <div class="c_info">
+                <view class="c_btn" catchtap="sumbitData">确定提交</view>
+            </div>
+        </view>
+    </view>
+</view>

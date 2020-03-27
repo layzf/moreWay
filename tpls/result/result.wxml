@@ -1,0 +1,32 @@
+<template name="result">
+  <view class="res-w">
+    <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+    <view class="text-res-s">旭辉·御府b栋912</view>
+    <view class="text-res-l">会员资料提交成功</view>
+    <view class="btn-group res-btn-group">
+      <navigator url="/pages/my/my-annual-fee/annual-fee-pay/annual-fee-pay" open-type="navigate">
+        <button class="btn-default">交服务年费</button>
+      </navigator>
+      <navigator url="/pages/group/group" open-type="switchTab">
+        <button class="btn-white">查看集采</button>
+      </navigator>
+    </view>
+  </view>
+  
+  <view class="border-w"></view>
+
+  <view class="res-con">
+    <view class="head">入群须知</view>
+    <view class="con">
+      <view class="p">
+        1、本群为多让群，原则上只接受和多让相关的人士入群
+      </view>
+      <view class="p">
+        2、本群以统一成员群名片格式实行成员登记，格式内简单入群者只需在加入群后将自己的昵称改成自己喜欢的各种产品(各种都可以)
+      </view>
+      <view class="p">
+        3、本群为多让群，原则上只接受和多让相关的人士入群
+      </view>
+    </view>
+  </view>
+</template>

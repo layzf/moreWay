@@ -1,0 +1,42 @@
+<view class="content">
+    <view class="c_item">
+        <view class="c_title">申请进度</view>
+        <view class="c_line">
+            <view class="c_list">
+                <view class="c_li">
+                    <image src="../../images/chenggong.png"></image>
+                    <text>提交申请</text>
+                </view>
+                <view class="c_li">
+                    <image src="{{returnInfo>=1?'../../images/chenggong.png':'../../images/icon_choose_selected@2x.png'}}"></image>
+                    <text>财务审核</text>
+                </view>
+                <view class="c_li">
+                    <image src="{{returnInfo>=2?'../../images/chenggong.png':'../../images/icon_choose_selected@2x.png'}}"></image>
+                    <text>财务打款</text>
+                </view>
+                <view class="c_li">
+                    <image src="{{returnInfo>=3?'../../images/chenggong.png':'../../images/icon_choose_selected@2x.png'}}"></image>
+                    <text>完成</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="c_item">
+        <view class="c_title">打款信息</view>
+        <view class="c_line">
+            <view class="line borderline">
+                <text class="l_name">姓名</text>
+                <text class="l_text">{{returnInfo.userName}}</text>
+            </view>
+            <view class="line borderline">
+                <text class="l_name">账号</text>
+                <text class="l_text">{{returnInfo.bankCard}}</text>
+            </view>
+            <view class="line">
+                <text class="l_name">打款金额</text>
+                <text class="l_text">{{returnInfo.money}}元</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+<view class="w border-top">
+  <view class="flex-row-between border-bottom select">
+    <picker
+        mode="region"
+        bindchange="bindRegionChange"
+        value="{{region}}"
+        custom-item="全部">
+        <view class="picker">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+    </picker>
+    <image src="/images/icon_arrow_next_gray@2x.png" class="icon-arrow"></image>
+  </view>
+</view>
+<view class="w-con">
+  <input id="area" placeholder="请输入小区名" bindinput="addressInput" value="{{address.village_name}}" />
+</view>
+
+<view class="w-con">
+  <input id="door" placeholder="请输入楼栋门牌号" bindinput="addressInput" value="{{address.door_number}}" />
+</view>
+
+<button class="btn-default btn-confirm" bindtap="onConfirmTap">保存</button>

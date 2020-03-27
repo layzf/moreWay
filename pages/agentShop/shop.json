@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "choose":"../../components/chooseGoods/choose"
+  }
+}

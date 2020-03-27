@@ -1,0 +1,100 @@
+@import "/style/form-input.wxss";
+@import "/style/my-deposit.wxss";
+page{
+  padding-bottom:110rpx;
+}
+.m-line{
+  background-color: #FFFFFF;
+}
+.m-line>view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button_sure{
+  padding: 0;
+  margin: 0 ;
+}
+.m-line text{
+  color: #999999;
+}
+.m-line  .line{
+    display: flex;
+    height: 44px;
+    align-items: center;
+}
+ .m-line .line .c_l_title{
+    font-size: 14px;
+    color: #666666;
+}
+ .m-line .line .c_l_img{
+    width:18rpx;
+    height: 30rpx;
+    margin-left: 20rpx;
+}
+
+.weixin-pay{
+  width: 94%;
+  text-align: right;
+}
+.o-hs-2{
+  display: inline;
+  text-align: left;
+}
+.wx-content{
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  font-size: 28rpx;
+  border-bottom:1px solid #f7f7f7
+}
+.wx-head{
+  color:#666;
+  display:flex;
+  flex-direction:column;
+  line-height:30rpx;
+  justify-content:center;
+  border: none;
+}
+.wx-head .wx-date{
+  color: #999999;
+  font-size: 24rpx;
+}
+.wx-price{
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.fix-bottom-submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  z-index: 110;
+  background-color: #fff;
+  box-shadow: 0 0 3px #ddd;
+  padding:0 28rpx 30rpx;
+}
+.fix-bottom-submit .item{
+  height:80rpx;
+}
+.fix-bottom-submit .icon{
+  flex: 0 0 50rpx;
+}
+.fix-bottom-submit .icon-select{
+  width:38rpx;
+  height:38rpx;
+  background-color: #fff;
+  border:2px solid #E9E9E9;
+  border-radius: 50%;
+}
+.fix-bottom-submit .icon-selected{
+  width:40rpx;
+  height:40rpx;
+}
+.fix-bottom-submit .desc{
+  flex:1;
+  margin-left:20rpx;
+}
+.wx-total{
+  color: #E94816;
+}

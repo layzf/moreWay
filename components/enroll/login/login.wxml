@@ -1,0 +1,17 @@
+<view wx:if="{{isShow}}" class="login {{isShow?'showBg':'hideBg'}}" style="{{'height:'+height+'px'}}" catchtouchmove='true' catchtap="hideLine">
+    <view class="l_content {{mask?'showContext':'hideContext'}}" style="{{isBottom ? 'bottom:-190rpx':''}}" catchtap="s">
+        <image class="closeImg" src="../../../images/searchClose.png" catchtap="hideLine"></image>
+        <view class="l_item">
+          <image class="l_i_img" src="../../../images/icon_sj@2x.png"></image>
+          <input id="phone" cursor-spacing='20' type="number" class="l_input" placeholder="请输入手机号码" bindinput="getData" />
+        </view>
+        <view class="l_item">
+            <image class="l_i_img" src="../../../images/icon_yzm@2x.png"></image>
+            <div class="l_i_code">
+                <input class="l_input" cursor-spacing='20' placeholder="请输入验证码" bindinput="getData" type="number"/>
+                <view id="code" class="l_code" catchtap="{{code.canUse?'getCode':''}}">{{code.txt}}</view>
+            </div>
+        </view>
+        <view class="l_fbtn" catchtap="login">登录</view>
+    </view>
+</view>

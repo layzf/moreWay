@@ -1,0 +1,195 @@
+/* pages/my/centerNew/index.wxss */
+page{
+  background: #FFF;
+}
+.topModel{
+  background: linear-gradient(to bottom ,#FF5F2D, #FFF);
+  height: 418rpx;
+  width: 100%;
+  padding-top: 34rpx;
+}
+.box{
+  background: #FFF;
+  width: 96vw;
+  margin: 0 auto;
+  padding: 32rpx 0 35rpx 24rpx;
+  box-sizing: border-box;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+.flexModel{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.flexModel .fl{
+  display: flex;
+  align-items: flex-start;
+}
+.flexModel .fl>image{
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 100%;
+  margin-right: 14rpx;
+}
+.rightModel>.name{
+  font-size: 32rpx;
+  color: #1F1F1F;
+  width: 340rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.rightModel .icon{
+  background: #584F60;
+  color: #FFF;
+  border-radius: 10rpx;
+  display: inline-block;
+  margin-top: 22rpx;
+  padding: 0 6rpx;
+}
+.rightsModel{
+  display: flex;
+  align-items: center;
+  background: #FFD1BC;
+  padding: 24rpx;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  margin-top: 14rpx;
+}
+.rightsModel>image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.listBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 66rpx;
+}
+.listClass{
+  text-align: center;
+  font-size: 28rpx;
+}
+.listClass image{
+  width:60rpx;
+  height: 60rpx;
+}
+
+.vipClass{
+  background: linear-gradient(to right, #F4EBDE,#E7BD7C);
+  padding: 26rpx 24rpx;
+  box-sizing: border-box;
+  width: 96vw;
+  margin: 0 auto;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.vipClass .go{
+  background: #584F60;
+  color: #FFF;
+  padding: 10rpx 32rpx;
+  border-radius: 10rpx;
+}
+/**广告位**/
+.swiperClass{
+  margin-top: 60rpx;
+}
+.swiperClass image{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+.swiperClass swiper-item{
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.swiperClass .wx-swiper-dot{
+  background: #FFF;
+  width: 8rpx;
+  height: 7rpx;
+}
+.swiperClass .wx-swiper-dot-active{
+  width: 16rpx;
+  height: 8rpx;
+  border-radius: 30rpx;
+} 
+
+/**列表框**/
+.nav{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  width: 96vw;
+  margin: 0 auto;
+}
+.borderBtom{
+  border-bottom: 24rpx solid #F9F9F9;
+}
+.nav>view{
+   display: flex;
+   align-items: center; 
+   justify-content: space-between;
+   flex: 1;
+   position: relative;
+   height: 100%;
+   font-size: 30rpx;
+}
+.nav:last-of-type>view::after,.nav:nth-of-type(3)>view::after{
+  border: 0;
+  height: 0;
+}
+.nav>view::after{
+  position: absolute;
+  content: '';
+  width:100%; 
+  background: #DCDCDC;
+  height: 1px;
+  bottom: 0;
+}
+.nav>image{
+  width: 42rpx;
+  height: 46rpx;
+  margin-right: 36rpx;
+}
+.nav>view>image{
+  width: 12rpx;
+  height: 20rpx;
+} 
+
+
+
+
+/**未登录css**/
+
+.loadBox{
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    width: 96vw;
+    margin: 0 auto;
+    padding: 32rpx 0 35rpx 24rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+}
+.loginBtn{
+  margin: 0;
+  font-size: 28rpx;
+  padding: 0;
+  font-weight: bold;
+}
+.flexModel .loginBtnClass{
+  display: flex;
+  align-items: center;
+}
+.w-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border: 1px solid rgba(255, 255, 255, .5);
+}

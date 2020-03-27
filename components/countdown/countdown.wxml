@@ -1,0 +1,12 @@
+<view class="countdown">
+    <text>距离报名结束还剩:</text>
+    <view class="time">
+        <view>{{day}}</view>
+        <text>:</text>
+        <view>{{hour}}</view>
+        <text>:</text>
+        <view>{{minute}}</view>
+        <text>:</text>
+        <view>{{second}}</view>
+    </view>
+</view>

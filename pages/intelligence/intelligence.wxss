@@ -1,0 +1,256 @@
+/* pages/intelligence/intelligence.wxss */
+@import "/tpls/loginPublic/loginPublic.wxss";
+page{
+  background: #FFF;
+  color: #000;
+}
+.intellTop{
+  height: 418rpx;
+  width: 100%;
+  position: relative;
+}
+.intellTop image{
+  width: 100%;
+  height: 100%;
+}
+.intellText{
+  font-size: 28rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  margin-top: 146rpx;
+}
+.intellText>view:first-of-type{
+  font-size: 56rpx;
+}
+.intellText>view:last-of-type{
+  margin-top: 10rpx;
+  position: relative;
+}
+.intellText>view:last-of-type::before{
+  content: '';
+  position: absolute;
+  width: 45rpx;
+  height: 1px;
+  background: #FFF;
+  left: 62px;
+  top: 18rpx;
+}
+.intellText>view:last-of-type::after{
+  content: '';
+  position: absolute;
+  width: 45rpx;
+  height: 1px;
+  background: #FFF;
+  right: 62px;
+  top: 18rpx;
+}
+/*TOP END*/
+.intellBox{
+  margin-bottom: 104rpx;
+}
+.intellContent{
+  margin-top: 86rpx;
+  padding: 0 48rpx;
+}
+.intellEng{
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.intellEng text{
+  width: 8rpx;
+  height: 26rpx;
+  background:#EB6100;
+  display: inline-block;
+  transform: rotate(20deg);
+  margin-left: 12rpx;
+  margin-right: 10rpx;
+  border-radius: 20rpx;
+}
+.intellBigTitle{
+  font-size: 58rpx;
+  color: #313131;
+  margin-top: 8rpx;
+}
+.intellNum image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.intellNum{
+  font-size: 38rpx;
+}
+.explain{
+  margin-top: 28rpx;
+  color: #5F5F5F;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  letter-spacing: 2rpx
+}
+.section_1{
+  margin: 0rpx 0 70rpx 0;
+}
+.section_1 image{
+  width: 100%;
+  height: 860rpx;
+}
+/*口碑介绍轮播*/
+.swiperImg{
+  height: 406rpx;
+  box-sizing: border-box;
+  margin-top: 56rpx;
+}
+.swiperImg image{
+  height: 370rpx;
+  width: 100%;
+  border-radius: 10rpx;
+  box-shadow:0 0 26rpx 0rpx #f3f4f6;
+}
+.l_swiper{
+  padding: 16rpx;
+  box-sizing: border-box;
+}
+.setction_2 .intellNum{
+  padding: 0 50rpx;
+}
+.intellContent_1{
+  margin-top: 146rpx;
+  padding: 0 50rpx;
+}
+.review{
+  color: #5F5F5F;
+  margin-top: 52rpx;
+  line-height: 50rpx;
+  font-size:30rpx;
+}
+.review text{
+  color: #000;
+}
+.swiper_1 {
+  height: 1000rpx;
+  margin-top: 59rpx;
+}
+.swiper_1 swiper-item{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.swiper_text{
+  margin-top:40rpx;
+  border-left: 6rpx solid #EB6100;
+  padding-left: 16rpx;
+}
+.swiper_text text{
+  width: 100%;
+  font-size: 20rpx;
+  color: #2E2E2E;
+}
+.swiper_1 image{
+  height: 770rpx;
+  width: 532rpx;
+  border-radius: 10rpx;
+  box-shadow:0px 0px 26rpx 0px #f3f4f6;
+}
+.setction_3{
+  margin-top: 101rpx;
+}
+.setText{
+  color: #5F5F5F;
+  font-size: 30rpx;
+  margin-top: 54rpx;
+  line-height: 50rpx;
+}
+.setText text{
+  color: #000;
+}
+.listBox{
+  margin-top: 110rpx;
+  margin-bottom: 160rpx;
+  display:flex;
+}
+.listBox image{
+  width: 100%;
+}
+.listKeys{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.listKeys .li{
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 100rpx;
+}
+.listKeys .li2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.li-txt{
+  text-align: center;
+  width: 160rpx;
+}
+.li-img{
+  width: 50rpx;
+  height: 128rpx;
+  text-align: center;
+  line-height: 128rpx;
+}
+.li-img2{
+  width: 128rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+.li-img image{
+  width: 50rpx;
+  height: 15rpx;
+}
+.li-txt image{
+  width: 128rpx;
+  height: 128rpx;
+  /* border: 1px dashed #888888; */
+}
+.li-txt view{
+  font-size: 28rpx;
+  padding-top: 28rpx;
+}
+.endText{
+  color: #5F5F5F;
+  margin: 52rpx 0 100rpx 0;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+.flex-row-center{
+  padding-bottom: 80rpx;
+  margin-top: 46rpx;
+  font-size: 24rpx;
+}
+.flex-row-center image{
+  width: 88rpx;
+  height: 34rpx;
+  border-right: 1px solid;
+  padding-right: 24rpx;
+  margin-right: 16rpx;
+}
+.returnImg{
+  width: 80rpx;
+  height:80rpx;
+  -webkit-border-radius: 80rpx;
+  -moz-border-radius: 80rpx;
+  border-radius: 80rpx;
+}
+.marea{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+}
+.rimg{
+  left:20rpx;
+  top:710rpx;
+}

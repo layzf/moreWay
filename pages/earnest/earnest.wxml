@@ -1,0 +1,89 @@
+
+<view class="home">
+    <view class="item" catchtap="chooseAddress">
+        <view class="i_content">
+            <text>收货地址</text>
+            <view class="i_link">{{(chooseAddressBack.village_name==undefined?'市区':chooseAddressBack.village_name)+' '+(chooseAddressBack.door_number==undefined?'门牌号':chooseAddressBack.door_number)}}</view>
+            <view class="i_img"><image src="../../images/icon_left.png"></image></view>
+        </view>
+    </view>
+
+  <view class="item" catchtap="chooseLink">
+      <view class="i_content" style="border: none;">
+          <text>联系人</text>
+          <view class="i_link">
+          {{chooseContactBack.link_name+' '+chooseContactBack.link_mobile}}</view>
+          <view class="i_img"><image src="../../images/icon_left.png"></image></view>
+      </view>
+  </view>
+
+
+    <scroll-view
+            scroll-y
+            class="scrollView"
+            style="{{'height:'+(height-174)+'px;'}}">
+            <view class="content">
+                <view class="c-line"></view>
+                <view class="c_title">
+                    <view>
+                        <text>{{info.project_name}}</text>
+                        <image src="../../images/icon_jt@3x.png"></image>
+                    </view>
+                </view>
+                <view class="c_list">
+                    <view class="c_item" wx:for="{{items}}" wx:for-index="idx" wx:key='{{index}}'>
+                        <image src="{{item.productImage?item.productImage:'../../images/default.png'}}" class="item_img"></image>
+                        <view class="item_desc">
+                            <text class="item_desc_title">{{item.pntName}}{{item.productCode}}</text>
+                            <view class="item_desc_mark">{{item.remark?item.remark:''}}</view>
+                            <view class="item_desc_price">
+                                <view class="i_d_p1">
+                                    <image src="../../images/dollar.png"></image>
+                                    <text>{{item.pntPrice}}</text>
+                                </view>
+                                <view class="i_d_p2">
+                                    <text>x {{item.productCount}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="line">
+                <view class="l_item">
+                    <text class="l_title">商品总价</text>
+                    <view class="l_desc">
+                        <text>￥{{info.pay_price}}</text>
+                        <text class="l_discount" wx:if="{{info.discount>0}}">优惠￥{{info.discount}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="line" wx:if="{{info.freight>0}}">
+                <view class="l_item">
+                    <text class="l_title">运费</text>
+                    <view class="l_desc">
+                        <view class="text">+ ￥{{info.freight}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="line" wx:if="{{info.mprod_price>0}}">
+                <view class="l_item">
+                    <text class="l_title">立减</text>
+                    <view class="l_desc">
+                        <view class="text">- ￥{{info.mprod_price}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="all">总计：￥{{info.prod_price}}</view>
+    </scroll-view>
+    <view class="fstep"></view>
+</view>
+<view class="foot">
+    <view class="f_tip">
+        <text class="f_title">应付金额</text>
+        <image src="../../images/dollar.png"></image>
+        <text>{{info.prod_price}}</text>
+    </view>
+    <view class="submitOrder" bindtap="submitOrder" >提交订单</view>
+
+</view>

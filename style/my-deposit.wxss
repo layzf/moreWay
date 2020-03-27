@@ -1,0 +1,95 @@
+.project-con{
+  margin:20rpx 0;
+  background-color: #fff;
+}
+
+.project-con .head{
+  height:88rpx;
+  line-height:88rpx;
+  border-bottom:1px solid #F7F7F7;
+  margin:0 28rpx;
+}
+
+.project-con .con{
+  padding:30rpx 28rpx 30rpx 0;
+}
+
+.project-con .con .cover{
+  display: flex;
+  width:240rpx;
+  height:180rpx;
+  margin-right:20rpx;
+}
+.project-con .con .right{
+  flex:1;
+  height:180rpx;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+}
+
+.project-con .con .right .name{
+  color:#666;
+  margin-bottom:20rpx;
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.project-con .con .right .price{
+  color:#E94816;
+}
+
+.project-con .con .right .time{
+  color:#999;
+}
+
+.wx-head{
+  color:#666;
+}
+
+/* weixin-pay */
+.weixin-pay{
+  height:108rpx;
+}
+.weixin-pay text{
+    flex:1; 
+}
+.icon-pay{
+  width:50rpx;
+  height:50rpx;
+  margin-right:20rpx;
+}
+.icon-payfor{
+  flex: 0 0 40rpx;
+  width:40rpx;
+  height:40rpx;
+}
+
+/* footer-fixed */
+.footer-fixed{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:90rpx;
+  background-color: #fff;
+}
+
+.footer-fixed .btn-submit{
+  width:210rpx;
+  height:100%;
+  line-height: 90rpx;
+  background-color: #E94816;
+  color:#fff;
+  font-size:30rpx;
+  text-align: center;
+  margin-left:60rpx;
+}
+
+.footer-fixed .price{
+  color:#E94816;
+  margin-left:20rpx;
+}

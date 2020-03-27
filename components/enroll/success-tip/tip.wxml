@@ -1,0 +1,21 @@
+<view wx:if="{{showLogin}}"
+      class="tip {{showLogin?'showBg':'hideBg'}}"
+      catchtouchmove='true'
+      style="{{'height:'+height+'px'}}">
+    <view class="t_content {{mask?'showContext':'hideContext'}}" catchtap="showtip">
+        <text class="t_tip">温馨提示</text>
+        <text class="t_title">{{shopTip?'你已复制多让团长微信号':'你已复制多让集采装修交流群号'}}</text>
+        <view class="t_c_context">
+            <view class="t_c_item">
+                <text class="t_c_title">1.添加朋友</text>
+                <image class="t_c_img" src="http://img.duorang.com/upload/v/add_1.jpg"></image>
+            </view>
+            <view class="t_c_item">
+                <text class="t_c_title">2.粘贴微信号</text>
+                <image class="t_c_img" src="http://img.duorang.com/upload/v/add_2.jpg"></image>
+            </view>
+        </view>
+        <text class="f_txt" wx:if="{{!shopTip}}">即可获取采集地点以及乘车地点等相关信息</text>
+        <view class="foot" catchtap="closeTip">知道了</view>
+    </view>
+</view>

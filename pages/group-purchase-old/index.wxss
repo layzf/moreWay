@@ -1,0 +1,7 @@
+page{
+  background: #FFF;
+}
+.w_94{
+  width: 94vw;
+  margin: 0 auto;
+}

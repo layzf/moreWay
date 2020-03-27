@@ -1,0 +1,366 @@
+<import src="/tpls/order-detail-tpl/order-detail-tpl" />
+<!-- <template is="order-detail-tpl" data="{{tabsData:tabsData}}"></template> -->
+
+<!--
+  so_type:OFF_LINE(0, "线下转单");
+  MALL(1, "商城转单");
+  SECURED(2, "担保交易单");
+  SECURED_ADD(3, "补款单");
+  SECURED_RETURN(4, "退款单");
+-->
+<view wx:if='{{loads}}'>
+  <view class="flex-row-between pay-time">
+    <image src="/images/icon_clock@2x.png" class="pay-time_left"></image>
+    
+      <view class="to-pay only_clock">
+        <view wx:if="{{newList.pay_status>0 && newList.so_type!=3}}"> 
+        {{newList.status==0 || newList.status==1?'待验收':newList.status==2?'待评价':newList.status==3?'已完成':newList.status==-2?"退款中":""}}
+        </view>
+        <view wx:if="{{newList.pay_status>0 && newList.so_type==3}}">已补款</view>
+
+        <view wx:if="{{newList.pay_status==0 && newList.status== 0 && newList.so_type==3}}" >待补款</view>
+
+        <view wx:if="{{(newList.so_type==4 || newList.so_type==3) && newList.status==-1 && newList.pay_status ==-1}}">部分退款</view>
+
+        <view wx:if="{{newList.pay_status==0 && newList.status== 0 && newList.so_type!=3}}" >待付款</view>
+        <view wx:if='{{newList.status==-1 && newList.pay_status===0}}'>已取消</view>
+        <view wx:elif="{{newList.status==-1 && newList.pay_status=== -1 && (newList.so_type!=3 && newList.so_type!=4)}}" >已退款</view>
+
+      </view>
+      
+  </view>
+
+  <view class="w info-w">
+    <view class="flex-row item">
+      <image src="/images/icon_address@2x.png" class="pay-time_left"></image>
+      <view class="desc">
+        <view class="estate">{{tabsData.village_name}} {{tabsData.door_number}}</view>
+        <!--<view class="address">{{tabsData.address_detail}}</view>-->
+      </view>
+    </view>
+    <view class="flex-row item">
+      <image src="/images/icon_user_order@2x.png" class="pay-time_left"></image>
+      <view class="desc">
+        <text class="user-name">{{tabsData.link_name}}</text>
+        <text class="user-phone">{{tabsData.link_mobile}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+  <!--项目信息 转单详情-->
+  <view hidden="{{tabsData.soItemDetailList.length>0}}" class="project-con">
+    <view class="flex-row-between head">
+      <view>集采项目</view>
+      <view class="flex-row contect-call" bindtap='call_mobile'>
+        <image src="/images/icon_contact_call@2x.png"></image>
+        <view class="contact">联系商家</view>
+      </view>
+    </view>
+    <view class="flex-row con">
+      <image class="cover" src="{{tabsData.img_url}}"></image>
+      <view class="flex-col-between right">
+        <view class="o-hs title">{{tabsData.project_name}}</view>
+        <view class="o-hs-2 name">{{tabsData.project_content}}</view>
+      </view>
+    </view>
+
+   <view class="newlists">
+    <view class="titles space-between flex-r v-center">
+      <view class="flex-r v-center">
+          <view class="moneys">
+            转单金额<text>{{newList.prod_price}}元</text>
+          </view>
+        <text class="activesType">{{!newList.deducation_fee?' (无抵扣订金)':'(订金抵扣'+newList.deducation_fee+'元)'}}</text>
+      </view>
+    </view>
+  
+  <!--内容部分-->
+      <view class="contens">
+          <view class="upImgs" wx:if='{{newList.prod_img}}'>
+              <text class="danju">合同/单据</text>
+              <view>
+                <image src="{{items}}" 
+                      wx:for='{{newList.prod_img}}' 
+                      wx:for-item="items" 
+                      data-index='{{index}}'  
+                      data-item='{{newList.prod_img}}' catchtap="lookImgs"></image> 
+              </view>
+          </view>
+
+          <!--更新-->
+          <view class="replace" wx:if='{{newList.deliver_content}}'>
+
+              <view class="flexs">
+                <text>交付更新:</text>
+                <text>{{'订单金额由￥'+newList.prod_price+'更新为￥'+newList.deliver_price}}</text>
+              </view>
+
+              <view class="flexs">
+                <text>更新理由:</text>
+                <text>{{newList.deliver_content}}</text>
+              </view>
+
+                <view class="upImgs">
+                  <text class="danju">更新后的合同/单据</text>
+                  <view>
+                    <image src="{{items}}" 
+                          wx:for='{{newList.deliver_img}}' 
+                          wx:for-item="items" 
+                          data-index='{{index}}'  
+                          data-item='{{newList.deliver_img}}' catchtap="lookImgs"></image> 
+                  </view>
+                </view>
+          </view>
+       <!--更新end-->   
+      </view>
+ </view> 
+</view>
+
+  <!--
+    待付款产品信息 
+
+    status==-1 && newList.pay_status == 0 ：已取消  
+  -->
+  <view   class="project-con" wx:if='{{ (newList.status!=-1 || newList.status==-1)&& (newList.pay_status!=0 || newList.pay_status==0)}}'>
+    <view class="content">
+      <view class="c_title  flex-row-between head">
+        <view style="flex:5;font-size: 28rpx;">
+          <view catchtap='shoopUrl'>
+               <text>{{tabsData.prot_name}}</text>
+               <image src="/images/icon_jt@3x.png"></image>
+          </view>
+        </view>
+
+        <view class="flex-row contect-call"  style="margin-top: 6rpx;" hidden="{{tabsData.pay!=0}}">
+           <button open-type="contact" class='contactBtn'>
+            <image src="/images/icon_contact_call@2x.png"></image>
+          <view class="contact">在线咨询</view>
+           </button>
+        </view>
+
+      </view>
+
+      <view class="c_list">
+        <view class="c_item" wx:for="{{tabsData.soItemDetailList}}" wx:for-index="idx">
+          <image src="{{item.productImage==null?'/images/default.png':item.productImage}}" class="item_img"></image>
+          <view class="item_desc">
+            <text class="item_desc_title">{{item.prodName}}</text>
+            <view class="item_desc_mark">{{item.prodContent==null?'暂无':item.prodContent}}</view>
+            <view class="item_desc_price">
+              <view class="i_d_p1">
+                <text>￥{{item.prodPrice}}</text>
+              </view>
+              <view class="i_d_p2">
+                <text>x {{item.prodCount}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  <view wx:if='{{newList.so_type==1 || newList.so_type==0}}'>
+      <view class="line">
+      <view class="l_item">
+        <text class="l_title">{{newList.so_type==3?'补款金额': newList.so_type==4?'退款金额':'商品总价'}}</text>
+        <view class="l_desc">
+<!--
+商品总价：如果交付更新了价格，则显示最后价格
+-->
+          <text>￥{{newList.so_type==3 || newList.so_type==4 ?newList.pay_price: newList.deliver_content? newList.deliver_price:newList.prod_price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="line" wx:if="{{tabsData.freight}}">
+      <view class="l_item">
+        <text class="l_title">运费</text>
+        <view class="l_desc">
+          <view class="text">+￥{{tabsData.freight}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="line" wx:if="{{tabsData.discounts}}">
+        <view class="l_item">
+          <text class="l_title">立减</text>
+          <view class="l_desc">
+            <view class="text">-￥{{tabsData.discounts}}</view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+    
+<!-- 在线转单 担保交易-->
+
+  <view wx:if='{{newList.so_type==2}}'>
+    <view class="line">
+      <view class="l_item">
+        <text class="l_title">转单金额</text>
+        <view class="l_desc">
+          <text>￥{{newList.prod_price}}</text>
+        </view>
+      </view>
+    </view>
+<!--总补款金额-->
+    <view class="line" wx:if='{{newList.addSoItemMoney}}'>
+      <view class="l_item">
+        <text class="l_title">补款金额</text>
+        <view class="l_desc">
+          <text>￥{{newList.addSoItemMoney}}</text>
+        </view>
+      </view>
+    </view>
+<!--总退款金额-->
+    <view class="line" wx:if='{{newList.partRefundSoItemMoney}}'>
+      <view class="l_item">
+        <text class="l_title">退款金额</text>
+        <view class="l_desc">
+          <text>￥-{{newList.partRefundSoItemMoney}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+<!---1110-->
+
+<!--退补款-->
+  <view >
+    <view class="line" wx:if='{{newList.so_type==3}}'>
+      <view class="l_item">
+        <text class="l_title">补款金额</text>
+        <view class="l_desc">
+          <text>￥{{newList.pay_price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="line" wx:if='{{newList.so_type==4}}'>
+      <view class="l_item">
+        <text class="l_title">部分退款金额</text>
+        <view class="l_desc">
+          <text>￥-{{newList.pay_price}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+      <view class="all" wx:if='{{newList.so_type!=4}}'>
+        <text  class='allMoneys'>实付款总计：￥{{newList.parentTatolRealMoney}}</text>
+        <view class="record" wx:if="{{tabsData.return_money}}">(订单评价后，该项目可获得{{tabsData.return_money}}元返现)</view>
+      </view>
+  </view>
+
+  <view class="w flex-c order-info " style="margin-bottom:{{tabsData.status==0 && tabsData.pay_status==1?0:50}}rpx;">
+    <view>
+      {{newList.so_type==3?'补款单编号：': newList.so_type==4 ?'退款编号':'订单编号：'}}
+      <text class="order-num">{{ newList.so_type==3 ?newList.item_number:newList.so_type==4?newList.refund_number:newList.so_number}}</text>
+    </view>
+
+    <view wx:if="{{(tabsData.status>=0 || tabsData.payStatus==1) && newList.turn_sort}}"> 
+      <view>转单日期：<text class="order-time">{{newList.create_at}}</text></view>
+      <view wx:if="{{newList.pay2_at}}">订单验收时间：<text class="order-time">{{newList.pay2_at}}</text> 
+    </view>
+
+    </view>
+  </view>
+
+  <view class='footerFixed'>
+      <view class="footer-btn">
+       
+        <view class="f-pay margin" 
+              catchtap="record" 
+              data-id="{{tabsData.id}}" 
+              wx:if="{{tabsData.status==3 && tabsData.return_money_status==0}}">申请返现</view>
+
+        <view class="f-pay margin middColores" 
+              catchtap="returnMoneyView" 
+              data-id="{{tabsData.id}}" 
+              wx:if="{{tabsData.return_money_status==1}}">查看返现</view>
+
+        <view class="f-pay margin middColores" 
+              catchtap="showevalute" 
+              data-id="{{tabsData.id}}" 
+              wx:if="{{tabsData.status==3 }}">查看评价</view>
+
+        <view class='obligationFlex margin'wx:if="{{newList.pay_status == 0 && (newList.status==0 || newList.status==1)}}">
+            <text data-id="{{newList.id}}" class="f-pay pay" catchtap="cancel">取消订单</text>
+            <text class="f-pay" catchtap="pay" data-id="{{newList.id}}">去支付</text>
+        </view>
+
+        <!-- 
+        商家要求隐藏 申请退款
+        <view class='obligationFlex margin' 
+        wx:if="{{((newList.status!=2 && newList.status!=-2) && newList.pay_status==1 && newList.so_type==1) || ((newList.status!=2 && newList.status!=-2) && newList.pay_status==1 && newList.deliver_status == 0 &&newList.secured_trans==2 && newList.so_type!=3)}}">
+            <text class="f-pay" catchtap="drawback"  data-id="{{tabsData.id}}" wx:if='{{!isDrawback}}'>申请退款</text>
+            <text class='f-pay' wx:else>退款中</text>
+        </view> -->
+        
+        <!-- <view class="margin"  wx:if="{{newList.status==-2 && newList.pay_status==1 && newList.so_type!=3 && newList.so_type!=4}}">
+          <view class="f-pay  " 
+              catchtap="cancelBack" 
+              data-id="{{tabsData.id}}">取消申请</view>
+        </view> -->
+
+        <button catchtap="submit" data-id="{{tabsData.id}}" data-status="{{tabsData.status}}" class="btn-default"
+         wx:if="{{(tabsData.status>=0) &&tabsData.pay_status==1 && newList.so_type!=3}}">
+         {{tabsData.status==0 || tabsData.status==1? '确定验收':tabsData.status == 2? '评价': ""}}
+         </button>
+      </view>
+  </view>
+
+</view>
+
+<!--
+  退款补款：so_type：3 || so_type：4
+-->
+
+<view wx:if='{{newList.childSoItemList.length>0}}'>
+    <view style="margin-top:30rpx;" wx:for='{{newList.childSoItemList}}' wx:key='{{item.id}}'>
+        <view class="titleHeader" catchtap="develop" data-index='{{index}}' >
+           <view style="flex:1.8;">
+              <view wx:if="{{item.pay_status>0 && item.so_type==3}}">已补款</view>
+              <view wx:if="{{item.pay_status==0 && item.so_type==3}}" >待补款</view>
+              <view wx:if="{{(item.so_type==4 || item.so_type==3) && item.status==-1 && item.pay_status ==-1}}">部分退款</view>
+
+           </view>
+           <view style="flex:4.5;">{{item.so_type==3?'补款':'退款'}}金额 {{item.pay_price}}元</view>
+           <view class="headerImg" style="flex:1;">
+              <text>{{item.transformImg?'展开':'收回'}}</text>
+              <image style="transform:{{item.transformImg?'rotate(0deg)':'rotate(180deg)'}}" 
+                     src="../../../../images/icon_arrow_down@2x.png"></image>
+           </view>
+        </view> 
+        <!--折叠面板详细信息-->
+        <view class="footerContent" wx:if='{{!item.transformImg}}'>
+           <view class="once flex-p">
+               <text>{{item.so_type==3?'补款':'退款'}}金额：{{item.pay_price}}元</text>
+               <view>
+                  <view wx:if="{{item.pay_status>0 && item.so_type==3}}">已补款</view>
+                  <view wx:if="{{item.pay_status==0 && item.so_type==3 && item.status!=-1}}" >待补款</view>
+                  <view wx:if="{{(item.so_type==4 || item.so_type==3) && item.status==-1 && item.pay_status ==-1}}">已退款</view>
+                  <view wx:if='{{item.status==-1 && item.pay_status===0 }}'>已取消</view>
+               </view>
+           </view>
+           <view class="flex-p" wx:if='{{item.status!=-1 && item.pay_status!=0}}'>
+              <text>{{item.so_type==3 && item.pay_at?'补款时间：': item.so_type==4 && item.refund_time ?'部分退款时间：':''}}</text>
+              <text>{{item.so_type==3 && item.pay_at ? item.pay_at:item.so_type==4 && item.refund_time?item.refund_time:''}}</text>
+           </view>
+           <view class="flex-p">
+              <text>{{item.so_type==3?'补款单号：':'部分退款单号：'}}</text>
+              <text>{{item.so_type==3?item.item_number:item.refund_number}}</text>
+           </view>
+           <view class="flex-rs"> 
+                <view catchtap="pay" 
+                      class="marghin_r"
+                      data-id="{{item.id}}" 
+                      wx:if='{{item.pay_status==0  && item.status==0 && (item.so_type==3 || item.so_type==4)}}'>去支付</view>
+                <view catchtap="lookDetail" data-item='{{item}}'>查看详情</view>
+           </view>
+        </view>
+    </view>
+</view>

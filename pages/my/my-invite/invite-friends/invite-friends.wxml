@@ -1,0 +1,9 @@
+<image class="bg" src="/images/invite_bg_friends@2x.png"></image>
+
+<view class="flex-col footer">
+  <view>多让集采 邻居越多 省的越多</view>
+  <button class="btn-default">立即邀请</button>
+  <navigator url="/pages/my/my-invite/invite-list/invite-list" hover-class="none">
+    <view class="text-link" hover-class="none">查看邀请详情</view>
+  </navigator>
+</view>

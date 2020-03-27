@@ -1,0 +1,34 @@
+<view class="show">
+    <block wx:for="{{dataList}}" wx:for-index="index" wx:key>
+        <view class="show-con">
+            <view class="head">
+                <view class="h-con">
+                    <view class="h-left">
+                        <text class="title">订单评价</text>
+                        <text class="time">{{item.create_at}}</text>
+                    </view>
+                    <view class="h-right">
+                        <image src="{{item.scores}}"></image>
+                        <text>{{item.score == 5?'非常满意':item.score == 3?'满意':'一般'}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="clist" wx:if="{{item.label.length>0}}">
+                <block wx:for="{{item.label}}" wx:for-index="idx" wx:key>
+                    <view catchtap="checkLabel" data-index="{{idx}}" class="c_label check">{{item}}</view>
+                </block>
+            </view>
+            <view class="content">
+                <view class="title">{{item.content}}</view>
+                <view class="imgList" wx:if="{{item.imgList.length>0}}">
+                    <block wx:for="{{item.imgList}}" wx:for-item="img" wx:for-index="idx" wx:key>
+                        <view class="imgLi">
+                            <image mode="aspectFit" class="img" src="{{img}}" data-idx="{{index}}" data-index="{{idx}}" catchtap="showImg"></image>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<scale show="{{show}}" img="{{img}}" mask="{{mask}}"></scale>

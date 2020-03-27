@@ -1,0 +1,323 @@
+/* pages/y-index/y-index.wxss */
+page{
+  padding-bottom: 60rpx;
+  background: #E94615;
+}
+.load{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #FFF;
+  z-index: 9999;
+}
+.load image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.bannerImgs{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.searchIcon{
+  background: #FFF;
+  width: 706rpx;
+  height: 68rpx;
+  border-radius: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -353rpx;
+  bottom: -36rpx;
+  padding-left: 44rpx;
+  box-sizing: border-box;
+}
+.bannerPosition{
+  position: relative;
+}
+.joins{
+  position: relative;
+}
+
+.searchIcon input{
+  margin-left: 12rpx;
+  font-size: 30rpx;
+  flex: 1;
+  border: none;
+  outline: none;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.boxs{
+  width: 706rpx;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  position: relative;
+}
+.tabs{
+  background: #FFF;
+  z-index: 9;
+  position: relative;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 28rpx;
+  color: #535353;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.fixeds{
+  position: fixed;
+  top: 0;
+  width: 706rpx;
+  left: 50%;
+  margin-left: -353rpx;
+}
+
+.tabs text{
+  padding: 10rpx 25rpx;
+}
+.tabs .active text{
+  background: #E94615;
+  color: #FFF;
+  border-radius: 100px;
+}
+.listbgFFF{
+  background: #FFF;
+  margin-bottom: 24rpx;
+  border-radius: 10rpx;
+}
+.listbgFFF:first-of-type{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.listConent{
+  margin: 0 22rpx;
+  border-bottom: 1px solid #DCDCDC;
+}
+.listBox{
+  position: relative;
+  padding: 35rpx 0;
+}
+.listBox image{
+  width: 166rpx;
+  height: 166rpx;
+}
+.listBox .flex-row{
+  align-items: flex-start;
+}
+
+.hosueName{
+  font-size: 32rpx;
+  color: #4D4D4D;
+  font-weight: bold;
+  width: 364rpx
+}
+.houseInformation{
+  color: #434343;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.listTextBox{
+  margin-left: 22rpx;
+}
+.orderBtns{
+  width: 188rpx;
+  text-align: center;
+  height: 58rpx;
+  line-height: 58rpx;
+  border-radius: 100px;
+  background:#E94615;
+
+  position: absolute;
+  right: 0rpx;
+  bottom: 40rpx;
+  color: #FFF;
+}
+.boxShowModel{
+  position: relative;
+}
+.endActive{
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100px;
+  color: #FFF;
+  text-align: center;
+  line-height: 120rpx;
+  left: 50%;
+  top: 50%;
+  margin-left: -60rpx;
+  margin-top: -60rpx;
+  background: rgba(0,0,0,0.5)
+}
+.fllowImg{
+ padding: 24rpx 0;
+ margin: 0 22rpx;
+}
+.imgServer{
+  border: 2.4rpx solid #FFF;
+  margin-left: -15rpx;
+  border-radius: 100px;
+  width: 38rpx;
+  height: 38rpx;
+}
+.userImg text{
+  display: block;
+  height: 38rpx;
+  width: 38rpx;
+  text-align: center;
+  line-height: 26rpx;
+  border-radius: 100rpx;
+  background: rgba(0,0,0,0.6);
+  color: #FFF;
+  margin-left: -15rpx;
+  border: 2.4rpx solid #fff;
+}
+.userImg image{
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 100px;
+}
+.imgServer:first-of-type{
+  margin-left: 0;
+}
+.fllowNum{
+  font-size: 24rpx;
+  color: #535353;
+  margin-left: 10rpx;
+}
+.fllowNum text{
+  color: #E94615;
+}
+.notEndActive text{
+  font-size: 27rpx;
+  color: #FFF;
+  text-align: center;
+  padding: 5rpx 18rpx;
+  position: relative;
+  z-index: 1;
+}
+.notEndActive text::after{
+  content: "";
+  position: absolute;
+  background: #F46A32;
+  width: 100%;
+  height: 40rpx;
+  left: 0;
+  z-index: -1;
+}
+.notEndActive text::before{
+  content: "";
+  position: absolute;
+  left:0; 
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:20px solid transparent;
+}
+.notEndActive{
+  position: absolute;
+  top: 10rpx;
+  left: -6rpx;
+}
+.colok{
+  margin-top: 15rpx;
+}
+.colok text{
+  color: #E94615;
+}
+
+.textsEnds{
+  font-size: 24rpx;
+  position: relative;
+  top: -2rpx;
+}
+.neighborhood{
+  text-align: center;
+  font-size: 28rpx;
+  color:   #FFFF00;
+  margin-top: 50rpx;
+}
+.neighborhood text{
+  padding-bottom: 4rpx;
+  border-bottom: 1px solid #FFFF00
+}
+.notMyVillageName{
+  padding: 0;
+  background: transparent !important;
+  font-size: 28rpx;
+  color: #FFFF00;
+}
+.model{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.contentWidth{
+  background: #FFF;
+  width: 600rpx;
+  height: 600rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -300rpx;
+  margin-left: -300rpx;
+  z-index: 99;
+  border-radius: 16rpx;
+}
+.changeTitleBox{
+  text-align: center;
+} 
+.title_change{
+  font-size: 38rpx;
+  color: #313131;
+  padding-top: 75rpx;
+}
+.text_change{
+  font-size: 24rpx;
+  color: #313131;
+  margin-top: 30rpx;
+}
+.closeModel{
+  position: absolute;
+  right: 32rpx;
+  top: 32rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.clearRoom,.aloneRoom{
+  width: 481rpx;
+  height: 84rpx;
+  border:1px solid #F35B1D;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 84rpx;
+  margin: 0 auto;
+  color: #F35B1D;
+  font-size: 34rpx;
+  margin-top: 60rpx;
+}
+.aloneRoom{
+  margin-top: 45rpx;
+}
+.lookMyAskFo{
+  margin-top: 64rpx;
+  font-size: 24rpx;
+  color: #0068B7;
+  text-align: center;
+}
+.detailList{
+  margin-top: 60rpx;
+}
+.detailList image{
+  width: 100%;
+}

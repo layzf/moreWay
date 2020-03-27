@@ -1,0 +1,115 @@
+<view class="steps">
+  <step typeSetp="{{typeSetp}}" cur='{{typeSetp==1?2:1}}' class='margins'></step>
+</view>
+<!--封装数据-->
+<view class="swData">
+    <view class="titles">根据你选择的方案，您家封窗数据如下：</view>
+
+    <view wx:for='{{fcData}}' wx:key='id'> 
+      <view class="centerClass">总{{item.name}}为 {{item.val}} {{item.unit}} <text wx:if='{{item.desc_url}}'>({{item.desc_url}})</text>。</view>
+    </view>
+    
+</view>
+<!--请选择你想要的铝材品牌-->
+
+  <view class="changeBrand">请选择你想要的铝材品牌</view>
+  <view class="brandView">
+    <view class="flexProduct">
+        <view wx:for='{{brands}}' 
+              wx:key='{{index}}' 
+              data-index='{{index}}'
+              data-id='{{item.id}}'
+              data-item='{{item}}'
+              class="{{index==cur?'active':''}}" catchtap="change">{{item.name}}
+        </view>
+    </view>
+  </view>
+
+<!--请选择配置：铝材系列、五金、玻璃以及其他增加项-->
+
+<view class="changeBrand">请选择配置：铝材系列、五金、玻璃以及其它升级项</view>
+
+<view wx:if='{{modelConetent}}'>
+<view >
+  <view wx:for='{{productList}}' wx:for-item='xilie'  wx:key='id' wx:for-index="xilieindex" class="contentShowBox">
+  <view class="productContent">
+   <view class="names">
+      <view>{{xilie.name}}</view>
+      <view class="lookdetail" bindtap="changeImg" data-img='{{xilie.productModeImgList}}' data-title='{{xilie.name}}'>查看详情  
+      <image src='../../images/icon_arrow_next_authcode@2x.png'></image></view>
+   </view>
+   <view class="contentView">
+      <view class="flexSet">
+          <view wx:key='id' wx:for-item='cItem' wx:for='{{xilie.productGroupList}}'
+                class="{{xilie.selectSubItem.id==cItem.id?'active':''}} changeSet  {{cItem.brandProductList.length>1?'':'spaceCenter'}}"
+                data-id='{{cItem.id}}' 
+                data-xilieindex='{{xilieindex}}' 
+                data-index='{{index}}' 
+                data-click='true'
+                catchtap="changeProduct">
+              <view>{{cItem.name}}</view>
+              <view class="productTags">
+              <!-- brandProductList 长度>1,显示价格明细;< 1 不显示明细，直接现实总价  =======  -->
+                <view wx:if='{{cItem.brandProductList.length>1}}'>
+                  (<text wx:for='{{cItem.brandProductList}}' wx:key='id'>{{item.name}}{{item.sale_price}}元/{{item.unit}}</text>)
+                </view>
+                
+                <view wx:for='{{cItem.brandProductList}}' wx:key='ids' >
+                    <view wx:if='{{cItem.brandProductList.length<=1}}'>({{item.sale_price}}元/{{item.unit}})</view>
+                </view>
+              </view>
+          </view>
+      </view>
+<!--计算价格
+
+  如果只有一个类目，那就现实总价
+
+ -->
+     <view class="sumAdd {{xilie.selectSubItem.brandProductList.length>1?'listMarTop':''}}">
+        <view wx:for='{{xilie.selectSubItem.brandProductList}}' 
+              wx:for-item='sumAdd' 
+              wx:key='idp' 
+              wx:if='{{xilie.selectSubItem.brandProductList.length>1}}'>
+        {{sumAdd.name}}金额：{{sumAdd.sale_price +'元/'+sumAdd.unit + ' × ' +step2summaries2Obj['id_' + sumAdd.category_attr_id].val+ step2summaries2Obj['id_' + sumAdd.category_attr_id].unit}} = {{sumAdd.smallPrice}}元
+        </view>
+<!--不是升级项，显示项目计算步骤。铝材之类的项目，直接显示计算结果-->
+        <view class="allMoneys"
+              style="border-top:{{xilie.selectSubItem.brandProductList.length>1?'1px solid #838383':'none'}}">
+             {{xilie.count_name}}合计：{{xilie.selectSubItem.brandProductList.length>1?'':summary['xilie_'+(xilie.id)].sumList+'='}}{{summary['xilie_'+(xilie.id)].sumPrice}}元
+        </view>
+     </view>
+<!--计算价格 end-->
+   </view>
+  </view>
+    <view class="remark" wx:if='{{xilie.remark}}'>备注：{{xilie.remark}}</view>
+</view>
+<!-- 循环 end -->
+</view>
+
+<!--总价-->
+<view class="footerAllSum">
+    <view class="c_us">根据您选择品牌和配置</view>
+    <view class="eachProd">
+       <view  wx:for='{{summary}}' wx:key='a' wx:if='{{item.sumPrice!=0}}'>
+          <view>{{item.xilieName+'：'}}<text>{{item.sumList +'='+ item.sumPrice}}元</text></view>
+       </view>
+    </view>
+    <view class="alls">预算总价：<text>{{allSum.allSum}}元</text>  </view>
+ </view>
+
+<!--底部悬浮BOX-->
+<view class="fixedBottom">
+    <view catchtap="support">联系团长</view>
+    <view catchtap="godetails">预约量尺</view>
+    <view catchtap="payOrder">交订金{{brands[cur].projectInfo.so_price}}元</view>
+</view>
+
+<!--modelConetent end-->
+</view>
+
+<!--我的团长-->
+<my-commander height='{{height}}' isShow='{{commanderHiden}}'  isTab='{{showTab}}' id='my-commander'></my-commander>
+
+<!--获取授权昵称-->
+<getUserInfo  bindloginTrue='loginTrue' userInfoModelFlag='{{userInfoModelFlag}}'></getUserInfo>
+

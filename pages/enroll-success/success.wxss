@@ -1,0 +1,73 @@
+.successIon{
+  text-align: center;
+  background: #FFF;
+  padding-bottom: 80rpx;
+
+}
+.head {
+  width:93px;
+  height:93px;
+  margin-top:38px;
+  margin-bottom:14px;
+}
+.h_tip{
+  color:#000;
+  font-size:20px;
+}
+.VIPTitle{
+  font-size: 20px;
+  color: #E35C2C;
+  margin: 30rpx 0;
+  text-align: center;
+  font-weight: bold;
+}
+.productMoney{
+  display: flex;
+  align-items: center;
+}
+.bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.p1s{
+  color:#E94816;
+  font-size:28rpx;
+}
+.productImg{
+  width:100%;
+  height:360rpx;
+}
+.productTitle{
+  margin: 10rpx 0;
+}
+.gray .price{
+  font-size:24rpx;
+  text-decoration:line-through;
+  font-style:italic;
+}
+.p1s .symbol {
+  font-size:22rpx;
+}
+.gray{
+  color:#9B9B9B !important;
+  margin-left: 10rpx;
+}
+.symbol{
+  font-size:22rpx;
+}
+.addimg {
+  width:46rpx;
+  height:46rpx;
+  margin-right: 16rpx;
+}
+.item{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 20rpx;
+}
+.item>view{
+  width: 48%;
+  margin-bottom: 36rpx;
+  display: inline-block;
+}

@@ -1,0 +1,8 @@
+<template name="auth-code">
+  <!-- <navigator url="/pages/my/my-auth-code/my-auth-code" open-type="navigate" hover-class="none"> -->
+    <view class="flex-col auth-code-w">
+      <image src="/images/icon_code_auth@2x.png" class="auth-code"></image>
+      <text>会员码</text>
+    </view>
+  <!-- </navigator> -->
+</template>

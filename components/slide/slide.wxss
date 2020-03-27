@@ -1,0 +1,26 @@
+/* components/slide/slide.wxss */
+.slider-container{
+
+}
+.slide-screen{
+    width: 240px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid red;
+}
+.slide-context{
+    width: 240px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    display: flex;
+}
+.slide-context .slide-item{
+    width: 80px;
+    height: 60px;
+    background-color: #6D86D0;
+}
+.yellow{
+    background-color: yellow !important;
+}

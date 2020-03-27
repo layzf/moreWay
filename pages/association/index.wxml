@@ -1,0 +1,51 @@
+<!-- 
+<view class="tabFlex">
+  <view class="{{curr ==0? 'active':''}}" catchtap="currClick" data-cur='0'>社群介绍</view>
+  <view class="{{curr ==1? 'active':''}}" catchtap="currClick" data-cur='1'>群众口碑</view>
+</view>
+
+
+ cur==0：社群介绍，cur==1：群众口碑  
+<view class="content">
+
+社群介绍
+  <view wx:if='{{curr ==0 }}'>
+    <view>社群介绍</view>
+  </view>
+
+群众口碑
+  <view wx:if='{{curr ==1 }}'>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <radio class="radio" wx:for-items="{{radioItems}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+        <text>{{item.name}}</text>
+      </radio>
+    </radio-group>
+radioValue==1：项目评论  radioValue==2：疑难解答  radioValue==3：活动现场
+    <view wx:if='{{radioCurr==1}}' catchtap="postSave">项目评论</view>
+    <view wx:if='{{radioCurr==2}}'>疑难解答</view>
+    <view wx:if='{{radioCurr==3}}'>活动现场</view>
+  </view>
+
+  <postsave url='{{url}}' id="postSave"></postsave>
+
+</view>-->
+
+<view style="display:flex;justify-content: space-around;flex-wrap: wrap">
+<navigator url="/pages/agents/index" hover-class="none" open-type="navigate" style="margin-bottom:20rpx;padding:20rpx 0;">全部项目</navigator>
+<navigator url="/pages/assembleList/index" hover-class="none" open-type="navigate" style="margin-bottom:20rpx;padding:20rpx 0;">拼团列表</navigator>
+
+<navigator url="/pages/assemble/index" hover-class="none" open-type="navigate"style="margin-bottom:20rpx;padding:20rpx 0;">拼团详情</navigator>
+<navigator url="/pages/commentAll/index" hover-class="none" open-type="navigate"style="margin-bottom:20rpx;padding:20rpx 0;">全部评论</navigator>
+<navigator url="/pages/waterFlow/index" hover-class="none" open-type="navigate" style="margin-bottom:20rpx;padding:20rpx 0;">晒单页面</navigator>
+
+<navigator url="/pages/waterFlowDetail/index" hover-class="none" open-type="navigate" style="margin-bottom:20rpx;padding:20rpx 0;">晒单详情</navigator>
+
+
+<navigator url="/pages/group-purchase-old/index" hover-class="none" open-type="navigate" style="margin-bottom:20rpx;padding:20rpx 0;">往期回顾</navigator>
+
+
+<view catchtap="callCapital" style="margin-bottom:20rpx;padding:20rpx 0;">团长弹框</view>
+</view>
+
+
+<my-commander isTab='{{showTab}}'  height='{{height}}' isShow='{{commanderHiden}}' id='my-commander'></my-commander>

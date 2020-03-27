@@ -1,0 +1,74 @@
+
+.imgRelatve{
+  position: relative;
+}
+
+.imgRelatve>image{
+  width: 100%;
+  height: 272rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  display: block;
+}
+.viewImgShowMa{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right:0;
+  background: rgba(0,0,0,0.7);
+  padding: 20rpx 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999;
+  color: #FFF;
+  box-sizing: border-box;
+}
+.viewImgShowMa>view{
+  display: flex;
+  align-items: center;
+}
+.viewImgShowMa .groupNumber{
+  margin-left: 16rpx;
+  font-size: 24rpx;
+}
+.viewImgShowMa>view >image:first-of-type{
+  margin-left: 0;
+}
+
+.viewImgShowMa>view >image{
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 100px;
+  border: 2rpx solid #FFF;
+  margin-left: -24rpx;
+}
+/*文字部分*/
+.gruopPurchaseOld{
+  background: #F9F9F9;
+  position: relative;
+  padding:24rpx;
+}
+.gruopPurchaseOldDate{
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #1F1F1F;
+  margin-bottom: 8rpx;
+}
+.gruopPurchaseOld .text{
+  color: #777777;
+  font-size: 24rpx;
+  display: block;
+  width:402rpx;
+}
+.gruopPurchaseOld .goBtn{
+  color: #FFF;
+  background: #FF5F2D;
+  font-size: 28rpx;
+  padding: 10rpx 32rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  right: 24rpx;
+  bottom: 26rpx;
+  text-align: center;
+}

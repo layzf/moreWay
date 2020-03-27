@@ -1,0 +1,28 @@
+.login{
+    text-align: center;
+}
+.login .tip{
+    font-size: 28rpx;
+    color: #000;
+    padding-top: 252rpx;
+    padding-bottom: 20rpx;
+}
+.btn{
+    width: 90%;
+    margin: 20rpx auto 0rpx auto;
+    height: 94rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    border-radius: 20rpx;
+    line-height: 94rpx;
+    font-size: 36rpx;
+}
+
+.green{
+    background-color: #1AAD19 !important;
+    color: #FFFFFF;
+}
+.white{
+    background-color: #FFFFFF;
+    border: 1px solid rgba(180,180,180,0.3);
+}

@@ -1,0 +1,83 @@
+<view class="item">
+  <view class="flex-row head">
+    <image class="w-avatar" src="http://via.placeholder.com/90x90"></image>
+    <view class="flex-c-between info">
+      <view class="flex-row-between info-head">
+        <text class="name">经阁门窗</text>
+        <text class="time">2018-02-03 12:23:23</text>
+      </view>
+      <view class="info-summary">进行了交付</view>
+    </view>
+  </view>
+  <view class="comment">
+    备注： 如果你无法简洁的表达你的想法，那只说明你还不够了解它。 -- 阿尔伯特·爱因斯坦
+  </view>
+  <view class="flex-row img-list">
+    <image src="http://via.placeholder.com/180x180"></image>
+    <image src="http://via.placeholder.com/180x180"></image>
+  </view>
+</view>
+
+<view class="item">
+  <view class="flex-row head">
+    <image class="w-avatar" src="http://via.placeholder.com/90x90"></image>
+    <view class="flex-c-between info">
+      <view class="flex-row-between info-head">
+        <text class="name">经阁门窗</text>
+        <text class="time">2018-02-03 12:23:23</text>
+      </view>
+      <view class="info-summary">进行了转单</view>
+    </view>
+  </view>
+  <view class="comment">
+    备注： 如果你无法简洁的表达你的想法，那只说明你还不够了解它。 -- 阿尔伯特·爱因斯坦
+  </view>
+  <view class="flex-row img-list">
+    <image src="http://via.placeholder.com/180x180"></image>
+    <image src="http://via.placeholder.com/180x180"></image>
+  </view>
+</view>
+
+<view class="item">
+  <view class="flex-row head">
+    <image class="w-avatar" src="http://via.placeholder.com/90x90"></image>
+    <view class="flex-c-between info">
+      <view class="flex-row-between info-head">
+        <text class="name">钟煌</text>
+        <text class="time">2018-02-03 12:23:23</text>
+      </view>
+      <view class="info-summary">上传了图片</view>
+    </view>
+  </view>
+  <view class="flex-row img-list">
+    <image src="http://via.placeholder.com/180x180"></image>
+    <image src="http://via.placeholder.com/180x180"></image>
+    <image src="http://via.placeholder.com/180x180"></image>
+    <image src="http://via.placeholder.com/180x180"></image>
+  </view>
+</view>
+
+<view class="w-btn-bottom" bindtap="handelModal">问题反馈</view>
+<view class="mask" wx:if="{{modalTap}}" catchtap="hideModal"></view>
+<view class="fix-bottom-submit" wx:if="{{modalTap}}" animation='{{animationData}}'>
+  <view class="contact">
+    <view class="textarea">
+      <textarea name="textarea" placeholder="多行输入" bindinput="textareaInput" placeholder-style="color:#999;" />
+    </view>
+    <!-- TODO：上传照片 -->
+      <!-- upload-image-group -->
+  <view class="upload-image-group">
+    <block wx:for="{{imgSrcArr}}" wx:key="{{index}}">
+      <view class="img-box">
+        <view class="btn-delete" bindtap="onDeleteTap" data-index="{{index}}">x</view>
+        <image src="{{item}}" bindtap="previewImage" data-current-src="{{item}}" />
+      </view>
+    </block>
+    <image wx:if="{{!imgSrcArr.length}}" src="/images/icon_camera@2x.png" class="icon-camera" bindtap="chooseImage"></image>
+    <image wx:else src="/images/upload_image_add@2x.png" class="img-input-box" bindtap="chooseImage"></image>
+  </view>
+
+  
+  </view>
+  <view class="submit-btn" bindtap="onSubmitTap">提交</view>
+</view>

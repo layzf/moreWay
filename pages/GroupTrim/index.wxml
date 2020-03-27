@@ -1,0 +1,52 @@
+<!--pages/GroupTrim/index.wxml-->
+
+<view class="swiperClass">
+  <swiper autoplay  interval="5000" duration="1500" indicator-dots circular style="width:702rpx;height:254rpx;margin:0 auto;padding-bottom:24rpx;">
+        <block wx:for="{{itemSwiper}}" wx:key="*this">
+          <swiper-item>
+             <image src="{{item.img}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    <!--tab 切换-->  
+      <view class="tabBox">
+         <view class="flexTab">   
+            <view wx:for='{{3}}' wx:key='{{item}}' class="{{cur == item?'active':''}}" catchtap="tabClick" data-item='{{item}}'>
+              {{item==0?'编号群':item==1?'小区群':item==2?'项目群':''}}
+            </view>
+         </view>   
+         <!--content-->
+         <view class="content"> 
+            <view class="flexDIsplay" wx:for='{{5}}' wx:key='{{item}}'>
+                <image src="../../images/testImg.jpg"></image>
+                <view class="chidrenFlex">
+                  <view class="contentFontSize">
+                    <view>装修业主交流12群</view>
+                    <view>多让458人已加入</view>
+                  </view>
+                  <view class="joinBtn" catchtap="joinBtn">+加群</view>
+                </view>
+            </view>
+         </view>
+      </view>
+
+      <view class="notList">没有更多了</view>
+</view>
+
+
+<!--弹框-->
+ <view wx:if='{{modelType}}'>
+    <view class="boxshwoModel" catchtouchmove="return" catchtap="hideModel"></view>
+    <view class="contentZindex" catchtouchmove="return">
+      <view class="header">
+        <image src="../../images/testImg.jpg"></image>
+        <view>装修业主交流12群</view>
+      </view>
+      <image src="../../images/test1.png" class="codeimg"></image>
+      <view class="btns">
+          <view catchtap="copy">复制微信号</view>
+          <view catchtap="downImg">保存图片</view>
+      </view>
+      <icon type="clear" size="22" color="#777777" catchtap="hideModel"></icon>
+    </view>
+ </view>

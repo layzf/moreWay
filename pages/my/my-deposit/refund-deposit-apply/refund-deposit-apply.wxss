@@ -1,0 +1,44 @@
+@import "/pages/my/my-group/group-comment-add/group-comment-add";
+page{
+  background-color: #F7F7F7;
+}
+.comment-con{
+  padding:0 28rpx 20rpx;
+}
+.head, .contact{
+  background-color: #fff;
+  height:108rpx;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  border:none;
+  padding:0 28rpx;
+}
+.head text:first-child{
+  color:#666;
+}
+.reason{
+  height:108rpx;
+  line-height:108rpx;
+  color:#666;
+}
+
+.contact .left{
+  margin-right:21rpx;
+}
+.contact .middle{
+  flex:1;
+}
+.contact .right text{
+  color:#3979D4;
+  font-size:24rpx;
+}
+.contact image{
+  width:18rpx;
+  height:30rpx;
+  margin-left:10rpx;
+}
+.textarea view{
+  color: #ff5d22;
+  margin-top: 30rpx;
+  font-size: 24rpx;
+}

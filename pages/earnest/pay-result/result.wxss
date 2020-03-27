@@ -1,0 +1,42 @@
+/* @import "../../../tpls/result/result-pay2/result-pay.wxss"; */
+.paySuccessIcon{
+  width: 186rpx;
+  height: 186rpx;
+  margin: 0 auto;
+  margin-top: 76rpx;
+  display: block;
+}
+.paySuccessTit{
+  text-align: center;
+  font-size: 40rpx;
+  margin-top: 28rpx;
+}
+.paySuccessText{
+  width: 576rpx;
+  margin: 0 auto;
+  color: #888888;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  text-align: center;
+}
+.paySuccessView{
+  width: 670rpx;
+  margin: 0 auto;
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 36rpx;
+  border-radius: 20rpx;
+  border: 1px solid #DFDFDF;
+  color: #000;
+  text-align: center;
+}
+.paySuccessUrl{
+  background: #E94816;
+  color: #FFF;
+  margin-top: 50rpx;
+  margin-bottom: 30rpx;
+}
+.ends{
+    margin-top: 50rpx;
+  margin-bottom: 30rpx;
+}

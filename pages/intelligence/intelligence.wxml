@@ -1,0 +1,153 @@
+<!--pages/intelligence/intelligence.wxml-->
+<!-- <import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{loginData}}"></template> -->
+
+<view>
+  <view class='intellTop'>
+   <image src='http://img.duorang.com/upload/img/top.jpg'></image>
+   <view class='intellText'>
+      <view>多让集采，让消费更明白</view>
+      <view>买手严选 <text>·</text> 专业比价 <text>·</text> 正品保障</view>
+   </view>
+</view>
+<!--TOP END-->
+  <view class='intellContent'>
+    <view class='intellBox'>
+        <view class='intellEng flex-r v-center'>PART<text></text> ONE</view>
+        <view class='intellBigTitle'>只为业主服务</view>
+    </view>
+<!--第一块-->
+    <view class='flex-r v-center intellNum setction_1'>
+        <image src='http://img.duorang.com/upload/img/num_1.png'></image>
+        <text>建材/家具/家电采购，我们更专业</text>
+    </view>
+    <view class='explain'>多让是一个消费者服务社群，专门把有装修需求的业主组织起来一起交流装修经验,共同采购建材、家具、家电三大类产品。我们已成功组织集采50场，建立社群21个，累计为长沙业主省钱超1000万(数据截止至2018年12月)。</view>
+<!--营业执照-->
+    <view  class='section_1'>
+      <image src='http://img.duorang.com/upload/img/section_1.jpg'></image>
+    </view>
+  </view>
+<!--第二块-->
+<view class='setction_2'>
+    <view class='flex-r v-center intellNum'>
+      <image src='http://img.duorang.com/upload/img/num_2.png'></image>
+      <text>75%的参团业主来自口碑介绍</text>
+    </view>
+    <view>
+      <swiper class='swiperImg flex-r v-center' previous-margin='10rpx' next-margin='140rpx' circular='true' >
+        <swiper-item wx:for='{{swiper}}'  wx:key='q' class='l_swiper'>
+           <image src='{{item.url}}'></image>
+        </swiper-item>
+      </swiper>
+    </view>
+</view>
+<!--靠谱比什么都重要-->
+<view class='intellContent_1'>
+    <view class='intellBox'>
+        <view class='intellEng flex-r v-center'>PART<text></text> two</view>
+        <view class='intellBigTitle'>靠谱比什么都重要</view>
+    </view>
+    <view>
+    <view class='flex-r v-center intellNum'>
+      <image src='http://img.duorang.com/upload/img/num_1.png'></image>
+      <text>集采商家严格审核</text>
+    </view>
+    <view class='review'>多让会对集采商家的经营资质、品牌口碑、服务能力等方面进行严格审核，确保只有同时满足“<text>符合业主共性需求、产品品质好、价格低、售后有保障</text>”的优质商家才能入选。</view>
+    </view>
+</view>
+<view>
+  <swiper class='swiper_1' previous-margin='40rpx' next-margin='150rpx' circular="{{false}}">
+    <swiper-item wx:for='{{swiper_1}}'  wx:key='q'>
+          <image src='{{item.url}}'  catchtap='showPic' data-index='{{index}}'></image>
+          <view class='swiper_text'>
+            <view>{{item.title}}</view>
+            <text>{{item.txt}}</text>
+          </view>
+    </swiper-item>
+  </swiper>
+</view>
+<!--setction_3-->
+<view class='intellContent_1 setction_3'>
+  <view class='flex-r v-center intellNum'>
+    <image src='http://img.duorang.com/upload/img/num_2.png'></image>
+    <text>专业买手全网对比</text>
+  </view>
+  <view class='setText'>
+    所有集采项目均由专业买手经过正规渠道(京东、天猫、实体卖场)进行价格对比，材质对比，<text>只有确保同品质下真低价才能开团</text>  。
+  </view>
+  <!--业主排版-->
+  <view class='listBox'>
+     <!--<view class='listKeys'>-->
+        <!--<block wx:for='{{box}}' wx:key='q' wx:for-index="idx">-->
+          <!--<view class="{{idx == 2 || idx == 3? 'li2':'li'}}">-->
+              <!--<view class="li-img" wx:if="{{idx == 4 || idx == 5}}">-->
+                  <!--<image src="http://img.duorang.com/upload/img/right.png"></image>-->
+              <!--</view>-->
+              <!--<view class="li-txt">-->
+                <!--<image src='{{item.url}}'></image>-->
+                <!--<view>{{item.name}}</view>-->
+              <!--</view>-->
+              <!--<view class="{{idx == 2 || idx == 3?'li-img2':'li-img'}}" wx:if="{{idx!=4 && idx!=5 && idx!=8}}">-->
+                  <!--<image wx:if="{{idx<2 || (5<idx && idx<8)}}" src="http://img.duorang.com/upload/img/left.png"></image>-->
+                  <!--<image wx:elif="{{idx == 2 || idx == 3}}" style="height:50rpx;width: 15rpx;" src="http://img.duorang.com/upload/img/down.png"></image>-->
+              <!--</view>-->
+          <!--</view>-->
+      <!--</block>-->
+     <!--</view>-->
+      <image mode="widthFix" src="http://img.duorang.com/upload/img/l.jpg"></image>
+  </view>
+<!--section_4-->
+  <view>
+      <view class='intellBox'>
+        <view class='intellEng flex-r v-center'>PART<text></text> three</view>
+        <view class='intellBigTitle'>买的便宜更要放心</view>
+    </view>
+     <view class='flex-r v-center intellNum'>
+        <image src='http://img.duorang.com/upload/img/num_1.png'></image>
+        <text>免费参团，下单自由</text>
+     </view>
+     <view class='endText'>
+      集采提倡多比较，未经充分了解，请不要急于下单，我们一般建议提前一个月左右交订金，这样能避免临时需要又无法享受集采低价。
+     </view>
+     <view class='flex-r v-center intellNum'>
+        <image src='http://img.duorang.com/upload/img/num_2.png'></image>
+        <text>订金可退，降价补差</text>
+     </view>
+     <view class='endText'>
+      订金随时可退,小程序申请即可;已交订金的项目，保价3个月,保价期内如发生降价变动,平台补贴差额(灯具、电器、开关除外)。
+     </view>
+
+     <view class='flex-r v-center intellNum'>
+        <image src='http://img.duorang.com/upload/img/num_3.png'></image>
+        <text>专属团长，答疑解惑</text>
+     </view>
+      <view class='endText'>
+      集采过程中有专业人员陪同参与，帮助大家了解市场套路、解答装修问题,彻底避开消费陷阱。
+     </view>
+
+      <view class='flex-r v-center intellNum'>
+        <image src='http://img.duorang.com/upload/img/num_4.png'></image>
+        <text>极速售后，公开处理</text>
+      </view>
+      <view class='endText'>
+         遇到售后问题，多让社群内可直接反馈，公平公正透明处理;以前一个人去买东西，很多时候对抗不了商家，店大欺客，现在我们是一群人买东西，遇到问题大家共同解决。
+      </view>
+  </view>
+</view>
+<!--footer-->
+<view class='flex-row-center'>
+  <image src='http://img.duorang.com/upload/img/logo.png'></image>
+  <view>只为业主服务的装修社群</view>
+</view>
+
+
+</view>
+<!--shareHome-->
+<movable-area wx:if="{{shareHome}}" class="marea" style="{{'height:'+height+'px;pointer-events: none'}}">
+    <movable-view
+            style="pointer-events: auto"
+            class="rimg"
+            direction="all">
+        <image class="returnImg" src="../../images/returnIndex.png" catchtap="returnHome"></image>
+    </movable-view>
+</movable-area>

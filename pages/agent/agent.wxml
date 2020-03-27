@@ -1,0 +1,102 @@
+<import src="/tpls/auth-code/auth-code-tpl.wxml" />
+<import src="/tpls/loginPublic/loginPublic.wxml" />
+<template is="login_public"  data="{{show_modal}}"></template>
+<view class="agent">
+    <!--侧边导航栏-->
+    <scroll-view
+            scroll-y
+            style="{{'height: '+height+'px;display: flex;'}}"
+            class="agent_slider_left">
+        <!--<text class="slider_tag">为你推荐</text>-->
+        <!--<text class="slider_title">正在采集</text>-->
+        <!--<text class="slider_title">等待开团</text>-->
+        <block wx:for="{{items}}" wx:for-index="idx" wx:key="{{item.id}}">
+            <view class="{{checkIndex==idx?'check':'slider_text'}}" data-index="{{idx}}" id="{{item.id}}" catchtap="checkItem" ><view>{{item.categoryName}}</view></view>
+        </block>
+    </scroll-view>
+    <!--右侧详细内容区-->
+    <view  class="agent_slider_right">
+        <!--<view class="right_head">找不到需要的项目，提交意向</view>-->
+        <!--<view class="right_title">推荐项目</view>-->
+        <scroll-view
+                scroll-y
+                bindscrolltolower="loadMore"
+                style="{{'height: '+(scrollHeight)+'px;'}}">
+                <view class="agent-item" hidden="{{items[checkIndex].projectInfoList.length==0}}">
+                    <view wx:if="{{checkIndex == 0}}" style="width: 100%;background-color: #ffffff">
+                        <block wx:for="{{items[checkIndex].projectInfoList}}" wx:for-index="idx" wx:key>
+                            <view class="item" data-index="{{idx}}" id="{{item.id}}" catchtap="chooseItem">
+                                <view class="i-data">
+                                    <text class="i-txt">{{checkIndex===0?item.name:item.project_name}}</text>
+                                    <view class="i-label" wx:if="{{checkIndex!==0 || item.project_type==1}}">
+                                        {{item.project_type==1?'在线下单':item.status==3?'订金转单':'需求征集'}}
+                                    </view>
+                                </view>
+                                <image src="{{item.index_img?item.index_img:'../../images/default.png'}}" />
+                                <!--<text>{{item.project_name}}</text>-->
+                                <!--<image mode="aspectFit" src="{{item.img_url}}" />-->
+                            </view>
+                        </block>
+                      </view>
+                    <view wx:else style="width: 100%;background-color: #ffffff;height: inherit;">
+<!--每一列置顶头部-->
+                    <block wx:for='{{newitems}}' wx:key='isp'>
+                      <view class="baseinfo i-data" 
+                             id="{{item.id}}"
+                             data-type='{{item.fc}}'
+                             data-shareName='{{item.shareName}}'
+                             data-shareUrl='{{item.shareUrl}}'
+                             catchtap="baseinfoItem" >
+                          <view  class="i-txt">{{item.name}}</view>
+                          <image class=''src="{{item.index_img?item.index_img:'../../images/default.png'}}" />
+                      </view>
+                    </block>
+                      
+<!--每一列置顶头部-->
+                        <!-- <image mode="scaleToFill" catchtap="" class="ibanner" src="../../images/agent.jpg"></image> -->
+                        <view class="t0" wx:if="{{items[checkIndex].t0.length>0}}">
+                            <view class="tline">在线下单</view>
+                            <view class="tview {{items[checkIndex].t0.length == 1?'jusity':''}}">
+                                <block wx:for="{{items[checkIndex].t0}}" wx:for-index="idx" wx:key>
+                                    <view class="titem" data-type="t0" data-index="{{idx}}" id="{{item.id}}" catchtap="chooseItem">
+                                        <image mode="aspectFit" src="{{item.logo}}" />
+                                        <view>{{item.project_name}}</view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class="t0" wx:if="{{items[checkIndex].t1.length>0}}">
+                            <view class="tline">订金转单</view>
+                            <view class="tview {{items[checkIndex].t1.length == 1?'jusity':''}}">
+                                <block wx:for="{{items[checkIndex].t1}}" wx:for-index="idx" wx:key>
+                                    <view class="titem" data-type="t1" data-proType='{{item.project_type}}' data-index="{{idx}}" id="{{item.id}}" catchtap="chooseItem" wx:if='{{item.id!=77 && item.id!=78}}'>
+                                        <image mode="aspectFit" src="{{item.logo}}" />
+                                        <view>{{item.project_type=="4"?"安居佳全屋定制":item.project_name}}</view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class="t0" wx:if="{{items[checkIndex].t2.length>0}}">
+                            <view class="tline">等待开团</view>
+                            <view class="tview {{items[checkIndex].t2.length == 1?'jusity':''}}">
+                                <block wx:for="{{items[checkIndex].t2}}" wx:for-index="idx" wx:key>
+                                    <view class="titem" data-type="t2" data-index="{{idx}}" id="{{item.id}}" catchtap="chooseItem">
+                                        <image mode="aspectFit" src="{{item.logo}}" />
+                                        <view>{{item.project_name}}</view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+        </scroll-view>
+        <view  wx:if="{{items[checkIndex] && items[checkIndex].projectInfoList.length==0 && checkIndex != 2}}" class="none" style="padding-top: 0;">
+            <image src="../../images/no-data.png"></image>
+            <text>抱歉，暂未开团</text>
+        </view>
+        <view class="nonImg" style="padding-top: 0;" wx:if="{{checkIndex == 2 && items[checkIndex] && items[checkIndex].projectInfoList.length==0}}">
+            <image mode="widthFix" src="../../images/end.jpg"></image>
+        </view>
+    </view>
+</view>
+<view class="bottomLine"></view>

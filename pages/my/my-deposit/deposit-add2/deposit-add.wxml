@@ -1,0 +1,66 @@
+<view class="form-con">
+  <navigator url="/pages/my/my-address/address-list/address-list?chooseAddressBack={{chooseAddressBack}}" hover-class="none">
+    <view class="form-group">
+      <text class="label">我的地址</text>
+      <view class="right">
+        <text class="{{chooseAddressBack.village_name? 'des': 'light-des'}}">{{chooseAddressBack.village_name?chooseAddressBack.village_name+' '+chooseAddressBack.address_detail: '请选择地址'}}</text>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/my/my-contact/contact-list/contact-list?userlinklist={{userlinklist}}" hover-class="none" >
+    <view class="form-group">
+      <text class="label">联系人</text>
+      <view class="right">
+        <view class="{{chooseContactBack.hasValue? 'des': 'light-des'}}">{{chooseContactBack.link_name}}
+          <text>{{chooseContactBack.hasValue? chooseContactBack.link_mobile: '请选择联系人'}}</text>
+        </view>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="project-con">
+  <view class="head">集采项目</view>
+
+  <view class="flex-row con" wx:if='{{anjujiaPid==""}}'>
+    <image class="cover" src="{{projectInfoDTO.img_url}}"></image>
+    <view class="flex-col-between right" style="align-items: flex-start">
+      <view class="o-hs title">{{projectInfoDTO.project_name}}</view>
+      <view class="o-hs-2 name">{{projectInfoDTO.remark}}</view>
+    </view>
+  </view>
+<!-- /**安居佳临时项目**/-->
+    <view class="flex-row con" wx:else>
+      <image class="cover" src="{{anjujiaPid==37?'http://img-test.duorang.com/upload/adv/2019/8/29/dae31e61-5eb3-4606-baa2-e8caea48fff8.png':anjujiaPid==77?'http://img-test.duorang.com/upload/adv/2019/8/29/cda29532-896a-4033-b2c0-26a9dcff5a40.png':'http://img-test.duorang.com/upload/adv/2019/8/29/1a51e3ee-f044-421d-8529-1f5799e0f597.png'}}"></image>
+
+      <view class="flex-col-between right" style="align-items: flex-start">
+        <view class="o-hs title">{{anjujiaPid==37?'安居佳全屋定制（马王堆店）':anjujiaPid==77?'安居佳全屋定制（梅溪湖店）':'安居佳全屋定制（望城店）'}}</view>
+        <view class="o-hs-2 name">{{projectInfoDTO.remark}}</view>
+      </view>
+   </view>
+<!-- /**安居佳临时项目**/-->
+</view>
+
+<view class="w pay-con">
+  <view class="wx-content">
+    <view class="wx-head">
+      <text>项目订金</text>
+      <text class="wx-date" wx:if='{{orderDate}}'>(订金有效期{{orderDate}}天)</text>
+    </view>
+    <view class="wx-price">
+      {{projectInfoDTO.so_price}}元
+    </view>
+  </view>
+  <view class="flex-row-between weixin-pay">
+    <text class="wx-total">总计: {{projectInfoDTO.so_price}}元</text>
+  </view>
+</view>
+
+<view class="flex-row flex-end footer-fixed">
+  <view>应付金额</view>
+  <view class="price">{{projectInfoDTO.so_price}}元</view>
+  <view class="btn-submit" bindtap="onSubmitTap">提交</view>
+</view>

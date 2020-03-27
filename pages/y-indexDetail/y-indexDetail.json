@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "model-bottom": "../../components/y-botmModel/botmModel",
+    "y-detail-model-1":"../../components/y-detailMoel-1/index",
+    "y-detail-model-2": "../../components/y-detailMoel-2/index",
+    "y-detail-model-3": "../../components/y-detailMoel-3/index",
+    "y-detail-model-4": "../../components/y-detailMoel-4/index",
+    "my-commander": "../../components/myCommander/myCommander",
+    "bl-fixed-btn":"../../components/y-bottom/index"
+  }
+}

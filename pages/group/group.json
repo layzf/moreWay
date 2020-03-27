@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "多让",
+  "usingComponents": {
+    "tip":"../../components/tip/tip",
+    "slide":"../../components/slide/slide",
+    "count":"../../components/countdown2/countdown",
+    "add-routine": "../../components/addRoutine/addRoutine"
+  }
+}

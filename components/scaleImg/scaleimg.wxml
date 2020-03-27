@@ -1,0 +1,3 @@
+<view class="scale"  wx:if="{{show}}" catchtap="hideImg" style="{{'height:'+height+'px'}}" catchtouchmove="true">
+    <image wx:if="{{mask}}" class="simg {{mask?'show':''}}" mode="aspectFit" catchtap="s" src="{{img}}"></image>
+</view>

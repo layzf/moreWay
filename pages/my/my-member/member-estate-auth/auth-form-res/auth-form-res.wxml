@@ -1,0 +1,61 @@
+<view wx:if="{{failStatus==true}}">
+    <view class="res-w">
+      <view class="text-res-s flex-r">
+        <view><image src="/images/icon_hyrzsb.png" class="icon-res"></image></view>
+        <view class='noFail'>认证失败</view>
+      </view>
+      <view class="btn-group res-btn-group">
+        <navigator url="/pages/my/my-member/member-estate-auth/auth-form-update/auth-form-update" open-type="navigateTo">
+          <button class="btn-white">修改认证资料</button>
+        </navigator>
+      </view>
+    </view>
+    <view class="border-w"></view>
+    <view class="res-con">
+      <view class="head">未通过原因</view>
+      <view class="con">
+        <view class="p">
+          {{err_msg}}
+        </view>
+        <!-- <view class="p">
+          2、本群以统一成员群名片格式实行成员登记，格式内简单入群者只需在加入群后将自己的昵称改成自己喜欢的各种产品(各种都可以)
+        </view>
+        <view class="p">
+          3、本群为多让群，原则上只接受和多让相关的人士入群
+        </view> -->
+      </view>
+    </view>
+</view>
+ <view wx:else>
+    <view class="res-w">
+      <image src="/images/icon_res_success@2x.png" class="icon-res"></image>
+      <view class="text-res-s">认证资料提交成功</view>
+        <view class="text-res-s">等待审核通过</view>
+    </view>
+    <view class="border-w"></view>
+    <!-- <view class='noFails flex-col-center'>
+      <view class='noFail_left'>联系团长迅速通过会员认证审核</view>
+      <view class='noFail_right flex-row-between'>
+        <view class='noFail_top'>
+          <view class='noFail_bottom flex-row-center'><image src='/images/commander_call@2x.png'></image></view>
+          <view class='noFail_aside'>打电话</view>
+        </view>
+        <view class='noFail_top'>
+          <view class='noFail_bottom flex-row-center'><image src='/images/commander_wechart@2x.png'></image></view>
+          <view class='noFail_aside'>加微信</view>
+        </view>
+        <view class='noFail_top'>
+          <view class='noFail_bottom flex-row-center'><image src='/images/commander_location@2x.png'></image></view>
+          <view class='noFail_aside'>查看地址</view>
+        </view>
+      </view>
+      <view class='noFail_middle'><image src='/images/auth_code@2x.png'></image></view>
+    </view> -->
+  <view class='foot flex-col-center'>
+    <view class='foot_right'><text>你也可以主动联系我们</text></view>
+    <view class='foot_left' bindtap='contactMy'>
+    <image src='/images/icon_dh@2x.png'></image>
+      联系我们
+    </view>
+  </view>
+</view>

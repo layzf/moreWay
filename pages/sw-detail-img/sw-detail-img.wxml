@@ -1,0 +1,8 @@
+<!--pages/sw-detail-img/sw-detail-img.wxml-->
+<view class="imgs">
+  <icon type="cancel" size="30" color="#000" class="colseInt" bindtap="cancelClick"/>
+
+  <block wx:for='{{arrimg}}' wx:key='index'>
+    <image src="{{item}}" mode='widthFix' catchtap="lookImg" data-img='{{item}}' ></image>
+  </block>
+</view>

@@ -1,0 +1,22 @@
+@import "/style/form-input.wxss";
+.w-con{
+  margin:0;
+  padding:20rpx 28rpx;
+}
+.w{
+  padding:0 28rpx;
+}
+.select{
+  color:#999;
+  padding:28rpx 0;
+}
+.tips{
+  color:#FF5D22;
+  line-height:98rpx;
+  padding:0 28rpx;
+}
+
+.btn-confirm{
+  background-color: #FF5D22 !important;
+}
+

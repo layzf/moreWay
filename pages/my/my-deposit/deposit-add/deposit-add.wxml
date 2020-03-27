@@ -1,0 +1,101 @@
+<view class="form-con">
+  <!-- <view class="form-group" bindtap="onSelectCommanderTap">
+    <text class="label">服务团长</text>
+    <view class="right">
+      <text class="{{chooseCommanderBack.hasValue? 'des': 'light-des'}}">{{chooseCommanderBack.hasValue? chooseCommanderBack.name: '选择服务团长'}}</text>
+      <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+    </view>
+  </view>  -->
+
+  <navigator url="/pages/my/my-address/address-list/address-list?chooseAddressBack={{chooseAddressBack}}" hover-class="none">
+    <view class="form-group">
+      <text class="label">收货地址</text>
+      <view class="right">
+        <text class="{{chooseAddressBack.village_name? 'des': 'light-des'}}">{{chooseAddressBack.village_name?chooseAddressBack.village_name+' '+chooseAddressBack.address_detail: '请选择收货地址'}}</text>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="/pages/my/my-contact/contact-list/contact-list?userlinklist={{userlinklist}}" hover-class="none">
+    <view class="form-group">
+      <text class="label">联系人</text>
+      <view class="right">
+        <view class="{{chooseContactBack.hasValue? 'des': 'light-des'}}">{{chooseContactBack.name}}
+          <text>{{chooseContactBack.hasValue? chooseContactBack.phone: '请选择联系人'}}</text>
+        </view>
+        <image src="/images/icon_arrow_next_light_gray@2x.png" class="icon-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+
+</view>
+
+<view class="mask" wx:if="{{selectCommanderTap}}" catchtap="hideCommanderModal"></view>
+<view class="fix-bottom-submit" wx:if="{{selectCommanderTap}}" animation='{{animationData}}'>
+  <view class="wx-head">
+    请选择本次装修房子小区的服务团长
+  </view>
+  <block wx:for="{{commanderList}}" wx:key="{{item.id}}">
+    <view class="flex-row item" bindtap="changeCommanderTap" data-id="{{item.id}}" data-name="{{item.user_name}}">
+      <view class="icon">
+        <image wx:if="{{item.is_default}}" src="/images/icon_fixed_selected@2x.png" class="icon-selected"></image>
+        <view wx:else class="icon-select"></view>
+      </view>
+      <view class="desc">{{item.user_name}}团长</view>
+    </view>
+  </block>
+</view>
+
+<!-- <view class="project-con" wx:if="{{chooseAddressBack.can_update==1}}">
+  <view class="head">
+    服务年费
+  </view>
+  <view class="flex-row con">
+    <image class="cover" src="{{chooseAddressBack.img_url}}"></image>
+    <view class="right">
+      <view class="o-hs title">{{chooseAddressBack.village_name}}小区会员服务年费</view>
+      <view>
+        <text class="price">300元</text>
+         <text class="time">（有效期至2018年4月19日）</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class="project-con">
+  <view class="head">
+    集采项目
+  </view>
+  <view class="flex-row con">
+    <image class="cover" src="{{projectInfoDTO.project_img_url}}"></image>
+    <view class="flex-col-between right" style="align-items: flex-start">
+      <view class="o-hs title">{{projectInfoDTO.project_name}}</view>
+      <view class="o-hs-2 name">{{projectInfoDTO.remark}}</view>
+      <view>
+        <!--<text class="price">{{projectInfoDTO.so_price}}元</text>-->
+        <!-- <text class="time">有效期至{{projectInfoDTO.update_at}}</text> -->
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="w pay-con">
+  <view class="wx-content">
+    <view class="wx-head">
+      <text>项目订金</text>
+      <text class="wx-date">(订金有效期2个月)</text>
+    </view>
+    <view class="wx-price">
+      {{projectInfoDTO.so_price}}元
+    </view>
+  </view>
+  <view class="flex-row-between weixin-pay">
+    <text class="wx-total">总计: {{projectInfoDTO.so_price}}元</text>
+  </view>
+</view>
+
+<view class="flex-row flex-end footer-fixed">
+  <view>应付金额</view>
+  <view class="price">{{projectInfoDTO.so_price}}元</view>
+  <view class="btn-submit" bindtap="onSubmitTap">提交</view>
+</view>
