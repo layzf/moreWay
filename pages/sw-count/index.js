@@ -124,7 +124,6 @@ Page({
           appoint_time: val.key_5,
         }
         console.log(data,'提交信息')
-        return
       _api.addApointRecord(data,res=>{
         console.log(res,'aaa')
         if (res.resultCode===1000){
