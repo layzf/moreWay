@@ -1,5 +1,4 @@
-//卧槽
-
+/**啊啊啊啊 */
 import {
   Base
 } from './utils/base.js';
