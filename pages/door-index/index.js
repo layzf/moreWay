@@ -59,6 +59,12 @@ Page({
   getUserInfo() {
     wx.navigateTo({ url: '../newLogin/index?toUrl=none' })
   },
+  lookImg(e){
+    var item = _base.getDataSet(e, 'items') 
+    var index = _base.getDataSet(e, 'index') 
+    var img = item.productInfo.map(item => item.img_url)
+    getApp().previewImage(img, index);
+  },
   //预约量尺
   godetails: function () {
     /**

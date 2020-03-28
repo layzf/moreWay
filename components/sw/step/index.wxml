@@ -1,7 +1,7 @@
 <!--components/sw/step/index.wxml-->
 <view class="fixeds"  wx:if='{{isShowCoun!=1}}'>
   <view class="setBoxs" >
-    <view class="setList {{index<=cur?'active':''}}" wx:for='{{typeSetp==1?step1:step}}' wx:key='{{item.num}}' >
+    <view class="setList {{index<=cur?'active':''}}" wx:for='{{typeSetp==1?step1:step}}' wx:key='num' >
         <view class="setNum">{{item.num}}<text>/{{item.text}}</text></view>
     </view>
   </view>

@@ -37,7 +37,8 @@
       <view class="productionBoxs">
         <view wx:for='{{item.productInfo}}' wx:key='id'  wx:for-item='cItem' >
           <view class="productName">{{cItem.name}}</view>
-          <image src="../../images/default.png"></image>
+          <image src="{{cItem.img_url}}" wx:if='{{cItem.img_url}}' catchtap="lookImg" data-items='{{item}}' data-index='{{index}}'></image>
+          <image src="../../images/default.png" wx:else></image>
 
           <view class="price" wx:if='{{loginStatus}}'>集采价:{{cItem.sale_price}}/{{cItem.unit}}</view>
           <view class="price" wx:else>集采价:????</view>

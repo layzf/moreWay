@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    
-    "pages/sw-count/index",
     "pages/door-index/index",
+    "pages/sw-count/index",
+    
     "pages/newLogin/index",
     "pages/my/center/center",
 
