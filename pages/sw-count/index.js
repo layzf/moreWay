@@ -1,25 +1,18 @@
 // pages/sw-count/index.js.
 import { Api } from "../../utils/api";
 import { Base } from "../../utils/base";
-
-
 let _base = new Base();
 let _api = new Api();
-
 const app = getApp()
-
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    id:'',//选择的品牌id
-    typeSetp:'',
-    categoryId:'',
-    shareName:'',
-    shareUrl:'',
+    loginStatus:'',//用户登录信息
+    options:{},
+
     date:'',
     int:[
       { text: '输入姓名', name: '1', type: 'text', value:''},
@@ -30,14 +23,13 @@ Page({
     ],
     startTime:'',//开始预约时间
     endTime:'',//结束时间
-    isShowCoun:'',//是否要显示任务条
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideShareMenu();
+    wx.hideShareMenu()
     this.apointList(options)
 
     var myDate = new Date();
@@ -62,6 +54,12 @@ Page({
 
   },
 
+  onShow(){
+    let loginStatus = wx.getStorageSync('loginStatus');
+    this.setData({
+      loginStatus: loginStatus
+    })
+  },
 
   apointList: function (options){
     var int = this.data.int;
@@ -85,12 +83,7 @@ Page({
       this.setData({
         [moile]: userInfo.mobile,
         [villageName]: changeVillageName,
-        typeSetp: options.typeSetp,
-        categoryId: options.categoryId,
-        shareName: options.shareName,
-        shareUrl: options.shareUrl,
-        id: options.id,
-        isShowCoun: options.isShowCoun
+        options: options,
       })
     })
   },
@@ -124,12 +117,14 @@ Page({
     }else{
         var data={
           link_name:val.key_1,
-          project_id: this.data.id,
+          project_id: this.data.options.id,
           phone: val.key_2,
           village_name: val.key_3,
           building_no: val.key_4,
           appoint_time: val.key_5,
         }
+        console.log(data,'提交信息')
+        return
       _api.addApointRecord(data,res=>{
         console.log(res,'aaa')
         if (res.resultCode===1000){
@@ -163,7 +158,7 @@ Page({
       })
       console.log('全部通过后 提交')
     }
-    
-  
   },
+
+
 })

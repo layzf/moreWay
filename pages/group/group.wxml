@@ -59,7 +59,7 @@
     </view>
 
     <view class='limitTime flex-wx'>
-      <block wx:for="{{collectPerdect}}" wx:key="">
+      <block wx:for="{{collectPerdect}}" wx:key="id">
           <view class="img_item"
                 data-type="{{item.base_type}}"
                 data-base_id="{{item.id}}"

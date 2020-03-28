@@ -1,20 +1,20 @@
 {
   "pages": [
-
     "pages/index/index",
+    
+    "pages/sw-count/index",
     "pages/door-index/index",
     "pages/newLogin/index",
-    "pages/my/centerNew/index",
-    
     "pages/my/center/center",
+
+    "pages/my/centerNew/index",
+    "pages/association/index",
     "pages/GroupTrim/index",
-   
-    "pages/commentAll/index",
+    "pages/assemble/index",
     "pages/agents/index",
+    "pages/commentAll/index",
     "pages/singUpSuccess/index",
     "pages/assembleList/index",
-    "pages/association/index",
-    "pages/assemble/index",
     "pages/group-purchase-old/index",
     "pages/waterFlowDetail/index",
     "pages/waterFlow/index",
@@ -30,7 +30,7 @@
     "pages/group-purchase/purchase",
     "pages/y-assess/y-assess",
     "pages/y-indexDetail/y-indexDetail",
-    "pages/sw-count/index",
+    
     "pages/sw-three-detail/index",
     "pages/y-index/y-index",
     "pages/sw-two-detail/index",
