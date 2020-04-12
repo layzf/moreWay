@@ -2,11 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/door-index/index",
-    "pages/sw-count/index",
-    
+    "pages/vipSignIn/index",
+    "pages/quoteAll/index",
     "pages/newLogin/index",
+   
     "pages/my/center/center",
-
     "pages/my/centerNew/index",
     "pages/association/index",
     "pages/GroupTrim/index",
@@ -19,6 +19,7 @@
     "pages/waterFlowDetail/index",
     "pages/waterFlow/index",
 
+    "pages/sw-count/index",
     "pages/r-main/main",
     "pages/userBook/index",
     "pages/y-orderSuccess/y-orderSuccess",

@@ -16,7 +16,6 @@ var _login = new login();
 const app = getApp();
 App({
     onLaunch: function (options) {
-      
 //金雕二维码ID
       if (options.query.qrUserId){
         this.globalData.qrUserId = options.query.qrUserId
@@ -42,21 +41,12 @@ App({
         wx.checkSession({
             success() {
               _login.login(); 
-              // let sessionId = wx.getStorageSync("sessionId");
-              //  if (!sessionId){
-              //    _login.login();         console.log("session_key没过期但session没了")
-              //   }else{
-              //      console.log("session_key没过期，并且有session 正常访问")
-              //   }
             },
             fail() {
               console.log('session_key过期123')
-                // session_key 已经失效，需要重新执行登录流程
                 _login.login();
             }
         })
-
-  
 
         // 强制用户更新小程序
         const updateManager = wx.getUpdateManager()
@@ -70,7 +60,6 @@ App({
                 content: '新版本已经准备好，是否重启应用？',
                 success: function(res) {
                     if (res.confirm) {
-                        // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
                         updateManager.applyUpdate()
                     }
                 }

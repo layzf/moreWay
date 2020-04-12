@@ -10,20 +10,55 @@ var _login = new login();
 Page({
   data: {
     //show_modal: false
-    scene:null
+    scene:null,
+    QR:false
   },
   onLoad: function (options) {
+    console.log(options,"hah")
     let scene = decodeURIComponent(options.scene);
+    console.log(scene,"111")
     let obj = {};
     if(scene !== 'undefined'){
         let temp = scene.split('&');
         console.log('temp2',temp);
+      let temp0 = temp[0].split('=')[0];
+  
+      if (temp0 === 'categoryCode'){ //自主报价入口
+        let temp1 = temp[0].split('=')[1];
+
+        _api.selectCategoryList(res => {
+          var maps = res.filter( item => item.code === temp1);
+          wx.reLaunch({
+            url: maps[0].target_url + '?shareCategoryId=' + maps[0].code + '&shareName=' + maps[0].shareName + '&shareUrl=' + maps[0].shareUrl + '&QR=formIndex'
+          })
+
+        })
+       
+       this.setData({
+         QR:true
+       })
+        
+      } else if (temp0 === 'businessShopId'){  //用户在店铺签到
+        let pid = temp[0].split('=')[1];
+
+         wx.reLaunch({
+           url: '/pages/vipSignIn/index?pid=' + pid,
+         })
+        this.setData({
+          QR: true
+        })
+      }else{ //用户现场签到
         obj.baseId = temp[1].split('=')[1];
         obj.ridingId = temp[0].split('=')[1];
         this.setData({
-            scene:obj
+          scene: obj
         })
+      }
+
+       
     }
+
+    
   },
   onShow: function () {
     wx.getSetting({
@@ -56,6 +91,7 @@ Page({
                       }, 500)
                   },
                   fail:function() {
+                    if (that.data.QR) return
                     wx.reLaunch({
                       url: '/pages/group/group?village_id=' + 22
                     })
@@ -94,6 +130,7 @@ Page({
                 }
               })
             }else{
+                if (this.data.QR) return
                 wx.reLaunch({
                     url: '/pages/group/group?village_id=' + 22
                 })

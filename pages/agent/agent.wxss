@@ -215,7 +215,7 @@ page {
     margin-bottom: 20rpx;
 }
 .baseinfo>image{
- margin: 0 0 20rpx 3%;
+    margin: 0 0 0rpx 3%;
     border-radius: 10rpx;
 }
 .baseinfo view{

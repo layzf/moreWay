@@ -29,7 +29,7 @@ page{
   width: 100%;
 }
 .hotVillage{
-  width: 672rpx;
+  width: 700rpx;
   margin: 0 auto;
 }
 

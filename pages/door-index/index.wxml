@@ -2,7 +2,7 @@
 <view>
   <view class="headers">
       <view>输入面积数据</view>
-      <text>（怎样测量面积？）</text>
+      <!-- <text>（怎样测量面积？）</text> -->
   </view>
   <form  bindsubmit="formSubmit">
     <view  class="intBox">
@@ -24,7 +24,10 @@
                catchtap="changeProductId" 
                data-vaildDays='{{projectInfo.valid_days}}'
                data-id='{{item.id}}' 
-               data-index='{{index}}'> {{item.name}} </view>
+               data-project='{{item.project_id}}' 
+               data-project_type='{{item.projectInfo.project_type}}' 
+              
+               data-index='{{index}}'> {{item.name }}</view>
       </block>
     </view>
  
@@ -67,19 +70,22 @@
 
     </block>
 
-<view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText">
-    <view style="font-size:32rpx;">根据您选择的品牌和配置：</view>
-    <view wx:for='{{smallText}}' wx:key='id' class="footerMoneys">{{item}}</view>
-    <view class="allMoney">总价：￥{{moneyAll}} 元</view>
-</view>
+  <view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText" id='box'>
+      <view style="font-size:32rpx;">根据您选择的品牌和配置：</view>
+      <view wx:for='{{smallText}}' wx:key='id' class="footerMoneys">{{item}}</view>
+      
+  </view>
 
+  <view class="allMoney" style="position:{{fixedConStatus?'static':'fixed'}}"  wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}'>仅需要￥{{moneyAll}} </view>
+  <view class="proImgs">
+      <image src="{{item.img_url}}" wx:for='{{projectExplainList}}' wx:key='id' mode='widthFix'></image>
+  </view> 
 <!--底部按钮-->
     <view class="footerBtn">
       <view catchtap="callCapital">联系团长</view>
       <view catchtap="godetails">预约量尺</view>
       <view catchtap="getMoney">交订金300元</view>
     </view>
-
   </form>
 </view>
 

@@ -64,7 +64,7 @@ Page({
     console.log(para);
     var validateResult = this.formValidateSubmit(para);
     if (!validateResult.status) {
-      _base.showToast(validateResult.msg);
+      _base.showToast(validateResult.msg,'none');
       return false;
     }
     _api.adress_add(para,(res)=>{

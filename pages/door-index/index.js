@@ -2,6 +2,7 @@
 import { Api } from "../../utils/api";
 import { Base } from "../../utils/base";
 import { login } from '../../utils/login.js';
+const throttles = require('../../utils/throttle.js')
 
 let _base = new Base();
 let _api = new Api();
@@ -41,19 +42,25 @@ Page({
     valid_days:'',//订金有效期
     changeMoneyLength:0,
     loginUser:{},
-    anujiaType:4,//安居佳项目 4
     options:{},
+    projectExplainList:[],//项目说明
+    PriceBoxTop:'',//距离顶部距离
+    fixedConStatus:false,//价格固定定位
+
+    project_type:'',//选择品牌是否是安居佳。
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.selectBrandList( 2 || options.shareCategoryId);
+    this.selectBrandList(options);
     this.setData({
-      shareCategoryId: 2 || options.shareCategoryId,
+      shareCategoryId:options.shareCategoryId,
       options: options
     })
+    //设置标题
+    wx.setNavigationBarTitle({title: options.category_desc})
   },
   //查看价格 没有授权去授权
   getUserInfo() {
@@ -76,8 +83,7 @@ Page({
     var ThreeDetailObjs = {
       typeSetp: null,
       categoryId: this.data.shareCategoryId,//项目ID
-      changePId: anujiaType? 77 : this.data.productListIndex.proId, //品牌ID
-      anujiaType: anujiaType,
+      changePId: (options.code == 'ajj' || this.data.project_type == 4) ? 106 : this.data.productListIndex.project_id, //项目ID
       shareName:options.shareName,
       shareUrl:options.shareUrl,
     }
@@ -100,19 +106,19 @@ Page({
   },
   //交订金
   getMoney(){
-    var changePId = this.data.productListIndex.proId
+    var changePId = this.data.productListIndex.project_id
     var loginStatus = this.data.loginStatus;
-    var anujiaType = 4; //跳到安居佳列表页面
+    var anujiaType = this.data.anujiaType ; //跳到安居佳列表页面
 
     var url = ''
 
     if (loginStatus){
       url = '/pages/my/my-deposit/deposit-add2/deposit-add?id=' + changePId + '&type=1 &data=' + this.data.valid_days;
     }else{
-      url = '../newLogin/index?ziId=' + changePId + '&type=1 &data=' + this.data.valid_days + '&toUrl=deposit' + '&anujiaType=' + anujiaType
+      url = '../newLogin/index?ziId=' + changePId + '&type=1 &data=' + this.data.valid_days + '&toUrl=deposit'
     }
 
-    if (anujiaType == 4) {
+    if (this.data.options.code == 'ajj' || this.data.project_type == 4) {
       url = '/pages/anjujia/anjujia';
     }
 
@@ -136,21 +142,36 @@ Page({
     return type
   }, 
 
-
   //品牌列表
-  selectBrandList(id){
-    _api.selectBrandList(id,res => {
-      this.changeProductId(res[0].id)
+  selectBrandList(item){
+    var id = item.shareCategoryId;
+    var data = {}
+    if (item.QR === 'formIndex'){
+      data.category_code = id
+    }else{
+      data.category_id = id
+    }
+      
+    _api.selectBrandList(data,res => {
+      this.changeProductId(res[0].id, res[0].project_id, res[0].projectInfo.project_type)
       this.setData({
-        productList:res
+        productList:res,
+        project_type: res[0].projectInfo.project_type  //是否 是安居佳项目
       })
     })
   },
   //选择品牌 
-  changeProductId(e){
+  changeProductId(e, project, project_type){
+ 
     var id = typeof (e) === 'object' ? _base.getDataSet(e, 'id') : e;
+    var project_id = typeof (e) === 'object' ? _base.getDataSet(e, 'project') : e;
+  
     var index = typeof (e) === 'object' ? _base.getDataSet(e, 'index') : 0;
     var valid_days = typeof (e) === 'object' ? _base.getDataSet(e,'vaildDays'): null //订金有效期
+
+    var project_type = typeof (e) === 'object' ? _base.getDataSet(e, 'project_type') : project_type //订金有效期
+
+    console.log(project_type,"project_type")
 
     var selectProductList = this.data.selectProductList;
     var productListIndex = this.data.productListIndex;
@@ -158,10 +179,19 @@ Page({
     this.setData({ 
       'productListIndex.index': index,
       'productListIndex.proId': id,
-       valid_days: valid_days
+      'productListIndex.project_id': project || project_id ,
+       valid_days: valid_days,
+       project_type: project_type,
     })
 
     this.selectProductList(id)
+
+//项目详情图片
+    _api.getProjectInfo(project || project_id, res => {
+      this.setData({
+        projectExplainList: res.data.projectExplainList
+      })
+    })
 
     selectProductList.forEach(item1 => {
 
@@ -177,7 +207,6 @@ Page({
   },
   //品牌下的系列
   selectProductList(id){
-    var pid = this.data.productListIndex.proId
     var productListIndex = this.data.productListIndex;
     var checked = productListIndex.checked;
 
@@ -196,7 +225,7 @@ Page({
         res[index1].productInfo = [];
         val1.productGroupList.forEach((val2,index2) => {
           val2.brandProductList.forEach( (val3,index3) =>{
-          
+
             val3.checked = false
 
             if (checkedarr.length > 0) {  //如果之前有选择产品，切换品牌后正常显示；
@@ -206,7 +235,6 @@ Page({
                   res[index1].category_attr_id = val3.category_attr_id;
                }
             }
-
             res[index1].productInfo.push(val3)
 
           })
@@ -274,7 +302,7 @@ Page({
   //单选框
   radioChange: function (e) {
     wx.vibrateShort();
-    
+  
     var checkedObj = this.data.productListIndex.checked;
     let index = _base.getDataSet(e,'index')
 
@@ -297,11 +325,25 @@ Page({
     this.setData({
       selectProductList:arr,
       changeMoneyLength: Object.keys(this.data.changeMoney).length
+    },()=>{
+      
     })
 
     this.allMoenys(e);
   },
 
+  onPageScroll: throttles.throttle(function(e){
+    console.log(e)
+    if (e.scrollTop>206){
+      this.setData({
+        fixedConStatus:true
+      })
+    }else{
+      this.setData({
+        fixedConStatus: false
+      })
+    }
+  },200),
   //浮点转换
   formatFloat: function (f, digit) {
     let m = Math.pow(10, digit);
@@ -379,6 +421,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
+    let obj = {
+      title: this.data.options.shareName,
+      url: "pages/door-index/index?shareCategoryId=" + this.data.options.shareCategoryId,
+      img: this.data.options.shareUrl
+    }
+
+    return _base.shareData(obj);
   }
 })

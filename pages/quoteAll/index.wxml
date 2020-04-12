@@ -1,0 +1,9 @@
+<!--pages/quoteAll/index.wxml-->
+<view>
+
+  <view wx:for='{{newProductLbw}}' wx:key='index' 
+          catchtap="changeProduct"
+          data-item ='{{item}}' 
+          class="runzhuang"
+          ><image src='{{item.icon}}' mode="widthFix" /></view>
+</view>

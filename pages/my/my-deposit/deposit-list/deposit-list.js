@@ -73,7 +73,7 @@ Page({
       confirmColor: '#FF5D22',
       success: function (res) {
         if (res.cancel && cancelFlag) {
-          _api.showConfirm(that.data.so_id, (res) => {
+          _api.cancel_order(that.data.so_id, (res) => {
             _base.showToast('取消成功', 'success',3000,function(){
               wx.redirectTo({
                 url: 'deposit-list',
@@ -114,7 +114,7 @@ Page({
   getDeposits() {
     let that = this;
     let para = this.data.tabsData.currentSelectTab;
-    _api.getDeposits(para, (res) => {
+    _api.getDeposits(para, {}, (res) => {
       console.log('deposit',res);
       let now = new Date().getTime()/1000;
       res.forEach((ele) => {

@@ -66,15 +66,7 @@ Page({
     console.log(options,"爱我options")
     var datas = JSON.parse(options.data);
 
-    //分享数据 分享进入
-    if (options.share) {
-      this.setData({
-        pinpaiId: options.pinpaiId,
-        sharebtn: options.share,
-        cur: options.cur,
-        arr: JSON.parse(options.arr),
-      })
-    }
+
     this.setData({
       typeSetp: options.typeSetp, //顶部 方案步骤
       categoryId: options.categoryId,//项目iD 现在是封窗项目
@@ -124,10 +116,19 @@ Page({
       commanderHiden: true,
       showTab: false
     })
-  },
+  }, 
   //查询品牌
   selectBrandList:function(id){
-    _api.selectBrandList(id,res=>{
+    //true:id是数字，不是二维码进入；false:id是字符串，二维码进入
+    var isQr = typeof parseInt(id) === 'number' && !isNaN(parseInt(id));
+    var data = {}
+    if(isQr){
+      data.category_id = id
+    }else{
+      data.category_code = id
+    }
+    
+    _api.selectBrandList(data,res=>{
       this.setData({
         brands:res,
         changePId: res[0].project_id

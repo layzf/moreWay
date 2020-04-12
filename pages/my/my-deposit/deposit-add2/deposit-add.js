@@ -191,8 +191,6 @@ Page({
     console.log(para,"提交订金的参数值")
  
     _api.submitOrders(para, (res) => {
-      _base.showToast('提交成功');
-      console.log(res,"第八")
       this.pay(res);
     })
   },
@@ -205,10 +203,7 @@ Page({
       console.log(res,'支付');
   //会话过期，重新请求
       if (res.resultCode===1002){
-      _login.wxLogin2('',res=>{
-         console.log("aaaa")
-         this.pay(so_id)
-       })
+        _login.wxLogin2()
       } else if (res.resultCode===1000){
         wx.requestPayment({
           'timeStamp': "" + res.data.timeStamp,

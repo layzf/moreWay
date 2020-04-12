@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    checked:true,
     userInfor:{
       loginStatus:'', //true：授权过手机号 false：没有授权过手机号
       userName:'' ,//是否授权过用户名
@@ -48,10 +49,17 @@ Page({
     },
     prevPage:{},//页面栈信息
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+//勾选
+  checkboxChange: function (e) {
+    e.detail.value.length ? this.setData({ checked: false }) : this.setData({ checked: true })
+  },
+  //用户协议
+  userBook: function (e) {
+    var tag = e.currentTarget.dataset.tag;
+    wx.navigateTo({
+      url: `/pages/userBook/index?tag=${tag}`,
+    })
+  },
   onLoad: function (options) {
     console.log(options,"options")
     var pages = getCurrentPages();
@@ -194,31 +202,22 @@ Page({
  //自主报价
           case 'pages/door-index/index':
 
-            var { id, valid_days, type, anujiaType, toUrl} = this.data.ziObj;
+            var { id, valid_days, type, toUrl} = this.data.ziObj;
           
             if (toUrl=='none'){
               this.navigateBack() //查看价格 返回自助页面
             } 
             else if (toUrl == 'swcount') { //预约量尺
 
-              var { typeSetp, categoryId, shareName, shareUrl, changePId, anujiaType } = this.data.ThreeDetailObjs;
-
-              if (anujiaType){
-                changePId = 77
-              }
+              var { typeSetp, categoryId, shareName, shareUrl, changePId } = this.data.ThreeDetailObjs;
+              
               wx.redirectTo({
                 url: '../sw-count/index?typeSetp=' + typeSetp + '&categoryId=' + categoryId + '&shareName=' + shareName + '&shareUrl=' + shareUrl + '&id=' + changePId + '&isShowCoun=1' ,
               })
             }
              else {   //交订金
-              var str = '';
-              if (anujiaType){
-                str = '/pages/anjujia/anjujia';
-              }else{
-                str = '/pages/my/my-deposit/deposit-add2/deposit-add?id=' + id + '&type=1 &data=' + valid_days;
-              }
               wx.redirectTo({
-                url: str
+                url: '/pages/my/my-deposit/deposit-add2/deposit-add?id=' + id + '&type=1 &data=' + valid_days
               })
             }
 
@@ -227,7 +226,7 @@ Page({
 //封窗第三步 预约量尺
           case 'pages/sw-three-detail/index':
 
-            var { typeSetp, categoryId, shareName, shareUrl, changePId, } = this.data.ThreeDetailObjs;
+            var { typeSetp, categoryId, shareName, shareUrl, changePId } = this.data.ThreeDetailObjs;
 
             wx.redirectTo({
               url: '../sw-count/index?typeSetp=' + typeSetp + '&categoryId=' + categoryId + '&shareName=' + shareName + '&shareUrl=' + shareUrl + '&id=' + changePId +'&isShowCoun=0' ,

@@ -89,56 +89,13 @@ Page({
     }
   },
 
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
     var loginUserId = wx.getStorageSync('loginUser');
-    console.log(`%c 阿文提醒您：多让使用指南分享者ID为：${loginUserId.id}`, `color:#f00;font-weight:bold;`)
 
       let obj = {
         title: '团长提示,你收到一份业主装修省钱攻略',
         url: "pages/guide/guide?shareType=1&userId=" + loginUserId.id+"",
-        img:'../../images/custom.jpg'
+        img:'../../images/group.jpg'
       }
 
       return _base.shareData(obj);

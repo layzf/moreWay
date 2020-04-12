@@ -39,3 +39,18 @@ page{
   font-size: 32rpx;
   margin-top: 80rpx;
 }
+.functionBox  .unactive{
+  background: #ccc !important;
+}
+.checkboxClass{
+  margin-top: 40rpx;
+  font-size: 22rpx;
+   display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.checkboxClass text{
+  text-decoration: underline;
+  color: #ff5d22;
+}

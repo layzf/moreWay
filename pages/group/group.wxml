@@ -116,21 +116,14 @@
     </view>
   </navigator>
 <!--自助报价-->
-  <view  class="g-item">
+  <view  class="g-item" style="padding-bottom:40rpx;">
     <view class="g-head">
         <view class="title">
             <view class="tline"></view>
             <view class="ttxt">自助报价</view>
         </view>
     </view>
-
-    <view wx:for='{{newProductLbw}}' wx:key='index' 
-          catchtap="changeProduct" 
-          data-shareUrl='{{item.share_url}}'
-          data-shareName='{{item.share_name}}'
-          data-code='{{item.code}}'
-          class="runzhuang"
-          data-id='{{item.id}}'><image src='{{item.icon}}' mode="widthFix" /></view>
+    <view  class="quote" catchtap="greed"> 自助报价入口 </view>
   </view>
   <!--长期自助团-->
   <view class="g-item " id="1">

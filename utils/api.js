@@ -494,13 +494,15 @@ class Api extends Base {
   // }
 
   //我的定金
-  getDeposits(typeId, callBack) {
+  getDeposits(typeId, { businessShopId = ''} ,callBack) {
+    console.log(`businessShopId:${businessShopId}`)
     if (typeId == 9) {
       typeId = "";
     }
     var params = {
       url: 'soinfo/list',
       data: {
+        businessShopId: businessShopId,
         status: typeId,
         page: 1,
         pagesize: 1000
@@ -2218,13 +2220,11 @@ homepage(callback){
     this.request(params);
   }
   //查询品牌
-  selectBrandList(id,callback) {
+  selectBrandList(data,callback) {
     let params = {
       url: 'rzProduct/selectBrandList',
       type: 'POST',
-      data: {
-        category_id: id
-      },
+      data: data,
       sCallBack: function (res) {
         callback(res.data);
       }

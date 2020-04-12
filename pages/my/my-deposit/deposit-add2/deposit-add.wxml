@@ -48,7 +48,7 @@
   <view class="wx-content">
     <view class="wx-head">
       <text>项目订金</text>
-      <text class="wx-date" wx:if='{{orderDate}}'>(订金有效期{{orderDate}}天)</text>
+      <text class="wx-date" wx:if='{{orderDate && orderDate!="null"}}' >(订金有效期{{orderDate}}天)</text>
     </view>
     <view class="wx-price">
       {{projectInfoDTO.so_price}}元

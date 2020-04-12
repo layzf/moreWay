@@ -1,0 +1,75 @@
+/* pages/leadMap/leadMap.wxss */
+page{
+  background: #FFF;
+}
+.title{
+  color: green;
+  font-size: 40rpx;
+  font-family: .8emArial,Tahoma,Verdana;
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 120rpx;
+}
+.user_img,.userInfo{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.user_img image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100px;
+}
+.userInfo text{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #E94816;
+}
+.userInfo text:first-of-type{
+  margin-right: 30rpx;
+}
+.scrollClass{
+  margin-top: 20rpx;
+}
+.box{
+  margin: 0 100rpx;
+  margin-top: 60rpx;
+}
+.viewClass{
+  display: flex;
+  margin-top: 15rpx;
+  text-align: center;
+}
+.titleOrder{
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  color: #E94816;
+  font-weight: bold;
+}
+.viewClass text{
+  flex: 1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.notList{
+  color: #cdcdcd;
+  text-align: center;
+  margin-top: 160rpx;
+}
+.td{
+  font-weight: bold;
+  margin-top:30rpx;
+}
+
+.fixedIMgs{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+}
+.fixedIMgs image{
+  width: 440rpx;
+  height: 48rpx;
+}

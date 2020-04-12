@@ -17,7 +17,6 @@ Page({
     tabHeight: '',//周末团高度
     tabTop:'',//周末团距离顶部距离
     lever: false,//滚动事件属性
-    newProductLbw: [],//封窗，橱柜，地暖等.....
     groupEstatePara: {},
     sliders: [],
     collects: [],
@@ -58,19 +57,11 @@ Page({
       options: options,
       height: wx.getSystemInfoSync().windowHeight
     })
-    // this.checkAuth(); 多次调用buildsession，先注释掉
+
     this.getSlider();
-    //this.getGroupData();
+
     this.getCollects();
 
- 
-
-//封窗，橱柜，地暖等.....
-    _api.selectCategoryList(res => {
-      this.setData({
-        newProductLbw: res,
-      })
-    })
   },
 
   touchstart:function(e){
@@ -105,28 +96,7 @@ Page({
     }
     
   },
-  //选择软装项目
-  changeProduct:function(e){
-    var id = e.currentTarget.dataset.id;
-    var code = e.currentTarget.dataset.code;
-    var shareName = e.currentTarget.dataset.sharename;
-    var shareUrl = e.currentTarget.dataset.shareurl;
 
-    switch (code){
-      case 'fc':
-        wx.navigateTo({
-          url: '/pages/sw-index/sw-index?shareCategoryId=' + id + '&shareName=' + shareName + '&shareUrl=' + shareUrl + ''
-        })
-        break;
-
-      case 'cg':
-      wx.navigateTo({
-        url: '/pages/door-index/index?shareCategoryId=' + id + '&shareName=' + shareName + '&shareUrl=' + shareUrl + ''
-      })
-      break;
-    }
-    
-  },
   loginCode: function () {
       wx.navigateTo({
           url: '/pages/my/my-auth-code/my-auth-code',
@@ -396,6 +366,12 @@ Page({
         url: '../group-purchase/purchase?base_id=' + base_id + '&villageId=' + villageId
       })
     }, 300)
+  },
+  greed(){
+    wx.setStorageSync('setSyInfoQuoteId',2)
+    wx.switchTab({
+      url: '/pages/agent/agent',
+    })
   },
   // 判断是否登录跳转到集采详情
   judgeCollect: function(e) {

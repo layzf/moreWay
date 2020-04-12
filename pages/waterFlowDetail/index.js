@@ -48,7 +48,7 @@ Page({
         height: 0
       },
       {
-        pic: "../../../images/custom.jpg",
+        pic: "../../../images/group.jpg",
         height: 0
       },
       {

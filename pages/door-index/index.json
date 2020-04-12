@@ -2,5 +2,5 @@
   "usingComponents": {
     "my-commander": "../../../components/myCommander/myCommander"
   },
-  "navigationBarTitleText": "全屋定制自助报价" 
+  "backgroundColor": "#f7f7f7"
 }

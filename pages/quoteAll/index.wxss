@@ -1,0 +1,8 @@
+.runzhuang{
+  width: 94%;
+  padding: 25rpx 0;
+  margin: 0 auto;
+}
+.runzhuang image{
+  width: 100%;
+}

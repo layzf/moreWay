@@ -27,9 +27,8 @@ Page({
 
   },
 
- 
   onLoad: function (options) {
-
+    console.log(options,"options")
     this.selectVillageList();
 
     this.setData({
@@ -89,51 +88,6 @@ Page({
     })
   },
 
-  //调起用户授权 ****
-  _wxLogin(e) {
-    let data = e.detail.encryptedData;
-    var id = e.currentTarget.dataset.id
-    let iv = e.detail.iv;
-    let that = this;
-    if (e.detail.errMsg === "getPhoneNumber:ok") {
-      _api.wxLogin({ data: data, iv: iv }, res => {
-        if (res.resultCode === 1000) {
-          wx.setStorageSync("loginStatus", res.data.loginstatus);
-          wx.setStorageSync("loginUser", res.data.loginUser);
-          this._changeVillage(e)  
-        }
-      })
-    }
-  },
-
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享
