@@ -309,7 +309,6 @@ Page({
               });
 
           }
-
 //邀请人ID 或者 金雕的二维码 邀请接口好像没用，团长在后台自行可以去匹配。暂时保留
 
           if (getApp().globalData.qrUserId || this.data.invterUserId) {

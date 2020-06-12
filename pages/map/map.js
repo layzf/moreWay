@@ -1,4 +1,9 @@
 // pages/map/map.js
+import {
+  Base
+} from '../../utils/base.js';
+var _base = new Base();
+
 Page({
 
   /**
@@ -81,6 +86,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
+    let obj = {
+      url: "pages/map/map?data=" + JSON.stringify(this.data.listData)
+    }
+    return _base.shareData(obj);
   }
+  
 })

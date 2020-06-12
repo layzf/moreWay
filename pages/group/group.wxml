@@ -123,7 +123,9 @@
             <view class="ttxt">自助报价</view>
         </view>
     </view>
-    <view  class="quote" catchtap="greed"> 自助报价入口 </view>
+    <view  class="quote" catchtap="greed"> 
+      <image src="../../images/indexLoad.jpg" mode='widthFix'></image>
+    </view>
   </view>
   <!--长期自助团-->
   <view class="g-item " id="1">

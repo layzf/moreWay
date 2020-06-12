@@ -65,6 +65,12 @@ Page({
         height:h
       })
     }
+    if (options.keys==='anjujia'){
+      setTimeout(() => {
+        this.goTap()
+      }, 1000)
+    }
+    
   },
  
   //跳转到首页

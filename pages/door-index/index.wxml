@@ -43,10 +43,10 @@
           <image src="{{cItem.img_url}}" wx:if='{{cItem.img_url}}' catchtap="lookImg" data-items='{{item}}' data-index='{{index}}'></image>
           <image src="../../images/default.png" wx:else></image>
 
-          <view class="price" wx:if='{{loginStatus}}'>集采价:{{cItem.sale_price}}/{{cItem.unit}}</view>
+          <view class="price" wx:if='{{loginStatus}}'>集采价:{{cItem.sale_price}}/㎡</view>
           <view class="price" wx:else>集采价:????</view>
 
-          <view class="oldPrice">原价:{{cItem.price}}/{{cItem.unit}}</view>
+          <view class="oldPrice">原价:{{cItem.price}}/㎡</view>
 
 
          <view  wx:if='{{!loginStatus}}' catchtap="getUserInfo" class="lookMoneys"><text>查看集采价</text></view>
@@ -73,7 +73,6 @@
   <view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText" id='box'>
       <view style="font-size:32rpx;">根据您选择的品牌和配置：</view>
       <view wx:for='{{smallText}}' wx:key='id' class="footerMoneys">{{item}}</view>
-      
   </view>
 
   <view class="allMoney" style="position:{{fixedConStatus?'static':'fixed'}}"  wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}'>仅需要￥{{moneyAll}} </view>

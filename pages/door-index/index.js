@@ -9,6 +9,8 @@ let _api = new Api();
 let _login = new login();
 
 Page({
+  rectTop:0,
+  Y_top:0,  
   data: {
     inputArr:[ 
       { name: '柜体面积', id: 1, unit:'㎡'},
@@ -119,7 +121,7 @@ Page({
     }
 
     if (this.data.options.code == 'ajj' || this.data.project_type == 4) {
-      url = '/pages/anjujia/anjujia';
+      url = '/pages/anjujia/anjujia?keys=anjujia';
     }
 
     wx.navigateTo({
@@ -158,6 +160,8 @@ Page({
         productList:res,
         project_type: res[0].projectInfo.project_type  //是否 是安居佳项目
       })
+
+
     })
   },
   //选择品牌 
@@ -188,8 +192,18 @@ Page({
 
 //项目详情图片
     _api.getProjectInfo(project || project_id, res => {
+      var that = this;
       this.setData({
         projectExplainList: res.data.projectExplainList
+      },()=>{
+        wx.createSelectorQuery().select('.proImgs').boundingClientRect(function (rect) {
+          if(rect){
+            console.log(rect,"rect")
+            that.setData({
+              rectTop: rect.top
+            })
+          }
+        }).exec()
       })
     })
 
@@ -207,6 +221,7 @@ Page({
   },
   //品牌下的系列
   selectProductList(id){
+    var that = this;
     var productListIndex = this.data.productListIndex;
     var checked = productListIndex.checked;
 
@@ -225,7 +240,7 @@ Page({
         res[index1].productInfo = [];
         val1.productGroupList.forEach((val2,index2) => {
           val2.brandProductList.forEach( (val3,index3) =>{
-
+            
             val3.checked = false
 
             if (checkedarr.length > 0) {  //如果之前有选择产品，切换品牌后正常显示；
@@ -247,10 +262,14 @@ Page({
       })
 
       this.allMoenys()
+
+
+
     })
   },
   //用户输入键盘事件
   intInput(e){
+    var that = this;
     var id = _base.getDataSet(e,'id');
     this.intFn(e, id);
   },
@@ -301,6 +320,7 @@ Page({
   },
   //单选框
   radioChange: function (e) {
+    var that = this;
     wx.vibrateShort();
   
     var checkedObj = this.data.productListIndex.checked;
@@ -330,19 +350,24 @@ Page({
     })
 
     this.allMoenys(e);
+
   },
 
   onPageScroll: throttles.throttle(function(e){
     console.log(e)
-    if (e.scrollTop>206){
-      this.setData({
-        fixedConStatus:true
+    var that = this;
+    var scroll = this.data.Y_top;
+    console.log(scroll,"scroll")
+    if (e.scrollTop > scroll) {
+      that.setData({
+        fixedConStatus: true
       })
-    }else{
-      this.setData({
+    } else {
+      that.setData({
         fixedConStatus: false
       })
     }
+
   },200),
   //浮点转换
   formatFloat: function (f, digit) {
@@ -379,7 +404,7 @@ Page({
             smallText[str] = item.name + '：' + valArea['area_' + item1.category_attr_id] + '㎡ * ' +
               item1.sale_price + '元/㎡' + ' = ' +
               this.formatFloat(valArea['area_' + id] * item1.sale_price, 2) + '元'
-          }
+           }
         })
       })
    
@@ -387,6 +412,20 @@ Page({
       moneyAll: this.formatFloat(num,2),
       smallText: smallText
     })
+
+    wx.createSelectorQuery().select('.smallText').boundingClientRect( (rect) =>{
+
+      var scroll = this.data.rectTop
+      console.log(wx.getSystemInfoSync().windowHeight, scroll,"aaaa")
+
+      if (rect) {
+         this.setData({
+           Y_top: scroll - wx.getSystemInfoSync().windowHeight
+         })
+      }
+    }).exec()
+
+
   },
 
   //咨询团长

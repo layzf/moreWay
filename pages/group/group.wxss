@@ -686,10 +686,11 @@ page {
 .quote{
   width: 94vw;
   margin: 0 auto;
-  height: 150rpx;
   margin-top: 30rpx;
-  border: 1px solid #ddd;
   border-radius: 10rpx;
   text-align: center;
-  line-height: 150rpx;
+}
+.quote image{
+  width: 100%;
+  border-radius: 10rpx;
 }
