@@ -1,17 +1,18 @@
 <!--pages/door-index/index.wxml-->
 <view>
   <view class="headers">
-      <view>输入面积数据</view>
-      <!-- <text>（怎样测量面积？）</text> -->
+    <view>输入面积数据</view>
+    <!-- <text>（怎样测量面积？）</text> -->
   </view>
-  <form  bindsubmit="formSubmit">
-    <view  class="intBox">
-      <view wx:for='{{inputArr}}' wx:key='id'>
-       <label>{{item.name}}</label>
-       <input placeholder="请输入{{item.name}}" data-id='{{item.id}}' type='digit' hold-keyboard placeholder-class="placeholderClass" name='area_{{item.id}}' bindinput="intInput"></input>
-       <text>{{item.unit}}</text>
+  <form bindsubmit="formSubmit">
+    <view class="priIng">
+      <view class="intBox">
+        <view wx:for='{{inputArr}}' wx:key='id'>
+          <label>{{item.name}}</label>
+          <input placeholder="请输入{{item.name}}" data-id='{{item.id}}' type='digit' hold-keyboard placeholder-class="placeholderClass" name='area_{{item.id}}' bindinput="intInput"></input>
+          <text>{{item.unit}}</text>
+        </view>
       </view>
-
     </view>
 
     <view class="headers">
@@ -20,25 +21,19 @@
 
     <view class="productName">
       <block wx:for='{{productList}}' wx:key='id'>
-        <view  class="{{productListIndex.index == index ? 'active':''}}" 
-               catchtap="changeProductId" 
-               data-vaildDays='{{projectInfo.valid_days}}'
-               data-id='{{item.id}}' 
-               data-project='{{item.project_id}}' 
-               data-project_type='{{item.projectInfo.project_type}}' 
-              
-               data-index='{{index}}'> {{item.name }}</view>
+        <view class="{{productListIndex.index == index ? 'active':''}}" catchtap="changeProductId" data-vaildDays='{{projectInfo.valid_days}}' data-id='{{item.id}}' data-project='{{item.project_id}}' data-project_type='{{item.projectInfo.project_type}}' data-index='{{index}}'>
+        {{item.name }}</view>
       </block>
     </view>
- 
-<!--产品-->
-    <block wx:for='{{selectProductList}}' wx:key='id' wx:for-index='Pindex'>
+
+    <!--产品-->
+
+    <view wx:for='{{selectProductList}}' wx:key='id' wx:for-index='Pindex' class="priIng">
       <view class="headers">
         <view>{{item.name}}</view>
       </view>
-
       <view class="productionBoxs">
-        <view wx:for='{{item.productInfo}}' wx:key='id'  wx:for-item='cItem' >
+        <view wx:for='{{item.productInfo}}' wx:key='id' wx:for-item='cItem'>
           <view class="productName">{{cItem.name}}</view>
           <image src="{{cItem.img_url}}" wx:if='{{cItem.img_url}}' catchtap="lookImg" data-items='{{item}}' data-index='{{index}}'></image>
           <image src="../../images/default.png" wx:else></image>
@@ -49,37 +44,27 @@
           <view class="oldPrice">原价:{{cItem.price}}/㎡</view>
 
 
-         <view  wx:if='{{!loginStatus}}' catchtap="getUserInfo" class="lookMoneys"><text>查看集采价</text></view>
-          <radio-group class="radio-group" 
-                       wx:else
-                       bindchange="radioChange" 
-                       data-categoryid='{{cItem.category_attr_id}}' 
-                       data-index='{{Pindex}}'  >
+          <view wx:if='{{!loginStatus}}' catchtap="getUserInfo" class="lookMoneys">
+            <text>查看集采价</text>
+          </view>
+          <radio-group class="radio-group" wx:else bindchange="radioChange" data-categoryid='{{cItem.category_attr_id}}' data-index='{{Pindex}}'>
 
-              <radio class="radio" 
-                    data-checked="{{cItem.checked}}" 
-                    data-index="{{Pindex}}"
-                    data-id="{{cItem.id}}"
-                    data-categoryid="{{cItem.category_attr_id}}"
-                    catchtap="radioChange1"  
-                    checked="{{cItem.checked}}"  wx:key="name" color='#ff5d22' value="{{cItem.id}}"></radio>
+            <radio class="radio" data-checked="{{cItem.checked}}" data-index="{{Pindex}}" data-id="{{cItem.id}}" data-categoryid="{{cItem.category_attr_id}}" catchtap="radioChange1" checked="{{cItem.checked}}" wx:key="name" color='#ff5d22' value="{{cItem.id}}"></radio>
           </radio-group>
-
         </view>
-      </view> 
+      </view>
+    </view>
 
-    </block>
-
-  <view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText" id='box'>
+    <view wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}' class="smallText" id='box'>
       <view style="font-size:32rpx;">根据您选择的品牌和配置：</view>
       <view wx:for='{{smallText}}' wx:key='id' class="footerMoneys">{{item}}</view>
-  </view>
+    </view>
 
-  <view class="allMoney" style="position:{{fixedConStatus?'static':'fixed'}}"  wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}'>仅需要￥{{moneyAll}} </view>
-  <view class="proImgs">
+    <view class="allMoney" style="position:{{fixedConStatus?'static':'fixed'}}" wx:if='{{showPrice && (changeMoneyLength>0 && loginStatus)}}'>仅需要￥{{moneyAll}} </view>
+    <view class="proImgs">
       <image src="{{item.img_url}}" wx:for='{{projectExplainList}}' wx:key='id' mode='widthFix'></image>
-  </view> 
-<!--底部按钮-->
+    </view>
+    <!--底部按钮-->
     <view class="footerBtn">
       <view catchtap="callCapital">联系团长</view>
       <view catchtap="godetails">预约量尺</view>
@@ -90,6 +75,4 @@
 
 
 <!--咨询团长-->
-  <my-commander isTab='{{commander.showTab}}'  
-                height='{{commander.height}}' 
-                isShow='{{commander.commanderHiden}}' id='my-commander'></my-commander>
+<my-commander isTab='{{commander.showTab}}' height='{{commander.height}}' isShow='{{commander.commanderHiden}}' id='my-commander'></my-commander>

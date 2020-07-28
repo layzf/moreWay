@@ -1,18 +1,18 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/association/index",
+    "pages/assemble/index",
+    "pages/quoteAll/index",
+    "pages/commentAll/index",
+    "pages/newLogin/index",
     "pages/door-index/index",
     "pages/vipSignIn/index",
-    "pages/quoteAll/index",
-    "pages/newLogin/index",
    
     "pages/my/center/center",
     "pages/my/centerNew/index",
-    "pages/association/index",
     "pages/GroupTrim/index",
-    "pages/assemble/index",
     "pages/agents/index",
-    "pages/commentAll/index",
     "pages/singUpSuccess/index",
     "pages/assembleList/index",
     "pages/group-purchase-old/index",

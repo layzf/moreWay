@@ -11,6 +11,9 @@ page{
   margin-left: 20rpx;
   font-size: 30rpx;
 }
+.priIng{
+  border-bottom: 40rpx solid rgba(216,216,216, 0.8);
+}
 .productName .active{
   background: #ff5d22;
   color: #FFF;
