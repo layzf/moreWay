@@ -14,6 +14,7 @@ Page({
    */
   data: {
     checked:true,
+    canIUseGetUserProfile:false,
     userInfor:{
       loginStatus:'', //true：授权过手机号 false：没有授权过手机号
       userName:'' ,//是否授权过用户名
@@ -65,7 +66,12 @@ Page({
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
-
+//是否支持新授权机制
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
 //邀请人ID
     if (options.pid){
       this.setData({
@@ -141,35 +147,30 @@ Page({
     this.setData({
       loadingBtns:true
     })
-    if (e.detail.errMsg == "getUserInfo:ok") {
-      var name = e.detail.userInfo.nickName;
-      var avatarUrl = e.detail.userInfo.avatarUrl;
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (e) => {
+      var {encryptedData,iv} = e
+      var {nickName:name,avatarUrl} = e.userInfo;
       wx.setStorageSync('avatarUrl', avatarUrl);
       wx.setStorageSync('nickName', name);
-      wx.setStorageSync('encrypted', e.detail);
+      wx.setStorageSync('encrypted', {encryptedData,iv});
       _login.getToken(name, avatarUrl).then(res => {
         let usertStorage = wx.getStorageSync('loginUser');
         let prevPage = this.data.prevPage;
-     
         let router = prevPage.route;
-        
         switch (router){
 //未登录，从首页进入大巴团：
           case 'pages/group/group' :
-
             let { type, base_id, villageId, cPreview } = this.data.IndexObjs;
-
             setTimeout(res => {
               wx.redirectTo({
                 url: '../group-purchase/purchase?base_id=' + base_id + '&villageId=' + villageId + '&cPreview=' + cPreview
               })
             }, 300);
-
           break;
-
 //昵称未授权，从大巴团活动页面进入：
           case 'pages/group-purchase/purchase' :
-
             prevPage.setData({
               showLogin: true,
             });
@@ -178,7 +179,6 @@ Page({
                 mask: true
               })
             }, 10);
-
 //返回大巴团页面，勾选当前项目;        
             var changeProjectObj = this.data.changeProjectObj;
             if (changeProjectObj.changeProjectType) {
@@ -188,7 +188,6 @@ Page({
             }
             this.navigateBack()
           break;
-
 //验房详情页面 返回手机号，显示预约弹框
           case 'pages/y-indexDetail/y-indexDetail' :
             prevPage.setData({
@@ -198,19 +197,14 @@ Page({
             });
             this.navigateBack()
           break;
-
  //自主报价
           case 'pages/door-index/index':
-
             var { id, valid_days, type, toUrl} = this.data.ziObj;
-          
             if (toUrl=='none'){
               this.navigateBack() //查看价格 返回自助页面
             } 
             else if (toUrl == 'swcount') { //预约量尺
-
               var { typeSetp, categoryId, shareName, shareUrl, changePId } = this.data.ThreeDetailObjs;
-              
               wx.redirectTo({
                 url: '../sw-count/index?typeSetp=' + typeSetp + '&categoryId=' + categoryId + '&shareName=' + shareName + '&shareUrl=' + shareUrl + '&id=' + changePId + '&isShowCoun=1' ,
               })
@@ -220,59 +214,45 @@ Page({
                 url: '/pages/my/my-deposit/deposit-add2/deposit-add?id=' + id + '&type=1 &data=' + valid_days
               })
             }
-
             break;
-
 //封窗第三步 预约量尺
           case 'pages/sw-three-detail/index':
-
             var { typeSetp, categoryId, shareName, shareUrl, changePId } = this.data.ThreeDetailObjs;
-
             wx.redirectTo({
               url: '../sw-count/index?typeSetp=' + typeSetp + '&categoryId=' + categoryId + '&shareName=' + shareName + '&shareUrl=' + shareUrl + '&id=' + changePId +'&isShowCoun=0' ,
             })
-
             break;
-
 //封窗没有我的小区
           case 'pages/sw-seachVillage/sw-seachVillage':
             var objs = {}
-          
             if (Object.keys(this.data.seachVillage).length){
               objs = this.data.seachVillage
             }
             var { categoryId, shareName, shareUrl } = objs;
-
 //如果没有我的小区，跳到申请页面；
             if (this.data.villageInfo.hasOwnProperty('villageId')){
-
               wx.redirectTo({
                 url: `../sw-layout/sw-layout?id=${this.data.villageInfo.villageId}&categoryId=${categoryId}&shareName=${shareName}&shareUrl=${shareUrl}`,
               })
-              
             }else{
               wx.redirectTo({
                 url: `../sw-inspectionGroup/sw-inspectionGroup?categoryId=${categoryId}&shareName=${shareName}&shareUrl=${shareUrl}&changeNotMyVill=1`,
               })
             }
-
-
             break;
-
 //其他的直接返回页面
           default:
             this.navigateBack()
-       }
-
-
-      })
-
-    } else {
-      this.setData({
-        loadingBtns: false
-      })
-      console.log('授权失败');
-    }
+        }
+      }) 
+      },
+      fail:()=>{
+        this.setData({
+          loadingBtns: false
+        })
+      }
+    })
+      
   },
   navigateBack(){
     setTimeout(() => {

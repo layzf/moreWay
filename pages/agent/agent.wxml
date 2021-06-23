@@ -53,7 +53,7 @@
                              data-shareUrl='{{item.shareUrl}}'
                              catchtap="baseinfoItem" >
                           <view  class="i-txt">{{item.name}}</view>
-                          <image class=''src="{{item.index_img?item.index_img:'../../images/default.png'}}" />
+                          <image class='' src="{{item.index_img?item.index_img:'../../images/default.png'}}" />
                       </view>
                     </block>
 <!--每一列置顶头部-->

@@ -359,7 +359,7 @@ wxLogin(e){
 //复制
     copyTBL:function(e){
       wx.setClipboardData({
-        data: 'duoranghuazhu',
+        data: 'duorang2020',
           success: function(res) {
                   wx.showToast({
                       title: '复制成功',

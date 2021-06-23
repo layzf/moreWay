@@ -137,9 +137,9 @@
           <view class="g-more">更多></view>
       </view>
 
-      <navigator url="../anjujia/anjujia" hover-class="none">
+      <!-- <navigator url="../anjujia/anjujia" hover-class="none">
           <image class="bannersan" src="http://img-test.duorang.com/upload/adv/2019/8/29/b5616c1d-d208-46f8-a910-c2a33ceb1fa1.png" mode="widthFix"></image>
-      </navigator>
+      </navigator> -->
 
       <view class="g-text">
           <block wx:for="{{proImgList}}" wx:for-index="index" wx:key>

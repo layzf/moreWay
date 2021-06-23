@@ -174,11 +174,11 @@ class login {
   getToken(nickName, avatarUrl) {
     return new Promise(resolve => {
     let that = this;
-    var encrypteds = wx.getStorageSync('encrypted');
+    var {encryptedData,iv} = wx.getStorageSync('encrypted');
     
     var encrypted = {
-      encryptedData : encrypteds.encryptedData,
-      iv : encrypteds.iv,
+      encryptedData,
+      iv,
       sessionId : wx.getStorageSync('sessionId'),
       nickName : nickName || '',
       avatarUrl : avatarUrl || ''

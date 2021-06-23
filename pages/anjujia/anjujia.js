@@ -20,10 +20,10 @@ Page({
         'img': 'http://img-test.duorang.com/upload/adv/2019/8/29/dae31e61-5eb3-4606-baa2-e8caea48fff8.png', 
         'name': '多让集采 | 安居佳全屋定制（马王堆店）', pid: 37, pepoleNum: 196
         },
-      { 
-        'img': 'http://img-test.duorang.com/upload/adv/2019/8/29/cda29532-896a-4033-b2c0-26a9dcff5a40.png',
-        'name': '多让集采 | 安居佳全屋定制（梅溪湖店）', pid: 77, pepoleNum: 263
-       },
+      // { 
+      //   'img': 'http://img-test.duorang.com/upload/adv/2019/8/29/cda29532-896a-4033-b2c0-26a9dcff5a40.png',
+      //   'name': '多让集采 | 安居佳全屋定制（梅溪湖店）', pid: 77, pepoleNum: 263
+      //  },
       {'img': 'http://img-test.duorang.com/upload/adv/2019/8/29/1a51e3ee-f044-421d-8529-1f5799e0f597.png',
         'name': '多让集采 | 安居佳全屋定制（望城店）', pid: 78, pepoleNum: 218
        }

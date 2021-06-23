@@ -37,6 +37,7 @@
       <view class="flex-row info">
       <!--登陆后，判断是否授权-->
         <text wx:if='{{loginUser.user_name}}'>{{loginUser.user_name || scopeUserInfo.userInfo.nickName }} </text>
+        <text wx:if='{{loginUser.user_name}}' catchtap="loadUserInfo">刷新头像</text>
 
          <navigator url="../../newLogin/index" hover-class="none" wx:else>点击授权头像/昵称</navigator>
 

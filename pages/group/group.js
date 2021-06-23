@@ -45,7 +45,16 @@ Page({
 
 
   onLoad: function(options) {
+    wx.request({
+      url: 'https://zdx.qiaomukeji.com/zhangdaxian/award/getList',
+      data:{pageSize: 3, pageNum: 1},
+      type:'POST',
+      success:(e)=>{
+        console.log(e,"aaa")
+      }
+    })
 
+    
     console.log("判断是否由分享进入小程序", options)
 // 判断是否由分享进入小程序
     if (options.userId){

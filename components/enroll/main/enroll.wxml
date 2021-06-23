@@ -13,12 +13,13 @@
             </view>
             <view class="c_choose">
                 <div class="c_checkbox">
-                  <view class='width_line'> 
+
+                  <!-- <view class='width_line'>  暂时隐藏掉  2021-05-07
                    <checkbox-group style="width: 100%;" bindchange="checkboxChangeAll" data-val='{{itemList}}'>
                     <label class="checkbox1 width_line">
                       <checkbox value="1" checked='{{changeAll}}' />全选</label>
                     </checkbox-group>
-                  </view>
+                  </view> -->
 
                 <checkbox-group style="width: 100%;" bindchange="checkboxChange">
                     <block wx:for="{{itemList}}" wx:for-index="idx" >

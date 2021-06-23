@@ -12,20 +12,16 @@
             class="loginBtn {{checked?'unactive':''}}"
             wx:if='{{!userInfor.userName && !userInfor.loginStatus}}'
             bindgetphonenumber="getPhone">微信用户快捷登录</button>
-
-       <button wx:else class="loginBtn" loading='{{loadingBtns}}' open-type="getUserInfo" bindgetuserinfo="getUser">授权用户昵称、头像</button>
-    
-    
+       <!-- <button wx:else class="loginBtn" loading='{{loadingBtns}}' open-type="getUserInfo" bindgetuserinfo="getUser">授权用户昵称、头像</button> -->
+       <button wx:else class="loginBtn" loading='{{loadingBtns}}' bindtap="getUser">授权用户昵称、头像</button>
         <view class='checkboxClass' wx:if="{{!userInfor.loginStatus}}">
           <checkbox-group bindchange="checkboxChange" >
             <label class="checkbox">
               <checkbox value="1"/>
             </label>
           </checkbox-group>
-          请遵循 <text catchtap="userBook" data-tag='1'>《多让用户协议》</text>和<text catchtap="userBook" data-tag='2'>《多让用户保密协议》              </text>
+          请遵循 <text catchtap="userBook" data-tag='1'>《多让用户协议》</text>和<text catchtap="userBook" data-tag='2'>《多让用户保密协议</text>
         </view>
-
-
     </view>
 </view>
  

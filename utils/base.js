@@ -2,18 +2,16 @@
 class Base {
   constructor() {
     //  this.baseRequestUrl = 'https://easy-mock.com/mock/5abe04cda2146a37688ec380/mock/';
-          // this.baseRequestUrl = 'https://app.duorang.com/';                                                                
-     this.baseRequestUrl = 'http://api-test.duorang.com/';
-    //    this.baseRequestUrl = 'http://172.16.201.216:8081/api/';
+        this.baseRequestUrl = 'https://app.duorang.com/';                                                                
+    //  this.baseRequestUrl = 'http://api-test.duorang.com/';
+    //  this.baseRequestUrl = 'http://172.16.201.216:8081/api/';
   }
 
   request(params, otherUrl,isExcept) {
-
     // wx.showLoading({
     //   title: '加载中',
     //   mask: true
     // });
-
     var url = this.baseRequestUrl + params.url + '.json';
     var that = this;
     var nowparam ;
